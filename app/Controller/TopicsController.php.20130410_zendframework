@@ -1,0 +1,223 @@
+<?php
+class TopicsController extends AppController {
+
+        //var $components = array('Auth', 'Facebook.Connect', 'Session', 'Commentusernumber');
+	//var $components = array('Auth', 'Facebook.Connect', 'Session','RequestHandler');
+        public $name = 'Topics';
+//        var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
+        var $helpers = array('Html', 'Form', 'Session', 'Facebook.Facebook');
+	var $layout = 'topic';
+        public $uses = array('Topic','Content','Title','Comment','User');
+//        var $uses = array('Topic', 'User', 'Comment','Commentgood', 'Mastercategory','Relatedtopic','Task','Content');
+        //var $components = array('Logincheck');
+public $components = array('Zend');
+
+
+
+        function beforeFilter() {
+		CakePlugin::load('Facebook');
+
+                //show the page without login
+//                $this->Auth->allow('*');
+	}
+
+
+/////////////////////////////////////////////////////////////
+/////////  Create Topics ////////////////////////////////////
+////////////////////////////////////////////////////////////
+	function show_topic(){
+		$topic_id = $this->params['named']['topicid'];
+
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
+
+
+		//Topic Array for all
+		$this->set('topics', $topic_array);
+
+		//Topic Title
+		$this->set('topictitle', $topic_array[0]['Topic']['name']);
+
+		//Get User Info
+		$topic_array_pic = $this->User->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'recursibe' => -2));
+		$this->set('topic_user_pic', $topic_array_pic);
+
+
+
+
+//debug($topic_array);
+
+		//size of items
+		$item_num = count($topic_array[0]['Comment']);
+
+		//first contents
+		foreach($topic_array as $each_topics){
+			//Each Title
+			$i=0;
+			$title_array=array();
+			foreach($each_topics['Title'] as $each_title){
+/*
+				echo "<PRE>";
+				var_dump($each_title);
+				echo "</PRE>";
+*/
+				$title_array[$i]=$each_title;
+				$i++;
+			}
+
+
+//echo "<br><BR><BR>";
+			//Each Content
+			$j=0;
+			$content_array=array();
+			foreach($each_topics['Content'] as $each_content){
+/*
+                                echo "<PRE>";
+                                var_dump($each_content);
+                                echo "</PRE>";
+*/
+
+
+				$content_array[$j]=$each_content;
+				$j++;
+			}
+//echo "<br><BR><BR>";
+			//Each Commen
+			$t=0;
+			$comment_array=array();
+			foreach($each_topics['Comment'] as $each_comment){
+/*
+                                echo "<PRE>";
+                                var_dump($each_comment);
+                                echo "</PRE>";
+*/
+
+				$comment_array[$t]=$each_comment;
+				$t++;
+			}
+		}
+
+
+//debug($item_num);
+
+		//combine the three arrays into one array
+		$show_array=array();
+		for($l = 0; $l < $item_num; $l++){
+				$show_array[$l]=array($title_array[$l]['title'],$content_array[$l]['content'],$comment_array[$l]['comment']);
+		}
+
+		$this->set('show_contents',$show_array);
+
+
+/*
+echo "<PRE>";
+var_dump($show_array);
+echo "</PRE>";
+*/
+
+	}
+
+
+/////////////////////////////////////////////////////////////
+/////////  Create Topics ////////////////////////////////////
+////////////////////////////////////////////////////////////
+	function create(){
+		$this->layout = 'topiccreate';
+
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
+
+		$result;
+		$titleresult;
+		$topicid;
+		$titleid;
+$me = 100000000000000;
+//debug($this->params);
+//debug($this->data);
+
+
+
+
+
+/*
+        $this->Zend->loadClass('Zend_Service_Flickr_Image');
+        $flickr = new Zend_Service_Flickr_Image('eb1ba244c047e1caa1ca236c36be8da4','');
+        // 通常検索実行
+        //$ImageFeed = $flickr->tagSearch('水着');     //tag検索
+        $imageFeed = $flickr->textSearch('グラビアアイドル');        //text検索
+        $this->set('imageFeed', $imageFeed);
+*/
+
+
+		if(!empty($this->data))
+		{
+			//$data['user_id']=$this->data["Topic"]["user_id"];
+			$data['user_id']=$me;
+			$data['name']=$this->data["Topic_Title"];
+			$data['category']=$this->data["Topic_Category"];
+			$data['description']=$this->data["Topic_Description"];
+
+			//save Topic name and category to DB
+			$result = $this->Topic->save($data);
+
+//debug($result);
+
+			$topicid = $result['Topic']['id'];
+
+
+
+/*
+debug($this->data);
+echo "<PRE>";
+var_dump($this->data["Content"]["title"]);
+echo "</PRE>";
+*/
+
+
+			foreach($this->data["Content"]["title"] as $key=>$title)
+			{
+				$this->Title->create();
+				$data["topic_id"]=$topicid;
+				$data["content_id"]=$key;
+				$data["title"]=$title;
+				$data["user_id"]=$data["user_id"];
+				$this->Title->save($data);
+			}
+
+			foreach($this->data["Content"]["comment"] as $key=>$comment)
+			{
+				$this->Comment->create();
+				$data["topic_id"]=$topicid;
+				$data["content_id"]=$key;
+debug($comment);
+				if($comment == "Comment"){
+					$data["comment"]="";
+				}
+				else{
+					$data["comment"]=$comment;
+				}
+				$data["user_id"]=$data["user_id"];
+				$this->Comment->save($data);
+			}
+
+			foreach($this->data["Content"]["content"] as $key=>$content)
+			{
+				foreach($content as $k=>$con)
+				{
+					$this->Content->create();
+					$data["topic_id"]=$topicid;
+					$data["content_id"]=$key;
+					//$data["content_id"]=$k; -> this is for sub number of contents: in case many text in each content
+					$data["content"]=$con;
+					$data["user_id"]=$data["user_id"];
+					$this->Content->save($data);
+				}
+
+			}
+		//      $this->redirect(array('action' => 'index'));
+		}
+	}
+
+
+
+}
+?>

@@ -1,0 +1,9 @@
+<?php
+############################################################################
+# Disqus API
+############################################################################
+$config['Disqus']['developer'] = Configure::read('debug');
+$config['Disqus']['shortname'] = 'goodone';
+$config['Disqus']['public_key'] = 'viFlO8pD8UD0H1pUGz0nxtG4dZzTkIGSZENktb0R4acVNuCMl1YSg0ovw8W9sKpa';
+$config['Disqus']['secret_key'] = 'OjrI8V64BkAV5iC5yK7ZHRzoHApwKhC4pFC2BoRdrT20k5vlrBB0KPcHIczTvVMF';
+?>

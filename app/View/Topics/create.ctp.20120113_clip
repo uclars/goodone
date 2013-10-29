@@ -1,0 +1,47 @@
+<!--<section id="forms">-->
+<?php echo $this->Form->create('Topic', array('name'=>'topictitle')); ?>
+<?php echo $this->form->input('Topic_Title',array("name"=>"hiddentitle", "id"=>"url","class"=>"inputtitle","value"=>"Topic Title")); ?>
+<?php echo $this->Form->end(); ?>
+	<div class="contents form">
+		<FIELDSET>
+			<legend><?php echo __('URL'); ?></legend>
+			<?php
+				echo $this->form->input('url',array("label"=>false,"id"=>"web_url_con","value"=>"Input the target url"));
+				echo $this->form->button('Show me the page', array('class'=>'submitclass',"id"=>"get","name"=>"url"));
+			?>
+			<div id="loading"><img src="/img/basic/loading.gif" width=16px height=16px /></div>
+			<div id="con" style="width:100%;height:300px;">
+				<iframe id="iframe" seamless style="width:100%;height:100%" frameborder="0" style="float:left;">
+				<p>Your browser does not support iframes.</p>
+				</iframe>
+			</div>
+			<div id="explain">
+				<img src='/img/basic/explain.png' />
+			</div>
+			<legend><?php echo __('Quotation'); ?></legend>
+			<textarea rows="5" cols="32" id="coppy">Do not edit the sentense from the original. Just copy and past it.</textarea>
+			<?php echo $this->form->button('CLIP!',array('class'=>'submitclass', "id"=>"copy", "name"=>"quotation"));?>
+		</FIELDSET>
+	</div>
+	<div class="actions">
+		<fieldset>
+			<!--<legend><?php echo __('Add Content'); ?></legend>-->
+			<legend><?php echo __(''); ?></legend>
+			<?php echo $this->Form->create('Topic', array('name'=>'createsub', 'onsubmit'=>'false')); ?>
+			<?php echo $this->Form->hidden("Topic_Title",array("name"=>"Topic_Title")); ?>
+			<?php echo $this->form->hidden("num",array("id"=>"num"));?>
+			<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+			<Div class="inner"></Div>
+		</fieldset>
+	</div>
+			<div id="working" class="working" style="display:none;">........................</div>
+			<button type="submit" class="submitclass" onclick="createsubmit();">Save</button>
+			<?php echo $this->Form->end(); ?>
+<!--</section>-->
+
+<SCRIPT language="JavaScript">
+function createsubmit(){
+	var ti=document.topictitle.hiddentitle.value;
+	document.createsub.Topic_Title.value = ti;
+} 
+</SCRIPT>

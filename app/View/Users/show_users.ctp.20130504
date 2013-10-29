@@ -1,0 +1,167 @@
+<?php
+$me_array = $this->Session->read('Auth.User');
+$me = $me_array['id'];
+
+/// topics user created ///
+echo "<div class='row'>";
+	echo "<div class='span8'>";
+		echo "<div style='font-weight:bold; font-size:150%; margin-bottom:20px;'>Topics you created:</div>";
+		if(empty($topic_list)){
+			echo "<span style='margin-left:10px;'>no topics yet</span>";
+		}
+		else{
+			foreach($topic_list as $tlists){
+				echo "<div class='row'>";
+					echo "<div class='span2'>";
+						echo $this->Html->image($tlists['Mastercategory']['url']);
+					echo "</div>";
+					echo "<div class='span6'>";
+						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
+						echo $tlists['Topic']['description'];
+					echo "</div>";
+					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:10px;'></div>";
+				echo "</div>";
+			}
+		}
+
+	echo "</div>";
+
+/// profile ///
+	echo "<div class='span4'>";
+		echo "<div style='font-weight:bold; font-size:150%; margin-bottom:20px;'>Profile:</div>";
+		echo "<div class='row'>";
+			echo "<div class='span1'>";
+				echo $this->HTML->image($target_user['Masteravators']['url48']);
+			echo "</div>";
+			echo "<div class='span3'>";
+				echo "<div>".$target_user['User']['username']."</div>";
+				echo "<div id='profileedit'>["."edit"."]</div>";
+			echo "</div>";
+		echo "</div>";
+
+
+
+
+debug($target_user);
+
+
+
+
+
+
+	echo "</div>";
+echo "</div>";
+
+
+
+
+/*
+echo "<div style='font-weight:bold; font-size:150%;'>Topics you created:</div>";
+echo "<div class='comment'>";
+if(empty($topic_list)){
+	echo "<span style='margin-left:10px;'>no topics yet</span>";
+}
+else{
+	foreach($topic_list as $tlists){
+
+//debug($tlists);
+
+		echo "<div class='comment_pic'>";
+			echo $this->Html->image($tlists['Mastercategory']['url']);
+		echo "</div>";
+		echo "<div class='topic_body'>";
+			echo $this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."<BR />";
+		echo "</div>";
+		echo "<div style='border-bottom: 2px solid #ddd; margin-bottom:10px'></div>
+	}
+}
+echo "</div>";
+echo"<div style='clear:both'></div>";
+echo "<br /><br />";
+*/
+/*
+echo "<span style='font-weight:bold; font-size:150%;'>Comments you wrote:</span><br />";
+foreach($target_comments as $tcomments){
+	echo "<div class='comment'>";
+		echo "<div class='comment_pic'>".$html->image($target_user['Masteravators']['url48'])."</div>";
+	if($target_user['User']['id']===$me_array['id']){
+		echo "<div class='comment_body' style='font-weight: bold;'>";
+//		echo nl2br(h($tcomments['Comment']['body']))."&nbsp;&nbsp;&nbsp;&nbsp".$html->link('delete', array(
+		echo nl2br(h($tcomments['Comment']['body']))."<br />".$html->link('delete', array(
+				'controller' => 'comments',
+				'action' => 'delete',
+				'cid' => $tcomments['Comment']['id']
+			));
+		echo "</div>";
+		echo "<div class='comment_text'>";
+			echo $html->link($tcomments['Topic']['title'], array('controller'=>'topics', 'action'=>'show_topic', 'topicid'=>$tcomments['Topic']['id']));
+		echo "</div>";
+	}
+	else{
+		echo "<div class='comment_body' style='font-weight: bold;'>";
+			echo nl2br(h($tcomments['Comment']['body']));
+		echo "</div>";
+		echo "<div class='comment_text'>";
+			echo $html->link($tcomments['Topic']['title'], array('controller'=>'topics', 'action'=>'show_topic', 'topicid'=>$tcomments['Topic']['id']));
+		echo "</div>";
+	}
+	echo "</div>";
+	echo "<div style='clear:both'></div>";
+}
+
+echo "<br clear=all>";
+*/
+
+
+
+
+/*
+$tm = in_array(3,$follower_list);
+echo "<PRE>";
+var_dump($tm);
+echo "</PRE>";
+*/
+
+/*
+//when the target user is you, show following user list and unfollow link
+//when the target user is not you, show the following link if you haven't followed yet.
+if($target_user['User']['id']==$me){
+	if(in_array($target_user['User']['id'],$follower_list)){
+		echo "　　you are following";
+	}
+}
+else{
+	if(in_array($target_user['User']['id'],$my_follower_list)){
+		echo "　　you are following";
+	}
+	else{
+		echo "　　".$html->link('follow', array('controller'=>'followings', 'action'=>'action', 'do'=>'follow_user', 'id'=>$target_user['User']['id']));
+	}
+}
+echo "<br /><BR />";
+
+if($target_user['User']['id']===$me){
+	echo "You are following:<br />";
+}
+else{
+	echo $target_user['User']['username']." is following:<br />";
+}
+
+
+foreach($user_list as $ulist){
+	if(in_array($ulist['User']['id'],$follower_list)){
+		if($ulist['User']['id']!=$target_user['User']['id']){//don't show when user follows own
+			echo $html->link($ulist['User']['username'], array('controller'=>'users', 'action'=>'show_users', 'id'=>$ulist['User']['id']))."　";
+			if($ulist['User']['id']===$me_array['id']){
+				echo "　it's you!";
+			}
+		}
+		if($target_user['User']['id']===$me_array['id']){
+			echo $html->link('unfollow', array('controller'=>'followings', 'action'=>'action', 'do'=>'unfollow_user', 'id'=>$ulist['User']['id']));
+		}	
+		echo"<br />";
+	}
+}
+*/
+?>
+

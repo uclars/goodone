@@ -1,0 +1,212 @@
+/*function getIframeSelectionText(iframe) {
+    var win = iframe.contentWindow;
+    var doc = iframe.contentDocument || win.document;
+
+    if (win.getSelection) {
+        return win.getSelection().toString();
+    } else if (doc.selection && doc.selection.createRange) {
+        return doc.selection.createRange().text;
+    }
+}
+*/
+
+
+
+$('#select').live('click',function(e)
+{
+    var iframe = document.getElementById("iframe");
+    alert(getIframeSelectionText(iframe));
+})
+
+
+    $('#iframe').load(function(){
+
+        alert("---");
+        var HTML = document.getElementById('iframe').contentWindow.document.body.innerHTML;
+        alert(HTML);
+    });
+
+
+
+
+$('#save').live('click',function(e)
+{
+ alert("---");
+ console.log($("#ContentAddForm").serialize());
+ e.preventDefault();
+
+})
+
+function parseURL(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':',''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function(){
+            var ret = {},
+                seg = a.search.replace(/^\?/,'').split('&'),
+                len = seg.length, i = 0, s;
+            for (;i<len;i++) {
+                if (!seg[i]) { continue; }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+        hash: a.hash.replace('#',''),
+        path: a.pathname.replace(/^([^\/])/,'/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+        segments: a.pathname.replace(/^\//,'').split('/')
+    };
+}
+var content=0;
+
+$('#create').live('click',function(e)
+{
+   e.preventDefault();
+   // var ref=$("textarea.content:first").css({backgroundColor: 'yellow', fontWeight: 'bolder'});
+ var ref=$('textarea.content:last').clone().insertAfter("textarea.content:first").css({backgroundColor: 'yellow', fontWeight: 'bolder'});;
+   var sp=$("#num").val();
+    var    content=$(".content").length;
+    var    title=$("input.title").length
+
+   //$(ref).attr("name","content[]["+sp+"]");
+    $(ref).attr("name","data[Content][content]["+title+"]["+content+"]");
+})
+
+/*$(function() {
+
+
+
+    $(document.body).selection();
+    $('textarea').selection();
+    var textarea = $('textarea')
+    selection = textarea.selection(),
+        selected = textarea.val().substr(selection.start, selection.end);
+
+    alert('You selected '+selected+'.');
+   //alert($("#geturl").val());
+})
+
+*/
+
+$('#get').live('click',function(e)
+{
+	var url= document.getElementById("web_url_con").value
+	if(url == "Input the target url" || url == null){
+		return false;
+	}
+
+	/*show the explanation picture*/
+	$("#explain").animate({ opacity: "hide" }, "slow");
+
+	/*show the loading icon while loading iframe*/
+	$("#loading").show();
+	$("#con").animate({ opacity: "show" },"slow", function() {
+		$("#loading").fadeOut(function() {
+		});		
+	});
+
+	k=0;
+	var url= document.getElementById("web_url_con").value;
+	e.preventDefault();
+
+
+	$("#iframe").attr('src', url);
+	var myURL = parseURL(url);
+
+
+	//var ref1=$('<div id="dd">').insertAfter($('.inner'));
+
+/*
+	var ref2= $(
+'<div id="dd">' +
+	'<input class="contentstitle" type="text" value="Title" name="data[Content][title]" id="title">' +
+        '<textarea  name="data[Content][content]" rows="5" cols="20" class="contentsbody" id="content_id1" readonly>Contents are copied from the Quotation box.</textarea>' +
+        '<textarea name="data[Content][comment]" rows="5" cols="20" class="contentscomment" id="comment1" onfocus="if(this.value==this.defaultValue){this.value=\'\';this.style.color=\'#000\';}" onblur="if(this.value==\'\'){this.value=this.defaultValue;this.style.color=\'#969696\'}">comment</textarea>'
++ '</div>'
+	).insertAfter($('.inner'));
+*/
+	//var ref3=$('</div>').insertAfter($('.inner'));
+
+
+
+	var titlenum=0;
+	var titlenum=($("input.contentstitle").length) + 1;
+	var contentnum=($(".contentsbody").length) + 1;
+
+
+
+/*
+        var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.inner'));
+        var ref2=$(
+        '<input class="contentstitle" type="text" value="Title" name="data[Content][title]" id="title">' +
+        //'<input type="text" value="Title" name="data[Content][title]" id="title" class="span11">' +
+        '<textarea  name="data[Content][content]" rows="5" cols="20" class="contentsbody" id="content_id1" style="color:#969696;" readonly>Contents are copied from the Quotation box.</textarea>' +
+        //'<textarea  name="data[Content][content]" rows="5" cols="20" class="span11" id="content_id1" style="color:#969696;" readonly>Contents are copied from the Quotation box.</textarea>' +
+        '<textarea name="data[Content][comment]" rows="5" cols="20" class="contentscomment" id="comment1" onfocus="if(this.value==this.defaultValue){this.value=\'\';this.style.color=\'#000\';}" onblur="if(this.value==\'\'){this.value=this.defaultValue;this.style.color=\'#969696\'}">comment</textarea>'
+        //'<textarea name="data[Content][comment]" rows="5" class="span11" id="comment1" onfocus="if(this.value==this.defaultValue){this.value=\'\';this.style.color=\'#000\';}" onblur="if(this.value==\'\'){this.value=this.defaultValue;this.style.color=\'#969696\'}">comment</textarea>'
+        + '<p class="delete">[remove]</p>'
+        ).prependTo($('#contentsSet_'+titlenum));
+*/
+
+
+
+
+	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
+        var ref2=$(
+        '<input class="contentstitle" type="text" value="Title" name="data[Content][title]" id="title_'+titlenum+'">' +
+        '<textarea  name="data[Content][content]" rows="5" cols="20" class="contentsbody" id="content_'+titlenum+'" style="color:#969696;" readonly>Contents are copied from the Quotation box.</textarea>' +
+        '<textarea name="data[Content][comment]" rows="5" cols="20" class="contentscomment" id="comment'+titlenum+'" onfocus="if(this.value==this.defaultValue){this.value=\'\';this.style.color=\'#000\';}" onblur="if(this.value==\'\'){this.value=this.defaultValue;this.style.color=\'#969696\'}">comment</textarea>'
+	+ '<p class="delete">[remove]</p>'
+        ).prependTo($('.contentsBox:last'));
+        //).prependTo($('#contentsSet_'+titlenum));
+
+
+
+
+
+	ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
+	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]["+contentnum+"]");
+	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
+
+	var titleurl = "#title_"+titlenum;
+
+	$("#num").val(contentnum)
+ 	//$($(".contentstitle:last")).val(myURL.source)
+ 	$(titleurl).val(myURL.source)
+});
+
+
+$(function(){
+	$(".contentsBox .delete").live('click',function(e){
+		$(this).parents(".contentsBox").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+			//$(this).remove();
+			$(this).attr("style","display:none");
+			contentnum=($(".contentsbody").length);
+			$("#num").val(contentnum);
+		});
+	});
+});
+
+
+$('#copy').live('click',function(e)
+{
+//console.log($(this).focusout());
+    //$(".contentsbody:last").val($("#coppy").val())
+	var clipContents = $("#coppy").val();
+	if((clipContents != "Do not edit the sentense from the original. Just copy and past it.") && (clipContents != "")){
+		//$(".contentsbody:first").val(clipContents)
+		$(".contentsbody:last").val(clipContents)
+		e.preventDefault();
+	}
+	else{
+		e.preventDefault();
+	}
+});
+

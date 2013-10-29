@@ -1,0 +1,164 @@
+<!--<section id="forms">-->
+<div class='row'>
+	<div class='span12'>
+		<?php echo $this->Form->create('Topic', array('name'=>'topictitle')); ?>
+		<?php echo $this->form->input('Topic_Title',array("name"=>"hiddentitle", "id"=>"url","class"=>"inputtitle","value"=>"Topic Title")); ?>
+	</div>
+	<div class='span4'>
+		<?php echo $this->Form->input('Topic_Category', array(
+			'type' => 'select',
+			'name' => 'hiddencategory',
+			'options' => array(
+				1 => 'life',
+				2 => 'business',
+				3 => 'politics',
+				4 => 'IT',
+				5 => 'trivia',
+				6 => 'entertainment',
+				7 => 'sports'),
+			'default' => '5')
+		);?>
+	</div>
+	<div class='span8'>
+		<?php echo $this->form->input('Topic_Description',array(
+			'type' => 'textarea',
+			'name' => 'hiddendescription',
+			'escape' => false)
+		); ?>
+	</div>
+	<?php echo $this->Form->end(); ?>
+</div>
+
+<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+<h3 id="tabs"></h3>
+<ul class="nav nav-tabs">
+        <li class="active"><a href="#A" data-toggle="tab" disabled>&nbsp;Add Items&nbsp;&nbsp;</a></li>
+        <li><a href="#B" data-toggle="tab">Web Clipping</a></li>
+        <li><a href="#C" data-toggle="tab">&nbsp;&nbsp;Heading&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="#D" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="#E" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+</ul>
+<div class="tabbable">
+	<div class="tab-content">
+		<div class="tab-pane active" id="A">
+			<div id="explain">
+				<img src='/img/basic/explain.png' />
+			</div>
+		</div>
+		<div class="tab-pane" id="B">
+			<div class="contents form">
+				<FIELDSET>
+					<!--<legend><?php echo __('URL'); ?></legend>-->
+					<?php
+						echo $this->form->input('url',array("label"=>false,"id"=>"web_url_con","value"=>"Input the target url"));
+						echo $this->form->button('Show me the page', array('class'=>'submitinsideclass',"id"=>"get","name"=>"url"));
+					?>
+					<div id="loading"><img src="/img/basic/loading.gif" width=16px height=16px /></div>
+					<div id="con" style="width:100%;height:350px;">
+						<iframe id="iframe" seamless style="width:100%;height:100%" frameborder="0" style="float:left;">
+						<p>Your browser does not support iframes.</p>
+						</iframe>
+					</div>
+				</FIELDSET>
+			</div>
+		</div>
+               <div class="tab-pane" id="C">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+                                                echo $this->form->input('heading',array("label"=>false,"type"=>"text","id"=>"heading", "value"=>"Input heading"));
+                                                echo $this->form->button('heading', array('class'=>'submitinsideclass',"id"=>"get_heading","name"=>"get_heading"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+                <div class="tab-pane" id="D">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+                                                echo $this->form->textarea('textcomment',array("label"=>false,"id"=>"textcomment","value"=>"Input comment","rows"=>"5", "cols"=>"20"));
+                                                echo $this->form->button('Input Text', array('class'=>'submitinsideclass',"id"=>"get_textcomment","name"=>"get_heading"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+		<div class="tab-pane" id="E">
+			<div class="row">
+				<div class="span4">
+
+
+
+
+
+
+
+<?php echo $this->Form->create(null, array('type'=>'post', 'default'=>false)); ?>
+<?php echo $this->Form->input(null, array('label'=>'', 'type'=>'text', 'id'=>'inputText')); ?>
+<?php echo $this->Form->submit('Submit', array('id'=>'submitButton')); ?>
+<?php echo $this->Form->end(); ?>
+
+
+
+				</div>
+				<div class="span8">
+
+
+<div id="display_img">
+
+
+
+
+</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- /tabbable -->
+
+<div class="actions">
+	<fieldset>
+		<!--<legend><?php echo __('Add Content'); ?></legend>-->
+		<legend><?php echo __(''); ?></legend>
+		<?php echo $this->Form->create('Topic', array('name'=>'createsub', 'onsubmit'=>'false')); ?>
+		<?php echo $this->Form->hidden("Topic_Title",array("name"=>"Topic_Title")); ?>
+		<?php echo $this->Form->hidden("Topic_Category",array("name"=>"Topic_Category")); ?>
+		<?php echo $this->Form->hidden("Topic_Description",array("name"=>"Topic_Description")); ?>
+		<?php echo $this->form->hidden("num",array("id"=>"num"));?>
+		<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+		<Div class="inner"></Div>
+	</fieldset>
+</div>
+<div id="working" class="working" style="display:none;">........................</div>
+<button type="submit" class="submitclass" onclick="createsubmit();">Save</button>
+<?php echo $this->Form->end(); ?>
+<!--</section>-->
+
+
+
+<SCRIPT language="JavaScript">
+function createsubmit(){
+	var ti=document.topictitle.hiddentitle.value;
+	var hc=document.topictitle.hiddencategory.value;
+	var hd=document.topictitle.hiddendescription.value;
+
+	document.createsub.Topic_Title.value = ti;
+	document.createsub.Topic_Category.value = hc;
+	document.createsub.Topic_Description.value = hd;
+} 
+
+
+
+$(function(){
+        $('#submitButton').click(function(){
+                //$.post('<?php echo Router::url(array('controller'=>'topics','action'=>'image')); ?>', {input_text: $('#inputText').val()}, function(res){
+                $.post('/topics/image', {input_text: $('#inputText').val()}, function(res){
+                        $("#display_img").html(res);
+                });
+        });
+});
+
+
+</SCRIPT>

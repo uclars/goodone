@@ -1,0 +1,963 @@
+<?php
+class TopicsController extends AppController {
+
+        //var $components = array('Auth', 'Facebook.Connect', 'Session', 'Commentusernumber');
+	//var $components = array('Auth', 'Facebook.Connect', 'Session','RequestHandler');
+        public $name = 'Topics';
+//        var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
+        var $helpers = array('Html', 'Form', 'Session', 'Facebook.Facebook');
+	var $layout = 'topic';
+        public $uses = array('Topic','Content','Title','Comment','User','Disqus.DisqusPost');
+//        var $uses = array('Topic', 'User', 'Comment','Commentgood', 'Mastercategory','Relatedtopic','Task','Content');
+        //var $components = array('Logincheck');
+	public $components = array(
+               'Session',
+                'Auth' => array(
+                        'authenticate' => array(
+                                'Form' => array(
+                                        'fields' => array('username' => 'email')
+                                )
+                        ),
+                'authorize' => 'Controller'),
+                'Facebook.Connect' => array('model' => 'User')
+        );
+
+
+        function beforeFilter() {
+		CakePlugin::load('Facebook');
+		//CakePlugin::load('Disqus');
+
+                //show the page without login
+                $this->Auth->allow('*');
+	}
+
+
+/////////////////////////////////////////////////////////////
+/////////    Show Topics ////////////////////////////////////
+////////////////////////////////////////////////////////////
+	function show_topic(){
+		$isAuthenticated = $this->Session->read('Auth.User');
+		$isInvited = TRUE;
+		//set user info to the view
+		$this->set('auth', $isAuthenticated);
+
+		$topic_id = $this->params['named']['topicid'];
+
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
+
+		//Topic Array for all
+		$this->set('topics', $topic_array);
+
+		//Topic Title
+		$this->set('topictitle', $topic_array[0]['Topic']['name']);
+
+		//Get User Info
+		$topic_array_pic = $this->User->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'recursive' => -2));
+		$this->set('topic_user_pic', $topic_array_pic);
+
+		//get Tags
+		$tag_info = $this->_get_tags($topic_array[0]['Tag']);
+		$this->set('tag_info', $tag_info);
+
+		//size of items
+		$item_num = count($topic_array[0]['Comment']);
+
+		//first contents
+		foreach($topic_array as $each_topics){
+			//Each Title
+			$i=0;
+			$title_array=array();
+			foreach($each_topics['Title'] as $each_title){
+				$title_array[$i]=$each_title;
+				$i++;
+			}
+			//Each Content
+			$j=0;
+			$content_array=array();
+			foreach($each_topics['Content'] as $each_content){
+				$content_array[$j]=$each_content;
+				$j++;
+			}
+			//Each Commen
+			$t=0;
+			$comment_array=array();
+			foreach($each_topics['Comment'] as $each_comment){
+				$comment_array[$t]=$each_comment;
+				$t++;
+			}
+		}
+
+
+		//combine the three arrays into one array
+		$show_array=array();
+		for($l = 0; $l < $item_num; $l++){
+			$show_array[$l]=array($title_array[$l]['title'],$content_array[$l]['content'],$comment_array[$l]['comment']);
+		}
+
+		$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
+		$this->set('show_contents',$show_array);
+
+
+/*
+echo "<PRE>";
+var_dump($show_array);
+echo "</PRE>";
+*/
+
+
+	}
+
+	function _get_tags($tags_array){
+		$tag_name_array = array();
+
+		foreach($tags_array as $tagname){
+			array_push($tag_name_array, $tagname['name']);
+		}
+		return $tag_name_array;
+	}
+
+
+/////////////////////////////////////////////////////////////
+/////////  Create Topics ////////////////////////////////////
+////////////////////////////////////////////////////////////
+	function create(){
+		$this->layout = 'topiccreate';
+
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
+		$this->set('userid',$me);
+
+		//check the user who is the creator of the Topic
+		$targettopic = $this->here;
+		$is_correctuser = $this->_checkUser($me, $targettopic);
+
+		if(empty($is_correctuser)){
+		//if(!$is_correctuser){
+			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
+		}
+		else{
+			$result;
+			$titleresult;
+			$topicid;
+			$titleid;
+			$newtopicid="";
+
+
+			$newtopicid=$this->Session->read('new_topicid');
+//debug($newtopicid);
+
+//debug($this->params);
+//debug($this->data);
+//exit;
+
+
+			//if edit page, get the contents
+			//if(!empty($this->params['named']['topicid'])){
+			if(!empty($this->params['named']['topicid'])){
+				$topicid = $this->params['named']['topicid'];
+
+                                $topic_array = array();
+                                $topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
+                                $edit_result = $this->_get_editcontents($topic_array);
+                                $this->set('editing_contents',$edit_result);
+                                $this->set('tid',$topicid);
+
+                                $data['id']=$topicid;
+
+				if(isset($this->data) && !empty($this->data))
+        	                {
+					$data['Topic_Title'] = $this->data['Topic_Title'];
+					$data['Topic_Category'] = $this->data['Topic_Category'];
+					$data['Topic_Description'] = $this->data['Topic_Description'];
+	
+					$data['Content']['title'] = $this->data['Content']['title'];
+					$data['Content']['content'] = $this->data['Content']['content'];
+
+					$commentarr = $this->data['Content']['comment'];
+					foreach($data['Content']['title'] as $key => $title)
+					{
+						$data['Content']['comment'][$key] = $commentarr[$key];
+					}
+
+					$this->_save_data($data,$me,$topicid,$topic_array);
+        	                }
+
+                                //delete topic id session
+                                $this->Session->delete('new_topicid');
+			}else{
+				if(!empty($newtopicid)){
+					$topicid = $newtopicid;
+					$topic_array = array();
+					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
+					$edit_result = $this->_get_editcontents($topic_array);
+					$this->set('editing_contents',$edit_result);
+					$this->set('tid',$topicid);
+
+					$data['id']=$topicid;
+
+
+                                if(isset($this->data) && !empty($this->data))
+                                {
+                                        $data['Topic_Title'] = $this->data['Topic_Title'];
+                                        $data['Topic_Category'] = $this->data['Topic_Category'];
+                                        $data['Topic_Description'] = $this->data['Topic_Description'];
+
+                                        $data['Content']['title'] = $this->data['Content']['title'];
+                                        $data['Content']['content'] = $this->data['Content']['content'];
+
+                                        $commentarr = $this->data['Content']['comment'];
+                                        foreach($data['Content']['title'] as $key => $title)
+                                        {
+                                                $data['Content']['comment'][$key] = $commentarr[$key];
+                                        }
+                                        $this->_save_data($data,$me,$topicid,$topic_array);
+                                }
+
+/*
+
+					if(!empty($this->data)){
+						$this->_save_data($this->data,$me,$topicid,$topic_array);
+					}
+*/
+					//delete topic id session
+					$this->Session->delete('new_topicid');
+				}
+				else{
+					$this->set('tid',"0");
+					if(!empty($this->data)){
+						//New Topic 
+						$this->_save_data($this->data,$me,"","");
+
+						//delete topic id session
+						$this->Session->delete('new_topicid');
+					}
+				}
+			}
+		}//is_correctuser
+	}
+
+
+	function _save_data($datacontents,$me,$topic_id,$orgcontents){
+		if(!empty($orgcontents)){
+			$orgtitlearray=array();
+			$orgcontentarray=array();
+			$orgcommentarray=array();
+			$orgdatacontents=$orgcontents;
+
+
+
+/*
+echo "<PRE>";
+var_dump($datacontents['request']);
+echo "</PRE>";
+
+
+echo "<PRE>";
+var_dump($orgcontents);
+echo "</PRE>";
+
+exit;
+*/
+			////////////// Topic Title, Category, Description /////////
+			if(!is_array(@$datacontents['request'])){
+				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
+			}
+
+			///////////// Each title, contents, comments ///////////
+			/// make the org content array from DB, in order to compare the new content array
+			$orgtitlearray = $this->_make_orgdata_title_array($orgcontents);
+			$orgcontentarray = $this->_make_orgdata_content_array($orgcontents);
+			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
+
+
+			/// make the new conetnt array from user input and replace array key numbers in order to compare 
+			//$newtitlearray = $this->_make_newdata_title_array($datacontents['Content']['title']);
+			$newtitlearray = $this->_make_newdata_title_array($datacontents);
+			//$newcontentarray = $this->_make_newdata_content_array($datacontents['Content']['content']);
+			$newcontentarray = $this->_make_newdata_content_array($datacontents);
+			//$newcommentarray = $this->_make_newdata_comment_array($datacontents['Content']['comment']);
+			$newcommentarray = $this->_make_newdata_comment_array($datacontents);
+
+			//$topicid = $orgdata['id'];
+
+
+
+/*
+echo "<PRE>";
+var_dump($orgtitlearray);
+echo "</PRE>";
+echo "<PRE>";
+var_dump($orgcontentarray);
+echo "</PRE>";
+echo "<PRE>";
+var_dump($orgcommentarray);
+echo "</PRE>";
+
+echo "ue orginal sita new contents<br><br>";
+
+echo "<PRE>";
+var_dump($newtitlearray);
+echo "</PRE>";
+echo "<PRE>";
+var_dump($newcontentarray);
+echo "</PRE>";
+echo "<PRE>";
+var_dump($newcommentarray);
+echo "</PRE>";
+
+exit;
+*/
+
+			//Compare the old title array and new title array, and if titles are modified, update the DB
+			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
+			if(!empty($isnewtitle)){
+				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
+			}
+
+			//Compare the old contents array and new contents array, and if contents are modified, update the DB
+			//$isnewcontent=$this->_getcontentdiff($newcontentarray,$orgcontentarray);
+			$isnewcontent=array_diff_assoc($newcontentarray,$orgcontentarray);
+			if(!empty($isnewcontent)){
+				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
+			}
+
+			//Compare the old comment array and new comment array, and if comments are modified, update the DB
+			$isnewcomment=array_diff_assoc($newcommentarray,$orgcommentarray);
+			if(!empty($isnewcomment)){
+				$this->_update_comments($newcommentarray, $orgdatacontents, $topic_id, $me);
+			}
+
+
+
+
+
+/*
+echo "<PRE>";
+var_dump($orgdata);
+echo "</PRE>";
+
+echo "<PRE>";
+var_dump($data);
+echo "</PRE>";
+*/
+		}
+		else{
+			///  NEW Creat Topic ////
+			//get contents form FORM
+			if(!empty($datacontents))
+			{
+				//$data['user_id']=$this->data["Topic"]["user_id"];
+				$data['id']=$topic_id;
+				$data['user_id']=$me;
+				/// topic title
+				if(is_null($this->data["Topic_Title"])){
+					$data['name']=$datacontents['request'][5];
+				}else{
+					$data['name']=$this->data["Topic_Title"];
+				}
+				/// topic category
+				if(is_null($this->data["Topic_Category"])){
+					$data['category']=$datacontents['request'][6];
+				}else{
+					$data['category']=$this->data["Topic_Category"];
+				}
+				/// topic description
+				if(is_null($this->data["Topic_Description"])){
+					$data['description']=$datacontents['request'][7];
+				}else{
+					$data['description']=$this->data["Topic_Description"];
+				}
+
+				//save Topic name and category to DB
+				$result = $this->Topic->save($data);
+				//$topicid = $result['Topic']['id'];
+				// get the last id
+				$topicid = $this->Topic->getLastInsertID();;
+
+				//set new topic id into session
+				$this->Session->write('new_topicid', $topicid );
+
+				// save titles to DB
+				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
+				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+				//save contents to DB
+				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
+				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+				//save comments to DB
+				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
+				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+
+			}// end of if
+		}// end of else
+
+		$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
+	}
+
+
+	function savetodb(){
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
+
+		//get data from javascript
+		$edit_contents = "";
+		$edit_contents = $this->request->data;
+
+		/// check if there is new topic id when the items are moved before clicking save button.
+		$is_topicsession = $this->Session->read('new_topicid');
+		if(empty($is_topicsession)){
+			//check the user who is the creator of the Topic
+			$topicid = $edit_contents['request'][1];
+		}else{
+			$topicid = $is_topicsession;
+		}
+		$targettopic = "topicid:$topicid";
+		$is_correctuser = $this->_checkUser($me, $targettopic);
+
+		//if(!empty($is_correctuser)){
+//		if($is_correctuser){
+			//if edit page, get the contents
+			$topic_array = array();
+			$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
+
+
+/*
+echo "UU";
+echo "<PRE>";
+var_dump($topicid);
+var_dump($topic_array);
+echo "</PRE>";
+*/
+
+			$data['id']=$topicid;
+
+			if(!empty($topic_array)){  ///for editing topic
+					$this->_save_data($edit_contents,$me,$topicid,$topic_array);
+			}
+			else{  //for new topic
+					$this->_save_data($edit_contents,$me,"","");
+			}
+//		}
+	}
+
+
+
+
+
+
+	function _set_topic_title($orgcontents_base,$topic_id_base,$me_base,$datacontents_base){
+		$orgdata=$data=array();
+
+		/// original Topic title,category,description ///
+		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
+		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
+		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
+		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
+		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+
+		/// new Topic title,category,description, if there are ///
+		$data['id']=$topic_id_base;
+		$data['user_id']=$me_base;
+		$data['name']=$datacontents_base["Topic_Title"];
+		$data['category']=$datacontents_base["Topic_Category"];
+		$data['description']=$datacontents_base["Topic_Description"];
+
+		/// Compare old data and new data to see if there are differences ///
+		$isnewtopicinfo=array_diff($data,$orgdata);
+		if(!empty($isnewtopicinfo)){
+			//save Topic name and category to DB
+			$this->Topic->save($data);
+		}
+	}
+
+	function _make_orgdata_title_array($orgcontents_base){
+		$orgtitlearray_base = array();
+		$s=1;
+
+		// make original title array from DB 
+		foreach($orgcontents_base as $orgcontent){
+			foreach($orgcontent['Title'] as $orgtitles){
+				$orgtitlearray_base[$s]=$orgtitles['title'];
+				$s++;
+			}
+		}
+
+		return $orgtitlearray_base;
+	}
+
+	function _make_orgdata_content_array($orgcontents_base){
+		$orgcontentarray_base = array();
+		$r=1;
+
+		// make original contents array from DB
+		foreach($orgcontents_base as $orgcontent){
+			foreach($orgcontent['Content'] as $orgcontents){
+				//$orgcontentarray_base[$r][$r]=$orgcontents['content'];
+				$orgcontentarray_base[$r]=$orgcontents['content'];
+				$r++;
+			}
+		}
+
+		return $orgcontentarray_base;
+	}
+
+	function _make_orgdata_comment_array($orgcontents_base){
+		$orgcommentarray_base = array();
+		$o=1;
+
+		// make original comments array from DB
+		foreach($orgcontents_base as $orgcontent){
+			foreach($orgcontent['Comment'] as $orgcomments){
+				$orgcommentarray_base[$o]=$orgcomments['comment'];
+				$o++;
+			}
+		}
+
+		return $orgcommentarray_base;
+ 	}
+
+	function _make_newdata_title_array($newtitles){
+		$newtitlearray = array("");
+		$i=1;
+
+		////  Get item from save buttom
+		if(@$newtitles["request"]){
+			foreach($newtitles["request"] as $newtitlearray_t){
+				if(is_array($newtitlearray_t)){
+					foreach($newtitlearray_t as $newtitlearray_items){
+						if(array_key_exists('Content', $newtitlearray_items)){
+							foreach($newtitlearray_items as $newtitlearray_items_title){
+								if(array_key_exists('title', $newtitlearray_items_title)){ //get only title items
+									$newtitlearray[$i]=$newtitlearray_items_title["title"];
+									$i++;
+									//array_push($newtitlearray, $newtitlearray_items_title["title"]);
+								}
+							}
+						}
+					}
+				}
+			}
+			unset($newtitlearray[0]);  //array starts from 1
+
+			return $newtitlearray;
+
+		}
+		//// Get new title array from javascript when item box moved
+		else{
+			foreach($newtitles as $newtitlearray_items){
+				if(is_array($newtitlearray_items)){
+					//make new title array in which key starts from 1
+					//array_values gets all the array value without key
+					$newtitlearray = array_combine(range(1, count(array_values($newtitlearray_items["title"]))), array_values($newtitlearray_items["title"]));
+				}
+			}
+			return $newtitlearray;
+		}
+	}
+
+	function _make_newdata_content_array($newcontents){
+                $newcontentarray = array("");
+		$i = 1;
+
+		//// Get new contents array from javascript when item box moved
+		if(@$newcontents["request"]){
+			foreach($newcontents["request"] as $newcontentarray_t){
+				if(is_array($newcontentarray_t)){
+					foreach($newcontentarray_t as $newcontentarray_items){
+						if(array_key_exists('Content', $newcontentarray_items)){
+							foreach($newcontentarray_items as $newcontentarray_items_content){
+								if(array_key_exists('content', $newcontentarray_items_content)){
+//									$newcontentarray[$i][$i]=$newcontentarray_items_content["content"];
+									$newcontentarray[$i]=$newcontentarray_items_content["content"];
+									$i++;
+//									array_push($newcontentarray, $newcontentarray_items_content["content"]);
+								}
+							}
+						}
+					}
+				}
+			}
+			unset($newcontentarray[0]);  //array starts from 1
+			return $newcontentarray;
+		}
+		////  Get item from save buttom
+		else{
+			foreach($newcontents as $newcontentarray_items){
+				if(is_array($newcontentarray_items)){
+					//make new contents array in which key starts from 1
+					//array_values gets all the array value without key
+					$newcontentarray = array_combine(range(1, count(array_values($newcontentarray_items["content"]))), array_values($newcontentarray_items["content"]));
+				}
+			}
+			return $newcontentarray;
+		}
+	}
+
+	function _make_newdata_comment_array($newcomments){
+                $newcommentarray = array("");
+		$i = 1;
+
+		//// Get new comments array from javascript when item box is moved
+		if(@$newcomments["request"]){
+			foreach($newcomments["request"] as $newcommentarray_t){
+				if(is_array($newcommentarray_t)){
+					foreach($newcommentarray_t as $newcommentarray_items){
+						if(array_key_exists('Content', $newcommentarray_items)){
+							foreach($newcommentarray_items as $newcommentarray_items_comment){
+								if(array_key_exists('comment', $newcommentarray_items_comment)){
+									$newcommentarray[$i]=$newcommentarray_items_comment["comment"];
+									$i++;
+									//array_push($newcommentarray, $newcommentarray_items_comment["comment"]);
+								}
+							}
+						}
+					}
+				}
+			}
+			unset($newcommentarray[0]);  //array starts from 1
+			return $newcommentarray;
+		}
+		////  Get item from save buttom
+		else{
+			foreach($newcomments as $newcommentarray_items){
+				if(is_array($newcommentarray_items)){
+					//make new comment array in which key starts from 1
+					//array_values gets all the array value without key
+					$newcommentarray = array_combine(range(1, count(array_values($newcommentarray_items["comment"]))), array_values($newcommentarray_items["comment"]));
+				}
+			}
+			return $newcommentarray;
+		}
+        }
+
+	function _update_title($newtitlearray, $orgdatacontents, $topic_id, $me){
+		$i=1;
+		foreach($newtitlearray as $key=>$title)
+		{
+			if($title === "disabled"){
+				$orgdatatitlesize = count($orgdatacontents[0]['Title']);
+				//delete from DB when delete item from org contents
+				if($key<=$orgdatatitlesize){
+					$deletetitleid = $orgdatacontents[0]['Title'][$key-1]['id'];
+					$this->Title->delete($deletetitleid);
+				}
+			}else{
+				if(!empty($orgdatacontents[0]['Title'][$key-1]['id'])){
+					$titleid =$orgdatacontents[0]['Title'][$key-1]['id'];
+				}else{
+					$titleid = NULL;
+				}
+
+				$this->Title->create();
+				$data["id"]=$titleid;
+				$data["topic_id"]=$topic_id;
+				$data["content_id"]=$i;
+				$data["title"]=$title;
+				$data["user_id"]=$me;
+				$this->Title->save($data);
+
+				$i++;
+			}
+		}
+	}
+
+	function _update_contents($newcontentarray, $orgdatacontents, $topic_id, $me){
+		$l=1;
+		foreach($newcontentarray as $key=>$content)
+		{
+//			foreach($content as $k=>$con)
+//			{
+				if($content === "disabled"){
+					$orgdatacontentsize = count($orgdatacontents[0]["Content"]);
+					//delete from DB when delete item from org contents
+					if($key<=$orgdatacontentsize){
+						$deletecontentid = $orgdatacontents[0]['Content'][$key-1]['id'];
+						$this->Content->delete($deletecontentid);
+					}
+				}else{
+					if(!empty($orgdatacontents[0]['Content'][$key-1]['id'])){
+						$contentid =$orgdatacontents[0]['Content'][$key-1]['id'];
+					}else{
+						$contentid = NULL;
+					}
+
+					$this->Content->create();
+					$data["id"]=$contentid;
+					$data["topic_id"]=$topic_id;
+					$data["content_id"]=$l;
+					$data["content"]=$content;
+					$data["user_id"]=$me;
+					$this->Content->save($data);
+					$l++;
+				}
+//			}
+		}
+	}
+
+	function _update_comments($newcommentarray, $orgdatacontents, $topic_id, $me){
+		$j=1;
+		foreach($newcommentarray as $key=>$comment)
+		{
+		        if($comment === "disabled"){
+			$orgdatacommentsize = count($orgdatacontents[0]['Comment']);
+			//delete from DB when delete item from org contents
+			if($key<=$orgdatacommentsize){
+			        $deletecommentid = $orgdatacontents[0]['Comment'][$key-1]['id'];
+			        $this->Comment->delete($deletecommentid);
+			}
+		        }else{
+			if(!empty($orgdatacontents[0]['Comment'][$key-1]['id'])){
+			        $commentid =$orgdatacontents[0]['Comment'][$key-1]['id'];
+			}else{
+			        $commentid = NULL;
+			}
+			$this->Comment->create();
+			$data["id"]=$commentid;
+			$data["topic_id"]=$topic_id;
+			$data["content_id"]=$j;
+			if($comment === "Comment"){
+			        $data["comment"]="";
+			}
+			else{
+			        $data["comment"]=$comment;
+			}
+			$data["user_id"]=$me;
+			$this->Comment->save($data);
+
+			$j++;
+		        }
+		}
+	}
+
+
+/*
+	function _getcontentdiff($oldarray,$newarray){
+		/// compare the old array of content and the new array of content
+		$ocontarray = $ncontarray = $ocounts = $ncounts = array("");
+
+		foreach($oldarray as $oconts){
+			foreach($oconts as $ocont){
+				//array_unshift($ocontarray,$ocont);
+				array_push($ocontarray,$ocont);
+			}
+		}
+
+		foreach($newarray as $nconts){
+			foreach($nconts as $ncont){
+				//array_unshift($ncontarray,$ncont);
+				array_push($ncontarray,$ncont);
+			}
+		}
+
+		return array_diff_assoc($ocontarray,$ncontarray);
+	}
+*/
+
+
+	function _save_new_topic_title($datacontents, $data, $topicid){
+		if(!empty($datacontents["Content"]["title"]))
+		{
+			$i=1;
+			//foreach($this->data["Content"]["title"] as $key=>$title)
+			foreach($datacontents["Content"]["title"] as $key=>$title)
+			{
+				if($title === "disabled"){
+//						$this->Title->delete($topicid);
+//						$this->Title->save($data);
+				}else{
+					$this->Title->create();
+					$data["topic_id"]=$topicid;
+					//$data["content_id"]=$key;
+					$data["content_id"]=$i;
+					$data["title"]=$title;
+					$data["user_id"]=$data["user_id"];
+					$this->Title->save($data);
+
+					$i++;
+				}
+			}
+		}
+
+	}
+
+	function _save_new_topic_content($datacontents, $data, $topicid){
+		if(!empty($datacontents["Content"]["content"]))
+		{
+			$l=1;
+			//foreach($this->data["Content"]["content"] as $key=>$content)
+			foreach($datacontents["Content"]["content"] as $key=>$content)
+			{
+//				foreach($content as $k=>$con)
+//				{
+					if($content === "disabled"){
+
+					//	$this->Content->save($data);
+					}else{
+						$this->Content->create();
+						$data["topic_id"]=$topicid;
+						//$data["content_id"]=$key;
+						$data["content_id"]=$l;
+						//$data["content_id"]=$k; -> this is for sub number of contents: in case many text in each content
+						$data["content"]=$content;
+						$data["user_id"]=$data["user_id"];
+						$this->Content->save($data);
+
+						$l++;
+					}
+//				}
+			}
+		}
+	}
+
+	function _save_new_topic_comment($datacontents, $data, $topicid){
+		if(!empty($datacontents["Content"]["comment"]))
+		{
+			$j=1;
+			//foreach($this->data["Content"]["comment"] as $key=>$comment)
+			foreach($datacontents["Content"]["comment"] as $key=>$comment)
+			{
+				if($comment === "disabled"){
+//                                      $this->Title->delete($topicid);
+//					$this->Comment->save($data);
+				}else{
+				$this->Comment->create();
+				$data["topic_id"]=$topicid;
+				//$data["content_id"]=$key;
+				$data["content_id"]=$j;
+					if($comment === "Comment"){
+						$data["comment"]="";
+					}
+					else{
+						$data["comment"]=$comment;
+					}
+					$data["user_id"]=$data["user_id"];
+					$this->Comment->save($data);
+
+					$j++;
+				}
+			}
+		}
+	}
+
+	function image(){
+		$this->request->data;
+		if ($this->request->is('ajax')) {
+			// Configure for ajax
+			Configure::write('debug', 0);
+			$this->autoRender = false;
+			// Output
+			$targettext = $this->data['input_text'];
+			$number_perpage = $this->data['number_perpage'];
+			$page_num = $this->data['page'];
+			if(empty($page_num)){
+				$page_num = 1;
+			}
+		}
+
+		//Flickr
+		App::import('Vendor', 'phpFlickr');
+			$name = 'Flickr';
+			$uses = array();
+			$api_key = 'f76419f89a15fe062743699e01aa217b';
+			$secret = '0beda1df1625f560';
+			$flickr = new phpFlickr($api_key, $secret);
+			$result = $flickr->photos_search(array(
+				"text" => $targettext,
+				"per_page" => $number_perpage,
+				"page" => $page_num,
+				//"license" => "1,2,3,4,5,6",
+				"license" => "4,5,6",
+				"extras" => "owner_name",
+				//"sort" => 'relevant'
+				"sort" => 'interestingness-asc'
+			));
+
+
+			$target_url = null;
+			foreach ($result['photo'] as $photo) {
+				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
+				$owner_url = "http://www.flickr.com/photos/".$photo['owner']."/".$photo['id'];
+				echo "<li style=\"float: left; margin: 0 10px 10px 0;\">";
+				echo "<a href='".$target_url.".jpg' title='click to post the picture to the content'>";
+//echo "<a target='_blank' href='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'].".jpg' title='".$photo['title']."' id='get_image'>";
+				echo  "<img id='get_image' src='".$target_url."_s.jpg' alt='".$owner_url."(__)".$photo['title']."(__)".$photo['ownername']."' />";
+//echo  "<img id='get_image' src='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret']."_s.jpg'>";
+				echo "</a>";
+				echo "</li>";
+			}
+			echo "<button id='moreButton' class='moreButton'>more</button>";
+
+
+
+//$this->set('flickr_contents',$result);
+//echo("<PRE>");
+//var_dump($result);
+//echo("</PRE>");
+	}
+
+
+	function _get_editcontents($topic_array){
+		$topic_id = $topic_array[0]['Topic']['id'];
+		$topic_title = $topic_array[0]['Topic']['name'];
+		$topic_category = $topic_array[0]['Topic']['category'];
+		$topic_description = $topic_array[0]['Topic']['description'];
+
+		$contents_array = array();
+		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description);
+		$i = $j = $k = 0;
+
+		if(!empty($topic_array[0]['Title']) AND !empty($topic_array[0]['Content']) and !empty($topic_array[0]['Comment'])){
+			//Title
+			foreach($topic_array[0]['Title'] as $content_title_array){
+				$ctitle_array[$i] = $content_title_array['title'];
+				$i++;
+			}
+
+			//Content
+			foreach($topic_array[0]['Content'] as $content_content_array){
+				$ccontents_array[$j] = $content_content_array['content'];
+				$j++;
+			}
+
+			//Comment
+			foreach($topic_array[0]['Comment'] as $content_comment_array){
+				$ccomment_array[$k] = $content_comment_array['comment'];
+				$k++;
+			}
+
+			//size of array
+			$title_num = count($ctitle_array);
+			$content_num = count($ccontents_array);
+			$comment_num = count($ccomment_array);
+			$count_array = array($title_num,$content_num,$comment_num);
+			$item_num = max($count_array);
+
+			//combine the three arrays into one array
+			//*first item of the array is Topic title, description, category
+			for($l = 1; $l < $item_num+1; $l++){
+				$contents_array[$l]=array($ctitle_array[$l-1],$ccontents_array[$l-1],$ccomment_array[$l-1]);
+			}
+		}
+
+		return $contents_array;
+	}
+
+	function _checkUser($userid, $topicurl){
+		$searchresult=FALSE;
+
+		$tid = split(":",$topicurl);
+
+		if(empty($tid[1])){
+			return TRUE;
+//			return FALSE;
+		}
+		else{
+			$topicid=$tid[1];
+			$searchresult = $this->Topic->find('all', array(
+				'conditions' => array(array('Topic.user_id' => $userid), array('Topic.id' => $topicid))
+			));
+
+			return $searchresult;
+		}
+	}
+}
+?>

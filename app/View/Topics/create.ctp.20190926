@@ -1,0 +1,275 @@
+<?php
+//Get topic Title,Description,Category which stays in frist item in the array
+if(!empty($editing_contents)){
+	$topicitems = array_shift($editing_contents);
+	$tid = $topicitems[0];
+	$ttitle = $topicitems[1];
+	$tcategory = $topicitems[2];
+	$tdescription = $topicitems[3];
+}
+?>
+<!--<section id="forms">-->
+<div class='row'>
+	<div class='span12'>
+		<?php echo $this->Form->create('Topic', array('name'=>'topictitle')); ?>
+		<?php
+			if(empty($ttitle)){
+				echo $this->form->input('Roundup_Title',array("name"=>"hiddentitle", "id"=>"url","class"=>"inputtitle","value"=>"Roundup Title")); 
+			}else{
+				echo $this->form->input('Roundup_Title',array("name"=>"hiddentitle", "id"=>"url","class"=>"inputtitle","value"=>$ttitle));
+			}
+		?>
+	</div>
+	<div class='span4'>
+		<?php 
+			if(empty($tcategory)){
+				$tcategory = 1;
+			}
+				
+			echo $this->Form->input('Roundup_Category', array(
+				'type' => 'select',
+				'name' => 'hiddencategory',
+				'options' => array(
+					3 => 'politics'),
+					'default' => $tcategory)
+		);?>
+	</div>
+	<div class='span8'>
+		<?php 
+			if(empty($tdescription)){
+				$tdescription = "";
+			}
+
+			echo $this->form->input('Roundup_Description',array(
+				'type' => 'textarea',
+				'name' => 'hiddendescription',
+				'value' => $tdescription,
+				'escape' => false)
+			);
+		?>
+	</div>
+	<?php echo $this->Form->end(); ?>
+</div>
+
+<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+<h3 id="tabs"></h3>
+<ul class="nav nav-tabs">
+        <li class="active"><a href="#A" data-toggle="tab" disabled>&nbsp;Add Items&nbsp;&nbsp;</a></li>
+        <li><a href="#B" data-toggle="tab">&nbsp;&nbsp;Heading&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="#C" data-toggle="tab">Quotation</a></li>
+        <li><a href="#D" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        <li><a href="#E" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+</ul>
+<div class="tabbable">
+	<div class="tab-content">
+		<div class="tab-pane active" id="A">
+			<div id="explain">
+				<img src='/img/basic/explain.png' />
+			</div>
+		</div>
+               <div class="tab-pane" id="B">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+                                                echo $this->form->input('heading',array("label"=>false,"type"=>"text","id"=>"heading", "value"=>"Input heading words"));
+                                                echo $this->form->button('heading', array('class'=>'submitinsideclass',"id"=>"get_heading","name"=>"get_heading"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+               <div class="tab-pane" id="C">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+						echo $this->form->input('quotation',array("label"=>false,"type"=>"text","id"=>"quotationtitle", "value"=>"Input URL"));
+                                                echo $this->form->textarea('quotation',array("label"=>false,"id"=>"quotationcontent","value"=>"Copy and Paste the Quotation","rows"=>"5", "cols"=>"20"));
+                                                echo $this->form->textarea('quotation',array("label"=>false,"id"=>"quotationcomment","value"=>"Input your comment","rows"=>"5", "cols"=>"20"));
+						echo $this->form->button('quotation', array('class'=>'submitinsideclass',"id"=>"get_quotation","name"=>"get_quotation"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+                <div class="tab-pane" id="D">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+                                                echo $this->form->textarea('textcomment',array("label"=>false,"id"=>"textcomment","value"=>"Input comment","rows"=>"5", "cols"=>"20"));
+                                                echo $this->form->button('Input Text', array('class'=>'submitinsideclass',"id"=>"get_textcomment","name"=>"get_heading"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+		<div class="tab-pane" id="E">
+			<div class="row">
+				<div class="span4">
+					<?php echo $this->Form->create(null, array('type'=>'post', 'default'=>false)); ?>
+					<?php //echo $this->Form->input(null, array('label'=>'', 'type'=>'text', 'id'=>'inputText', 'value'=>'search key word')); ?>
+					<?php echo $this->Form->input(null, array('label'=>'', 'type'=>'text', 'id'=>'imagetext', 'value'=>'key word')); ?>
+					<?php echo $this->Form->submit('SEARCH on flickr', array('id'=>'submitButton', 'class'=>'submitinsideclass')); ?>
+					<?php echo $this->Form->end(); ?>
+				</div>
+				<div class="span8">
+					<ul id="display_img">
+					</ul>
+					<span id="loadingimage" style="display:none; text-align:center;"><img src="/img/basic/loading.gif" width=16px height=16px/></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div> <!-- /tabbable -->
+
+<div class="actions">
+	<fieldset>
+		<!--<legend><?php echo __('Add Content'); ?></legend>-->
+		<legend><?php echo __(''); ?></legend>
+		<?php echo $this->Form->create('Topic', array('name'=>'createsub', 'onsubmit'=>'false')); ?>
+		<?php echo $this->Form->hidden("Topic_Title",array("name"=>"Topic_Title")); ?>
+		<?php echo $this->Form->hidden("Topic_Category",array("name"=>"Topic_Category")); ?>
+		<?php echo $this->Form->hidden("Topic_Description",array("name"=>"Topic_Description")); ?>
+		<?php echo $this->form->hidden("num",array("id"=>"num"));?>
+		<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+		<!--<Div class="inner"></Div>-->
+		<!--<Div class="contentsBox" style="display:none"></Div>-->
+		<Div id="dropArea">
+			<ul id="sort-drop-area">
+		<Div class="contentsBox" style="display:none"></Div>
+<?php
+/// For Editing Contents
+if(!empty($editing_contents)){
+	$h=0;
+	
+	foreach($editing_contents as $econtents){
+		$h++;
+		echo "<div id='contentsSet_".$h."' class='contentsBox'>";
+			echo "<input class='item_title' name='data[Content][title][$h]' type='hidden' id='title_$h' value='".h($econtents[0])."'>";
+			echo "<input class='item_content' name='data[Content][content][$h][$h]' type='hidden' id='content_$h' value='".h($econtents[1])."'>";
+			echo "<input class='item_comment' name='data[Content][comment][$h]' type='hidden' id='comment_$h' value='".h($econtents[2])."'>";
+			
+			if($econtents[0] == "__heading__"){
+				//// HEADING ///
+				echo "<h2 id='heading_$h'>".h($econtents[2])."</h2>";
+			}
+			elseif($econtents[0] == "__textcomment__"){
+				/// COMMENT ///
+				echo "<div id='textcomment_$h'>".h($econtents[2])."</div>";
+			}
+			elseif($econtents[0] == "__imageurl__"){
+				/// IMAGE ///
+				$im_url = explode("(__)",h($econtents[1]));
+				echo "<a target='_blank' href='".h($im_url[0])."'><img src='".h($econtents[2])."' /></a>";
+				echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
+			}
+			elseif($econtents[0] == "disabled"){
+				/// DISABLE ///
+			}
+			else{
+				/// Web Cliping ///
+				echo "<blockquote>";
+				echo "<p>".h($econtents[1])."</p>";
+				echo "<small><cite title='".h($econtents[0])."'><a href='".h($econtents[0])."' target='_'>".h($econtents[0])."</a></cite></small>";
+				echo "</blockquote>";
+				echo "<p>".h($econtents[2])."</p>";
+			}
+
+			echo "<p class='delete'>[remove]</p>";
+		echo "</div>";
+	}
+}
+?>
+	</Div></ui><!--end of DropArea -->
+	</fieldset>
+</div>
+<div id="working" class="working" style="display:none;">........................</div>
+<?php
+$auth = $this->Session->read('Auth.User');
+if(!empty($auth)){
+	echo "<button type='submit' class='submitclass' onclick='createsubmit();'>Save</button>";
+	echo $this->Form->end();
+}else{
+	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
+}
+?>
+<!--</section>-->
+
+
+<SCRIPT language="JavaScript">
+/*
+window.onload = function() {
+	jQuery( '#sort-drop-area' ) . sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
+		revert: true
+
+		var elements = $(this).sortable("toArray")
+		var username = <?php echo $userid; ?>;
+		var title_id = <?php echo $tid; ?>;
+		var title_array=[]; //array for title
+		var content_array=[]; //array for content
+		var comment_array=[]; //array for comment
+		var element_array=[]; //array for all elements(title, content, comment)
+
+//		elements.forEach(function (element,key,array) {
+		jQuery.each(elements, function(key, val) {
+			if(key !== 0){
+				//var element_number_array = element.split("_");
+				var element_number_array = val.split("_");
+				var element_number = element_number_array[1];
+
+				var title_n = "#title_"+element_number;
+				var content_n = "#content_"+element_number;
+				var comment_n = "#comment_"+element_number;
+
+				var title_value = $(title_n).val();
+				var content_value = $(content_n).val();
+				var comment_value = $(comment_n).val();
+
+				title_array[key]={Content:{title: title_value}};
+				content_array[key]={Content:{content: content_value}};
+				comment_array[key]={Content:{comment: comment_value}};
+			}
+		});
+
+		element_array=[username,title_id,title_array,content_array,comment_array];
+
+
+
+
+console.log(element_array);
+
+
+
+//		$.post("Topics/savetodb", element_array, function(theResponse){
+		var data = {request : element_array};
+		$.ajax({
+			type: "POST",
+			url: "/Topics/savetodb",
+			data: data,
+			success: function(data, dataType)
+			{
+				//successのブロック内は、Ajax通信が成功した場合に呼び出される
+				//PHPから返ってきたデータの表示
+console.log(data);
+			}
+		}); 
+	}});
+
+	jQuery( '#dragArea' ).find('img,li').draggable( {
+		connectToSortable: '#sort-drop-area',
+		helper: 'clone',
+		revert: 'invalid',
+	} );
+	jQuery( '#dragArea' ) . disableSelection();
+}
+*/
+</SCRIPT>
+
+<SCRIPT language="JavaScript">
+function createsubmit(){
+	var ti=document.topictitle.hiddentitle.value;
+	var hc=document.topictitle.hiddencategory.value;
+	var hd=document.topictitle.hiddendescription.value;
+
+	document.createsub.Topic_Title.value = ti;
+	document.createsub.Topic_Category.value = hc;
+	document.createsub.Topic_Description.value = hd;
+} 
+</SCRIPT>

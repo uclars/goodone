@@ -1,0 +1,90 @@
+<!--<section id="forms">-->
+<div class='row'>
+	<div class='span12'>
+                <?php echo $this->Form->create('Topic', array('name'=>'topictitle')); ?>
+                <?php
+                                echo $this->form->input('Roundup_Title',array("name"=>"hiddentitle", "id"=>"url","class"=>"inputtitle","value"=>"Roundup Title"));
+                ?>
+        </div>
+        <div class='span4'>
+                <?php
+                        echo $this->Form->input('Roundup_Category', array(
+                                'type' => 'select',
+                                'name' => 'hiddencategory',
+                                'options' => array(
+                                        3 => 'politics'),
+                                        'default' => 1)
+                );?>
+        </div>
+        <div class='span8'>
+                <?php
+                        echo $this->form->input('Roundup_Description',array(
+                                'type' => 'textarea',
+                                'name' => 'hiddendescription',
+                                'escape' => false)
+                        );
+                ?>
+	</div>
+	<?php echo $this->Form->end(); ?>
+</div>
+
+<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+<h3 id="tabs"></h3>
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#A" data-toggle="tab" disabled>&nbsp;Add Items&nbsp;&nbsp;</a></li>
+        <li><a href="#C" data-toggle="tab">Quotation</a></li>
+</ul>
+<div class="tabbable">
+	<div class="tab-content">
+                <div class="tab-pane active" id="A">
+                        <div id="explain">
+                                Click QUOTATION
+                        </div>
+                </div>
+               <div class="tab-pane" id="C">
+                        <div class="contents form">
+                                <FIELDSET>
+                                        <?php
+						//echo $this->Form->create(false, array('type' => 'post', 'action' => 'create'));
+						echo $this->form->input('quotation',array("label"=>false,"type"=>"text","id"=>"quotationtitle", "value"=>"Input URL"));
+                                                echo $this->form->textarea('quotation',array("label"=>false,"id"=>"quotationcontent","value"=>"Copy and Paste the Quotation","rows"=>"5", "cols"=>"20"));
+                                                echo $this->form->textarea('quotation',array("label"=>false,"id"=>"quotationcomment","value"=>"Input your comment","rows"=>"5", "cols"=>"20"));
+						echo $this->form->button('quotation', array('class'=>'submitinsideclass',"id"=>"get_quotation","name"=>"get_quotation"));
+                                        ?>
+                                </FIELDSET>
+                        </div>
+                </div>
+	</div>
+</div> <!-- /tabbable -->
+
+<div class="actions">
+	<fieldset>
+		<?php echo $this->Form->create('Topic', array('name'=>'createsub', 'onsubmit'=>'false')); ?>
+		<?php //echo $this->Form->hidden("Topic_Title",array("name"=>"Topic_Title")); ?>
+		<?php //echo $this->Form->hidden("Topic_Category",array("name"=>"Topic_Category")); ?>
+		<?php //echo $this->Form->hidden("Topic_Description",array("name"=>"Topic_Description")); ?>
+		<?php //echo $this->form->hidden("num",array("id"=>"num"));?>
+		<?php //echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
+		<ul id="sort-drop-area">
+				<Div class="contentsBox" style="display:none"></Div>
+		</ul><!--end of DropArea -->
+	</fieldset>
+</div>
+<?php
+	//echo "<button type='submit' class='submitclass' onclick='createsubmit();'>Save</button>";
+	echo "<button type='submit' class='submitclass'>Save</button>";
+?>
+<!--</section>-->
+<SCRIPT language="JavaScript">
+function createsubmit(){
+/*
+        var ti=document.topictitle.hiddentitle.value;
+        var hc=document.topictitle.hiddencategory.value;
+        var hd=document.topictitle.hiddendescription.value;
+
+        document.createsub.Topic_Title.value = ti;
+        document.createsub.Topic_Category.value = hc;
+        document.createsub.Topic_Description.value = hd;
+*/
+}
+</SCRIPT>
