@@ -6,7 +6,7 @@
 				<?php echo $this->Html->image($topic['Mastercategory']['url'], array('width'=>'48px')); ?>
 			</div>
 			<div class="span11">
-				<?php echo "<a href='http://0-0b.com/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'><h4>".h($topic['Topic']['name'])."</h4></a>"; ?>
+				<?php echo "<a href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'><h4>".h($topic['Topic']['name'])."</h4></a>"; ?>
 				<?php echo "<p>".h($topic['Topic']['description'])."</p>"; ?>
 			</div>
 			<div class="span12" style="border-bottom: 2px solid #ddd; margin-bottom:10px"></div>
