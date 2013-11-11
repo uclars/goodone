@@ -83,7 +83,7 @@ class HomeController extends AppController {
 
 			//get all the contents
 			// get date (today and a week from today)
-			$start_date = gmdate("Y/m/d",strtotime("-8 week"));
+			$start_date = gmdate("Y/m/d",strtotime("-38 week"));
 			$end_date = gmdate("Y/m/d H:i:s");
 			//$tcondition = array('Topic.deleted'=>0, 'Topic.hide'=>0, 'Topic.created >=' => $start_date, 'Topic.created <=' => $end_date);
 			$tcondition = array('Topic.deleted'=>0, 'Topic.created >=' => $start_date, 'Topic.created <=' => $end_date);
