@@ -153,6 +153,10 @@ echo "</PRE>";
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
+
+debug($this->data);
+exit;
+
 				$topicid = $this->params['named']['topicid'];
 
                                 $topic_array = array();
@@ -183,14 +187,6 @@ echo "</PRE>";
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
 			}else{
-
-
-
-debug($this->data);
-exit;
-
-
-
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
