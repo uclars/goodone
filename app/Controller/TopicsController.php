@@ -608,6 +608,9 @@ exit;
 
 	function _update_contents($newcontentarray, $orgdatacontents, $topic_id, $me){
 		$l=1;
+
+debug($newcontentarray);
+
 		foreach($newcontentarray as $key=>$content)
 		{
 			if($content === "disabled"){
