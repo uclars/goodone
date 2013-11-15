@@ -147,12 +147,11 @@ echo "</PRE>";
 //debug($newtopicid);
 
 //debug($this->params);
-//debug($this->data);
-//exit;
+debug($this->data);
+exit;
 
 
 			//if edit page, get the contents
-			//if(!empty($this->params['named']['topicid'])){
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
 
@@ -260,10 +259,6 @@ echo "</PRE>";
 			$orgtitlearray = $this->_make_orgdata_title_array($orgcontents);
 			$orgcontentarray = $this->_make_orgdata_content_array($orgcontents);
 			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
-
-
-debug($datacontents);
-exit;
 
 
 			/// make the new conetnt array from user input and replace array key numbers in order to compare 
