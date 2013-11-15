@@ -486,11 +486,6 @@ exit;
 				}
 			}
 			unset($newtitlearray[0]);  //array starts from 1
-
-debug($newtitlearray);
-exit;
-
-
 			return $newtitlearray;
 
 		}
@@ -529,18 +524,6 @@ exit;
 				}
 			}
 			unset($newcontentarray[0]);  //array starts from 1
-
-
-
-
-
-debug($newcontentarray);
-exit;
-
-
-
-
-
 			return $newcontentarray;
 		}
 		////  Get item from save buttom
@@ -552,6 +535,14 @@ exit;
 					$newcontentarray = array_combine(range(1, count(array_values($newcontentarray_items["content"]))), array_values($newcontentarray_items["content"]));
 				}
 			}
+
+
+debug($newcontentarray);
+exit;
+
+
+
+
 			return $newcontentarray;
 		}
 	}
