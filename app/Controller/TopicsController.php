@@ -630,7 +630,7 @@ exit;
 				$data["content_id"]=$l;
 				$data["content"]=$content;
 				$data["user_id"]=$me;
-debug(data);
+debug($data);
 exit;
 
 				$this->Content->save($data);
