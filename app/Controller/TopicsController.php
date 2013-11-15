@@ -173,8 +173,16 @@ echo "</PRE>";
 					$data['Content']['content'] = $this->data['Content']['content'];
 
 					$commentarr = $this->data['Content']['comment'];
+
+
+debug($this->data['Content']['comment']);
+
+
 					foreach($data['Content']['title'] as $key => $title)
 					{
+
+debug($commentarr[$key]);
+
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
