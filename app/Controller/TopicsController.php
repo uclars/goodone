@@ -577,6 +577,11 @@ exit;
         }
 
 	function _update_title($newtitlearray, $orgdatacontents, $topic_id, $me){
+
+echo "HHLL";
+exit;
+
+
 		$i=1;
 		foreach($newtitlearray as $key=>$title)
 		{
