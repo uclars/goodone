@@ -309,6 +309,18 @@ exit;
 
 			//Compare the old contents array and new contents array, and if contents are modified, update the DB
 			//$isnewcontent=$this->_getcontentdiff($newcontentarray,$orgcontentarray);
+
+
+
+
+debug($newcontentarray);
+debug($orgcontentarray);
+exit;
+
+
+
+
+
 			$isnewcontent=array_diff_assoc($newcontentarray,$orgcontentarray);
 			if(!empty($isnewcontent)){
 				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
@@ -679,14 +691,6 @@ exit;
 	}
 
 	function _getcontentdiff($oldarray,$newarray){
-
-
-
-debug($oldarray);
-debug($newarray);
-exit;
-
-
 		/// compare the old array of content and the new array of content
 		$ocontarray = $ncontarray = array("");
 
