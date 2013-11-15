@@ -302,6 +302,13 @@ exit;
 
 
 			//Compare the old title array and new title array, and if titles are modified, update the DB
+
+
+debug($newtitlearray);
+debug($orgtitlearray);
+
+
+
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
 //				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
@@ -315,17 +322,12 @@ exit;
 
 debug($newcontentarray);
 debug($orgcontentarray);
-
+exit;
 
 
 
 
 			$isnewcontent=array_diff_assoc($newcontentarray,$orgcontentarray);
-
-debug($isnewcontent);
-exit;
-
-
 			if(!empty($isnewcontent)){
 				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
 			}
