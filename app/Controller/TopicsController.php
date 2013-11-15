@@ -262,6 +262,10 @@ echo "</PRE>";
 			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
 
 
+degub($datacontents);
+exit;
+
+
 			/// make the new conetnt array from user input and replace array key numbers in order to compare 
 			//$newtitlearray = $this->_make_newdata_title_array($datacontents['Content']['title']);
 			$newtitlearray = $this->_make_newdata_title_array($datacontents);
