@@ -609,31 +609,37 @@ exit;
 
 	function _update_contents($newcontentarray, $orgdatacontents, $topic_id, $me){
 		$l=1;
+
+
+debug($newcontentarray);
+debug($orgdatacontents);
+exit;
+
 		foreach($newcontentarray as $key=>$content)
 		{
-				if($content === "disabled"){
-					$orgdatacontentsize = count($orgdatacontents[0]["Content"]);
-					//delete from DB when delete item from org contents
-					if($key<=$orgdatacontentsize){
-						$deletecontentid = $orgdatacontents[0]['Content'][$key-1]['id'];
-						$this->Content->delete($deletecontentid);
-					}
-				}else{
-					if(!empty($orgdatacontents[0]['Content'][$key-1]['id'])){
-						$contentid =$orgdatacontents[0]['Content'][$key-1]['id'];
-					}else{
-						$contentid = NULL;
-					}
-
-					$this->Content->create();
-					$data["id"]=$contentid;
-					$data["topic_id"]=$topic_id;
-					$data["content_id"]=$l;
-					$data["content"]=$content;
-					$data["user_id"]=$me;
-					$this->Content->save($data);
-					$l++;
+			if($content === "disabled"){
+				$orgdatacontentsize = count($orgdatacontents[0]["Content"]);
+				//delete from DB when delete item from org contents
+				if($key<=$orgdatacontentsize){
+					$deletecontentid = $orgdatacontents[0]['Content'][$key-1]['id'];
+					$this->Content->delete($deletecontentid);
 				}
+			}else{
+				if(!empty($orgdatacontents[0]['Content'][$key-1]['id'])){
+					$contentid =$orgdatacontents[0]['Content'][$key-1]['id'];
+				}else{
+					$contentid = NULL;
+				}
+
+				$this->Content->create();
+				$data["id"]=$contentid;
+				$data["topic_id"]=$topic_id;
+				$data["content_id"]=$l;
+				$data["content"]=$content;
+				$data["user_id"]=$me;
+				$this->Content->save($data);
+				$l++;
+			}
 		}
 	}
 
