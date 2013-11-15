@@ -173,21 +173,21 @@ echo "</PRE>";
 					$data['Content']['content'] = $this->data['Content']['content'];
 
 					$commentarr = $this->data['Content']['comment'];
-
-
-debug($this->data['Content']['comment']);
-
-
 					foreach($data['Content']['title'] as $key => $title)
 					{
-
-debug($commentarr[$key]);
-
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
 //					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
+
+
+
+debug($this->data['Content']['title']);
+debug($this->data['Content']['content']);
+debug($this->data['Content']['comment']);
+
+
 
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
