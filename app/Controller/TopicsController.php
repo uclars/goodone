@@ -178,16 +178,8 @@ echo "</PRE>";
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
-//					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
-
-
-
-debug($this->data['Content']['title']);
-debug($this->data['Content']['content']);
-debug($this->data['Content']['comment']);
-
-
 
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
@@ -282,7 +274,6 @@ debug($this->data['Content']['comment']);
 
 
 
-/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -306,7 +297,6 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
-*/
 
 
 			//Compare the old title array and new title array, and if titles are modified, update the DB
