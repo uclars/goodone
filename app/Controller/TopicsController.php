@@ -262,7 +262,7 @@ echo "</PRE>";
 			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
 
 
-degub($datacontents);
+debug($datacontents);
 exit;
 
 
