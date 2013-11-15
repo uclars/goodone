@@ -315,13 +315,17 @@ exit;
 
 debug($newcontentarray);
 debug($orgcontentarray);
-exit;
 
 
 
 
 
 			$isnewcontent=array_diff_assoc($newcontentarray,$orgcontentarray);
+
+debug($isnewcontent);
+exit;
+
+
 			if(!empty($isnewcontent)){
 				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
 			}
