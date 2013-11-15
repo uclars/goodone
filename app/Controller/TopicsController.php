@@ -274,6 +274,7 @@ echo "</PRE>";
 
 
 
+/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -297,6 +298,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 			//Compare the old title array and new title array, and if titles are modified, update the DB
@@ -322,7 +324,6 @@ exit;
 
 
 
-/*
 echo "<PRE>";
 var_dump($orgdata);
 echo "</PRE>";
@@ -330,7 +331,9 @@ echo "</PRE>";
 echo "<PRE>";
 var_dump($data);
 echo "</PRE>";
-*/
+exit;
+
+
 		}
 		else{
 			///  NEW Creat Topic ////
