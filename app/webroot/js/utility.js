@@ -312,8 +312,6 @@ window.onload = function() {
 	jQuery( '#sort-drop-area' ) . sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
 		revert: true
 
-alert("HHH");
-
 /*
 		var topic_title = $("#url").val();
 		var topic_category = $("#TopicRoundupCategory").val();
