@@ -487,6 +487,10 @@ exit;
 			}
 			unset($newtitlearray[0]);  //array starts from 1
 
+debug($newtitlearray);
+exit;
+
+
 			return $newtitlearray;
 
 		}
