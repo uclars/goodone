@@ -441,7 +441,7 @@ exit;
 		// make original contents array from DB
 		foreach($orgcontents_base as $orgcontent){
 			foreach($orgcontent['Content'] as $orgcontents){
-				$orgcontentarray_base[$r][$r]=$orgcontents['content'];
+				$orgcontentarray_base[$r]=$orgcontents['content'];
 				$r++;
 			}
 		}
@@ -535,14 +535,6 @@ exit;
 					$newcontentarray = array_combine(range(1, count(array_values($newcontentarray_items["content"]))), array_values($newcontentarray_items["content"]));
 				}
 			}
-
-
-debug($newcontentarray);
-exit;
-
-
-
-
 			return $newcontentarray;
 		}
 	}
