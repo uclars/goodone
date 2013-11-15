@@ -304,7 +304,7 @@ exit;
 			//Compare the old title array and new title array, and if titles are modified, update the DB
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
-				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
+//				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
 			}
 
 			//Compare the old contents array and new contents array, and if contents are modified, update the DB
