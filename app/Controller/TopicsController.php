@@ -577,11 +577,6 @@ exit;
         }
 
 	function _update_title($newtitlearray, $orgdatacontents, $topic_id, $me){
-
-echo "HHLL";
-exit;
-
-
 		$i=1;
 		foreach($newtitlearray as $key=>$title)
 		{
@@ -684,6 +679,14 @@ exit;
 	}
 
 	function _getcontentdiff($oldarray,$newarray){
+
+
+
+debug($oldarray);
+debug($newarray);
+exit;
+
+
 		/// compare the old array of content and the new array of content
 		$ocontarray = $ncontarray = array("");
 
