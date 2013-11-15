@@ -322,15 +322,18 @@ exit;
 
 
 
-
-
 echo "<PRE>";
-var_dump($orgdata);
+var_dump($newtitlearray);
 echo "</PRE>";
 
 echo "<PRE>";
-var_dump($data);
+var_dump($newcontentarray);
 echo "</PRE>";
+
+echo "<PRE>";
+var_dump($newcommentarray);
+echo "</PRE>";
+
 exit;
 
 
