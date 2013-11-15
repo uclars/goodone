@@ -322,6 +322,7 @@ exit;
 
 
 
+/*
 echo "<PRE>";
 var_dump($newtitlearray);
 echo "</PRE>";
@@ -335,6 +336,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 		}
@@ -630,7 +632,7 @@ exit;
 					$data["content"]=$content;
 					$data["user_id"]=$me;
 					$this->Content->save($data);
-						$l++;
+					$l++;
 				}
 		}
 	}
@@ -640,33 +642,33 @@ exit;
 		foreach($newcommentarray as $key=>$comment)
 		{
 		        if($comment === "disabled"){
-			$orgdatacommentsize = count($orgdatacontents[0]['Comment']);
-			//delete from DB when delete item from org contents
-			if($key<=$orgdatacommentsize){
-			        $deletecommentid = $orgdatacontents[0]['Comment'][$key-1]['id'];
-			        $this->Comment->delete($deletecommentid);
-			}
+				$orgdatacommentsize = count($orgdatacontents[0]['Comment']);
+				//delete from DB when delete item from org contents
+				if($key<=$orgdatacommentsize){
+				        $deletecommentid = $orgdatacontents[0]['Comment'][$key-1]['id'];
+				        $this->Comment->delete($deletecommentid);
+				}
 		        }else{
-			if(!empty($orgdatacontents[0]['Comment'][$key-1]['id'])){
-			        $commentid =$orgdatacontents[0]['Comment'][$key-1]['id'];
-			}else{
-			        $commentid = NULL;
+				if(!empty($orgdatacontents[0]['Comment'][$key-1]['id'])){
+				        $commentid =$orgdatacontents[0]['Comment'][$key-1]['id'];
+				}else{
+				        $commentid = NULL;
+				}
+				$this->Comment->create();
+				$data["id"]=$commentid;
+				$data["topic_id"]=$topic_id;
+				$data["content_id"]=$j;
+				if($comment === "Comment"){
+			        	$data["comment"]="";
+				}
+				else{
+				        $data["comment"]=$comment;
+				}	
+				$data["user_id"]=$me;
+				$this->Comment->save($data);
+	
+				$j++;
 			}
-			$this->Comment->create();
-			$data["id"]=$commentid;
-			$data["topic_id"]=$topic_id;
-			$data["content_id"]=$j;
-			if($comment === "Comment"){
-			        $data["comment"]="";
-			}
-			else{
-			        $data["comment"]=$comment;
-			}
-			$data["user_id"]=$me;
-			$this->Comment->save($data);
-
-			$j++;
-		        }
 		}
 	}
 
