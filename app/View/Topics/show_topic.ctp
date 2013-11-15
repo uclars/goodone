@@ -70,7 +70,8 @@ foreach($show_contents as $contents_array){
 		$pic_user = $pic_ad_array[2];
 		//image address
 		$simg_url =$contents_array[2];
-		$simg_url = str_replace(".jpg","_m.jpg",$contents_array[2]);
+		//$simg_url = str_replace(".jpg","_m.jpg",$contents_array[2]);
+		$simg_url = str_replace(".jpg",".jpg",$contents_array[2]);
 
 		//Display the image
 		echo "<div style='margin-bottom:10px;'>";
