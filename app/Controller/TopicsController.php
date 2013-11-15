@@ -147,8 +147,8 @@ echo "</PRE>";
 //debug($newtopicid);
 
 //debug($this->params);
-debug($this->data);
-exit;
+//debug($this->data);
+//exit;
 
 
 			//if edit page, get the contents
@@ -183,6 +183,14 @@ exit;
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
 			}else{
+
+
+
+debug($this->data);
+exit;
+
+
+
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
