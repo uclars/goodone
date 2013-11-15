@@ -304,7 +304,7 @@ exit;
 
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
-//				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
+				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
 			}
 
 			//Compare the old contents array and new contents array, and if contents are modified, update the DB
@@ -608,9 +608,6 @@ exit;
 
 	function _update_contents($newcontentarray, $orgdatacontents, $topic_id, $me){
 		$l=1;
-
-debug($newcontentarray);
-
 		foreach($newcontentarray as $key=>$content)
 		{
 			if($content === "disabled"){
@@ -633,9 +630,6 @@ debug($newcontentarray);
 				$data["content_id"]=$l;
 				$data["content"]=$content;
 				$data["user_id"]=$me;
-debug($data);
-exit;
-
 				$this->Content->save($data);
 				$l++;
 			}

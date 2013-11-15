@@ -142,7 +142,7 @@ if(!empty($editing_contents)){
 		$h++;
 		echo "<div id='contentsSet_".$h."' class='contentsBox'>";
 			echo "<input class='item_title' name='data[Content][title][$h]' type='hidden' id='title_$h' value='".h($econtents[0])."'>";
-			echo "<input class='item_content' name='data[Content][content][$h][$h]' type='hidden' id='content_$h' value='".h($econtents[1])."'>";
+			echo "<input class='item_content' name='data[Content][content][$h]' type='hidden' id='content_$h' value='".h($econtents[1])."'>";
 			echo "<input class='item_comment' name='data[Content][comment][$h]' type='hidden' id='comment_$h' value='".h($econtents[2])."'>";
 			
 			if($econtents[0] == "__heading__"){
