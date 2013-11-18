@@ -4,7 +4,7 @@
 		<?php 
 			echo $this->Html->charset();
 			echo $this->Html->meta('utf-8');
-			echo "<meta http-equiv='X-UA-Compatible' content='IE=8' />";
+			echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7; IE=EDGE; chrome=1\" />";
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			//echo $this->Html->script('http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js', array( 'inline' => false ) );
