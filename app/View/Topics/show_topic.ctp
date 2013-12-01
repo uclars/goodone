@@ -80,11 +80,11 @@ foreach($show_contents as $contents_array){
 		echo "</div>";
 	}
 	else{
-		echo "<blockquote>";
+		echo "<blockquote style='margin-bottom:0px'>";
 		echo "<p>".h($contents_array[1])."</p>";
 		echo "<small><cite title='".h($contents_array[0])."'><a href='".h($contents_array[0])."' target='_'>".h($contents_array[0])."</a></cite></small>";
 		echo "</blockquote>";
-		echo "<span style='padding-top:0px;'>".h($contents_array[2])."</span>";
+		echo "<p>".h($contents_array[2])."</p>";
 	}
 			
 }
