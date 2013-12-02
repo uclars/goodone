@@ -104,7 +104,7 @@ foreach($show_contents as $contents_array){
 	//Comment
 ?>
 	<div class='span12'>
-	<h3  style="margin:55px 0 0 0;">Comments</h3>
+	<h3  style="margin:50px 0 0 0;">Comments</h3>
 	<!-- For DISQUS -->
 	<div id='disqus_thread'></div>
 	<script type="text/javascript">
