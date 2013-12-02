@@ -57,7 +57,7 @@ foreach($show_contents as $contents_array){
 		echo"<div class='page-header'><h2>".h($contents_array[2])."</h2></div>";
 	}
 	elseif($contents_array[0] == "__textcomment__"){
-		echo "<p>".h($contents_array[2])."</p>";
+		echo "<div style='font-size:medium; margin-top:20px;'>".h($contents_array[2])."</div>";
 	}
 	elseif($contents_array[0] == "__imageurl__"){
 		$pic_ad_array = array();
@@ -80,7 +80,7 @@ foreach($show_contents as $contents_array){
 		echo "</div>";
 	}
 	else{
-		echo "<blockquote style='margin-bottom:0px'>";
+		echo "<blockquote style='margin-top:20px; margin-bottom:0px'>";
 		echo "<p>".h($contents_array[1])."</p>";
 		echo "<small><cite title='".h($contents_array[0])."'><a href='".h($contents_array[0])."' target='_'>".h($contents_array[0])."</a></cite></small>";
 		echo "</blockquote>";
@@ -94,13 +94,14 @@ foreach($show_contents as $contents_array){
 	echo "</div>";
 
 	// Tags
+/*
 	echo "<div class='span12'>";
 		echo "<h3>Tags</h3>";
 		foreach($tag_info as $tinfo){
 			echo "$tinfo, ";
 		}
 	echo "</div>";
-
+*/
 	//Comment
 ?>
 	<div class='span12'>
