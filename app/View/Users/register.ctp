@@ -22,7 +22,7 @@ echo "<div class='row'>";
 						echo "Hi I'm your avator dog. I'm ".h($me_image['name']).".";
 						echo "<p>Your name is shown below the box.</p>";
 						echo "<p>If you don't want to use it, you can change it.</p>";
-						echo "<p style='color: black; font: bold large/150%; text-align:center;'>".$me_array['username']."</p>";
+						echo "<p style='color: black; font-weight: bold; text-align:center;'>".$me_array['username']."</p>";
 					echo "</pre>";
 				echo "</div>";
 			echo "</div>";
