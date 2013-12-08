@@ -26,7 +26,9 @@ echo "<div class='row'>";
 				echo "</div>";
 			echo "</div>";
 			echo "<div class='span8' style='text-align:center; line-height:100%; margin-bottom:25px;'>";
-				echo "<pre>".$this->HTML->link($me_array['username']' is fine','#',array('id'=>'changenamelink'))."</pre>";
+				$register_bottom_words = null;
+				$register_bottom_words = $me_array['username'] + "is fine. Register me with this name."
+				echo "<pre>".$this->HTML->link($register_bottom_words,'#',array('id'=>'changenamelink'))."</pre>";
 				echo "<span id='gohomelink'><pre>".$this->HTML->link('No change. Go Top Page','/',array('id'=>'gohomebutton'))."</pre></span>";
 				echo "<div id='changename' style='display:none'>";
 					echo "<span style='margin-right:30px;'><input id='newname' type='text'></span>";
