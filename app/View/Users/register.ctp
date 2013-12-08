@@ -19,7 +19,7 @@ echo "<div class='row'>";
 				echo "</div>";
 				echo "<div class='span6' style='text-align:left; line-height:120%; display:table-cell; vertical-align:middle; margin-bottom:25px;'>";	
 					echo "<div class='hero-unit'>";
-						echo "Hi I'm your avator dog. I'm ".h($me_image['name']).".";
+						echo "<p>Hi I'm your avator dog. I'm ".h($me_image['name']).".</p>";
 						echo "<p>Your name is shown below.</p>";
 						echo "<p>If you don't want to use it, you can change it.</p>";
 						echo "<p style='color: black; font-weight: bold; text-align:center;'>".$me_array['username']."</p>";
