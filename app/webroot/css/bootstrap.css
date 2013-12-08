@@ -4985,6 +4985,9 @@ a.badge:hover {
 .hero-unit li {
   line-height: 30px;
 }
+.hero-unit p{
+  line-height: 3px;
+}
 .pull-right {
   float: right;
 }
