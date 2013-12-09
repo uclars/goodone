@@ -19,7 +19,7 @@
 ///////////////////////////////////////////////////
 ////////////////    TOPIC   ///////////////////////
 ///////////////////////////////////////////////////
-echo "<div class='row' style='margin-bottom:50px;'>";
+echo "<div class='row' style='margin-top:30px;margin-bottom:50px;'>";
 	echo "<div class='span2'>";
 		echo "<div class='topic_pic'>".$this->html->image($topics[0]['Mastercategory']['url'])."</div>";
 	echo "</div>";
