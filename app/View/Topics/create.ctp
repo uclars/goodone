@@ -184,6 +184,7 @@ if(!empty($editing_contents)){
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
 	echo "<button type='submit' class='submitclass' onclick='createsubmit();'>Save</button>";
+	echo " ";
 	echo "<button type='submit' class='submitclass' onclick='createpublish();'>Publish</button>";
 	echo "</form>"; 
 }else{
