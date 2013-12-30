@@ -80,7 +80,7 @@
 			<!--<p class="lead">Exciting & Useful Contetns for Mature Audiences</p>-->
 			<div style='text-align:center; color:#333; line-height:150%; margin-bottom:35px'>
 				<h1>Most important contents only</h1>
-				<h1>Enjoy reading Roundups</h1>
+				<h1>Share what you reserched</h1>
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
 				<p>Good one provides only bare essentials we need to know for one topic.</p>
