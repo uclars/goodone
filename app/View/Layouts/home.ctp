@@ -83,7 +83,7 @@
 				<h1>Share what you reserched</h1>
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
-				<p>Good one provides only bare essentials we need to know for one topic.</p>
+				<p>Good one provides only bare essentials someone has already searched and selected.</p>
 			</div>
 		</div>
 	</div>

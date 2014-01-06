@@ -43,7 +43,7 @@ class TopicsController extends AppController {
 
 		$topic_id = $this->params['named']['topicid'];
 
-		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id, 'Topic.hidden'=>FALSE)));
 
 		//Topic Array for all
 		$this->set('topics', $topic_array);
