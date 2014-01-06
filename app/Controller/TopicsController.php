@@ -32,6 +32,12 @@ class TopicsController extends AppController {
 	}
 
 
+	//Check hide/delete topic
+	function _checkInvisibleTopic(){
+		
+	}
+
+
 /////////////////////////////////////////////////////////////
 /////////    Show Topics ////////////////////////////////////
 ////////////////////////////////////////////////////////////
@@ -42,62 +48,66 @@ class TopicsController extends AppController {
 		$this->set('auth', $isAuthenticated);
 
 		$topic_id = $this->params['named']['topicid'];
+		//$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0)));
 
-		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
-
-		//Topic Array for all
-		$this->set('topics', $topic_array);
-
-		//Topic Title
-		$this->set('topictitle', $topic_array[0]['Topic']['name']);
-
-		//Get User Info
-		$topic_array_pic = $this->User->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'recursive' => -2));
-		$this->set('topic_user_pic', $topic_array_pic);
-
-		//get Tags
-		$tag_info = $this->_get_tags($topic_array[0]['Tag']);
-		$this->set('tag_info', $tag_info);
-
-		//size of items
-		$item_num = count($topic_array[0]['Comment']);
-
-		//first contents
-		foreach($topic_array as $each_topics){
-			//Each Title
-			$i=0;
-			$title_array=array();
-			foreach($each_topics['Title'] as $each_title){
-				$title_array[$i]=$each_title;
-				$i++;
-			}
-			//Each Content
-			$j=0;
-			$content_array=array();
-			foreach($each_topics['Content'] as $each_content){
-				$content_array[$j]=$each_content;
-				$j++;
-			}
-			//Each Commen
-			$t=0;
-			$comment_array=array();
-			foreach($each_topics['Comment'] as $each_comment){
-				$comment_array[$t]=$each_comment;
-				$t++;
-			}
+		//Chech if the topic is deleted or hide
+		if(empty($topic_array)){
+			$this->redirect('/');
 		}
+		else{
+			//Topic Array for all
+			$this->set('topics', $topic_array);
+
+			//Topic Title
+			$this->set('topictitle', $topic_array[0]['Topic']['name']);
+
+			//Get User Info
+			$topic_array_pic = $this->User->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'recursive' => -2));
+			$this->set('topic_user_pic', $topic_array_pic);
+
+			//get Tags
+			$tag_info = $this->_get_tags($topic_array[0]['Tag']);
+			$this->set('tag_info', $tag_info);
+
+			//size of items
+			$item_num = count($topic_array[0]['Comment']);
+
+			//first contents
+			foreach($topic_array as $each_topics){
+				//Each Title
+				$i=0;
+				$title_array=array();
+				foreach($each_topics['Title'] as $each_title){
+					$title_array[$i]=$each_title;
+					$i++;
+				}
+				//Each Content
+				$j=0;
+				$content_array=array();
+				foreach($each_topics['Content'] as $each_content){
+					$content_array[$j]=$each_content;
+					$j++;
+				}
+				//Each Commen
+				$t=0;
+				$comment_array=array();
+				foreach($each_topics['Comment'] as $each_comment){
+					$comment_array[$t]=$each_comment;
+					$t++;
+				}
+			}
 
 
-		//combine the three arrays into one array
-		$show_array=array();
-		for($l = 0; $l < $item_num; $l++){
-			$show_array[$l]=array($title_array[$l]['title'],$content_array[$l]['content'],$comment_array[$l]['comment']);
+			//combine the three arrays into one array
+			$show_array=array();
+			for($l = 0; $l < $item_num; $l++){
+				$show_array[$l]=array($title_array[$l]['title'],$content_array[$l]['content'],$comment_array[$l]['comment']);
+			}
+	
+			$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
+			$this->set('show_contents',$show_array);
 		}
-
-		$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
-		$this->set('show_contents',$show_array);
-
-
 /*
 echo "<PRE>";
 var_dump($show_array);
