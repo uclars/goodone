@@ -86,7 +86,7 @@ class HomeController extends AppController {
 			$start_date = gmdate("Y/m/d",strtotime("-38 week"));
 			$end_date = gmdate("Y/m/d H:i:s");
 			//$tcondition = array('Topic.deleted'=>0, 'Topic.hide'=>0, 'Topic.created >=' => $start_date, 'Topic.created <=' => $end_date);
-			$tcondition = array('Topic.deleted'=>0, 'Topic.created >=' => $start_date, 'Topic.created <=' => $end_date);
+			$tcondition = array('Topic.deleted'=>0, 'Topic.hide'=>0, 'Topic.created >=' => $start_date, 'Topic.created <=' => $end_date);
 			$topics = $this->Topic->find('all',array('conditions' => $tcondition, 'order' => array('created DESC')));
 			$this->set('topics', $topics);
 
