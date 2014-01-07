@@ -380,6 +380,7 @@ exit;
 					$data['description']=$this->data["Topic_Description"];
 				}
 				//publish or hide
+debug($this->data["Topic_Publish"]);
 				$data['hide']=$this->data["Topic_Publish"];
 
 
