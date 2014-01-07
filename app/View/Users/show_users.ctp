@@ -42,4 +42,22 @@ echo "<div class='row'>";
 	echo "</div>";
 echo "</div>";
 ?>
+<SCRIPT language="JavaScript">
+//$(function(){
+$('#topic_delete').live('click',function(e){
+//      $("#topic_delete").live('click',function(e){
+alert("YYY");
+//              $(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+                        //disappear
+//                      $(this).attr("style","display:none");
+                        //disable FORM attribute
+                        //$(this).children(".item_title").attr("value","disabled");
+                        //$(this).children(".item_content").attr("value","disabled");
+                        //$(this).children(".item_comment").attr("value","disabled");
 
+                        //contentnum=($(".contentsbody").length);
+                        //$("#num").val(contentnum);
+//}             );
+//       });
+});
+</SCRIPT>
