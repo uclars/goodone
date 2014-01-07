@@ -180,6 +180,12 @@ debug($this->data);
 					$data['Topic_Description'] = $this->data['Topic_Description'];
 					$data['Content']['title'] = $this->data['Content']['title'];
 					$data['Content']['content'] = $this->data['Content']['content'];
+					//save with hide or publish
+					if($this->data['Topic_Publish']){
+						$data['Content']['hide'] = 1;
+					}else{
+						$data['Content']['hide'] = 0;
+					}
 
 					$commentarr = $this->data['Content']['comment'];
 					foreach($data['Content']['title'] as $key => $title)
@@ -187,7 +193,7 @@ debug($this->data);
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
-//					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -210,6 +216,12 @@ debug($this->data);
 						$data['Topic_Description'] = $this->data['Topic_Description'];
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
+						//save with hide or publish
+						if($this->data['Topic_Publish']){
+							$data['Content']['hide'] = 1;
+						}else{
+							$data['Content']['hide'] = 0;
+						}
 
 						$commentarr = $this->data['Content']['comment'];
 						foreach($data['Content']['title'] as $key => $title)
@@ -217,7 +229,7 @@ debug($this->data);
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
 
-//						$this->_save_data($data,$me,$topicid,$topic_array);
+						$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
 					//delete topic id session
