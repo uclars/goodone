@@ -129,6 +129,7 @@ if(!empty($editing_contents)){
 		<input type="hidden" name="Topic_Title" id="Topic_Title">
 		<input type="hidden" name="Topic_Category" id="Topic_Category">
 		<input type="hidden" name="Topic_Description" id="Topic_Description">
+		<input type="hidden" name="Topic_Publish" id="Topic_Publish">
 		<input type="hidden" name="data[num]" id="num">
 		<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
 		<Div id="dropArea">
@@ -204,7 +205,7 @@ function createsubmit(num){
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
-	document.createsub.Topic_publish.value = num;
+	document.createsub.Topic_Publish.value = num;
 
 }
 </SCRIPT>
