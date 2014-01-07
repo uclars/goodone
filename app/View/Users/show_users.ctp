@@ -46,8 +46,7 @@ echo "</div>";
 $(function(){
 //$('#topic_delete').live('click',function(e){
       $("#topic_delete").live('click',function(e){
-alert("YYY");
-//              $(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+              $(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
                         //disappear
 //                      $(this).attr("style","display:none");
                         //disable FORM attribute
@@ -57,7 +56,7 @@ alert("YYY");
 
                         //contentnum=($(".contentsbody").length);
                         //$("#num").val(contentnum);
-//}             );
+		});
        });
 });
 </SCRIPT>
