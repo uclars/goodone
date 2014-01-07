@@ -103,7 +103,8 @@ if(!empty($editing_contents)){
 		<div class="tab-pane" id="E">
 			<div class="row">
 				<div class="span4">
-					<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
+					<!--<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
+					<form id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
 						<div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
 						<div class="input text"><label for="imagetext"></label><input name="data[Topic]" id="imagetext" value="key word" type="text"></div>
 						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="SEARCH on flickr"></div>
@@ -199,7 +200,6 @@ function createsubmit(num){
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
-	var num=1;
 
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
