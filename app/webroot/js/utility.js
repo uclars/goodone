@@ -250,6 +250,7 @@ $(function(){
 
                         //contentnum=($(".contentsbody").length);
                         //$("#num").val(contentnum);
+alart("YYY");
                 });
         });
 });
