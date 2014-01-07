@@ -204,5 +204,8 @@ function createsubmit(num){
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_publish.value = num;
+
+alert(num);
+
 }
 </SCRIPT>
