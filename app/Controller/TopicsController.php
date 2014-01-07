@@ -154,12 +154,13 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
+/*
 debug($newtopicid);
 
 debug($this->params);
 debug($this->data);
-//exit;
-
+exit;
+*/
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -380,7 +381,6 @@ exit;
 					$data['description']=$this->data["Topic_Description"];
 				}
 				//publish or hide
-debug($this->data["Topic_Publish"]);
 				$data['hide']=$this->data["Topic_Publish"];
 
 
