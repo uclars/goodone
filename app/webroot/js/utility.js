@@ -225,17 +225,12 @@ $('#moreButton').live('click',function(e){
 $(function(){
 	$(".contentsBox .delete").live('click',function(e){
 		$(this).parents(".contentsBox").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
-			//$(this).remove();
 			//disappear
 			$(this).attr("style","display:none");
 			//disable FORM attribute
-			//$(this).children(".item_title").attr("disabled","disabled");
 			$(this).children(".item_title").attr("value","disabled");
-			//$(this).children(".item_content").attr("disabled","disabled");
 			$(this).children(".item_content").attr("value","disabled");
-			//$(this).children(".item_comment").attr("disabled","disabled");
 			$(this).children(".item_comment").attr("value","disabled");
-
 
 			contentnum=($(".contentsbody").length);
 			$("#num").val(contentnum);
@@ -243,6 +238,21 @@ $(function(){
 	});
 });
 
+$(function(){
+	$(".topic_delete").live('click',function(e){
+		$(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+			//disappear
+//			$(this).attr("style","display:none");
+			//disable FORM attribute
+                        //$(this).children(".item_title").attr("value","disabled");
+                        //$(this).children(".item_content").attr("value","disabled");
+                        //$(this).children(".item_comment").attr("value","disabled");
+
+                        //contentnum=($(".contentsbody").length);
+                        //$("#num").val(contentnum);
+                });
+        });
+});
 
 $('#copy').live('click',function(e)
 {

@@ -51,7 +51,7 @@
                         .submitclass:hover{
                                 background: #ddd
                         }
-			.delete{
+			.topic_delete{
 				cursor: pointer;
 				color: #3cf;
 				margin-top:10px;
