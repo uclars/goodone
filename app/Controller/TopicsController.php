@@ -154,11 +154,11 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
-//debug($newtopicid);
+debug($newtopicid);
 
-//debug($this->params);
-//debug($this->data);
-//exit;
+debug($this->params);
+debug($this->data);
+exit;
 
 
 			//if edit page, get the contents

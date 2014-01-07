@@ -183,9 +183,9 @@ if(!empty($editing_contents)){
 <?php
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
-	echo "<button type='submit' class='submitclass' onclick='createsubmit();'>Save</button>";
+	echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Save</button>";
 	echo " ";
-	#echo "<button type='submit' class='submitclass' onclick='createpublish();'>Publish</button>";
+	echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Publish</button>";
 	echo "</form>"; 
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
@@ -195,7 +195,7 @@ if(!empty($auth)){
 
 
 <SCRIPT language="JavaScript">
-function createsubmit(){
+function createsubmit(num){
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
@@ -203,5 +203,6 @@ function createsubmit(){
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
+	document.createsub.Topic_publish.value = num;
 }
 </SCRIPT>
