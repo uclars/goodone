@@ -197,7 +197,7 @@ if(!empty($auth)){
 
 
 <SCRIPT language="JavaScript">
-function createsubmit(num){
+function createsubmit(submitnum){
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
@@ -205,7 +205,7 @@ function createsubmit(num){
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
-	document.createsub.Topic_Publish.value = num;
+	document.createsub.Topic_Publish.value = submitnum;
 
 }
 </SCRIPT>
