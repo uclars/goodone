@@ -241,7 +241,7 @@ $(function(){
 //$(function(){
 //	$(".topic_delete").live('click',function(e){
 $('#topic_delete').live('click',function(e){
-alart("YYY");
+alert("YYY");
 //		$(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear
 //			$(this).attr("style","display:none");
