@@ -199,13 +199,12 @@ function createsubmit(num){
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
+	var num=1;
 
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_publish.value = num;
-
-alert(num);
 
 }
 </SCRIPT>
