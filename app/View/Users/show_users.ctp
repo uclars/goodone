@@ -44,8 +44,10 @@ echo "</div>";
 ?>
 <SCRIPT language="JavaScript">
 $(function(){
-//$('#topic_delete').live('click',function(e){
       $("#topic_delete").live('click',function(e){
+
+alert("delete row");
+
               $(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
                         //disappear
 //                      $(this).attr("style","display:none");
