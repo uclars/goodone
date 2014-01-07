@@ -381,7 +381,7 @@ exit;
 					$data['description']=$this->data["Topic_Description"];
 				}
 				//publish or hide
-				$data['publish']=$this->data["Topic_Publish"];
+				$data['hide']=$this->data["Topic_Publish"];
 
 
 				//save Topic name and category to DB
@@ -419,6 +419,7 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
