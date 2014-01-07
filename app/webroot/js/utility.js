@@ -238,9 +238,8 @@ $(function(){
 	});
 });
 
-//$(function(){
-//	$(".topic_delete").live('click',function(e){
-$('#topic_delete').live('click',function(e){
+$(function(){
+	$(".topic_delete").live('click',function(e){
 alert("YYY");
 //		$(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear
@@ -253,7 +252,7 @@ alert("YYY");
                         //contentnum=($(".contentsbody").length);
                         //$("#num").val(contentnum);
 //}		);
- //       });
+/       });
 });
 
 $('#copy').live('click',function(e)
