@@ -55,7 +55,8 @@
 				cursor: pointer;
 				color: #3cf;
 				margin-top:10px;
-				text-align:center;
+				margin-left:10px;
+				text-align:left;
 			}
 		</style>
 	</head>
