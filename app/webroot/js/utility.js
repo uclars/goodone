@@ -239,7 +239,7 @@ $(function(){
 });
 
 $(function(){
-	$(".topic_delete").live('click',function(e){
+	$("#topic_delete").live('click',function(e){
 alert("YYY");
 //		$(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear
