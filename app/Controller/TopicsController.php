@@ -187,7 +187,7 @@ debug($this->data);
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
-					$this->_save_data($data,$me,$topicid,$topic_array);
+//					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -217,7 +217,7 @@ debug($this->data);
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
 
-						$this->_save_data($data,$me,$topicid,$topic_array);
+//						$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
 					//delete topic id session
