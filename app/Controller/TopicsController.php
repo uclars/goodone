@@ -178,14 +178,9 @@ debug($this->data);
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
+					$data['Topic_Publish'] = $this->data['Topic_Publish'];
 					$data['Content']['title'] = $this->data['Content']['title'];
 					$data['Content']['content'] = $this->data['Content']['content'];
-					//save with hide or publish
-					if($this->data['Topic_Publish']){
-						$data['Content']['hide'] = 1;
-					}else{
-						$data['Content']['hide'] = 0;
-					}
 
 					$commentarr = $this->data['Content']['comment'];
 					foreach($data['Content']['title'] as $key => $title)
@@ -214,14 +209,9 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
-						//save with hide or publish
-						if($this->data['Topic_Publish']){
-							$data['Content']['hide'] = 1;
-						}else{
-							$data['Content']['hide'] = 0;
-						}
 
 						$commentarr = $this->data['Content']['comment'];
 						foreach($data['Content']['title'] as $key => $title)
@@ -243,6 +233,7 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
 
@@ -388,6 +379,9 @@ exit;
 				}else{
 					$data['description']=$this->data["Topic_Description"];
 				}
+				//publish or hide
+				$data['hide']=$this->data["Topic_Publish"];
+
 
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
