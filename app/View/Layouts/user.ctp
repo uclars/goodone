@@ -51,6 +51,12 @@
                         .submitclass:hover{
                                 background: #ddd
                         }
+			.delete{
+				cursor: pointer;
+				color: #3cf;
+				margin-top:10px;
+				text-align:center;
+			}
 		</style>
 	</head>
 <body>
