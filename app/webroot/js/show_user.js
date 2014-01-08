@@ -8,8 +8,9 @@ $(function(){
 			$(this).children(".span6").attr("style","display:none");
 
 			//display confirm link
-			var confirm_link = "<div class='span8'> <p class='delete_confirm'>[delete confirm]"
-			                   +"</p></div>";
+			//var confirm_link = "<div class='span8'> <p class='delete_confirm'>[delete confirm]"
+			//                   +"</p></div>";
+			var confirm_link = "<a href='home' class='confirm'>Go to home</a>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			$(this).show();
 		});
