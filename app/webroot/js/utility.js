@@ -371,8 +371,8 @@ $(function(){
 
 
 
-$(this).val('Input the target url');
-$(this).show();
+$("#topic_box").val('Input the target url');
+$("#topic_box").show();
 
 			//disappear
 			//$(this).attr("style","display:none");
