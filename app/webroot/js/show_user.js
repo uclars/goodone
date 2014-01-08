@@ -13,7 +13,7 @@ $(function(){
  					   +"<p class='delete_confirm'>[delete]</p> "
 					   +" <p class='delete_cancel'>[cancel]</p>"
 			                   +"</div>";
-			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
+			$(this).children(".span2").before(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
 			$(this).show('slow');
 		});
