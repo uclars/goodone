@@ -373,8 +373,8 @@ $(function(){
 			$(this).children(".span6").attr("style","display:none");
 
 			//display confirm link
-			var confirm_link = "<div class='span8' class='topic_delete'>delete confirm"
-			                   +"</div>";
+			var confirm_link = "<div class='span8'> <p class='topic_delete'>delete confirm"
+			                   +"</p></div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			$(this).show();
 
