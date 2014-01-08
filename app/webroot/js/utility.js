@@ -372,7 +372,7 @@ $(function(){
 			$(this).children(".span2").attr("style","display:none");
 			$(this).children(".span6").attr("style","display:none");
 
-			val confirm_link = "<div class='span8'>rewirte</div>";
+			var confirm_link = "<div class='span8'>rewirte</div>";
 $(this).children(".span6").after(confirm_link);
 $(this).show();
 
