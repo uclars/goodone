@@ -10,7 +10,7 @@ $(function(){
 			//$(this).children(".span6").attr("style","display:none");
 
 			//display confirm link
-			var confirm_link = "<div class='span8' style='text-align:center; margin-bottom:10px;'>" 
+			var confirm_link = "<div id='confirm_link' class='span8' style='text-align:center; margin-bottom:10px;'>" 
 						+"<div id='areyousure' style='color:#f63; font-weight:bold; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
  						+"<p id='delete_confirm' class='delete_confirm'>&nbspdelete&nbsp</p> "
 						+" <p id='delete_cancel' class='delete_cancel'>&nbspcancel&nbsp</p>"
@@ -26,7 +26,7 @@ alert("DELETE");
 	});
 
 	$("#delete_cancel").live('click',function(e){
-alert("CANCEL");
+		$(this).parents("#confirm_link").hide();
 	});
 });
 
