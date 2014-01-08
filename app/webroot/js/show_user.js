@@ -19,7 +19,7 @@ $(function(){
 */
 
 
-$('#topic_delete').on('show', function() {
+$('#myModal').on('show', function() {
 	var id = $(this).data('id'),
 		removeBtn = $(this).find('.danger');
 })
