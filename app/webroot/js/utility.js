@@ -368,10 +368,8 @@ console.log(data);
 // delete a topoic
 $(function(){
 	$("#topic_delete").live('click',function(e){
-
-alert("delete row");
-
-		$(this).parents(".span2").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+		$(this).parents(".span2").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow'});
+		$(this).parents(".span6").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 				//disappear
 //			$(this).attr("style","display:none");
 				//disable FORM attribute
