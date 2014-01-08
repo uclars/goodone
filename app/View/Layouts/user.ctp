@@ -62,7 +62,8 @@
 
 			.delete_confirm{
 				cursor: pointer;
-				background-color:: #3cf;
+				background-color: #3cf;
+				width:50px;
 				color: #fff;
 				margin-top:10px;
 				margin-right:10px;
@@ -72,6 +73,7 @@
 			.delete_cancel{
 				cursor: pointer;
 				background-color: #cf3;
+				width:50px;
 				color: #fff;
 				margin-top:10px;
 				margin-left:10px;
