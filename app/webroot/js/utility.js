@@ -363,12 +363,13 @@ console.log(data);
 	jQuery( '#dragArea' ) . disableSelection();
 }
 
-
-/*
 //////  Users/show_users  ////////////
 // delete a topoic
 $(function(){
 	$("#topic_delete").live('click',function(e){
+
+alert("HJ");
+
 		//$(this).parents(".span2").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow');
 		$(this).parents(".span2").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 				//disappear
@@ -383,5 +384,4 @@ $(function(){
 		});
 	});
 });
-*/
 
