@@ -371,8 +371,8 @@ $(function(){
 
 
 
-$(this).attr("style","display:none");
-$(this).show;
+$(this).children(".span2").attr("value","disabled");
+$(this).children(".span6").attr("value","disabled")
 
 
 			//disappear
