@@ -916,5 +916,9 @@ exit;
 			return $searchresult;
 		}
 	}
+
+	function deletetopic(){
+return true;
+	}
 }
 ?>

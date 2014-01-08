@@ -365,6 +365,7 @@ console.log(data);
 
 //////  Users/show_users  ////////////
 // delete a topoic
+/*
 $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
@@ -391,4 +392,5 @@ $(function(){
 		});
 	});
 });
+*/
 

@@ -12,8 +12,8 @@ $(function(){
 			//display confirm link
 			var confirm_link = "<div id='confirm_link' class='span8' style='text-align:center; margin-bottom:10px;'>" 
 						+"<div id='areyousure' style='color:#f63; font-weight:bold; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
- 						+"<p id='delete_confirm' class='delete_confirm'>&nbspdelete&nbsp</p> "
-						+" <p id='delete_cancel' class='delete_cancel'>&nbspcancel&nbsp</p>"
+ 						+"<p id='delete_confirm' class='delete_confirm'>&nbsp&nbspdelete&nbsp&nbsp</p> "
+						+" <p id='delete_cancel' class='delete_cancel'>&nbsp&nbspcancel&nbsp&nbsp</p>"
 			                   +"</div>";
 			$(this).children(".span2").before(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
@@ -22,11 +22,26 @@ $(function(){
 	});
 
 	$("#delete_confirm").live('click',function(e){
+		var title_id;
+title_id=147;
+		var element_array=[]; //array for all elements(title, content, comment)
+		element_array=[title_id];
+
+		var data = {request : element_array};
+
+		$.ajax({
+			type: "POST",
+			url: "/Topics/deletetopic",
+			data: data,
+			success: function(data, dataType)
+			{
 alert("DELETE");
+			}
+		});
 	});
 
 	$("#delete_cancel").live('click',function(e){
-		$(this).parents("#confirm_link").hide();
+		$(this).parents("#confirm_link").hide('slow');
 	});
 });
 
