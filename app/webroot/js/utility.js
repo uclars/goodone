@@ -361,6 +361,8 @@ console.log(data);
 		revert: 'invalid',
 	} );
 	jQuery( '#dragArea' ) . disableSelection();
+}
+
 
 //////  Users/show_users  ////////////
 // delete a topoic
@@ -382,4 +384,3 @@ alert("delete row");
 		});
 	});
 });
-}
