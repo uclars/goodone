@@ -14,7 +14,7 @@ echo "<div class='row'>";
 				echo "<div class='row' id='topic_box'>";
 					echo "<div class='span2'>";
 						echo $this->Html->image($tlists['Mastercategory']['url']);
-						echo "<a href='#' id='topic_delete' class='confirm-delete'>[remove]</a>";
+						echo "<a href='#' id='topic_delete' class='confirm-delete' data-id='1'>[remove]</a>";
 					echo "</div>";
 					echo "<div class='span6'>";
 						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
