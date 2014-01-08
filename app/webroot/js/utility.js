@@ -368,7 +368,7 @@ console.log(data);
 $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
-$('<div id="ttt" class="contentsBox">isssh</div>');
+$('<div id="ttt" class="contentsBox">isssh</div>').appendTo($(this));
 			//disappear
 			//$(this).attr("style","display:none");
 			//disable FORM attribute
