@@ -304,8 +304,8 @@ $(function(){
 
 ///auto save when div box is moved///
 window.onload = function() {
-//	jQuery( '#sort-drop-area' ).sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
-//		revert: true
+	jQuery( '#sort-drop-area' ).sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
+		revert: true
 
 /*
 		var topic_title = $("#url").val();
@@ -353,7 +353,7 @@ console.log(data);
 			});
 	//	}
 */
-//	}});
+	}});
 
 	jQuery( '#dragArea' ).find('img,li').draggable( {
 		connectToSortable: '#sort-drop-area',
@@ -364,6 +364,7 @@ console.log(data);
 }
 
 
+/*
 //////  Users/show_users  ////////////
 // delete a topoic
 $(function(){
@@ -382,3 +383,5 @@ $(function(){
 		});
 	});
 });
+*/
+
