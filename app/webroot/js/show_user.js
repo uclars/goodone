@@ -11,7 +11,7 @@ $(function(){
 			var confirm_link = "<div class='span8' style='text-align:center; margin-bottom:10px;'>" 
 					   +"<div id='areyousure' style='color:#f63; font-weight:bold; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
  					   +"<p class='delete_confirm'>[delete]</p> "
-					   +" <p class='delete_confirm'>[cancel]</p>"
+					   +" <p class='delete_calcel'>[cancel]</p>"
 			                   +"</div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
