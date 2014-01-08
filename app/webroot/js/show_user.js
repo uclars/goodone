@@ -4,8 +4,6 @@ $(function(){
 	$("#topic_delete").live('click',function(e){
 			//disappear the delete topic link
 			$(this, ".span2").attr("style","display:none");
-			//$(this).children(".span2").attr("style","margin-bottom:13px");
-			//$(this).children(".span2").show();
 
 			//display confirm link
 			var confirm_link = "<div id='confirm_link' class='span8' style='text-align:center; margin-bottom:10px;'>" 
@@ -58,7 +56,7 @@ alert("DELETE");
 	});
 
 	$("#delete_cancel").live('click',function(e){
-		$(this).parents("#confirm_link").hide('slow');
+		$(this).parents("#confirm_link").hide('medium');
 	});
 });
 
