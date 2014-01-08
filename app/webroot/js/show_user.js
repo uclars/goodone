@@ -11,8 +11,7 @@ $(function(){
 						+" <p id='delete_cancel' class='delete_cancel'>&nbsp&nbspcancel&nbsp&nbsp</p>"
 			                   +"</div>";
 			$(this).parent(".span2").before(confirm_link); //add new div to show confirm link
-			//$(this).show("slide",{direction: 'right'});
-			$(this).show('slow');
+			$("#confirm_link").show('slow');
 
 /*
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
