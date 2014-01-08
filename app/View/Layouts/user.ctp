@@ -72,7 +72,7 @@
                         }
 			.delete_cancel{
 				cursor: pointer;
-				background-color: #cf3;
+				background-color: #bbb;
 				color: #fff;
 				font-weight: bold;
 				margin-top:10px;
