@@ -371,7 +371,6 @@ $(function(){
 
 
 
-$(this).hide();
 $(this).val('Input the target url');
 $(this).show();
 
