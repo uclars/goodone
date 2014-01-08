@@ -368,8 +368,8 @@ console.log(data);
 $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+$('<div id="ttt" class="contentsBox">isssh</div>');
 			//disappear
-			$(this).attr("style","color:'#9a4d9e';cursor:'default'");
 			//$(this).attr("style","display:none");
 			//disable FORM attribute
 			//$(this).children(".item_title").attr("value","disabled");
