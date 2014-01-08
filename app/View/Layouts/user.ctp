@@ -4,9 +4,9 @@
 		<?php 
 			echo $this->Html->charset();
 			echo $this->Html->meta('utf-8');
-			//echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array( 'inline' => false ) );
-			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js', array( 'inline' => false ) );
-			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
+			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array( 'inline' => false ) );
+			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
+			//echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			echo $this->Html->script('show_user.js', array( 'inline' => false ) );
 			echo $this->Html->css('bootstrap');
 			//echo $this->Html->css('additional');
