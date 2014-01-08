@@ -2,7 +2,20 @@
 // delete a topoic
 $(function(){
 	$("#topic_delete").live('click',function(e){
-//		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+
+
+			//display confirm link
+			var confirm_link = "<div id='confirm_link' class='span8' style='text-align:center; margin-bottom:10px;'>" 
+						+"<div id='areyousure' style='color:#f63; font-weight:bold; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
+ 						+"<p id='delete_confirm' class='delete_confirm'>&nbsp&nbspdelete&nbsp&nbsp</p> "
+						+" <p id='delete_cancel' class='delete_cancel'>&nbsp&nbspcancel&nbsp&nbsp</p>"
+			                   +"</div>";
+			$(this).parent(".span2").before(confirm_link); //add new div to show confirm link
+			//$(this).show("slide",{direction: 'right'});
+			$(this).show('slow');
+
+/*
+		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear the delete topic link
 			$(".span2, #topic_delete",this).attr("style","display:none");
 			$(this).children(".span2").attr("style","margin-bottom:13px");
@@ -18,8 +31,8 @@ $(function(){
 			$(this).children(".span2").before(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
 			$(this).show('slow');
-//		});
-		event.preventDefault();
+		});
+*/
 	});
 
 	$("#delete_confirm").live('click',function(e){
