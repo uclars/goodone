@@ -21,6 +21,18 @@ echo "<div class='row'>";
 						echo $tlists['Topic']['description'];
 					echo "</div>";
 					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:10px;'></div>";
+?>
+
+    <div class="modal-body">
+        <p>You are about to delete.</p>
+        <p>Do you want to proceed?</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" id="btnYes" class="btn danger">Yes</a>
+      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
+    </div>
+
+<?php
 				echo "</div>";
 			}
 		}
