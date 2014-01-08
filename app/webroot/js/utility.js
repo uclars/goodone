@@ -304,7 +304,7 @@ $(function(){
 
 ///auto save when div box is moved///
 window.onload = function() {
-	jQuery( '#sort-drop-area' ) . sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
+	jQuery( '#sort-drop-area' ).sortable( {revert: true, opacity: 0.8, cursor: 'move', update: function() {
 		revert: true
 
 /*
