@@ -8,7 +8,7 @@ $(function(){
 			$(this).children(".span6").attr("style","display:none");
 
 			//display confirm link
-			var confirm_link = "<div class='span8'> <p class='delete_confirm'>[delete confirm]"
+			var confirm_link = "<div class='span8'> Are you sure to delete this topic? <p class='delete_confirm'>[delete]"
 			                   +"</p></div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
