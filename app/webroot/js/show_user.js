@@ -3,8 +3,8 @@
 $(function(){
 	$("#topic_delete").live('click',function(e){
 			//disappear the delete topic link
-			$(".span2, #topic_delete",this).attr("style","display:none");
-			$(this).children(".span2").attr("style","margin-bottom:13px");
+			$(".span2",this).attr("style","display:none");
+			//$(this).children(".span2").attr("style","margin-bottom:13px");
 			//$(this).children(".span2").show();
 
 			//display confirm link
