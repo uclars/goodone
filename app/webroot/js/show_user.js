@@ -10,12 +10,27 @@ $(function(){
 			//display confirm link
 			//var confirm_link = "<div class='span8'> <p class='delete_confirm'>[delete confirm]"
 			//                   +"</p></div>";
-			var confirm_link = "<a href='home' class='confirm'>Go to home</a>";
+			var confirm_link = "<button class='confirm' type='button'>Delete the comment</button>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			$(this).show();
 		});
 	});
 });
+
+$(".confirm").confirm({
+    text: "Are you sure you want to delete that comment?",
+    title: "Confirmation required",
+    confirm: function(button) {
+        // do something
+    },
+    cancel: function(button) {
+        // do something
+    },
+    confirmButton: "Yes I am",
+    cancelButton: "No",
+    post: true
+});
+
 
 
 /*!
