@@ -368,12 +368,13 @@ console.log(data);
 $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+			//disappear
+			$(this).children(".span2").attr("style","display:none");
+			$(this).children(".span6").attr("style","display:none");
 
-
-//$(this).show();
-$(this).children(".span2").attr("style","display:none");
-$(this).children(".span6").attr("style","display:none");
-$(this).children(".span6").after("<div class='span8'>rewirte</div>");
+			val confirm_link = "<div class='span8'>rewirte</div>";
+$(this).children(".span6").after(confirm_link);
+$(this).show();
 
 
 			//disappear
