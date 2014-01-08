@@ -12,7 +12,7 @@ $(function(){
 			                   +"</p></div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
-			$(this).show();
+			$(this).show('slow');
 		});
 	});
 });
