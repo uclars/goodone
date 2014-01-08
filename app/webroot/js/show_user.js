@@ -9,9 +9,9 @@ $(function(){
 
 			//display confirm link
 			var confirm_link = "<div class='span8'>" 
-					   +"<div id='areyousure' style='color:#f63; font-weight:blod; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
- 					   +"<p class='delete_confirm'>[delete]</p>"
-					   +"<p class='delete_confirm'>[cancel]/p>"
+					   +"<div id='areyousure' style='color:#f63; font-weight:bold; margin-top:10px; text-align:center;'> Are you sure to delete this topic?</div>"
+ 					   +"<p class='delete_confirm'>[delete]</p> "
+					   +" <p class='delete_confirm'>[cancel]</p>"
 			                   +"</div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
