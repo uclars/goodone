@@ -62,18 +62,18 @@
 
 			.delete_confirm{
 				cursor: pointer;
-				color: #3cf;
+				background-color:: #3cf;
+				color: #fff;
 				margin-top:10px;
-				margin-bottom:20px;
 				margin-right:10px;
 				text-align:center;
 				display:inline;
                         }
 			.delete_cancel{
 				cursor: pointer;
-				color: #cf3;
+				background-color: #cf3;
+				color: #fff;
 				margin-top:10px;
-				margin-bottom:20px;
 				margin-left:10px;
 				text-align:center;
 				display:inline;

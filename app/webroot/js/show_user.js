@@ -3,9 +3,9 @@
 $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
-			//disappear
+			//disappear the delete topic link
 			$(".span2, #topic_delete",this).attr("style","display:none");
-			$(this).children(".span2").attr("style","margin-bottom:10px");
+			$(this).children(".span2").attr("style","margin-bottom:13px");
 			$(this).children(".span2").show();
 			//$(this).children(".span6").attr("style","display:none");
 
