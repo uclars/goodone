@@ -371,7 +371,7 @@ $(function(){
 
 alert("delete row");
 
-		$(this).parents("row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+		$(this).parents(".row").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 				//disappear
 //			$(this).attr("style","display:none");
 				//disable FORM attribute
