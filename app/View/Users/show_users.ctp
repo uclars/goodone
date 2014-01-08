@@ -11,7 +11,7 @@ echo "<div class='row'>";
 		}
 		else{
 			foreach($topic_list as $tlists){
-				echo "<div class='row' id='box1'>";
+				echo "<div class='row' id='topic_box'>";
 					echo "<div class='span2'>";
 						echo $this->Html->image($tlists['Mastercategory']['url']);
 						echo "<p id='topic_delete' class='topic_delete'>[remove]</p>";

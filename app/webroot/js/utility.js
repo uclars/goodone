@@ -367,17 +367,17 @@ console.log(data);
 // delete a topoic
 $(function(){
 	$("#topic_delete").live('click',function(e){
-		//$(this).parents(".span2").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow');
-		$(this).parents("#box1").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
-				//disappear
-//			$(this).attr("style","display:none");
-				//disable FORM attribute
-				//$(this).children(".item_title").attr("value","disabled");
-				//$(this).children(".item_content").attr("value","disabled");
-				//$(this).children(".item_comment").attr("value","disabled");
+		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+			//disappear
+			$(this).attr("style","color:'#9a4d9e';cursor:'default'");
+			//$(this).attr("style","display:none");
+			//disable FORM attribute
+			//$(this).children(".item_title").attr("value","disabled");
+			//$(this).children(".item_content").attr("value","disabled");
+			//$(this).children(".item_comment").attr("value","disabled");
 
-				//contentnum=($(".contentsbody").length);
-				//$("#num").val(contentnum);
+			//contentnum=($(".contentsbody").length);
+			//$("#num").val(contentnum);
 		});
 	});
 });
