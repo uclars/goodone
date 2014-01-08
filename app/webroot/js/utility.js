@@ -372,6 +372,9 @@ $(function(){
 
 $(this).show();
 $(this).children(".span2").attr("style","display:none");
+$(this).children(".span6").attr("style","display:none");
+$(this).children(".span6").after("<div class='span8'>rewirte</div>");
+
 
 			//disappear
 			//$(this).attr("style","display:none");
