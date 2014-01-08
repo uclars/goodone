@@ -370,9 +370,8 @@ $(function(){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 
 
-//$(this).show();
+$(this).show();
 $(this).children(".span2").attr("style","display:none");
-$(this).children(".span6").attr("style","display:none");
 
 			//disappear
 			//$(this).attr("style","display:none");
