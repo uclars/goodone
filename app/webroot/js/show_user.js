@@ -10,7 +10,8 @@ $(function(){
  						+"<p id='delete_confirm' class='delete_confirm'>&nbsp&nbspdelete&nbsp&nbsp</p> "
 						+" <p id='delete_cancel' class='delete_cancel'>&nbsp&nbspcancel&nbsp&nbsp</p>"
 			                   +"</div>";
-			$(this).parent(".span2").insertAfter(confirm_link).animate({}, 400); //add new div to show confirm link
+			//$(this).parent(".span2").Before(confirm_link); //add new div to show confirm link
+			$(confirm_link).insertBefore$(this).parent(".span2").animate({}, 400); //add new div to show confirm link
 
 /*
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
