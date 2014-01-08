@@ -8,7 +8,8 @@
 			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
 			//echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			echo $this->Html->script('show_user.js', array( 'inline' => false ) );
-			echo $this->Html->css('bootstrap');
+			//echo $this->Html->css('bootstrap');
+			echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
 			//echo $this->Html->css('additional');
 			echo $this->Html->css('layout');
 
