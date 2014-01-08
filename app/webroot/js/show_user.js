@@ -11,7 +11,8 @@ $(function(){
 			var confirm_link = "<div class='span8'> <p class='delete_confirm'>[delete confirm]"
 			                   +"</p></div>";
 			$(this).children(".span6").after(confirm_link); //add new div to show confirm link
-			$(this).show("slide",{direction: 'right'});
+			//$(this).show("slide",{direction: 'right'});
+			$(this).show();
 		});
 	});
 });
