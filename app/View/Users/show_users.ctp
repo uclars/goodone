@@ -24,6 +24,10 @@ echo "<div class='row'>";
 ?>
 
 
+<a href="#" class="confirm-delete" data-id="1">Delete</a><br>
+<a href="#" class="confirm-delete" data-id="2">Delete</a><br>
+<a href="#" class="confirm-delete" data-id="3">Delete</a><br>
+<a href="#" class="confirm-delete" data-id="4">Delete</a><br>
 <div id="myModal" class="modal hide">
     <div class="modal-header">
         <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
