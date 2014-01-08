@@ -14,37 +14,13 @@ echo "<div class='row'>";
 				echo "<div class='row' id='topic_box'>";
 					echo "<div class='span2'>";
 						echo $this->Html->image($tlists['Mastercategory']['url']);
-						echo "<a href='#' id='topic_delete' class='confirm-delete' data-id='1'>[remove]</a>";
+						echo "<p id='topic_delete' class=topic_delete'>[remove]</p>";
 					echo "</div>";
 					echo "<div class='span6'>";
 						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
 						echo $tlists['Topic']['description'];
 					echo "</div>";
 					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:10px;'></div>";
-?>
-
-
-<a href="#" class="confirm-delete" data-id="1">Delete</a><br>
-<a href="#" class="confirm-delete" data-id="2">Delete</a><br>
-<a href="#" class="confirm-delete" data-id="3">Delete</a><br>
-<a href="#" class="confirm-delete" data-id="4">Delete</a><br>
-<div id="myModal" class="modal hide">
-    <div class="modal-header">
-        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
-         <h3>Delete</h3>
-    </div>
-    <div class="modal-body">
-        <p>You are about to delete.</p>
-        <p>Do you want to proceed?</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#" id="btnYes" class="btn danger">Yes</a>
-      <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
-    </div>
-</div>
-
-
-<?php
 				echo "</div>";
 			}
 		}
