@@ -56,7 +56,7 @@
 				cursor: pointer;
 				color: #3cf;
 				margin-top:10px;
-				margin-left:10px;
+				margin-left:5px;
 				text-align:left;
 			}
 
