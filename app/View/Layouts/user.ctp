@@ -64,10 +64,20 @@
 				cursor: pointer;
 				color: #3cf;
 				margin-top:10px;
-				margin-bottom:10px;
+				margin-bottom:20px;
+				margin-right:10px;
 				text-align:center;
 				display:inline;
                         }
+			.delete_cancel{
+				cursor: pointer;
+				color: #cf3;
+				margin-top:10px;
+				margin-bottom:20px;
+				margin-left:10px;
+				text-align:center;
+				display:inline;
+			}
 		</style>
 	</head>
 <body>
