@@ -2,7 +2,7 @@
 // delete a topoic
 $(function(){
 	$("#topic_delete").live('click',function(e){
-		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+//		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear the delete topic link
 			$(".span2, #topic_delete",this).attr("style","display:none");
 			$(this).children(".span2").attr("style","margin-bottom:13px");
@@ -18,7 +18,7 @@ $(function(){
 			$(this).children(".span2").before(confirm_link); //add new div to show confirm link
 			//$(this).show("slide",{direction: 'right'});
 			$(this).show('slow');
-		});
+//		});
 	});
 
 	$("#delete_confirm").live('click',function(e){
