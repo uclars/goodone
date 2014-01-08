@@ -59,6 +59,14 @@
 				margin-left:20px;
 				text-align:left;
 			}
+
+			.delete_confirm{
+				cursor: pointer;
+				color: #3cf;
+				margin-top:10px;
+				margin-bottom:10px;
+				text-align:center;
+                        }
 		</style>
 	</head>
 <body>
