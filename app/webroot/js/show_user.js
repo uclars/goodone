@@ -19,6 +19,7 @@ $(function(){
 			//$(this).show("slide",{direction: 'right'});
 			$(this).show('slow');
 //		});
+		event.preventDefault();
 	});
 
 	$("#delete_confirm").live('click',function(e){
