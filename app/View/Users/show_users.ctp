@@ -23,6 +23,12 @@ echo "<div class='row'>";
 					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:10px;'></div>";
 ?>
 
+
+<div id="myModal" class="modal hide">
+    <div class="modal-header">
+        <a href="#" data-dismiss="modal" aria-hidden="true" class="close">×</a>
+         <h3>Delete</h3>
+    </div>
     <div class="modal-body">
         <p>You are about to delete.</p>
         <p>Do you want to proceed?</p>
@@ -31,6 +37,8 @@ echo "<div class='row'>";
       <a href="#" id="btnYes" class="btn danger">Yes</a>
       <a href="#" data-dismiss="modal" aria-hidden="true" class="btn secondary">No</a>
     </div>
+</div>
+
 
 <?php
 				echo "</div>";
