@@ -4,7 +4,7 @@ $(function(){
 	$("#topic_delete").live('click',function(e){
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
 			//disappear
-			//$(this).children(".span2").attr("style","display:none");
+			$(this).children(".span2").("#topic_delete").attr("style","display:none");
 			//$(this).children(".span6").attr("style","display:none");
 
 			//display confirm link
