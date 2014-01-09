@@ -26,7 +26,7 @@ title_id=147;
 		$.ajax({
 			type: "POST",
 			url: "/Topics/deletetopic",
-			data: dataString,
+			//data: data,
 			success: function(data, dataType)
 			{
 alert(data);
