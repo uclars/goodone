@@ -928,6 +928,22 @@ exit;
 		$topicid = 0; //target title id
 		$topicid = $_POST["title_id"];
 
+
+		$isAuthenticated = $this->Session->read('Auth.User');
+		$isInvited = TRUE;
+
+
+echo $isAuthenticated;
+
+
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid, 'Topic.deleted' => 0, 'Topic.user_id' => $isAuthenticated)));
+
+		//Chech if the topic is owned by the logined user
+		if(empty($topic_array)){
+			return;
+		}
+		else{
+
 		//check delete flag on the database
 		$data=array();
 
@@ -937,6 +953,7 @@ exit;
 		$data['hide']=1;
 		//save Topic name and category to DB
 		$this->Topic->save($data);
+		}
 
 		die();
 	}
