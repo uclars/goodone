@@ -932,6 +932,11 @@ exit;
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
 
+
+
+echo $me;
+
+
 		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid, 'Topic.deleted' => 0, 'Topic.user_id' => $me)));
 
 		//Chech if the topic is owned by the logined user
