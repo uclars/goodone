@@ -918,7 +918,7 @@ exit;
 	}
 
 	function deletetopic(){
-return "hhh";
+echo "hhh";
 	}
 }
 ?>
