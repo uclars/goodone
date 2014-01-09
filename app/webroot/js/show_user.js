@@ -21,7 +21,7 @@ title_id=147;
 		var element_array=[]; //array for all elements(title, content, comment)
 		element_array=[title_id];
 
-		var data = {request : element_array};
+		var data = {request : title_id};
 
 		$.ajax({
 			type: "POST",
