@@ -17,11 +17,15 @@ $(function(){
 
 	$("#delete_confirm").live('click',function(e){
 		var title_id;
-title_id=147;
-		var element_array=[]; //array for all elements(title, content, comment)
-		element_array=[title_id];
 
-		var data = {request : title_id};
+
+title_id = $(this).closest(".span6").("a");
+alert(title_id);
+
+title_id=147;
+
+
+		var data = {title_id: title_id};
 
 		$.ajax({
 			type: "POST",
@@ -30,7 +34,7 @@ title_id=147;
 			data: data,
 			success: function(data)
 			{
-alert(data);
+//alert(data);
 			}
 		});
 	});

@@ -926,7 +926,7 @@ exit;
 //		header("Content-Type: text/html; charset=UTF-8");
 
 		
-$data = $_POST["request"];
+$data = $_POST["title_id"];
 echo $data;
 die();
 	}
