@@ -929,14 +929,11 @@ exit;
 		$topicid = $_POST["title_id"];
 
 
-		$isAuthenticated = $this->Session->read('Auth.User');
-		$isInvited = TRUE;
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
 
 
-echo $isAuthenticated;
-
-
-		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid, 'Topic.deleted' => 0, 'Topic.user_id' => $isAuthenticated)));
+		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid, 'Topic.deleted' => 0, 'Topic.user_id' => $me)));
 
 		//Chech if the topic is owned by the logined user
 		if(empty($topic_array)){
@@ -944,15 +941,15 @@ echo $isAuthenticated;
 		}
 		else{
 
-		//check delete flag on the database
-		$data=array();
+			//check delete flag on the database
+			$data=array();
 
-		/// check the deleted and hide flag on ///
-		$data['id']=$topicid;
-		$data['deleted']=1;
-		$data['hide']=1;
-		//save Topic name and category to DB
-		$this->Topic->save($data);
+			/// check the deleted and hide flag on ///
+			$data['id']=$topicid;
+			$data['deleted']=1;
+			$data['hide']=1;
+			//save Topic name and category to DB
+			$this->Topic->save($data);
 		}
 
 		die();
