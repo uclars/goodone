@@ -927,6 +927,7 @@ exit;
 
 
 echo "hhh";
+die();
 	}
 }
 ?>
