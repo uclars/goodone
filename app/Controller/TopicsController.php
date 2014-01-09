@@ -923,10 +923,12 @@ exit;
 			header("HTTP/1.0 404 Not Found");
 			return;
 		}
-		header("Content-Type: text/html; charset=UTF-8");
+//		header("Content-Type: text/html; charset=UTF-8");
 
 
 echo "hhh";
+return;
+
 	}
 }
 ?>
