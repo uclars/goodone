@@ -20,6 +20,7 @@ $(function(){
 
 
 title_id = $(this).closest(".span6").attr("a");
+title_id = $(this).closest(".span6");
 alert(title_id);
 
 //title_id=147;
