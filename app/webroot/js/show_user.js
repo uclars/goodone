@@ -33,8 +33,8 @@ $(function(){
 			success: function(data)
 			{
 
-data.each(function() {
-    console.log(this.innerHTML);
+for(i=0; i<10; i++){
+    console.log(data[i]);
 });
 //console.log(data);
 			}
