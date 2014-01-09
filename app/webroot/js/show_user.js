@@ -33,9 +33,9 @@ $(function(){
 			success: function(data)
 			{
 
-for(i=0; i<10; i++){
+for(i=0; i<10; i+=1){
     console.log(data[i]);
-});
+}
 //console.log(data);
 			}
 		});
