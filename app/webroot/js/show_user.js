@@ -19,7 +19,7 @@ $(function(){
 		var title_id;
 
 
-title_id = $(this).parent().parent(".row").(".span6");
+title_id = $(this).parent().parent(".row").find(".span6");
 alert(title_id);
 console.log(title_id);
 
