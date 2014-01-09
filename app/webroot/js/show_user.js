@@ -19,7 +19,7 @@ $(function(){
 		var title_id;
 
 
-title_id = $(this).parent().parent(".row").find("a");
+title_id = $(this).parent().parent(".row").find("a").attr("href");
 alert(title_id);
 console.log(title_id);
 
