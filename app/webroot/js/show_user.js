@@ -32,11 +32,7 @@ $(function(){
 			data: data,
 			success: function(data)
 			{
-
-for(i=0; i<10; i+=1){
-    console.log(data[i]);
-}
-//console.log(data);
+console.log(data);
 			}
 		});
 	});
