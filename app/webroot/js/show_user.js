@@ -21,6 +21,8 @@ $(function(){
 
 title_id = $(this).closest(".span6").child("a");
 alert(title_id);
+console.log(title_id);
+
 
 //title_id=147;
 
