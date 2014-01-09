@@ -918,6 +918,14 @@ exit;
 	}
 
 	function deletetopic(){
+		if($_SERVER["REQUEST_METHOD"] != "POST"){
+			//Only POST Method
+			header("HTTP/1.0 404 Not Found");
+			return;
+		}
+		header("Content-Type: text/html; charset=UTF-8");
+
+
 echo "hhh";
 	}
 }
