@@ -37,7 +37,11 @@ $(function(){
 		});
 
 		/// reload the page
-		window.location.reload(true);
+		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
+			//disappear
+			$(this).children(".span2").attr("style","display:none");
+			$(this).children(".span6").attr("style","display:none");
+		});
 	});
 
 	$("#delete_cancel").live('click',function(e){
