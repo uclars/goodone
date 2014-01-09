@@ -17,17 +17,13 @@ $(function(){
 
 	$("#delete_confirm").live('click',function(e){
 		var title_id;
+		var title_id_source;
 
+		/// Get topic id from href attribute
+		title_id_source = $(this).parent().parent(".row").find("a").attr("href");
+		title_id = title_id_source.split(":");
 
-title_id = $(this).parent().parent(".row").find("a").attr("href");
-alert(title_id);
-console.log(title_id);
-
-
-//title_id=147;
-
-
-		var data = {title_id: title_id};
+		var data = {title_id: title_id[1]};
 
 		$.ajax({
 			type: "POST",
@@ -36,7 +32,7 @@ console.log(title_id);
 			data: data,
 			success: function(data)
 			{
-//alert(data);
+alert(data);
 			}
 		});
 	});
