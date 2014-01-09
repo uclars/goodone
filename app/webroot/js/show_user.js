@@ -35,7 +35,7 @@ $(function(){
 
 data.each(function() {
     console.log(this.innerHTML);
-}
+});
 //console.log(data);
 			}
 		});
