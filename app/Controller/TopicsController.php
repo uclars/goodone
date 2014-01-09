@@ -927,8 +927,6 @@ exit;
 
 
 echo "hhh";
-return;
-
 	}
 }
 ?>

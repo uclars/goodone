@@ -28,7 +28,7 @@ title_id=147;
 			url: "/Topics/deletetopic",
 			dataType: "text",
 			data: data,
-			success: function(data, dataType)
+			success: function(data)
 			{
 alert(data);
 			}
