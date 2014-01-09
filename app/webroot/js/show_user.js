@@ -22,7 +22,7 @@ $(function(){
 title_id = $(this).closest(".span6").("a");
 alert(title_id);
 
-title_id=147;
+//title_id=147;
 
 
 		var data = {title_id: title_id};
