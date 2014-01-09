@@ -25,16 +25,19 @@ $(function(){
 
 		var data = {title_id: title_id[1]};
 
+		/// POST topic id and check the delete flag on the database *Topic/deletetopic
 		$.ajax({
 			type: "POST",
 			url: "/Topics/deletetopic",
-			//dataType: "",
 			data: data,
 			success: function(data)
 			{
-console.log(data);
+				console.log(data);
 			}
 		});
+
+		/// reload the page
+		window.location.reload(true);
 	});
 
 	$("#delete_cancel").live('click',function(e){
