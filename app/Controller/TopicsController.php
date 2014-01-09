@@ -934,7 +934,7 @@ exit;
 
 
 
-echo $me;
+$me=123;
 
 
 		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid, 'Topic.deleted' => 0, 'Topic.user_id' => $me)));
