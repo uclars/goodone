@@ -13,7 +13,7 @@ $(function(){
 			                   +"</div>";
 			//$(this).parent(".span2").before(confirm_link); //add new div to show confirm link
 			//$(confirm_link).hide().insertBefore(".span2",this).fadeIn(10000); //add new div to show confirm link
-			 $(confirm_link).hide().fadeIn('slow').before(".span2",this);
+			 $(confirm_link).hide().fadeIn('slow').parentNode.insertBefore(".span2");
 
 /*
 		$(this).parents("#topic_box").animate({width: 'hide', height: 'hide', opacity: 'hide'}, 'slow', function () {
