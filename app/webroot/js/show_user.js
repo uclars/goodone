@@ -32,8 +32,9 @@ $(function(){
 			data: data,
 			success: function(data)
 			{
-for(var i=0; i<data.length; ++i) {
-    console.log(arrayjs[i]);
+
+data.each(function() {
+    console.log(this.innerHTML);
 }
 //console.log(data);
 			}
