@@ -918,17 +918,43 @@ exit;
 	}
 
 	function deletetopic(){
+		//if POST is Error, return
 		if($_SERVER["REQUEST_METHOD"] != "POST"){
 			//Only POST Method
 			header("HTTP/1.0 404 Not Found");
 			return;
 		}
-//		header("Content-Type: text/html; charset=UTF-8");
-
 		
-$data = $_POST["title_id"];
-echo $data;
-die();
+		$titleid = 0; //target title id
+		$titleid = $_POST["title_id"];
+echo $titleid;
+
+		//check delete flag on the database
+		                $orgdata=$data=array();
+
+                /// original Topic title,category,description ///
+                $orgdata['id']=$orgcontents_base[0]['Topic']['id'];
+                $orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
+                $orgdata['name']=$orgcontents_base[0]['Topic']['name'];
+                $orgdata['category']=$orgcontents_base[0]['Topic']['category'];
+                $orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+
+                /// new Topic title,category,description, if there are ///
+                $data['id']=$topic_id_base;
+                $data['user_id']=$me_base;
+                $data['name']=$datacontents_base["Topic_Title"];
+                $data['category']=$datacontents_base["Topic_Category"];
+                $data['description']=$datacontents_base["Topic_Description"];
+                $data['hide']=$datacontents_base["Topic_Publish"];
+
+                /// Compare old data and new data to see if there are differences ///
+                $isnewtopicinfo=array_diff($data,$orgdata);
+                if(!empty($isnewtopicinfo)){
+                        //save Topic name and category to DB
+                        $this->Topic->save($data);
+q
+                }
+		die();
 	}
 }
 ?>
