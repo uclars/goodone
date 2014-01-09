@@ -56,7 +56,7 @@ alert("DELETE");
 	});
 
 	$("#delete_cancel").live('click',function(e){
-		$(this).parents("#confirm_link").hide('medium');
+		$(this).parents("#confirm_link").hide();
 	});
 });
 
