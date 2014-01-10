@@ -14,7 +14,7 @@
 			//echo $this->Html->css('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/blitzer/jquery-ui.css', array( 'inline' => false ) );
 			echo $this->Html->css('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.css', array( 'inline' => false ) );
 			echo $this->Html->css('bootstrap');
-			echo $this->Html->css('bootstrap-responsive');
+			//echo $this->Html->css('bootstrap-responsive');
 			//echo $this->Html->css('bootstrap-wysihtml5');
 			echo $this->Html->css('layout');
 
