@@ -206,6 +206,5 @@ function createsubmit(submitnum){
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_Publish.value = submitnum;
-
 }
 </SCRIPT>
