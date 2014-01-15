@@ -113,7 +113,7 @@ if(!empty($editing_contents)){
 				<div class="span4">
 					<form id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
 						<div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
-						<div class="input text"><label for="imagetext"></label><input name="data[Topic]" id="imagetext" value="key word" type="text"></div>
+						<div class="input text"><label for="imagetext"></label><input name="data[Topic]" id="image" type="file"></div>
 						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="UPLOAD image"></div>
 					</form>
 				</div>
