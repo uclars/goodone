@@ -111,7 +111,7 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span4">
-					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="http://solidpower.qee.jp/upload_save.php">
+					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="/Topics/fileupload">
 						<input name="uploadedfile" type="file" value="choose">
 						<input type="submit" value="Upload">
 					</form>

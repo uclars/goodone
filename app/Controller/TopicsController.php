@@ -851,6 +851,22 @@ exit;
 //echo("</PRE>");
 	}
 
+	function uploadImage(){
+		if (isset($_FILES['uploadedfile'])){
+			$filename = $_FILES['uploadedfile']['tmp_name'];
+			$handle = fopen($filename, "r");
+			$data = fread($handle, filesize($filename));
+			$POST_DATA = array('file'=>base64_encode($data));
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
+			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+			curl_setopt($curl, CURLOPT_POST, 1);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
+			$response = curl_exec($curl);
+			curl_close ($curl);
+		}
+	}
 
 	function _get_editcontents($topic_array){
 		$topic_id = $topic_array[0]['Topic']['id'];
