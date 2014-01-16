@@ -111,7 +111,7 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span4">
-					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="/Topics/fileupload">
+					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="/Topics/uploadImage">
 						<input name="uploadedfile" type="file" value="choose">
 						<input type="submit" value="Upload">
 					</form>
