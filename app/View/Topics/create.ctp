@@ -111,10 +111,9 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span4">
-					<form id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
-						<div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
-						<div class="fileUpload btn btn-primary"><span>Upload</span><input type="file" class="upload" /></div>
-						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="UPLOAD image"></div>
+					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="form.php">
+						<input name="uploadedfile" type="file" value="choose">
+						<input type="submit" value="Upload">
 					</form>
 				</div>
 				<div class="span8">
