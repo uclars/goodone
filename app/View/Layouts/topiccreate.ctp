@@ -122,7 +122,8 @@
 
 			$(document).ready(function() 
 			{
-				$('#photoimg').live('change', function(){ 
+				$('#photoimg').live('change', function(){
+alart("JJJJ");
 					$("#preview").html('');
 					$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
 					$("#imageform").ajaxForm({
