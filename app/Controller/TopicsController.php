@@ -853,16 +853,24 @@ exit;
 
 	function uploadImage(){
 
+/*
 echo "<PRE>";
 var_dump($_FILES);
 echo "</PRE>";
-
+*/
 
 		if (isset($_FILES['uploadedfile'])){
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
 			$POST_DATA = array('file'=>base64_encode($data));
+
+echo "<PRE>";
+var_dump($data);
+echo "</PRE>";
+
+
+
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
 			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
