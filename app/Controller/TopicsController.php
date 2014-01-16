@@ -863,10 +863,11 @@ echo "</PRE>";
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
+			$name = $_FILES['uploadedfile']['name'];
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
-			$POST_DATA = array('file'=>base64_encode($data), 'userid'=>$me);
+			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
 /*
 echo "<PRE>";
