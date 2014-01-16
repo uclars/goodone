@@ -123,7 +123,7 @@
 			$(document).ready(function() 
 			{
 				$('#photoimg').live('change', function(){
-alart("JJJJ");
+echo "HHH#L";
 					$("#preview").html('');
 					$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
 					$("#imageform").ajaxForm({
