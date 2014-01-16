@@ -852,6 +852,12 @@ exit;
 	}
 
 	function uploadImage(){
+
+echo "<PRE>";
+var_dump($_FILES);
+echo "</PRE>";
+
+
 		if (isset($_FILES['uploadedfile'])){
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
