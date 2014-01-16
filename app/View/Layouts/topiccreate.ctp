@@ -119,6 +119,17 @@
 			});
 			var username = <?php echo $userid; ?>;
 			var title_id = <?php echo $tid; ?>;
+
+			$(document).ready(function() 
+			{
+				$('#photoimg').live('change', function(){ 
+					$("#preview").html('');
+					$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
+					$("#imageform").ajaxForm({
+						target: '#preview'
+					}).submit();
+				});
+			}); 
 		</script>
 
 		<!-- Basic Settings -->

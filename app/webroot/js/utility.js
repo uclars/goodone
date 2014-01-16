@@ -177,9 +177,10 @@ $('#get_image').live('click',function(e)
 		$(this).html("").fadeIn(500);
 	});
 
-	e.preventDefault();
+	e.preventDefaul;t();
 });
 
+/// FLICKR Search /////
 //number of images shown in one search
 var numperpage=35;
 $('#submitButton').live('click',function(e){
