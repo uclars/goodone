@@ -111,10 +111,13 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span4">
-					<form enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="/Topics/uploadImage">
-						<input name="uploadedfile" type="file" value="choose">
-						<input type="submit" value="Upload">
-					</form>
+                                        <!--<form id="imageupload" enctype="multipart/form-data" encoding='multipart/form-data' method='post' action="form.php">-->
+                                        <form id="imageform" method="post" enctype="multipart/form-data" action='/Topics/uploadImage'>
+                                                Upload image <input type="file" name="uploadedfile" id="photoimg" />
+                                        </form>
+
+                                        <div id='preview'>
+                                        </div>
 				</div>
 				<div class="span8">
 					<ul id="display_img">
