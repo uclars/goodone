@@ -8,6 +8,13 @@
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('utility.js', array( 'inline' => false ) );
+		echo $this->Html->script('jquery.ui.widget.js', array( 'inline' => false ) );
+		echo $this->Html->script('load-image.min.js', array( 'inline' => false ) );
+		echo $this->Html->script('canvas-to-blob.min.js', array( 'inline' => false ) );
+		echo $this->Html->script('jquery.iframe-transport.js', array( 'inline' => false ) );
+		echo $this->Html->script('jquery.fileupload.js', array( 'inline' => false ) );
+		echo $this->Html->script('jquery.fileupload-process.js', array( 'inline' => false ) );
+
 			//echo $this->Html->script('jquery.upload-1.0.2', array( 'inline' => false ) );
 			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			//echo $this->Html->script('wysihtml5-0.3.0.js', array( 'inline' => false ) );

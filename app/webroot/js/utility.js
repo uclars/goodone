@@ -224,6 +224,26 @@ $('#moreButton').live('click',function(e){
 });
 
 
+
+
+
+        $('#fileupload').fileupload({
+            url: '/topics/uploadImage',
+            dataType: 'json',
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator && navigator.userAgent),
+            imageMaxWidth: 800,
+            imageMaxHeight: 800,
+            previewCrop: true, // Force cropped images
+            send: function(e, data) {
+              alert("sending...");
+            }
+        })
+
+/*
 $("#uploadedfile").live("change", function(){
 	//Clear the images
 	$("#display_img").html('');
@@ -255,7 +275,7 @@ console.log(url);
 console.log(res);
 	}); 
 });
-
+*/
 
 
 

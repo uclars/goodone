@@ -114,9 +114,7 @@ if(!empty($editing_contents)){
 					<!--<form id="imageform" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
 					<!--<form id="imageform" method="post" enctype="multipart/form-data" action='/Topics/uploadImage'>-->
 <form action="javascript:;">
-  <input type="text" id="status" value="" />
-  <input type="file" id="uploadedfile" name="uploadedfile" />
-  <input type="submit" id="update" value="送信" />
+<input type='file' id='fileupload'>
 </form>
 					<!--Upload image <input type="file" name="uploadedfile" id="photoimg" />-->
                                         <!--</form>-->
