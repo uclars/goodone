@@ -202,8 +202,16 @@ $('#imageform').live('change', function(e){
 	//Clear the images
 	$("#preview").html('');
 	// showing loading image
-	$("#preview").html('<img src="loading.gif" alt="Uploading...."/>');
+	$("#preview").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
 
+
+// FormData の作成
+    var form = $('#imageform').get()[0];
+    var formData = new FormData(form);
+
+console.log(formData);
+
+/*
 	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
@@ -211,6 +219,7 @@ $('#imageform').live('change', function(e){
 		//show the images
 		$("#display_img").html(res);
 	});
+*/
 });
 $('#photoimg').live('change', function(e){
 
