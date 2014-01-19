@@ -210,7 +210,6 @@ $('#submitButton').live('click',function(e){
     if ( $("#file").val() !== '' ) {
       fd.append( "file", $("#file").prop("files")[0] );
     }
-console.log(fd);
     // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
       type : "POST",
@@ -221,7 +220,11 @@ console.log(fd);
     };
     // ajax送信
     $.ajax( "/topics/uploadImage", postData ).done(function( text ){
-      alert( text );
+//hide the loading image when images are shown
+                $('#loadingimage').hide();
+
+                //show the images
+                $("#display_img").html(text);
     }); 
   });
 
