@@ -881,6 +881,7 @@ echo "</PRE>";
 			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
 			curl_setopt($curl, CURLOPT_POST, 1);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_HEADER, false);
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
 			$response = curl_exec($curl);
 
