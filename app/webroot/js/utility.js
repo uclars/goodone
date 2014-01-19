@@ -211,24 +211,24 @@ $('#imageform').live('change', function(e){
     var fd = new FormData();
     // テキストデータおよびアップロードファイルが設定されていれば追加
     if ( $("#imageform").val() !== '' ) {
-      fd.append( "file", $("#imageform").prop("files")[0] );
+      fd.append( "photoimg", $("#imageform").prop("files")[0] );
     }
 
 console.log(fd);
 
-    // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
-    var postData = {
-      type : "POST",
-      dataType : "HTML",
-      data : fd,
-      processData : false,
-      contentType : false
-    };
-    // ajax送信
-    $.ajax( "/Topics/uploadImage", postData ).done(function( text ){
-      alert( text );
-    });
- 
+$.ajax({
+       url: "/topics/uploadImage",
+       type: "POST",
+       data: fd,
+       processData: false,
+       contentType: false,
+       success: function(response) {
+           // .. do something
+       },
+       error: function(jqXHR, textStatus, errorMessage) {
+           console.log(errorMessage); // Optional
+       }
+    }); 
 
 
 
