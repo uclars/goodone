@@ -856,6 +856,7 @@ exit;
 
 echo "<PRE>";
 var_dump($_FILES);
+echo "HHHH";
 echo "</PRE>";
 exit;
 
