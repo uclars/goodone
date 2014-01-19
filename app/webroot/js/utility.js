@@ -220,7 +220,7 @@ console.log(fd);
       contentType : false
     };
     // ajax送信
-    $.ajax( "/Topics//topics/uploadImage", postData ).done(function( text ){
+    $.ajax( "/topics/uploadImage", postData ).done(function( text ){
       alert( text );
     }); 
   });
