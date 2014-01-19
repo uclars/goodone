@@ -203,17 +203,14 @@ $('#submitButton').live('click',function(e){
 
 
   $("#uploadedfile").live("change", function(){
-    // FormData オブジェクトを作成
     var fd = new FormData();
-    // テキストデータおよびアップロードファイルが設定されていれば追加
     fd.append( "status", $("#status").val() );
     if ( $("#uploadedfile").val() !== '' ) {
       fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
     }
-    // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
       type : "POST",
-      dataType : "text",
+      dataType : "json",
       data : fd,
       processData : false,
       contentType : false
