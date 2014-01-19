@@ -124,6 +124,22 @@
 						$(this).val("Web Clipping Title").css("color","#969696");
 					}else{$(this).css("color","#000"); }
 				});
+
+        $('#fileupload').fileupload({
+            url: '//jquery-file-upload.appspot.com/',
+            dataType: 'json',
+            // Enable image resizing, except for Android and Opera,
+            // which actually support image resizing, but fail to
+            // send Blob objects via XHR requests:
+            disableImageResize: /Android(?!.*Chrome)|Opera/
+                .test(window.navigator && navigator.userAgent),
+            imageMaxWidth: 800,
+            imageMaxHeight: 800,
+            previewCrop: true, // Force cropped images
+            send: function(e, data) {
+              alert("sending...");
+            }
+        });
 			});
 			var username = <?php echo $userid; ?>;
 			var title_id = <?php echo $tid; ?>;

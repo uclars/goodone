@@ -227,22 +227,6 @@ $('#moreButton').live('click',function(e){
 
 
 
-        $('#fileupload').fileupload({
-            url: '/topics/uploadImage',
-            dataType: 'json',
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
-            disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator && navigator.userAgent),
-            imageMaxWidth: 800,
-            imageMaxHeight: 800,
-            previewCrop: true, // Force cropped images
-            send: function(e, data) {
-              alert("sending...");
-            }
-        })
-
 /*
 $("#uploadedfile").live("change", function(){
 	//Clear the images
@@ -251,7 +235,7 @@ $("#uploadedfile").live("change", function(){
 	$('#loadingimage').show();
         //$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
 
-	var fd = new FormData();
+//	var fd = new FormData();
 	fd.append( "status", $("#status").val() );
 	if ( $("#uploadedfile").val() !== '' ) {
 		fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
