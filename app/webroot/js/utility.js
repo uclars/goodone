@@ -247,7 +247,7 @@ $("#uploadedfile").live("change", function(){
 		$('#loadingimage').hide();
 		//show the images
 //		$("#display_img").html(res);
-$('#display_img').show( '<img src="' + res + '">' );
+$(res).appendTo("#display_img");
 return false;  
 	}); 
 });
