@@ -249,7 +249,7 @@ $("#uploadedfile").live("change", function(){
 var url;
 url=res.split("|");
 		$("#preview").text(url);
-console.log(res);
+console.log(url);
 
 	}); 
 });
