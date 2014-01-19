@@ -203,7 +203,7 @@ $('#submitButton').live('click',function(e){
 //	$("#preview").html('');
 	// showing loading image
 //	$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
-}
+//}
 
 $('#moreButton').live('click',function(e){
 	var currentpage;
