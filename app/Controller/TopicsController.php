@@ -885,7 +885,7 @@ echo "</PRE>";
 			$response = curl_exec($curl);
 			curl_close ($curl);
 
-			var_dump($response);
+			var_dump($response[0]);
 		}
 	}
 
