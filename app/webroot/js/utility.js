@@ -210,7 +210,6 @@ $('#imageform').live('change', function(e){
     var formData = new FormData(form);
 
 
-console.log(form);
 
 // FormData を送信
     $.ajax('/topics/uploadImage', {
