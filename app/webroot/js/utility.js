@@ -246,7 +246,9 @@ $("#uploadedfile").live("change", function(){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
 		//show the images
-		$("#display_img").html(res);
+//		$("#display_img").html(res);
+$('#display_img').empty().html( '<img src="' + $this(res) + '">' );
+return false;  
 	}); 
 });
 

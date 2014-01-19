@@ -886,8 +886,6 @@ echo "</PRE>";
 			curl_close ($curl);
 
 			echo $response;
-echo "<BR>";
-			echo "<img src='".$response." />";
 		}
 	}
 
