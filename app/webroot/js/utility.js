@@ -208,9 +208,6 @@ $('#imageform').live('change', function(e){
 // FormData の作成
     var form = $('#imageform').get()[0];
     var formData = new FormData(form);
-
-
-
 // FormData を送信
     $.ajax('/topics/uploadImage', {
         method: 'POST',
@@ -218,14 +215,14 @@ $('#imageform').live('change', function(e){
         processData: false,
         data: formData,
         dataType: 'json',
-        error: function() {
+        error: function(res) {
+	    console.log(res);
             console.log('error');
         },
         success: function() {
             console.log('success');
         }
     });
- 
     // false を返してデフォルトの動作をキャンセル
     return false;
 
