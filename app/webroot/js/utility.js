@@ -216,7 +216,7 @@ $('#imageform').live('change', function(e){
     // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
       type : "POST",
-      dataType : "json",
+      dataType : "HTML",
       data : fd,
       processData : false,
       contentType : false
