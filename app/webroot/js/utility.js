@@ -187,7 +187,8 @@ $('#submitButton').live('click',function(e){
 	//Clear the images
 	$("#display_img").html("");
 	// showing loading image
-	$('#loadingimage').show();
+//	$('#loadingimage').show();
+	$("#display_img").html('<img src="loader.gif" alt="Uploading...."/>');
 
 	//get images from php
 	$.post('/topics/image', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
@@ -197,6 +198,13 @@ $('#submitButton').live('click',function(e){
 		$("#display_img").html(res);
 	});
 });
+//$('#photoimg').live('change', function(e){
+	//Clear the images
+//	$("#preview").html('');
+	// showing loading image
+//	$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
+}
+
 $('#moreButton').live('click',function(e){
 	var currentpage;
 	var nextpage;
