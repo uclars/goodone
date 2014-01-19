@@ -205,7 +205,11 @@ $('#imageform').live('change', function(e){
 	$("#preview").html('<img src="loading.gif" alt="Uploading...."/>');
 
 	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
+		//hide the loading image when images are shown
+		$('#loadingimage').hide();
 
+		//show the images
+		$("#display_img").html(res);
 	});
 });
 $('#photoimg').live('change', function(e){
