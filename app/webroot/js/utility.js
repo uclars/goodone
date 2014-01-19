@@ -188,7 +188,7 @@ $('#submitButton').live('click',function(e){
 	$("#display_img").html("");
 	// showing loading image
 //	$('#loadingimage').show();
-	$("#display_img").html('<img src="loader.gif" alt="Uploading...."/>');
+	$("#display_img").html('<img src="loading.gif" alt="Uploading...."/>');
 
 	//get images from php
 	$.post('/topics/image', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
@@ -198,12 +198,19 @@ $('#submitButton').live('click',function(e){
 		$("#display_img").html(res);
 	});
 });
-//$('#photoimg').live('change', function(e){
+$('#imageform').live('change', function(e){
 	//Clear the images
-//	$("#preview").html('');
+	$("#preview").html('');
 	// showing loading image
-//	$("#preview").html('<img src="loader.gif" alt="Uploading...."/>');
-//}
+	$("#preview").html('<img src="loading.gif" alt="Uploading...."/>');
+
+	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
+
+	});
+});
+$('#photoimg').live('change', function(e){
+
+});
 
 $('#moreButton').live('click',function(e){
 	var currentpage;
