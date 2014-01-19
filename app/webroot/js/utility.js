@@ -209,7 +209,7 @@ $('#imageform').live('change', function(e){
     var form = $('#imageform').get()[0];
     var formData = new FormData(form);
 
-console.log(formData);
+console.log(form);
 
 /*
 	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
