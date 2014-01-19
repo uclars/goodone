@@ -213,9 +213,6 @@ $('#imageform').live('change', function(e){
     if ( $("#imageform").val() !== '' ) {
       fd.append( "photoimg", $("#imageform").prop("files")[0] );
     }
-
-console.log(fd);
-
 $.ajax({
        url: "/topics/uploadImage",
        type: "POST",
@@ -223,6 +220,7 @@ $.ajax({
        processData: false,
        contentType: false,
        success: function(response) {
+console.log(response);
            // .. do something
        },
        error: function(jqXHR, textStatus, errorMessage) {
