@@ -254,6 +254,7 @@ var url=response[1].substr(0,(url_number));
 		$("#preview").text(url);
 console.log(url);
 */
+console.log(res);
 	}); 
 });
 
