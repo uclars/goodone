@@ -213,6 +213,9 @@ $('#imageform').live('change', function(e){
     if ( $("#imageform").val() !== '' ) {
       fd.append( "file", $("#imageform").prop("files")[0] );
     }
+
+console.log(fd);
+
     // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
       type : "POST",
