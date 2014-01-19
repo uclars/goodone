@@ -853,11 +853,9 @@ exit;
 
 	function uploadImage(){
 
-/*
 echo "<PRE>";
 var_dump($_FILES);
 echo "</PRE>";
-*/
 
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
