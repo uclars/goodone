@@ -197,38 +197,43 @@ $('#submitButton').live('click',function(e){
 		$("#display_img").html(res);
 	});
 });
+
+
+
+
+
+  $("#update").bind("click", function(){
+    // FormData オブジェクトを作成
+    var fd = new FormData();
+    // テキストデータおよびアップロードファイルが設定されていれば追加
+    fd.append( "status", $("#status").val() );
+    if ( $("#file").val() !== '' ) {
+      fd.append( "file", $("#file").prop("files")[0] );
+    }
+    // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
+    var postData = {
+      type : "POST",
+      dataType : "text",
+      data : fd,
+      processData : false,
+      contentType : false
+    };
+    // ajax送信
+    $.ajax( "./post.php", postData ).done(function( text ){
+      alert( text );
+    }); 
+  });
+
+
+
+
+
 $('#imageform').live('change', function(e){
 	//Clear the images
 	$("#display_img").html('');
 	// showing loading image
 	$('#loadingimage').show();
 	//$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
-
-
-
-
-    // FormData オブジェクトを作成
-    var fd = new FormData();
-    // テキストデータおよびアップロードファイルが設定されていれば追加
-    if ( $("#imageform").val() !== '' ) {
-      fd.append( "photoimg", $("#imageform").prop("files")[0] );
-    }
-$.ajax({
-       url: "/topics/uploadImage",
-       type: "POST",
-       data: fd,
-       processData: false,
-       contentType: false,
-       success: function(response) {
-console.log(response);
-           // .. do something
-       },
-       error: function(jqXHR, textStatus, errorMessage) {
-           console.log(errorMessage); // Optional
-       }
-    }); 
-
-
 
 
 /*
