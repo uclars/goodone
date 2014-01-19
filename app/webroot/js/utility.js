@@ -207,6 +207,7 @@ $('#imageform').live('change', function(e){
 
 // FormData の作成
     var form = $('#imageform').get()[1];
+console.log($('#imageform').get());
     var formData = new FormData(form);
 // FormData を送信
     $.ajax('/topics/uploadImage', {
