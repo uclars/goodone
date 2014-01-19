@@ -853,10 +853,11 @@ exit;
 
 	function uploadImage(){
 
-
+/*
 echo "<PRE>";
 var_dump($_FILES);
 echo "</PRE>";
+*/
 
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
@@ -884,7 +885,7 @@ echo "</PRE>";
 			$response = curl_exec($curl);
 			curl_close ($curl);
 
-//var_dump($response);
+var_dump($response);
 
 		}
 	}
