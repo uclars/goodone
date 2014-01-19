@@ -210,6 +210,7 @@ $('#submitButton').live('click',function(e){
     if ( $("#file").val() !== '' ) {
       fd.append( "file", $("#file").prop("files")[0] );
     }
+console.log(fd);
     // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
       type : "POST",
@@ -219,7 +220,7 @@ $('#submitButton').live('click',function(e){
       contentType : false
     };
     // ajax送信
-    $.ajax( "./post.php", postData ).done(function( text ){
+    $.ajax( "/Topics/imageUpload", postData ).done(function( text ){
       alert( text );
     }); 
   });
