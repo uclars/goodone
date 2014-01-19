@@ -209,7 +209,7 @@ $('#imageform').live('change', function(e){
     var form = $('#imageform').get()[0];
     var formData = new FormData(form);
 
-/*
+
 console.log(form);
 
 // FormData を送信
@@ -229,19 +229,15 @@ console.log(form);
  
     // false を返してデフォルトの動作をキャンセル
     return false;
-*/
 
 
 
 
 
-	//$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
-	$.post('/topics/uploadImage', {
-        contentType: false,
-        processData: false,
-        data: formData
-	//	input_text: $('#imagetext').val(),
-	//	number_perpage: numperpage,page: 1
+/*
+	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
+		input_text: $('#imagetext').val(),
+		number_perpage: numperpage,page: 1
 	}, function(res){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
@@ -249,6 +245,7 @@ console.log(form);
 		//show the images
 		$("#display_img").html(res);
 	});
+*/
 });
 $('#photoimg').live('change', function(e){
 
