@@ -246,14 +246,12 @@ $("#uploadedfile").live("change", function(){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
 		//show the images
-/*
 var response=res.split("|");
 var url_number=res.split("|");
 var url=response[1].substr(0,(url_number));
 
 		$("#preview").text(url);
 console.log(url);
-*/
 console.log(res);
 	}); 
 });
