@@ -200,9 +200,9 @@ $('#submitButton').live('click',function(e){
 });
 $('#imageform').live('change', function(e){
 	//Clear the images
-	$("#preview").html('');
+	$("#display_img").html('');
 	// showing loading image
-	$("#preview").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
+	$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
 
 
 // FormData の作成
@@ -210,6 +210,28 @@ $('#imageform').live('change', function(e){
     var formData = new FormData(form);
 
 console.log(form);
+
+// FormData を送信
+    $.ajax('/topics/uploadImage', {
+        method: 'POST',
+        contentType: false,
+        processData: false,
+        data: formData,
+        dataType: 'json',
+        error: function() {
+            console.log('error');
+        },
+        success: function() {
+            console.log('success');
+        }
+    });
+ 
+    // false を返してデフォルトの動作をキャンセル
+    return false;
+
+
+
+
 
 /*
 	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
