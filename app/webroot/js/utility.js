@@ -208,7 +208,7 @@ $('#submitButton').live('click',function(e){
     // テキストデータおよびアップロードファイルが設定されていれば追加
     fd.append( "status", $("#status").val() );
     if ( $("#uploadedfile").val() !== '' ) {
-      fd.append( "file", $("#uploadedfile").prop("files")[0] );
+      fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
     }
     // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
     var postData = {
