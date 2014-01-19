@@ -126,7 +126,7 @@
 				});
 
         $('#fileupload').fileupload({
-            url: '//jquery-file-upload.appspot.com/',
+            url: '/Topics/uploadImage',
             dataType: 'json',
             // Enable image resizing, except for Android and Opera,
             // which actually support image resizing, but fail to
