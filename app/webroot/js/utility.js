@@ -198,62 +198,6 @@ $('#submitButton').live('click',function(e){
 	});
 });
 
-
-
-
-
-  $("#uploadedfile").live("change", function(){
-    var fd = new FormData();
-    fd.append( "status", $("#status").val() );
-    if ( $("#uploadedfile").val() !== '' ) {
-      fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
-    }
-    var postData = {
-      type: "POST",
-      //dataType: "json",
-      data: fd,
-      processData: false,
-      contentType: false
-    };
-    // ajax送信
-    $.ajax( "/topics/uploadImage", postData ).done(function( res ){
-//hide the loading image when images are shown
-                $('#loadingimage').hide();
-
-                //show the images
-                $("#display_img").html(res);
-    }); 
-  });
-
-
-
-
-
-$('#imageform').live('change', function(e){
-	//Clear the images
-	$("#display_img").html('');
-	// showing loading image
-	$('#loadingimage').show();
-	//$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
-
-
-/*
-	$.post('/topics/uploadImage', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
-		input_text: $('#imagetext').val(),
-		number_perpage: numperpage,page: 1
-	}, function(res){
-		//hide the loading image when images are shown
-		$('#loadingimage').hide();
-
-		//show the images
-		$("#display_img").html(res);
-	});
-*/
-});
-$('#photoimg').live('change', function(e){
-
-});
-
 $('#moreButton').live('click',function(e){
 	var currentpage;
 	var nextpage;
@@ -278,6 +222,35 @@ $('#moreButton').live('click',function(e){
 		$(res).appendTo("#display_img").hide().fadeIn(800);
 	});
 });
+
+
+$("#uploadedfile").live("change", function(){
+	//Clear the images
+	$("#display_img").html('');
+	// showing loading image
+	$('#loadingimage').show();
+        //$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
+
+	var fd = new FormData();
+	fd.append( "status", $("#status").val() );
+	if ( $("#uploadedfile").val() !== '' ) {
+		fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
+	}
+	var postData = {
+		type: "POST",
+		data: fd,
+		processData: false,
+		contentType: false
+	};
+	$.ajax( "/topics/uploadImage", postData ).done(function( res ){
+		//hide the loading image when images are shown
+		$('#loadingimage').hide();
+		//show the images
+		$("#display_img").html(res);
+	}); 
+});
+
+
 
 
 $(function(){
