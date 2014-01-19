@@ -115,7 +115,7 @@ if(!empty($editing_contents)){
 					<!--<form id="imageform" method="post" enctype="multipart/form-data" action='/Topics/uploadImage'>-->
 <form action="javascript:;">
   <input type="text" id="status" value="" />
-  <input type="file" id="file" />
+  <input type="file" id="uploadedfile" />
   <input type="submit" id="update" value="送信" />
 </form>
 <!--                                                Upload image <input type="file" name="uploadedfile" id="photoimg" />-->
