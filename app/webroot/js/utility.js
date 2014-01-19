@@ -246,7 +246,9 @@ $("#uploadedfile").live("change", function(){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
 		//show the images
-		$("#preview").text(res);
+var url;
+url=res.split("|");
+		$("#preview").text(url);
 console.log(res);
 
 	}); 

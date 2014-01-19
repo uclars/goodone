@@ -886,10 +886,9 @@ echo "</PRE>";
 			$response = curl_exec($curl);
 			curl_close ($curl);
 
-$res_length=strlen($response);
-echo $res_length;
-substr($response, 0, $res_length);
-			var_dump($response);
+			$res_length=strlen($response);
+			//substr($response, 0, $res_length);
+			echo$res_length."|". $response;
 		}
 	}
 
