@@ -202,7 +202,7 @@ $('#submitButton').live('click',function(e){
 
 
 
-  $("#update").live("click", function(){
+  $("#uploadedfile").live("change", function(){
     // FormData オブジェクトを作成
     var fd = new FormData();
     // テキストデータおよびアップロードファイルが設定されていれば追加
