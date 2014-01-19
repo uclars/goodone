@@ -210,7 +210,7 @@ $('#submitButton').live('click',function(e){
     }
     var postData = {
       type: "POST",
-      dataType: "json",
+      //dataType: "json",
       data: fd,
       processData: false,
       contentType: false
