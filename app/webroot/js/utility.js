@@ -209,19 +209,19 @@ $('#submitButton').live('click',function(e){
       fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
     }
     var postData = {
-      type : "POST",
-      dataType : "json",
-      data : fd,
-      processData : false,
-      contentType : false
+      type: "POST",
+      dataType: "json",
+      data: fd,
+      processData: false,
+      contentType: false
     };
     // ajax送信
-    $.ajax( "/topics/uploadImage", postData ).done(function( text ){
+    $.ajax( "/topics/uploadImage", postData ).done(function( res ){
 //hide the loading image when images are shown
                 $('#loadingimage').hide();
 
                 //show the images
-                $("#display_img").html(text);
+                $("#display_img").html(res);
     }); 
   });
 
