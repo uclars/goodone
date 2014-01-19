@@ -205,28 +205,27 @@ $('#imageform').live('change', function(e){
 	//$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
 
 
-// FormData の作成
-    var form = $('#imageform').get()[1];
-console.log($('#imageform').get());
-    var formData = new FormData(form);
-// FormData を送信
-    $.ajax('/topics/uploadImage', {
-        method: 'POST',
-        contentType: false,
-        processData: false,
-        data: formData,
-        dataType: 'json',
-        error: function(res) {
-	    console.log(res);
-            console.log('error');
-        },
-        success: function() {
-            console.log('success');
-        }
-    });
-    // false を返してデフォルトの動作をキャンセル
-    return false;
 
+
+    // FormData オブジェクトを作成
+    var fd = new FormData();
+    // テキストデータおよびアップロードファイルが設定されていれば追加
+    if ( $("#imageform").val() !== '' ) {
+      fd.append( "file", $("#imageform").prop("files")[0] );
+    }
+    // dataにFormDataを指定する場合 processData,contentTypeをfalseにしてjQueryがdataを処理しないようにする
+    var postData = {
+      type : "POST",
+      dataType : "text",
+      data : fd,
+      processData : false,
+      contentType : false
+    };
+    // ajax送信
+    $.ajax( "/Topics/uploadImage", postData ).done(function( text ){
+      alert( text );
+    });
+ 
 
 
 
