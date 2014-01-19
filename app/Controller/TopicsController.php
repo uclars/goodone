@@ -883,9 +883,13 @@ echo "</PRE>";
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
 			$response = curl_exec($curl);
+
+$info = curl_getinfo;
+var_dump ($info);
+
 			curl_close ($curl);
 
-			var_dump($response[0]);
+		//	var_dump($response);
 		}
 	}
 
