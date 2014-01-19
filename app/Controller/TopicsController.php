@@ -857,7 +857,7 @@ exit;
 echo "<PRE>";
 var_dump($_FILES);
 echo "</PRE>";
-
+exit;
 
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];

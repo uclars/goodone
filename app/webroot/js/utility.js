@@ -187,8 +187,7 @@ $('#submitButton').live('click',function(e){
 	//Clear the images
 	$("#display_img").html("");
 	// showing loading image
-//	$('#loadingimage').show();
-	$("#display_img").html('<img src="loading.gif" alt="Uploading...."/>');
+	$('#loadingimage').show();
 
 	//get images from php
 	$.post('/topics/image', {input_text: $('#imagetext').val(),number_perpage: numperpage,page: 1}, function(res){
@@ -202,7 +201,8 @@ $('#imageform').live('change', function(e){
 	//Clear the images
 	$("#display_img").html('');
 	// showing loading image
-	$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
+	$('#loadingimage').show();
+	//$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
 
 
 // FormData の作成
