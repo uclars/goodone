@@ -347,6 +347,7 @@ $(function(){
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
+console.log(index);
                 $('<p/>').text(file.name).appendTo(document.body);
             });
 console.log(data.context);
