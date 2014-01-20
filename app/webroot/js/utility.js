@@ -344,6 +344,7 @@ $(function(){
 
 	//Image Upload
     $('#fileupload').fileupload({
+alert("HH");
         dataType: 'json',
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
