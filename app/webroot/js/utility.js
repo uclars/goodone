@@ -349,7 +349,7 @@ $(function(){
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo(document.body);
             });
-console.log(e);
+console.log(data.context);
         }
     });
 
