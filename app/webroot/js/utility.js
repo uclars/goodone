@@ -342,22 +342,23 @@ $(function(){
 	});
 
 
+	//Image Upload
+	$('#fileupload').fileupload({
+		url: '/Topics/uploadImage',
+		dataType: 'json',
+		// Enable image resizing, except for Android and Opera,
+		// which actually support image resizing, but fail to
+		// send Blob objects via XHR requests:
+		disableImageResize: /Android(?!.*Chrome)|Opera/
+			.test(window.navigator && navigator.userAgent),
+		imageMaxWidth: 800,
+		imageMaxHeight: 800,
+		previewCrop: true, // Force cropped images
+		send: function(e, data) {
 
-        $('#fileupload').fileupload({
-            url: '/Topics/uploadImage',
-            dataType: 'json',
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
-            disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator && navigator.userAgent),
-            imageMaxWidth: 800,
-            imageMaxHeight: 800,
-            previewCrop: true, // Force cropped images
-            send: function(e, data) {
-              alert("sending...");
-            }
-        });
+			alert("sending...");
+		}
+	});
 });
 
 ///auto save when div box is moved///
