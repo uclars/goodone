@@ -343,25 +343,16 @@ $(function(){
 
 
 	//Image Upload
-	$('#fileupload').fileupload({
-		url: '/Topics/uploadImage',
-		dataType: 'json',
-		// Enable image resizing, except for Android and Opera,
-		// which actually support image resizing, but fail to
-		// send Blob objects via XHR requests:
-		disableImageResize: /Android(?!.*Chrome)|Opera/
-			.test(window.navigator && navigator.userAgent),
-		imageMaxWidth: 800,
-		imageMaxHeight: 800,
-		previewCrop: true, // Force cropped images
-		send: function(e, data) {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
 
 
-console.log(data);
-
-
-		}
-	});
 });
 
 ///auto save when div box is moved///

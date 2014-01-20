@@ -113,9 +113,11 @@ if(!empty($editing_contents)){
 				<div class="span4">
 					<!--<form id="imageform" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
 					<!--<form id="imageform" method="post" enctype="multipart/form-data" action='/Topics/uploadImage'>-->
+
 <form action="javascript:;">
-<input type='file' id='fileupload'>
+<input id="fileupload" type="file" name="files[]" data-url="/Topics/uploadImage" multiple>
 </form>
+
 					<!--Upload image <input type="file" name="uploadedfile" id="photoimg" />-->
                                         <!--</form>-->
 
