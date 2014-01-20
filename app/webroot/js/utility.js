@@ -342,6 +342,9 @@ $(function(){
 	});
 
 
+
+
+/*
 	//Image Upload
     $('#fileupload').fileupload({
         dataType: 'json',
@@ -355,6 +358,9 @@ console.log(index);
 console.log(data.context);
         }
     });
+*/
+
+
 
 
 });
