@@ -133,7 +133,7 @@
 
     'use strict';
     // Change this to the location of your server-side upload handler:
-    var url = "/Topics/imageUpload";
+    var url = "/Topics/uploadImage";
     $('#fileupload').fileupload({
         url: url,
         dataType: 'json',
