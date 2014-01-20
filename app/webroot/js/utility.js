@@ -356,7 +356,10 @@ $(function(){
 		previewCrop: true, // Force cropped images
 		send: function(e, data) {
 
-			alert("sending...");
+
+console.log(data);
+
+
 		}
 	});
 });
