@@ -135,6 +135,7 @@
 var url = 'Topics/uploadImage';
 var callback = function(res) {
     // IEのコールバックタイプが動かない場合への対処
+    alert('File uploaded');
     res = JSON.parse(res); 
     alert('File uploaded');
     return this;
