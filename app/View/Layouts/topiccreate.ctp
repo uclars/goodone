@@ -150,7 +150,7 @@
 
    function image_upload(){ //即時アップ
         $('#file_id').upload('/Topics/uploadImage', function(res) {
-alert(res);
+cosole.log(res);
                 $(res).insertAfter(this);
         }, 'html');
     }
