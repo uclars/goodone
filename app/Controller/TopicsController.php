@@ -890,8 +890,9 @@ echo "</PRE>";
 			$res_length=strlen($response);
 			//substr($response, 0, $res_length);
 			echo$res_length."|". $response;
-*/
 		}
+*/
+
 	}
 
 	function _get_editcontents($topic_array){
