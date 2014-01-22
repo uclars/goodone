@@ -149,7 +149,7 @@
 			});
 
    function image_upload(){ //即時アップ
-        $('#file_id').upload('upload.php', function(res) {
+        $('#file_id').upload('/Topics/uploadImage', function(res) {
 alert(res);
                 $(res).insertAfter(this);
         }, 'html');
