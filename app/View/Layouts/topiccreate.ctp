@@ -152,6 +152,11 @@
    function image_upload(){ //即時アップ
         $('#file_id').upload('/Topics/uploadImage', function(res) {
 console.log(res);
+url=res.split("|");
+url_num = url[0];
+url_rest = url[1];
+url_image = url_rest.substring(0, url_num);
+console.log(url_image);
                 $(res).insertAfter(this);
         }, 'html');
     }
