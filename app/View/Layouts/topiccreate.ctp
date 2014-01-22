@@ -8,14 +8,14 @@
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('utility.js', array( 'inline' => false ) );
-		echo $this->Html->script('jquery.ui.widget.js', array( 'inline' => false ) );
-		echo $this->Html->script('load-image.min.js', array( 'inline' => false ) );
-		echo $this->Html->script('canvas-to-blob.min.js', array( 'inline' => false ) );
-		echo $this->Html->script('jquery.iframe-transport.js', array( 'inline' => false ) );
-		echo $this->Html->script('jquery.fileupload.js', array( 'inline' => false ) );
-		echo $this->Html->script('jquery.fileupload-process.js', array( 'inline' => false ) );
+		//echo $this->Html->script('jquery.ui.widget.js', array( 'inline' => false ) );
+		//echo $this->Html->script('load-image.min.js', array( 'inline' => false ) );
+		//echo $this->Html->script('canvas-to-blob.min.js', array( 'inline' => false ) );
+		//echo $this->Html->script('jquery.iframe-transport.js', array( 'inline' => false ) );
+		//echo $this->Html->script('jquery.fileupload.js', array( 'inline' => false ) );
+		//echo $this->Html->script('jquery.fileupload-process.js', array( 'inline' => false ) );
 
-			//echo $this->Html->script('jquery.upload-1.0.2', array( 'inline' => false ) );
+		echo $this->Html->script('jquery.upload-1.0.2', array( 'inline' => false ) );
 			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			//echo $this->Html->script('wysihtml5-0.3.0.js', array( 'inline' => false ) );
 			//echo $this->Html->script('bootstrap-wysihtml5.js', array( 'inline' => false ) );
@@ -130,70 +130,19 @@
 
 
 
-
-
-
-
-
- 'use strict';
-    // Initialize the jQuery File Upload widget:
-    $('#fileupload').fileupload({
-        disableImageResize: false,
-        // Uncomment the following to send cross-domain cookies:
-        //xhrFields: {withCredentials: true},
-        url: '/Topics/uploadImage'
-    });
-
-    // Enable iframe cross-domain access via redirect option:
-    $('#fileupload').fileupload(
-        'option',
-        'redirect',
-        window.location.href.replace(
-            /\/[^\/]*$/,
-            '/cors/result.html?%s'
-        )
-    );
-
-    if (window.location.hostname === 'blueimp.github.io') {
-        // Demo settings:
-        $('#fileupload').fileupload('option', {
-            url: '//jquery-file-upload.appspot.com/',
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
-            disableImageResize: /Android(?!.*Chrome)|Opera/
-                .test(window.navigator.userAgent),
-            maxFileSize: 5000000,
-            acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
-        });
-        // Upload server status check for browsers with CORS support:
-        if ($.support.cors) {
-            $.ajax({
-                url: '//jquery-file-upload.appspot.com/',
-                type: 'HEAD'
-            }).fail(function () {
-                $('<div class="alert alert-danger"/>')
-                    .text('Upload server currently unavailable - ' +
-                            new Date())
-                    .appendTo('#fileupload');
-            });
+///Topics/uploadImage
+        function uploadFile() {
+            $('#upload').upload(
+                'upload.php', 
+                {now:'2010/10/08'},
+                function (res) {
+                    $("#result").html(res);
+                },
+                'text'
+            );
         }
-    } else {
-        // Load existing files:
-        $('#fileupload').addClass('fileupload-processing');
-        $.ajax({
-            // Uncomment the following to send cross-domain cookies:
-            //xhrFields: {withCredentials: true},
-            url: $('#fileupload').fileupload('option', 'url'),
-            dataType: 'json',
-            context: $('#fileupload')[0]
-        }).always(function () {
-            $(this).removeClass('fileupload-processing');
-        }).done(function (result) {
-            $(this).fileupload('option', 'done')
-                .call(this, $.Event('done'), {result: result});
-        });
-    }
+
+
 
 
 
