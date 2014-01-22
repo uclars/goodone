@@ -132,12 +132,13 @@
 
 ///Topics/uploadImage
 
+/*
             $('#upload_button').click(function() {
                     $('#file_id').upload('upload.php', function(res) {
                             $(res).insertAfter(this);
                     }, 'html');
             });
-
+*/
 
 
 
