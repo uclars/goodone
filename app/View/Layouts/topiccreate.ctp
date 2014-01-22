@@ -138,7 +138,6 @@
  'use strict';
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
-alert("HHH");
         disableImageResize: false,
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
