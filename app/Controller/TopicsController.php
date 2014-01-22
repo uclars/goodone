@@ -854,6 +854,7 @@ exit;
 	function uploadImage(){
 
 echo "<PRE>";
+echo "H+++";
 var_dump($_FILES);
 echo "</PRE>";
 
