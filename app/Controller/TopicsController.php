@@ -853,11 +853,12 @@ exit;
 
 	function uploadImage(){
 
+/*
 echo "<PRE>";
 var_dump($_FILES);
 echo "</PRE>";
+*/
 
-/*
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
 
@@ -867,7 +868,7 @@ echo "</PRE>";
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
 			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
-*/
+
 
 /*
 echo "<PRE>";
@@ -875,7 +876,7 @@ var_dump($data);
 echo "</PRE>";
 */
 
-/*
+
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
 			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
@@ -890,7 +891,7 @@ echo "</PRE>";
 			//substr($response, 0, $res_length);
 			echo$res_length."|". $response;
 		}
-*/
+
 
 	}
 
