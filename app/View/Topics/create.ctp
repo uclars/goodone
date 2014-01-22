@@ -117,7 +117,7 @@ if(!empty($editing_contents)){
 
 
 
-        <input type="file" name="upload_file" id="file_id" onchange="image_upload();"></br>
+        <input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></br>
         <input type="button" value="upload" id="upload_button">
 
 
