@@ -151,13 +151,13 @@
 
    function image_upload(){ //即時アップ
         $('#file_id').upload('/Topics/uploadImage', function(res) {
-console.log(res);
-url=res.split("|");
-url_num = url[0];
-url_rest = url[1];
-url_image = url_rest.substring(0, url_num);
-console.log(url_image);
-                $(res).insertAfter(this);
+		//get the image url from response which is like "num of url|url+whole HTML"
+		url=res.split("|");
+		url_num = url[0];
+		url_rest = url[1];
+		url_image = url_rest.substring(0, url_num);
+		image_url_tag = "<img src='".url_image." />";
+                $(image_url_tag).insertAfter(this);
         }, 'html');
     }
 
