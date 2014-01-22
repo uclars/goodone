@@ -131,17 +131,16 @@
 
 
 ///Topics/uploadImage
-        function uploadFile() {
-            $('#upload').upload(
-                'upload.php', 
-                {now:'2010/10/08'},
-                function (res) {
-                    $("#result").html(res);
-                },
-                'text'
-            );
-        }
 
+var url = 'Topics/uploadImage';
+var callback = function(res) {
+    alert('File uploaded');
+    return this;
+};
+var type = 'json';
+$('input[type=file]').change(function() {
+    $(this).upload(url, callback, type);
+});
 
 
 
