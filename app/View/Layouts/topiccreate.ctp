@@ -132,17 +132,11 @@
 
 ///Topics/uploadImage
 
-var url = 'Topics/uploadImage';
-var callback = function(res) {
-    // IEのコールバックタイプが動かない場合への対処
-console.log(res);
-    res = JSON.parse(res); 
-    alert('File uploaded');
-    return this;
-};
-$('input[type=file]').change(function() {
-    $(this).upload(url, callback);
-});
+            $('#upload_button').click(function() {
+                    $('#file_id').upload('upload.php', function(res) {
+                            $(res).insertAfter(this);
+                    }, 'html');
+            });
 
 
 
@@ -153,6 +147,14 @@ $('input[type=file]').change(function() {
 
 
 			});
+
+   function image_upload(){ //即時アップ
+        $('#file_id').upload('upload.php', function(res) {
+                $(res).insertAfter(this);
+        }, 'html');
+    }
+
+
 			var username = <?php echo $userid; ?>;
 			var title_id = <?php echo $tid; ?>;
 

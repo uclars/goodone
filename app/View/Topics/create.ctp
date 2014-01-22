@@ -116,9 +116,9 @@ if(!empty($editing_contents)){
 
 
 
-        <input id="upload" type="file" name="upload" enctype="multipart/form-data"><br>
-        <button onclick="uploadFile()">UPLOAD</button><br>
-        <div id="result"></div>
+
+        <input type="file" name="upload_file" id="file_id" onchange="image_upload();"></br>
+        <input type="button" value="upload" id="upload_button">
 
 
 
