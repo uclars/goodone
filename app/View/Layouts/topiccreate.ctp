@@ -134,12 +134,13 @@
 
 var url = 'Topics/uploadImage';
 var callback = function(res) {
+    // IEのコールバックタイプが動かない場合への対処
+    res = JSON.parse(res); 
     alert('File uploaded');
     return this;
 };
-var type = 'json';
 $('input[type=file]').change(function() {
-    $(this).upload(url, callback, type);
+    $(this).upload(url, callback);
 });
 
 
