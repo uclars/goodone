@@ -855,7 +855,7 @@ exit;
 
 echo "<PRE>";
 echo "H+++";
-var_dump($_FILES);
+//var_dump($_FILES);
 echo "</PRE>";
 
 /*
