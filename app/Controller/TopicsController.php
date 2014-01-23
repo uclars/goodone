@@ -864,7 +864,7 @@ echo "</PRE>";
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
-			$name=$me."_".date("YmdHis")."\.".$ext;
+			$name=$me."_".date("YmdHis").".".$ext;
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
