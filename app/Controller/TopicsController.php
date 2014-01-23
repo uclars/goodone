@@ -868,11 +868,9 @@ echo "</PRE>";
 			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
 
-/*
 echo "<PRE>";
 var_dump($data);
 echo "</PRE>";
-*/
 
 
 			$curl = curl_init();
