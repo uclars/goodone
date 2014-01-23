@@ -152,7 +152,6 @@
    function image_upload(){ //即時アップ
         $('#file_id').upload('/Topics/uploadImage', function(res) {
 		//get the image url from response which is like "num of url|url+whole HTML"
-//console.log(res);
 		url=res.split("|");
 		url_num = url[0];
 		url_rest = url[1];
