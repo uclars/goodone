@@ -861,7 +861,7 @@ echo "</PRE>";
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
-			#$name = $_FILES['uploadedfile']['name'];
+			//$name = $_FILES['uploadedfile']['name'];
 			$name=$me."_".date("YmdHis");
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
