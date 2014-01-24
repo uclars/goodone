@@ -111,6 +111,14 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span8">
+
+                                <div class="span4">
+                                        <input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></br>
+                                        <input type="button" value="upload" id="upload_button">
+
+                                        <div id='preview'>
+                                        </div>
+                                </div>
 					<ul id="display_img">
 					</ul>
 					<span id="loadingimage" style="display:none; text-align:center;">
