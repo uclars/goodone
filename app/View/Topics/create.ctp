@@ -104,7 +104,7 @@ if(!empty($editing_contents)){
 			<div class="row">
 				<div class="span12" id="image_upload">
 					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
-					<div id="change_to_flickr"><p class="topic_delete">[flickr search]</p></div> 
+					<div id="change_to_flickr"><p class="click_link">[flickr search]</p></div> 
 				</div>
 				<div class="span4" id="flickr_search">
 					<!--<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
@@ -113,7 +113,7 @@ if(!empty($editing_contents)){
 						<div class="input text"><label for="imagetext"></label><input name="data[Topic]" id="imagetext" value="key word" type="text"></div>
 						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="SEARCH on flickr"></div>
 					</form>
-					<div id="change_to_upload"><p class="topic_delete">[image upload]</p></div>
+					<div id="change_to_upload"><p class="click_link">[image upload]</p></div>
 				</div>
 				<div class="span8" id="display">
 					<ul id="display_img">
