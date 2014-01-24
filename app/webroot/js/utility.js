@@ -241,6 +241,12 @@ function image_upload(){ //蛬Mｳ諧Y~B縷B｢縷C~C縷C~W
 $(function(){
 	$("#flickr_search").css("display", "none"); 
 	$("#display").css("display", "none"); 
+
+	$("#change_image_up").click(function(){
+		$("#image_upload").toggle();
+		$("#flickr_search").toggle();
+		$("display").toggle();
+	});
 });
 
 
