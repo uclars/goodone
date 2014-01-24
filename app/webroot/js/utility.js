@@ -232,7 +232,7 @@ function image_upload(){
 		url_num = url[0];
 		url_rest = url[1];
 		url_image = url_rest.substring(0, url_num);
-		image_url_tag = "<img id="get_image" src='"+url_image+"' />";
+		image_url_tag = "<img id='get_image' src='"+url_image+"' />";
 		$(image_url_tag).insertAfter("#display_img");
 	});
 }
