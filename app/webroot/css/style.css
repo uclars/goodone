@@ -257,15 +257,6 @@ div#content #topictitle
 	vertical-align: top;
 }
 
-.click_link
-{
-	cursor: pointer;
-	color: #3cf;
-	margin-top:10px;
-	margin-left:5px;
-	text-align:left;
-}
-
 
 /* Tutorial */
 div#tutorial0
