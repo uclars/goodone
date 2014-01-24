@@ -111,7 +111,7 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span6">
-					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
+					<div class="input text"><input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></div>
 				</div>
 				<div class="span12">
 					<ul id="display_img">
