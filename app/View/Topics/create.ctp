@@ -104,7 +104,7 @@ if(!empty($editing_contents)){
 			<div class="row">
 				<div class="span12" id="image_upload">
 					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
-					<div id="change_to_flickr" style="margin-top:10px;"><p class="click_link">[flickr search]</p></div> 
+					<div id="change_to_flickr" style="margin-top:60px;"><p class="click_link">[flickr search]</p></div> 
 				</div>
 				<div class="span4" id="flickr_search">
 					<!--<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
