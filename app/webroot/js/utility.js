@@ -242,7 +242,12 @@ $(function(){
 	$("#flickr_search").css("display", "none"); 
 	$("#display").css("display", "none"); 
 
-	$("#change_image_up").click(function(){
+	$("#change_to_flickr").click(function(){
+		$("#image_upload").toggle();
+		$("#flickr_search").toggle();
+		$("#display").toggle();
+	});
+	$("#change_to_upload").click(function(){
 		$("#image_upload").toggle();
 		$("#flickr_search").toggle();
 		$("#display").toggle();
