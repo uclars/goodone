@@ -232,7 +232,7 @@ function image_upload(){ //蛬Mｳ諧Y~B縷B｢縷C~C縷C~W
 		url_rest = url[1];
 		url_image = url_rest.substring(0, url_num);
 		image_url_tag = "<img src='"+url_image+"' />";
-		$(image_url_tag).insertAfter("#preview");
+		$(image_url_tag).insertAfter("#display_img");
 	//}, 'html');
 	});
 }
