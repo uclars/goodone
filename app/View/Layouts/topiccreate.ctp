@@ -149,6 +149,7 @@
 
 			});
 
+/*
    function image_upload(){ //即時アップ
         $('#file_id').upload('/Topics/uploadImage', function(res) {
 		//get the image url from response which is like "num of url|url+whole HTML"
@@ -160,7 +161,7 @@
                 $(image_url_tag).insertAfter("#preview");
         }, 'html');
     }
-
+*/
 
 			var username = <?php echo $userid; ?>;
 			var title_id = <?php echo $tid; ?>;
