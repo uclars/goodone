@@ -102,6 +102,9 @@ if(!empty($editing_contents)){
                 </div>
 		<div class="tab-pane" id="E">
 			<div class="row">
+				<div class="span12" id="image_upload">
+					<div class="input text"><input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></div>
+				</div>
 				<div class="span4" id="flickr_search">
 					<!--<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
 					<form id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
@@ -110,10 +113,7 @@ if(!empty($editing_contents)){
 						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="SEARCH on flickr"></div>
 					</form>
 				</div>
-				<div class="span4" id="image_upload">
-					<div class="input text"><input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></div>
-				</div>
-				<div class="span8">
+				<div class="span8" id="display">
 					<ul id="display_img">
 					</ul>
 					<span id="loadingimage" style="display:none; text-align:center;">
