@@ -110,13 +110,6 @@ if(!empty($editing_contents)){
 						<div class="submit"><input id="submitButton" class="submitinsideclass" type="submit" value="SEARCH on flickr"></div>
 					</form>
 				</div>
-				<div class="span4">
-					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></br>
-					<input type="button" value="upload" id="upload_button">
-
-                                        <div id='preview'>
-                                        </div>
-				</div>
 				<div class="span8">
 					<ul id="display_img">
 					</ul>
