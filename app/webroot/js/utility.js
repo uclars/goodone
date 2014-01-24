@@ -224,6 +224,7 @@ $('#moreButton').live('click',function(e){
 });
 
 
+/// File Upload /////
 function image_upload(){ //蛬Mｳ諧Y~B縷B｢縷C~C縷C~W
 	$('#file_id').upload('/Topics/uploadImage', function(res) {
 		//get the image url from response which is like "num of url|url+whole HTML"
@@ -237,6 +238,9 @@ function image_upload(){ //蛬Mｳ諧Y~B縷B｢縷C~C縷C~W
 	});
 }
 
+$(function(){
+	$("#flickr_search").css("display", "none"); 
+});
 
 
 /*
