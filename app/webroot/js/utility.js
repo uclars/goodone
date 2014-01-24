@@ -177,7 +177,7 @@ $('#get_image').live('click',function(e)
 		$(this).html("").fadeIn(500);
 	});
 
-	e.preventDefaul;t();
+	e.preventDefault();
 });
 
 /// FLICKR Search /////
