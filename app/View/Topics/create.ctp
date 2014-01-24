@@ -111,20 +111,8 @@ if(!empty($editing_contents)){
 					</form>
 				</div>
 				<div class="span4">
-					<!--<form id="imageform" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
-					<!--<form id="imageform" method="post" enctype="multipart/form-data" action='/Topics/uploadImage'>-->
-
-
-
-
-        <input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></br>
-        <input type="button" value="upload" id="upload_button">
-
-
-
-
-					<!--Upload image <input type="file" name="uploadedfile" id="photoimg" />-->
-                                        <!--</form>-->
+					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();"></br>
+					<input type="button" value="upload" id="upload_button">
 
                                         <div id='preview'>
                                         </div>

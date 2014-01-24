@@ -157,7 +157,7 @@
 		url_rest = url[1];
 		url_image = url_rest.substring(0, url_num);
 		image_url_tag = "<img src='"+url_image+"' />";
-                $(image_url_tag).insertAfter(this);
+                $(image_url_tag).insertAfter("#preview");
         }, 'html');
     }
 
