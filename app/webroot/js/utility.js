@@ -139,14 +139,13 @@ $('#get_image').live('click',function(e)
 	var title_id = "#contentsSet_"+titlenum;
 	//IMAGE info from Topic_Controller
 	var imageurl_content = $(this).attr("src");
-
-
-console.log(imageurl_content);
-
-
 	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
 	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
 	var imageinfo_org = $(this).attr("alt");
+
+console.log(imageinfo_org);
+
+
 	imageinfo = imageinfo_org.split("(__)");
 
 	/// HTML tag for Flickr Search and Image Upload
