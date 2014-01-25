@@ -164,7 +164,7 @@ if(!empty($editing_contents)){
 				/// IMAGE ///
 				$im_url = explode("(__)",h($econtents[1]));
 				echo "<a target='_blank' href='".h($im_url[0])."'><img src='".h($econtents[2])."' /></a>";
-				echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
+				//echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
 			}
 			elseif($econtents[0] == "disabled"){
 				/// DISABLE ///
