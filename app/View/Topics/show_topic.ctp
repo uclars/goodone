@@ -79,6 +79,9 @@ foreach($show_contents as $contents_array){
 		if($pic_address != "imageupload"){//if image is from upload, the link disappear
 			echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 		}
+		else{
+			echo "<div> </div>";
+		}
 		echo "</div>";
 	}
 	else{
