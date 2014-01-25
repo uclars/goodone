@@ -829,8 +829,9 @@ exit;
 			));
 
 
+echo "<PRE>";
 var_dump($result['photo']);
-exit;
+echo "</PRE>";
 
 
 
