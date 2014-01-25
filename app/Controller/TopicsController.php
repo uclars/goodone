@@ -828,17 +828,17 @@ exit;
 				"sort" => 'interestingness-asc'
 			));
 
-
-echo "<PRE>";
-var_dump($result['photo']);
-echo "</PRE>";
-
-
-
 			$target_url = null;
 			foreach ($result['photo'] as $photo) {
 				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
 				$owner_url = "http://www.flickr.com/photos/".$photo['owner']."/".$photo['id'];
+
+
+echo "<PRE>";
+var_dump($photo['owner']);
+echo "</PRE>";
+
+
 				echo "<li style=\"float: left; margin: 0 10px 10px 0;\">";
 				echo "<a href='".$target_url.".jpg' title='click to post the picture to the content'>";
 //echo "<a target='_blank' href='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'].".jpg' title='".$photo['title']."' id='get_image'>";
