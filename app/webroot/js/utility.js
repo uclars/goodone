@@ -142,7 +142,7 @@ $('#get_image').live('click',function(e)
 	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
 	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
 	var imageinfo_org = $(this).attr("alt");
-	if(imageinfo != null){
+	if(imageinfo_org != null){
 		imageinfo = imageinfo_org.split("(__)");
 		var imageownerid = imageinfo[0];
 		var imageownername = imageinfo[2];
