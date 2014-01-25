@@ -908,6 +908,126 @@ echo "</PRE>";
 
 		if (isset($file_array['uploadedfile']['error']) && is_array($file_array['uploadedfile']['error'])) {
 
+
+
+//////http://qiita.com/mpyw/items/73ee77a9535cc65eff1e////////////
+    // 各ファイルをチェック
+    foreach ($_FILES['upfile']['error'] as $k => $error) {
+
+        try {
+
+            // 更に配列がネストしていれば不正とする
+            if (!is_int($error)) {
+                throw new RuntimeException("[{$k}] パラメータが不正です");
+            }
+
+            // $_FILES['upfile']['error'][$k] の値を確認
+            switch ($error) {
+                case UPLOAD_ERR_OK: // OK
+                    break;
+                case UPLOAD_ERR_NO_FILE:   // ファイル未選択
+                    continue 2;
+                case UPLOAD_ERR_INI_SIZE:  // php.ini定義の最大サイズ超過
+                case UPLOAD_ERR_FORM_SIZE: // フォーム定義の最大サイズ超過
+                    throw new RuntimeException("[{$k}] ファイルサイズが大きすぎます");
+                default:
+                    throw new RuntimeException("[{$k}] その他のエラーが発生しました");
+            }
+
+            // ここで定義するサイズ上限のオーバーチェック
+            if ($_FILES['upfile']['size'][$k] > 1000000) {
+                throw new RuntimeException("[{$k}] ファイルサイズが大きすぎます");
+            }
+
+            // テンポラリファイルのパーミッションは
+            // デフォルトでは0600になるので使いやすい0644に変更
+            chmod($_FILES['upfile']['tmp_name'][$k], 0644);
+
+            // move_uploaded_file関数での「実際にアップロードされたファイルかどうか」
+            // のチェックを今回は行わないので、is_uploaded_file関数でのチェックが必要
+            if (!is_uploaded_file($_FILES['upfile']['tmp_name'][$k])) {
+                throw new RuntimeException("[{$k}] 不正なファイルです");
+            }
+
+            // $_FILES['upfile']['mime']の値はブラウザ側で偽装可能なので
+            // MIMEタイプに対応する拡張子を自前で取得する
+            $info = getimagesize($_FILES['upfile']['tmp_name'][$k]);
+            if (empty($info[0]) || !$info[1]) {
+                throw new RuntimeException("[{$k}] 有効な画像ファイルではありません");
+            }
+            switch ($info['mime']) {
+                case 'image/gif':
+                    $mime = $ext = 'gif';
+                    break;
+                case 'image/png':
+                    $mime = $ext = 'png';
+                    break;
+                case 'image/jpeg':
+                    $mime = 'jpeg';
+                    $ext  = 'jpg';
+                    break;
+                default:
+                    throw new RuntimeException("[{$k}] 画像形式が未対応です");
+            }
+
+            // 画像処理に使う関数名を決定する
+            $create = "imagecreatefrom{$mime}";
+            $output = "image{$mime}";
+
+            // 縦横比を維持したまま 120 * 120 以下に収まるサイズを求める
+            // （ゼロ除算のリスクは既に排除されている）
+            if ($info[0] >= $info[1]) {
+                $dst_w = 120;
+                $dst_h = ceil(120 * $info[1] / $info[0]);
+            } else {
+                $dst_w = ceil(120 * $info[0] / $info[1]);
+                $dst_h = 120;
+            }
+
+            // 元画像リソースを生成する
+            $src = $create($_FILES['upfile']['tmp_name'][$k]);
+
+            // リサンプリング先画像リソースを生成する
+            $dst = imagecreatetruecolor($dst_w, $dst_h);
+
+            // getimagesize関数で得られた情報も利用してリサンプリングを行う
+            imagecopyresampled(
+                $dst, $src,
+                0, 0, 0, 0,
+                $dst_w, $dst_h, $info[0], $info[1]
+            );
+
+            // ファイルデータからSHA-1ハッシュを取ってファイル名を決定する
+            $output(
+                $dst,
+                sprintf('./resized/%s.%s',
+                    sha1_file($_FILES['upfile']['tmp_name'][$k]),
+                    $ext
+                )
+            );
+
+            // リソースを解放
+            imagedestroy($src);
+            imagedestroy($dst);
+
+            // 形式上、正しい処理を行ったが例外としてスローしておく
+            throw new RuntimeException("[{$k}] リサイズして保存しました");
+
+        } catch (RuntimeException $e) {
+
+            // メッセージを配列にセット
+            $msgs[] = $e->getMessage();
+
+        }
+
+    }
+
+
+
+
+
+
+
 		}
 	}
 
