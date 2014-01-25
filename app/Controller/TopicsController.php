@@ -835,7 +835,7 @@ exit;
 
 
 echo "<PRE>";
-var_dump($photo['owner']);
+var_dump($photo['title']);
 echo "</PRE>";
 
 
