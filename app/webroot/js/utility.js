@@ -161,7 +161,6 @@ $('#get_image').live('click',function(e)
 		).prependTo($(title_id));
 	}
 	else{ //Image Upload (no alt value)
-		imageinfo_org = "imageupload(__)imageupoad(__)imageupload";
 		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 		var ref2=$(
 			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
@@ -245,7 +244,7 @@ function image_upload(){
 		url_num = url[0];
 		url_rest = url[1];
 		url_image = url_rest.substring(0, url_num);
-		image_url_tag = "<img id='get_image' src='"+url_image+"' alt='"+url_image+"' />";
+		image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload' />";
 		$(image_url_tag).insertAfter("#display_img");
 	});
 }
