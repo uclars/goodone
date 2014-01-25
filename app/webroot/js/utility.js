@@ -144,7 +144,7 @@ $('#get_image').live('click',function(e)
 	var imageinfo_org = $(this).attr("alt");
 
 	/// HTML tag for Flickr Search and Image Upload
-	if(imageinfo_org != null){ //Flickr Search (alt value for flickr info)
+	if(imageinfo_org != "imageupload"){ //Flickr Search (alt value for flickr info)
 		imageinfo = imageinfo_org.split("(__)");
 		var imageownerid = imageinfo[0];
 		var imageownername = imageinfo[2];
