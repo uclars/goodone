@@ -158,7 +158,6 @@ $('#get_image').live('click',function(e)
 			+ '<a target="_blank" href="'+imageownerid+'"><img src='+imageurl_content+' /></a>'
 			+ '<p><a target="_blank" href="'+imageownerid+'">Photo "'+imagetitle+'" by '+imageownername+'</a></p>'
 			+ '<p class="delete">[remove]</p>'
-		//).prependTo($('.contentsBox:last'));
 		).prependTo($(title_id));
 	}
 	else{ //Image Uploda (no alt value)
@@ -245,7 +244,7 @@ function image_upload(){
 		url_num = url[0];
 		url_rest = url[1];
 		url_image = url_rest.substring(0, url_num);
-		image_url_tag = "<img id='get_image' src='"+url_image+"' />";
+		image_url_tag = "<img id='get_image' src='"+url_image+"' alt='"+url_image+"' />";
 		$(image_url_tag).insertAfter("#display_img");
 	});
 }
@@ -267,41 +266,6 @@ $(function(){
 		$("#display").toggle();
 	});
 });
-
-
-/*
-$("#uploadedfile").live("change", function(){
-	//Clear the images
-	$("#display_img").html('');
-	// showing loading image
-	$('#loadingimage').show();
-        //$("#display_img").html('<img src="/basic/loading.gif" alt="Uploading...."/>');
-
-//	var fd = new FormData();
-	fd.append( "status", $("#status").val() );
-	if ( $("#uploadedfile").val() !== '' ) {
-		fd.append( "uploadedfile", $("#uploadedfile").prop("files")[0] );
-	}
-	var postData = {
-		type: "POST",
-		data: fd,
-		processData: false,
-		contentType: false
-	};
-	$.ajax( "/topics/uploadImage", postData ).done(function( res ){
-		//hide the loading image when images are shown
-		$('#loadingimage').hide();
-		//show the images
-var response=res.split("|");
-var url_number=res.split("|");
-var url=response[1].substr(0,(url_number));
-
-		$("#preview").text(url);
-console.log(url);
-console.log(res);
-	}); 
-});
-*/
 
 
 
