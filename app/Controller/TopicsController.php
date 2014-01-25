@@ -861,6 +861,7 @@ echo "</PRE>";
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
+_checkImagefile($_FILES);
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -893,6 +894,19 @@ echo "</PRE>";
 
 
 	}
+
+	function _checkImage($file_array){
+
+echo "<PRE>";
+var_dump($file_array);
+echo "</PRE>";
+
+
+		if (isset($file_array['uploadedfile']['error']) && is_array($file_array['uploadedfile']['error'])) {
+
+		}
+	}
+
 
 	function _get_editcontents($topic_array){
 		$topic_id = $topic_array[0]['Topic']['id'];
