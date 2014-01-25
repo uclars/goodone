@@ -832,10 +832,13 @@ exit;
 			foreach ($result['photo'] as $photo) {
 				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
 				$owner_url = "http://www.flickr.com/photos/".$photo['owner']."/".$photo['id'];
+				$ptitle = htmlspecialchars($photo['title']);
+				$pownername = htmlspecialchars($photo['ownername']);
+
 				echo "<li style=\"float: left; margin: 0 10px 10px 0;\">";
 				echo "<a href='".$target_url.".jpg' title='click to post the picture to the content'>";
 //echo "<a target='_blank' href='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'].".jpg' title='".$photo['title']."' id='get_image'>";
-				echo  "<img id='get_image' src='".$target_url."_s.jpg' alt='".$owner_url."(__)".htmlspecialchars($photo['title'])."(__)".htmlspecialchars($photo['ownername'])."' />";
+				echo  "<img id='get_image' src='".$target_url."_s.jpg' alt='".$owner_url."(__)".$ptitle."(__)".$pownername."' />";
 //echo  "<img id='get_image' src='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret']."_s.jpg'>";
 				echo "</a>";
 				echo "</li>";
