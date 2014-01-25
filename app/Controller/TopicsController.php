@@ -832,8 +832,8 @@ exit;
 			foreach ($result['photo'] as $photo) {
 				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
 				$owner_url = "http://www.flickr.com/photos/".$photo['owner']."/".$photo['id'];
-				$ptitle = htmlspecialchars($photo['title']);
-				$pownername = htmlspecialchars($photo['ownername']);
+				$ptitle = addslashes($photo['title']);
+				$pownername = addslashes($photo['ownername']);
 
 
 echo "<PRE>";
