@@ -163,9 +163,12 @@ if(!empty($editing_contents)){
 			elseif($econtents[0] == "__imageurl__"){
 				/// IMAGE ///
 				$im_url = explode("(__)",h($econtents[1]));
-				echo "<a target='_blank' href='".h($im_url[0])."'><img src='".h($econtents[2])."' /></a>";
 				if($im_url[0] != "imageupload"){ //if image is from upload, the image info disapper
+					echo "<a target='_blank' href='".h($im_url[0])."'><img src='".h($econtents[2])."' /></a>";
 					echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
+				}
+				else{
+					echo "<img src='".h($econtents[2])."' />";
 				}
 			}
 			elseif($econtents[0] == "disabled"){
