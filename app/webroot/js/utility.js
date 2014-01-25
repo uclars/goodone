@@ -142,11 +142,12 @@ $('#get_image').live('click',function(e)
 	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
 	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
 	var imageinfo_org = $(this).attr("alt");
-	imageinfo = imageinfo_org.split("(__)");
-	var imageownerid = imageinfo[0];
-	var imageownername = imageinfo[2];
-	var imagetitle = imageinfo[1];
-
+	if(imageinfo != null){
+		imageinfo = imageinfo_org.split("(__)");
+		var imageownerid = imageinfo[0];
+		var imageownername = imageinfo[2];
+		var imagetitle = imageinfo[1];
+	}
 	//var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
 	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 	var ref2=$(
