@@ -160,7 +160,8 @@ $('#get_image').live('click',function(e)
 			+ '<p class="delete">[remove]</p>'
 		).prependTo($(title_id));
 	}
-	else{ //Image Uploda (no alt value)
+	else{ //Image Upload (no alt value)
+		imageinfo_org = "imageupload(__)imageupoad(__)imageupload";
 		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 		var ref2=$(
 			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
