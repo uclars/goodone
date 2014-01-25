@@ -139,6 +139,11 @@ $('#get_image').live('click',function(e)
 	var title_id = "#contentsSet_"+titlenum;
 	//IMAGE info from Topic_Controller
 	var imageurl_content = $(this).attr("src");
+
+
+console.log(imageurl_content);
+
+
 	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
 	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
 	var imageinfo_org = $(this).attr("alt");
@@ -239,7 +244,7 @@ $('#moreButton').live('click',function(e){
 /// File Upload /////
 function image_upload(){
 	$('#file_id').upload('/Topics/uploadImage', function(res) {
-console.log(res);
+//console.log(res);
 		//get the image url from response which is like "num of url|url+whole HTML"
 		url=res.split("|");
 		url_num = url[0];
