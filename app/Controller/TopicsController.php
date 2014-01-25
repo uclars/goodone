@@ -835,6 +835,14 @@ exit;
 				$ptitle = htmlspecialchars($photo['title']);
 				$pownername = htmlspecialchars($photo['ownername']);
 
+
+echo "<PRE>";
+var_dump($ptitle);
+var_dump($pownername);
+echo "</PRE>";
+
+
+
 				echo "<li style=\"float: left; margin: 0 10px 10px 0;\">";
 				echo "<a href='".$target_url.".jpg' title='click to post the picture to the content'>";
 //echo "<a target='_blank' href='http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'].".jpg' title='".$photo['title']."' id='get_image'>";
