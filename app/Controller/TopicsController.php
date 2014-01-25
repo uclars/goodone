@@ -861,7 +861,7 @@ echo "</PRE>";
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
-$_checkImagefile($_FILES);
+//$_checkImagefile($_FILES);
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
