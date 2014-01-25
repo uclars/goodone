@@ -829,6 +829,11 @@ exit;
 			));
 
 
+var_dump($result['photo']);
+exit;
+
+
+
 			$target_url = null;
 			foreach ($result['photo'] as $photo) {
 				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
@@ -870,12 +875,6 @@ echo "</PRE>";
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
 			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
-
-/*
-echo "<PRE>";
-var_dump($data);
-echo "</PRE>";
-*/
 
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
