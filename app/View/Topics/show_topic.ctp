@@ -76,6 +76,10 @@ foreach($show_contents as $contents_array){
 		//Display the image
 		echo "<div style='margin-bottom:10px;'>";
 		echo "<div>".$this->Html->link($this->Html->image($simg_url),$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
+
+
+var_dump$p($pic_address)
+
 		if($pic_address != "imageupoad"){//if image is from upload, the link disappear
 			echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 		}
