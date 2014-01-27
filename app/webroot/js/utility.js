@@ -149,7 +149,7 @@ $('#get_image').live('click',function(e)
 		var imageownerid = imageinfo[0];
 		var imageownername = imageinfo[2];
 		var imagetitle = imageinfo[1];
-	//var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
+		//var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
 		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 		var ref2=$(
 			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
@@ -169,6 +169,9 @@ $('#get_image').live('click',function(e)
 			+ '<img src='+imageurl_content+' />'
 			+ '<p class="delete">[remove]</p>'
 		).prependTo($(title_id));
+
+		//clear input words
+		("#file_id").val(")";
 	}
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
