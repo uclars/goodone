@@ -171,7 +171,7 @@ $('#get_image').live('click',function(e)
 		).prependTo($(title_id));
 
 		//clear input words
-		("#file_id").val("");
+		("#file_id").control.replaceWith( control = control.clone( true ) );
 	}
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
