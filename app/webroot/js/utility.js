@@ -185,8 +185,7 @@ $('#get_image').live('click',function(e)
 	$(imageurl).val(imageinfo_org);
 
 	//Clear the images
-	//$('#display_img').fadeOut(500, function() {
-	$('#get_image').fadeOut(500, function() {
+	$('#display_img').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
 
