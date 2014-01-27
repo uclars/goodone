@@ -186,7 +186,7 @@ $('#get_image').live('click',function(e)
 
 	//Clear the images
 	//$('#display_img').fadeOut(500, function() {
-	$('#display').fadeOut(500, function() {
+	$('#get_image').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
 
