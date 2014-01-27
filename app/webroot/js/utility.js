@@ -188,6 +188,9 @@ $('#get_image').live('click',function(e)
 	$('#display_img').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
+	$('#display').fadeOut(500, function() {
+		$(this).html("").fadeIn(500);
+	});
 
 	e.preventDefault();
 });
