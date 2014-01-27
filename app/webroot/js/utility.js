@@ -169,10 +169,6 @@ $('#get_image').live('click',function(e)
 			+ '<img src='+imageurl_content+' />'
 			+ '<p class="delete">[remove]</p>'
 		).prependTo($(title_id));
-
-		$('#get_image').fadeOut(500, function() {
-			$(this).html("").fadeIn(500);
-		});
 	}
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
@@ -189,7 +185,8 @@ $('#get_image').live('click',function(e)
 	$(imageurl).val(imageinfo_org);
 
 	//Clear the images
-	$('#display_img').fadeOut(500, function() {
+	//$('#display_img').fadeOut(500, function() {
+	$('#display').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
 
