@@ -194,11 +194,10 @@ $('#get_image').live('click',function(e)
 
 /// FLICKR Search /////
 //number of images shown in one search
-var numperpage=35;
+var numperpage=40;
 $('#submitButton').live('click',function(e){
 	//Clear the images
 	$("#display_img").html("");
-	//$("#display_flickr_img").html("");
 	// showing loading image
 	$('#loadingimage').show();
 
@@ -208,7 +207,6 @@ $('#submitButton').live('click',function(e){
 		$('#loadingimage').hide();
 		//show the images
 		$("#display_img").html(res);
-		//$("#display_flickr_img").html(res);
 	});
 });
 
@@ -221,7 +219,6 @@ $('#moreButton').live('click',function(e){
 	$('#loadingimage').show();
 	//get the page to show
 	currentpage = $('#display_img li').length;
-	//currentpage = $('#display_flickr_img li').length;
 	if(currentpage){
 		nextpage = (currentpage/numperpage)+1
 	}else{
@@ -235,7 +232,6 @@ $('#moreButton').live('click',function(e){
 
 		//show the images
 		$(res).appendTo("#display_img").hide().fadeIn(800);
-		//$(res).appendTo("#display_flickr_img").hide().fadeIn(800);
 	});
 });
 
