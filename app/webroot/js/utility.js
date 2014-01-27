@@ -220,8 +220,8 @@ $('#moreButton').live('click',function(e){
 	// showing loading image
 	$('#loadingimage').show();
 	//get the page to show
-	//currentpage = $('#display_img li').length;
-	currentpage = $('#display_flickr_img li').length;
+	currentpage = $('#display_img li').length;
+	//currentpage = $('#display_flickr_img li').length;
 	if(currentpage){
 		nextpage = (currentpage/numperpage)+1
 	}else{
