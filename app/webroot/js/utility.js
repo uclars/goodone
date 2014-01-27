@@ -171,6 +171,7 @@ $('#get_image').live('click',function(e)
 		).prependTo($(title_id));
 
 		//clear input words
+		var control = $("#file_id");
 		control.replaceWith( control = control.clone( true ) );
 	}
 
