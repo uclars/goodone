@@ -255,18 +255,15 @@ function image_upload(){
 $(function(){
 	//default view of image is "image upload"
 	$("#flickr_search").css("display", "none"); 
-	//$("#display").css("display", "none"); 
 
 	//switch link image upload <-> flickr search
 	$("#change_to_flickr").click(function(){
 		$("#image_upload").toggle();
 		$("#flickr_search").toggle();
-//		$("#display").toggle();
 	});
 	$("#change_to_upload").click(function(){
 		$("#image_upload").toggle();
 		$("#flickr_search").toggle();
-//		$("#display").toggle();
 	});
 });
 
