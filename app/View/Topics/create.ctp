@@ -106,7 +106,7 @@ if(!empty($editing_contents)){
 					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
 					<div id="change_to_flickr" style="margin-top:60px;"><p class="click_link">[flickr search]</p></div> 
 				</div>
-				<div class="span4" id="flickr_search">
+				<div class="span12" id="flickr_search">
 					<!--<form action="/Topics/create/topicid:136" id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">-->
 					<form id="TopicCreateForm" onsubmit="event.returnValue = false; return false;" method="post" accept-charset="utf-8">
 						<div style="display:none;"><input type="hidden" name="_method" value="POST"></div>
@@ -115,9 +115,9 @@ if(!empty($editing_contents)){
 					</form>
 					<div id="change_to_upload"><p class="click_link">[image upload]</p></div>
 				</div>
-				<div class="span8" id="display">
-					<!--<ul id="display_img">-->
-					<ul id="display_flickr_img">
+				<div class="span12" id="display">
+					<ul id="display_img">
+					//<ul id="display_flickr_img">
 					</ul>
 					<span id="loadingimage" style="display:none; text-align:center;">
 						<img src="/img/basic/loading.gif" width="16px" height="16px/">
