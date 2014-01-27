@@ -116,7 +116,8 @@ if(!empty($editing_contents)){
 					<div id="change_to_upload"><p class="click_link">[image upload]</p></div>
 				</div>
 				<div class="span8" id="display">
-					<ul id="display_img">
+					<!--<ul id="display_img">-->
+					<ul id="display_flickr_img">
 					</ul>
 					<span id="loadingimage" style="display:none; text-align:center;">
 						<img src="/img/basic/loading.gif" width="16px" height="16px/">
