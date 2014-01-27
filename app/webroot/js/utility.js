@@ -185,7 +185,7 @@ $('#get_image').live('click',function(e)
 	$(imageurl).val(imageinfo_org);
 
 	//Clear the images
-	$('#display_img').fadeOut(500, function() {
+	$('#display_flickr_img').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
 /*
@@ -201,7 +201,8 @@ $('#get_image').live('click',function(e)
 var numperpage=35;
 $('#submitButton').live('click',function(e){
 	//Clear the images
-	$("#display_img").html("");
+	//$("#display_img").html("");
+	$("#display_flickr_img").html("");
 	// showing loading image
 	$('#loadingimage').show();
 
@@ -210,7 +211,8 @@ $('#submitButton').live('click',function(e){
 		//hide the loading image when images are shown
 		$('#loadingimage').hide();
 		//show the images
-		$("#display_img").html(res);
+		//$("#display_img").html(res);
+		$("#display_flickr_img").html(res);
 	});
 });
 
@@ -222,7 +224,8 @@ $('#moreButton').live('click',function(e){
 	// showing loading image
 	$('#loadingimage').show();
 	//get the page to show
-	currentpage = $('#display_img li').length;
+	//currentpage = $('#display_img li').length;
+	currentpage = $('#display_flickr_img li').length;
 	if(currentpage){
 		nextpage = (currentpage/numperpage)+1
 	}else{
@@ -235,7 +238,8 @@ $('#moreButton').live('click',function(e){
 		$('#loadingimage').hide();
 
 		//show the images
-		$(res).appendTo("#display_img").hide().fadeIn(800);
+		//$(res).appendTo("#display_img").hide().fadeIn(800);
+		$(res).appendTo("#display_flickr_img").hide().fadeIn(800);
 	});
 });
 
