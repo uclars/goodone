@@ -170,7 +170,7 @@ $('#get_image').live('click',function(e)
 			+ '<p class="delete">[remove]</p>'
 		).prependTo($(title_id));
 
-		$('#display').fadeOut(500, function() {
+		$('#get_image').fadeOut(500, function() {
 			$(this).html("").fadeIn(500);
 		});
 	}
