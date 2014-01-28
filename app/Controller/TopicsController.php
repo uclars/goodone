@@ -894,7 +894,7 @@ $this->_checkImagefile($_FILES);
 echo "<PRE>";
 var_dump($file_array);
 echo "</PRE>";
-exit;
+
 
 		if (isset($file_array['uploadedfile']['error']) && is_array($file_array['uploadedfile']['error'])) {
 
