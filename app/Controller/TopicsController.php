@@ -889,7 +889,7 @@ $_checkImagefile($_FILES);
 
 	}
 
-	function _checkImage($file_array){
+	function _checkImagefile($file_array){
 
 echo "<PRE>";
 var_dump($file_array);
