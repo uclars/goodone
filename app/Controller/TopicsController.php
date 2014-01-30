@@ -930,7 +930,8 @@ try {
     // MIMEタイプに対応する拡張子を自前で取得する
     $finfo = new finfo(FILEINFO_MIME_TYPE);
     if (false === $ext = array_search(
-        $finfo->file($_FILES['uploadedfile']['tmp_name']),
+        //$finfo->file($_FILES['uploadedfile']['tmp_name']),
+	mime_content_type($_FILES['upfile']['tmp_name']),
         array(
             'jpg' => 'image/jpeg',
             'png' => 'image/png',
