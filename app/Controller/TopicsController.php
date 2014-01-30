@@ -929,19 +929,11 @@ try {
     // $_FILES['upfile']['mime']の値はブラウザ側で偽装可能なので
     // MIMEタイプに対応する拡張子を自前で取得する
     //$finfo = new finfo(FILEINFO_MIME_TYPE);
-exif_imagetype($_FILES['uploadedfile']['tmp_name']);
-    if (false === $ext = array_search(
-        //$finfo->file($_FILES['uploadedfile']['tmp_name']),
-	mime_content_type($_FILES['upfile']['tmp_name']),
-        array(
-            'jpg' => 'image/jpeg',
-            'png' => 'image/png',
-            'gif' => 'image/gif',
-        ),
-        true
-    )) {
-        throw new RuntimeException('ファイル形式が不正です');
-    }
+	$allowed_filetypes = array('.jpg','.gif','.bmp','.png'); 
+	$filename = $_FILES['uploadedfile']['name']; // Get the name of the file (including file extension).
+	$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1);
+	if(!in_array($ext,$allowed_filetypes))
+         die('The file you attempted to upload is not allowed.');
 
 } catch (RuntimeException $e) {
 
