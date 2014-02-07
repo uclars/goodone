@@ -872,7 +872,7 @@ $extarray = array("jpg","gif","png");
 			$data = fread($handle, filesize($filename));
 			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
-if(array_search($ext,$extarray) === FALSE){
+if(!array_search($ext,$extarray)){
 echo "File is not image";
 }
 else{
