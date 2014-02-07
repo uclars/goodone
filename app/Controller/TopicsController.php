@@ -861,44 +861,38 @@ echo "</PRE>";
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
-//$this->_checkImagefile($_FILES);
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			$name=$me."_".date("YmdHis").".".$ext;
-//			$filename = $_FILES['uploadedfile']['tmp_name'];
-//			$handle = fopen($filename, "r");
-//			$data = fread($handle, filesize($filename));
-//			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
-if(array_search($ext,$extarray) === FALSE){
-echo "File is not image";
-}elseif($_FILES['uploadedfile']['size'] > 1048576){
-echo "The max file size is 1M";
-}else{
-			$filename = $_FILES['uploadedfile']['tmp_name'];
-			$handle = fopen($filename, "r");
-			$data = fread($handle, filesize($filename));
-			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
+			//file check (type and size)
+			if(array_search($ext,$extarray) === FALSE){
+				echo "1|File is not image";
+			}elseif($_FILES['uploadedfile']['size'] > 1048576){
+				echo "2|The max file size is 1M";
+			}else{
+				$filename = $_FILES['uploadedfile']['tmp_name'];
+				$handle = fopen($filename, "r");
+				$data = fread($handle, filesize($filename));
+				$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
-			$curl = curl_init();
-			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
-			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
-			curl_setopt($curl, CURLOPT_POST, 1);
-			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($curl, CURLOPT_HEADER, false);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
-			$response = curl_exec($curl);
-			curl_close ($curl);
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
+				curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+				curl_setopt($curl, CURLOPT_POST, 1);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($curl, CURLOPT_HEADER, false);
+				curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
+				$response = curl_exec($curl);
+				curl_close ($curl);
 
-			$res_length=strlen($response);
-			//substr($response, 0, $res_length);
-			echo$res_length."|". $response;
-}
+				$res_length=strlen($response);
+				//substr($response, 0, $res_length);
+				echo$res_length."|". $response;
+			}
 		}
-
-
 	}
 
 	function _checkImagefile($file_array){

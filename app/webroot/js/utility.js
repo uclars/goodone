@@ -248,10 +248,14 @@ console.log(res);
 		url=res.split("|");
 		url_num = url[0];
 		url_rest = url[1];
+if(url_num==0){
+image_url_tag = url_rest;
+}else{
 		url_image = url_rest.substring(0, url_num);
 		image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
 		//$(image_url_tag).insertAfter("#display_img");
 		//$(image_url_tag).insertAfter("#display");
+}
 		$("#display_img").html(image_url_tag);
 	});
 }
