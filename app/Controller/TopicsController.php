@@ -923,7 +923,7 @@ try {
 
     // ここで定義するサイズ上限のオーバーチェック
     if ($_FILES['uploadedfile']['size'] > 1000000) {
-        throw new RuntimeException('ファイルサイズが大きすぎます');
+        throw new RuntimeException('AAA ファイルサイズが大きすぎます');
     }
 
     // $_FILES['upfile']['mime']の値はブラウザ側で偽装可能なので
