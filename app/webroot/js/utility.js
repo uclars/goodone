@@ -250,7 +250,7 @@ console.log(res);
 		url_rest = url[1];
 
 
-if(url_num==1){
+if(url_num == "1"){
 image_url_tag = "<p>"+url_rest+"</p>";
 }else{
 		url_image = url_rest.substring(0, url_num);
