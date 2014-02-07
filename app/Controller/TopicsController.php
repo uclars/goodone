@@ -874,7 +874,7 @@ echo "</PRE>";
 
 if(array_search($ext,$extarray) === FALSE){
 echo "File is not image";
-}elseif($_FILES['uploadedfile']['size'] > 119500){
+}elseif($_FILES['uploadedfile']['size'] > 1048576){
 echo "The max file size is 1M";
 }else{
 			$filename = $_FILES['uploadedfile']['tmp_name'];
