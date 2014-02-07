@@ -864,7 +864,7 @@ echo "</PRE>";
 //$this->_checkImagefile($_FILES);
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
-$extarray = arra("jpg","gif","png");
+$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			$name=$me."_".date("YmdHis").".".$ext;
 			$filename = $_FILES['uploadedfile']['tmp_name'];
