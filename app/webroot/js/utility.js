@@ -248,7 +248,7 @@ console.log(res);
 		url=res.split("|");
 		url_num = url[0];
 		url_rest = url[1];
-if(url_num==0){
+if(url_num==1){
 image_url_tag = url_rest;
 }else{
 		url_image = url_rest.substring(0, url_num);
