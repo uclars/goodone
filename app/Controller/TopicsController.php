@@ -876,6 +876,7 @@ if(!array_search($ext,$extarray)){
 echo "File is not image";
 }
 else{
+/*
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
 			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
@@ -889,6 +890,7 @@ else{
 			$res_length=strlen($response);
 			//substr($response, 0, $res_length);
 			echo$res_length."|". $response;
+*/
 }
 		}
 
