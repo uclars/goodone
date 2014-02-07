@@ -864,6 +864,7 @@ echo "</PRE>";
 //$this->_checkImagefile($_FILES);
 			//$name = $_FILES['uploadedfile']['name'];
 			$path = $_FILES['uploadedfile']['name'];
+$extarray = arra("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			$name=$me."_".date("YmdHis").".".$ext;
 			$filename = $_FILES['uploadedfile']['tmp_name'];
@@ -871,6 +872,10 @@ echo "</PRE>";
 			$data = fread($handle, filesize($filename));
 			$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
 
+if(array_search($ext,$extarray) === FALSE)){
+echo "File is not image";
+}
+else{
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_save.php');
 			curl_setopt($curl, CURLOPT_TIMEOUT, 30);
@@ -884,6 +889,7 @@ echo "</PRE>";
 			$res_length=strlen($response);
 			//substr($response, 0, $res_length);
 			echo$res_length."|". $response;
+}
 		}
 
 
