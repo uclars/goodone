@@ -867,7 +867,7 @@ echo "</PRE>";
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			$name=$me."_".date("YmdHis").".".$ext;
-$imagesize = filesize($_FILES['uploadedfile']);
+$imagesize = filesize($_FILES['uploadedfile']['size']);
 echo $imagesize;
 //			$filename = $_FILES['uploadedfile']['tmp_name'];
 //			$handle = fopen($filename, "r");
