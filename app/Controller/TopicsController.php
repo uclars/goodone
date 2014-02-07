@@ -867,8 +867,6 @@ echo "</PRE>";
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			$name=$me."_".date("YmdHis").".".$ext;
-$imagesize = $_FILES['uploadedfile']['size'];
-echo $imagesize;
 //			$filename = $_FILES['uploadedfile']['tmp_name'];
 //			$handle = fopen($filename, "r");
 //			$data = fread($handle, filesize($filename));
@@ -876,8 +874,9 @@ echo $imagesize;
 
 if(array_search($ext,$extarray) === FALSE){
 echo "File is not image";
-}
-else{
+}elseif($_FILES['uploadedfile']['size'] > 119500){
+echo "The max file size is 1M";
+}else{
 			$filename = $_FILES['uploadedfile']['tmp_name'];
 			$handle = fopen($filename, "r");
 			$data = fread($handle, filesize($filename));
