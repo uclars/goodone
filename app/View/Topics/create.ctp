@@ -104,6 +104,7 @@ if(!empty($editing_contents)){
 			<div class="row">
 				<div class="span12" id="image_upload">
 					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
+					<span style="font-size:smaller;">jpeg, gif, png images. less than 500K.</span>
 					<div id="change_to_flickr" style="margin-top:60px;"><p class="click_link">[flickr search]</p></div> 
 				</div>
 				<div class="span12" id="flickr_search">

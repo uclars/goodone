@@ -869,9 +869,9 @@ echo "</PRE>";
 
 			//file check (type and size)
 			if(array_search($ext,$extarray) === FALSE){
-				echo "1|File is not image|";
-			}elseif($_FILES['uploadedfile']['size'] > 1048576){
-				echo "2|The max file size is 1M|";
+				echo "1|The selected file could not be uploaded. Only JPEG, PNG and GIF images are supported.|";
+			}elseif($_FILES['uploadedfile']['size'] > 512000){
+				echo "2|The max file size is 500KB.|";
 			}else{
 				$filename = $_FILES['uploadedfile']['tmp_name'];
 				$handle = fopen($filename, "r");
