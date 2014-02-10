@@ -250,7 +250,7 @@ console.log(res);
 		url_rest = url[1];
 
 		if(url_num == "1"){
-			image_url_tag = "<p color="red">"+url_rest+"</p>";
+			image_url_tag = "<p color=i'red'>"+url_rest+"</p>";
 		}else{
 			url_image = url_rest.substring(0, url_num);
 			image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
