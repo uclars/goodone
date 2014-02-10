@@ -251,6 +251,8 @@ console.log(res);
 
 		if(url_num == "1"){
 			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
+		}else if(url_num == "2"){
+			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
 		}else{
 			url_image = url_rest.substring(0, url_num);
 			image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
