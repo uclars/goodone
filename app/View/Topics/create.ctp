@@ -137,6 +137,7 @@ if(!empty($editing_contents)){
 				<div id="loadingimage" style="display:none; text-align:center;">
 					<img src="/img/basic/loading.gif" width="16px" height="16px/">
 				</div>
+<p><a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a></p>
 			</div>
 		</div>
 	</div>
