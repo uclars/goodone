@@ -95,7 +95,6 @@
     
             // build swf url from youtube link
             //if ( src.substr(0,31) == 'http://www.youtube.com/watch?v=' ) src = 'http://www.youtube.com/v/' + src.substr(31) + options.srcOptions;
-            if ( src.substr(0,31) == 'http://www.youtube.com/watch?v=' ) src = 'http://www.youtube.com/v/' + options.srcOptions;
         
             // set the target
             if ( options.target ) {
