@@ -126,6 +126,16 @@
 						$(this).val("Web Clipping Title").css("color","#969696");
 					}else{$(this).css("color","#000"); }
 				});
+				$("#youtube").focus(function(){
+					if(this.value == "Input youtube url"){
+						$(this).val("").css("color","#000");
+					}
+				});
+				$("#youtube").blur(function(){
+					if(this.value == ""){
+						$(this).val("Input youtube url").css("color","#969696");
+					}
+				});
 
 
 
