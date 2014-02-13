@@ -259,6 +259,7 @@ function image_upload(){
 			image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
 		}
 
+		$('#loadingimage').hide();
 		$("#display_img").html(image_url_tag);
 	});
 }
