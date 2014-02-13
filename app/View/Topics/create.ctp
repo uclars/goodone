@@ -65,6 +65,7 @@ if(!empty($editing_contents)){
 	<li><a href="#C" data-toggle="tab">Quotation</a></li>
 	<li><a href="#D" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Text&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 	<li><a href="#E" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+	<li><a href="#F" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;Youtube&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
 </ul>
 <div class="tabbable">
 	<div class="tab-content">
