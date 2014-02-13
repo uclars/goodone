@@ -295,7 +295,7 @@ $('#get_youtube').live('click',function(e){
 		swfWidth:320,
 		swfHeight:240
 	});
-	$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow">Check out this video</a>');
+	$("#display_youtube").append('<div><a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow">Check out this video</a></div>');
 });
 
 
