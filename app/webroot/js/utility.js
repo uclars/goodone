@@ -242,6 +242,8 @@ $('#moreButton').live('click',function(e){
 
 /// File Upload /////
 function image_upload(){
+	$("#display_img").html("");
+	$('#loadingimage').show();
 	$('#file_id').upload('/Topics/uploadImage', function(res) {
 		//get the image url from response which is like "num of url|url+whole HTML"
 		url=res.split("|");
