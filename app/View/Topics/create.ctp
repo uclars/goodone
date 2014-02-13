@@ -124,6 +124,14 @@ if(!empty($editing_contents)){
 					</div>
 				</div>
 			</div>
+                </div>
+		<div class="tab-pane" id="F">
+			<div class="contents form">
+				<fieldset>
+					<div class="input text"><input name="data[heading]" id="youtube" value="Input youtube url" type="text"></div>
+					<button class="submitinsideclass" id="get_heading" name="get_heading" type="submit">heading</button>
+				</fieldset>
+			</div>
 		</div>
 	</div>
 

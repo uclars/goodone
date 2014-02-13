@@ -7,7 +7,9 @@
 			echo $this->Html->meta('utf-8');
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', array( 'inline' => false ) );
+			echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js', array( 'inline' => false ) );
 			echo $this->Html->script('utility.js', array( 'inline' => false ) );
+			echo $this->Html->script('jquery.youtubin.js', array( 'inline' => false ) );
 		//echo $this->Html->script('jquery.ui.widget.js', array( 'inline' => false ) );
 		//echo $this->Html->script('load-image.min.js', array( 'inline' => false ) );
 		//echo $this->Html->script('canvas-to-blob.min.js', array( 'inline' => false ) );

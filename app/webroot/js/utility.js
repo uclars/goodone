@@ -280,6 +280,13 @@ $(function(){
 });
 
 
+$(function(){
+	$('#youtube').youtubin({
+		swfWidth:560,
+		swfHeight:340
+	});
+});
+
 
 $(function(){
 	$(".contentsBox .delete").live('click',function(e){
