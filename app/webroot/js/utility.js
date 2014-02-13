@@ -289,8 +289,9 @@ $(function(){
 });
 $('#get_youtube').live('click',function(e){
 console.log($('#youtube').val());
+var tag="<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube-display'>Check out this video</a>
 //show the images
-//$('#imagetext').val().appendTo("#display_youtube").hide().fadeIn(800);
+tag.appendTo("#display_youtube").hide().fadeIn(800);
 });
 
 
