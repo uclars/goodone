@@ -291,6 +291,11 @@ $('#get_youtube').live('click',function(e){
 //show the images
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
+
+	$('#youtube').youtubin({
+		swfWidth:560,
+		 swfHeight:340
+	});
 });
 
 
