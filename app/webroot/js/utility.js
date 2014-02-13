@@ -280,15 +280,16 @@ $(function(){
 });
 
 
+//// YOUTUBE //////////
 $(function(){
 	$('#youtube-display').youtubin({
 		swfWidth:560,
 		swfHeight:340
 	});
 });
-$('#youtube').live('click',function(e){
+$('#get_youtube').live('click',function(e){
 //show the images
-$(res).appendTo("#display_youtube").hide().fadeIn(800);
+$('#imagetext').val().appendTo("#display_youtube").hide().fadeIn(800);
 });
 
 
