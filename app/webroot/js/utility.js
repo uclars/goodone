@@ -288,8 +288,9 @@ $(function(){
 	});
 });
 $('#get_youtube').live('click',function(e){
+console.log($('#imagetext').val());
 //show the images
-$('#imagetext').val().appendTo("#display_youtube").hide().fadeIn(800);
+//$('#imagetext').val().appendTo("#display_youtube").hide().fadeIn(800);
 });
 
 
