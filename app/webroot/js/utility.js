@@ -281,7 +281,7 @@ $(function(){
 
 
 $(function(){
-	$('#youtube').youtubin({
+	$('#youtube-display').youtubin({
 		swfWidth:560,
 		swfHeight:340
 	});
