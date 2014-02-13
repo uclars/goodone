@@ -282,7 +282,7 @@ $(function(){
 
 //// YOUTUBE //////////
 $(function(){
-	$('#youtube-display').youtubin({
+	$('a #youtube-display').youtubin({
 		swfWidth:560,
 		swfHeight:340
 	});
