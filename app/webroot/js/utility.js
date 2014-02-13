@@ -281,10 +281,12 @@ $(function(){
 
 
 $(function(){
+/*
 	$('#youtube').youtubin({
 		swfWidth:560,
 		swfHeight:340
 	});
+*/
 });
 
 
