@@ -291,7 +291,7 @@ $('#get_youtube').live('click',function(e){
 console.log($('#youtube').val());
 var tag="<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube-display'>Check out this video</a>";
 //show the images
-	$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube-display'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
+	$("<p><a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube-display'>Check out this video</a></p>").appendTo("#display_youtube").hide().fadeIn(800);
 });
 
 
