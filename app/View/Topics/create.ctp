@@ -132,12 +132,10 @@ if(!empty($editing_contents)){
 					<div class="input text"><input name="youtube" id="youtube" value="Input youtube url" type="text"></div>
 					<button class="submitinsideclass" id="get_youtube" name="get_youtube" type="submit">get movie</button>
 				</fieldset>
-				<div class="span12" id="display">
-					<ul id="display_youtube">
-					</ul>
-					<div id="loadingimage" style="display:none; text-align:center;">
-						<img src="/img/basic/loading.gif" width="16px" height="16px/">
-					</div>
+				<ul id="display_youtube">
+				</ul>
+				<div id="loadingimage" style="display:none; text-align:center;">
+					<img src="/img/basic/loading.gif" width="16px" height="16px/">
 				</div>
 			</div>
 		</div>
