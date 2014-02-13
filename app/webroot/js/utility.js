@@ -288,7 +288,6 @@ $(function(){
 	});
 });
 $('#get_youtube').live('click',function(e){
-console.log($('#youtube').val());
 //show the images
 	$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube-display'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 });
