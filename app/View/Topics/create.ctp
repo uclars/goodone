@@ -130,7 +130,7 @@ if(!empty($editing_contents)){
 			<div class="contents form">
 				<fieldset>
 					<div class="input text"><input name="youtube" id="youtube" value="Input youtube url" type="text"></div>
-					<button class="submitinsideclass" id="get_youtube" name="get_youtube" type="submit">movie from youtube</button>
+					<button class="submitinsideclass" id="get_youtube" name="get_youtube" type="submit">get movie</button>
 				</fieldset>
 			</div>
 		</div>
