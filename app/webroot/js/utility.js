@@ -286,6 +286,10 @@ $(function(){
 		swfHeight:340
 	});
 });
+$('#youtube').live('click',function(e){
+//show the images
+$(res).appendTo("#display_youtube").hide().fadeIn(800);
+});
 
 
 $(function(){
