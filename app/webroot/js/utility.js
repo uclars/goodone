@@ -245,7 +245,6 @@ $('#get_youtube').live('click',function(e)
 	});
 */
 	$('#get_youtube').html("");
-	$('#get_youtube').hide();
 
 
 	e.preventDefault();
