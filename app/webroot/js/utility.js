@@ -228,6 +228,7 @@ $('#get_youtube').live('click',function(e)
 	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
 	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
 
+/*
 	var imageurlid ="#commenturl_"+titlenum;
 	var imageid ="#comment_"+titlenum;
 	var imageurl ="#content_"+titlenum;
@@ -235,6 +236,7 @@ $('#get_youtube').live('click',function(e)
 	$(imageurlid).text(imageurl_content);
 	$(imageid).val(imageurl_content);
 	$(imageurl).val(imageinfo_org);
+*/
 
 	//Clear the images
 	$('#get_youtube').fadeOut(500, function() {
