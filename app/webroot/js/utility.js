@@ -217,7 +217,7 @@ $('#get_youtube').live('click',function(e)
 		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-		+ '<a href="'+imageinfo+'" rel="nofollow" id="youtube">Check out this video</a>'
+		+ '<a href="'+imageinfo[0]+'" rel="nofollow" id="youtube">Check out this video</a>'
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
