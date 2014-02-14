@@ -290,12 +290,13 @@ $(function(){
 $('#get_youtube').live('click',function(e){
 	//show the movie
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
-	$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
-	$('#youtube').youtubin({
+	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
+	$("#display_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=9YEEl52u8XE', 'small'));
+	//$('#youtube').youtubin({
 		swfWidth:320,
 		swfHeight:240
-	});
-	$("<div><a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow'>Check out this video</a></div>").appendTo("#display_youtube").hide().fadeIn(800);
+	//});
+	//$("<div><a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow'>Check out this video</a></div>").appendTo("#display_youtube").hide().fadeIn(800);
 });
 
 
