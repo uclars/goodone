@@ -221,7 +221,11 @@ $('#get_youtube').live('click',function(e)
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
-	//clear input words
+	$('#youtube').youtubin({
+		swfWidth:320,
+		swfHeight:240
+	});
+
 	var control = $("#file_id");
 	control.replaceWith( control = control.clone( true ) );
 
