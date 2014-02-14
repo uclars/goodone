@@ -244,7 +244,7 @@ $('#get_youtube').live('click',function(e)
 		$(this).html("").fadeIn(500);
 	});
 */
-	$('#get_youtube').remove();
+	$('#get_youtube').empty();
 
 	e.preventDefault();
 });
