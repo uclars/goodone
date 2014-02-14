@@ -244,8 +244,8 @@ $('#get_youtube').live('click',function(e)
 		$(this).html("").fadeIn(500);
 	});
 */
-	$("#get_youtube").removeattr("src");
-	$("#get_youtube").removeattr("alt");
+	$("#get_youtube").removeAttr("src");
+	$("#get_youtube").removeAttr("alt");
 	$("#get_youtube").attr("style","display:none;");
 
 
