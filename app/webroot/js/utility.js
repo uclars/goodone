@@ -246,7 +246,7 @@ $('#get_youtube').live('click',function(e)
 */
 	$("#get_youtube").attr("src","");
 	$("#get_youtube").attr("alt","");
-	$("#get_youtube").attr("style","");
+	$("#get_youtube").attr("style","display:none");
 
 
 	e.preventDefault();
