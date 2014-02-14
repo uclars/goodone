@@ -239,9 +239,12 @@ $('#get_youtube').live('click',function(e)
 */
 
 	//Clear the images
+/*
 	$('#get_youtube').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
+*/
+	$('#get_youtube').remove();
 
 	e.preventDefault();
 });
