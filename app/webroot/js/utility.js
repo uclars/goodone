@@ -196,6 +196,75 @@ $('#get_image').live('click',function(e)
 	e.preventDefault();
 });
 
+
+$('#get_youtube').live('click',function(e)
+{
+	var titlenum=0;
+	//var titlenum=($("input.contentstitle").length) + 1;
+	var titlenum=($("input.item_title").length) + 1;
+	var contentnum=($(".item_content").length) + 1;
+	var title_id = "#contentsSet_"+titlenum;
+	//IMAGE info from Topic_Controller
+	var imageurl_content = $(this).attr("src");
+	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
+	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
+	var imageinfo_org = $(this).attr("alt");
+	var imageinfo = imageinfo_org.split("(__)");
+
+	/// HTML tag for Flickr Search and Image Upload
+	if(imageinfo[0] != "imageupload"){ //Flickr Search (alt value for flickr info)
+		var imageownerid = imageinfo[0];
+		var imageownername = imageinfo[2];
+		var imagetitle = imageinfo[1];
+		//var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
+		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
+		var ref2=$(
+			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
+			+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
+			+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
+			+ '<a target="_blank" href="'+imageownerid+'"><img src='+imageurl_content+' /></a>'
+			+ '<p><a target="_blank" href="'+imageownerid+'">Photo "'+imagetitle+'" by '+imageownername+'</a></p>'
+			+ '<p class="delete">[remove]</p>'
+		).prependTo($(title_id));
+	}
+	else{ //Image Upload (no alt value)
+		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
+		var ref2=$(
+			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
+			+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
+			+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
+			+ '<img src='+imageurl_content+' />'
+			+ '<p class="delete">[remove]</p>'
+		).prependTo($(title_id));
+
+		//clear input words
+		var control = $("#file_id");
+		control.replaceWith( control = control.clone( true ) );
+	}
+
+        ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
+	//ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]["+contentnum+"]");
+	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
+	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
+
+	var imageurlid ="#commenturl_"+titlenum;
+	var imageid ="#comment_"+titlenum;
+	var imageurl ="#content_"+titlenum;
+
+	$(imageurlid).text(imageurl_content);
+	$(imageid).val(imageurl_content);
+	$(imageurl).val(imageinfo_org);
+
+	//Clear the images
+	$('#display_img').fadeOut(500, function() {
+		$(this).html("").fadeIn(500);
+	});
+
+	e.preventDefault();
+});
+
+
+
 /// FLICKR Search /////
 //number of images shown in one search
 var numperpage=40;
@@ -287,11 +356,11 @@ $(function(){
 		swfHeight:340
 	});
 });
-$('#get_youtube').live('click',function(e){
-	//show the movie
+$('#get_youtubethumnail').live('click',function(e){
+	//show the movie thumnail
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
-	$("#display_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=8e_wXc0m97w', 'big'));
+	$("#get_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=8e_wXc0m97w', 'big'));
 	//$('#youtube').youtubin({
 	//	swfWidth:320,
 	//	swfHeight:240

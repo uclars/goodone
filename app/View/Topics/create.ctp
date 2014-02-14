@@ -118,7 +118,7 @@ if(!empty($editing_contents)){
 					<div id="change_to_upload"><p class="click_link">[image upload]</p></div>
 				</div>
 				<div class="span12" id="display">
-					<ul id="display_img">
+					<ul id="get_youtube">
 					</ul>
 					<div id="loadingimage" style="display:none; text-align:center;">
 						<img src="/img/basic/loading.gif" width="16px" height="16px/">
@@ -130,7 +130,7 @@ if(!empty($editing_contents)){
 			<div class="contents form">
 				<fieldset>
 					<div class="input text"><input name="youtube_input" id="youtube_input" value="Input youtube url" type="text"></div>
-					<button class="submitinsideclass" id="get_youtube" name="get_youtube" type="submit">get movie</button>
+					<button class="submitinsideclass" id="get_youtubethumnail" name="get_youtubethumnail" type="submit">get movie</button>
 				</fieldset>
 				<img id="display_youtube" />
 				<div id="loadingimage" style="display:none; text-align:center;">
