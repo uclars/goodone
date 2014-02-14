@@ -212,35 +212,18 @@ $('#get_youtube').live('click',function(e)
 	var imageinfo = imageinfo_org.split("(__)");
 
 	/// HTML tag for Flickr Search and Image Upload
-	if(imageinfo[0] != "imageupload"){ //Flickr Search (alt value for flickr info)
-		var imageownerid = imageinfo[0];
-		var imageownername = imageinfo[2];
-		var imagetitle = imageinfo[1];
-		//var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertBefore($('.inner'));
-		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
-		var ref2=$(
-			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
-			+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
-			+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-			+ '<a target="_blank" href="'+imageownerid+'"><img src='+imageurl_content+' /></a>'
-			+ '<p><a target="_blank" href="'+imageownerid+'">Photo "'+imagetitle+'" by '+imageownername+'</a></p>'
-			+ '<p class="delete">[remove]</p>'
-		).prependTo($(title_id));
-	}
-	else{ //Image Upload (no alt value)
-		var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
-		var ref2=$(
-			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
-			+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
-			+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-			+ '<img src='+imageurl_content+' />'
-			+ '<p class="delete">[remove]</p>'
-		).prependTo($(title_id));
+	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
+	var ref2=$(
+		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
+		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
+		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
+		+ '<a href="'+imageurl_content+'" rel="nofollow" id="youtube">Check out this video</a>'
+		+ '<p class="delete">[remove]</p>'
+	).prependTo($(title_id));
 
-		//clear input words
-		var control = $("#file_id");
-		control.replaceWith( control = control.clone( true ) );
-	}
+	//clear input words
+	var control = $("#file_id");
+	control.replaceWith( control = control.clone( true ) );
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
 	//ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]["+contentnum+"]");
@@ -363,7 +346,7 @@ $('#get_youtubethumnail').live('click',function(e){
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
 	$("#get_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=8e_wXc0m97w', 'big'));
-	$("#get_youtube").attr("atl","http://www.youtube.com/watch?v=8e_wXc0m97w");
+	$("#get_youtube").attr("alt","youtube(__)youtube(__)youtube");
 	//$('#youtube').youtubin({
 	//	swfWidth:320,
 	//	swfHeight:240
