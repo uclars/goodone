@@ -132,8 +132,7 @@ if(!empty($editing_contents)){
 					<div class="input text"><input name="youtube_input" id="youtube_input" value="Input youtube url" type="text"></div>
 					<button class="submitinsideclass" id="get_youtube" name="get_youtube" type="submit">get movie</button>
 				</fieldset>
-				<ul id="display_youtube">
-				</ul>
+				<img id="display_youtube" />
 				<div id="loadingimage" style="display:none; text-align:center;">
 					<img src="/img/basic/loading.gif" width="16px" height="16px/">
 				</div>
