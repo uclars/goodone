@@ -351,10 +351,12 @@ $(function(){
 
 //// YOUTUBE //////////
 $(function(){
+/*
 	$('#youtube').youtubin({
 		swfWidth:560,
 		swfHeight:340
 	});
+*/
 });
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
