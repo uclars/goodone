@@ -200,24 +200,21 @@ $('#get_image').live('click',function(e)
 $('#get_youtube').live('click',function(e)
 {
 	var titlenum=0;
-	//var titlenum=($("input.contentstitle").length) + 1;
 	var titlenum=($("input.item_title").length) + 1;
 	var contentnum=($(".item_content").length) + 1;
 	var title_id = "#contentsSet_"+titlenum;
-	//IMAGE info from Topic_Controller
-	var imageurl_content = $(this).attr("src");
-	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
-	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
-	var imageinfo_org = $(this).attr("alt");
-	var imageinfo = imageinfo_org.split("(__)");
+	//Youtube info from jquery
+	var youtubeurl_content = $(this).attr("src");
+	var youtubeinfo_org = $(this).attr("alt");
+	var youtubeinfo = youtubeinfo_org.split("(__)");
 
-	/// HTML tag for Flickr Search and Image Upload
+	/// HTML tag for Youtube
 	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 	var ref2=$(
 		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-		+ '<a href="'+imageinfo[0]+'" rel="nofollow" id="youtube">Check out this video</a>'
+		+ '<a href="'+youtubeinfo[0]+'" rel="nofollow" id="youtube">Check out this video</a>'
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
@@ -225,9 +222,6 @@ $('#get_youtube').live('click',function(e)
 		swfWidth:320,
 		swfHeight:240
 	});
-
-	var control = $("#file_id");
-	control.replaceWith( control = control.clone( true ) );
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
 	//ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]["+contentnum+"]");
@@ -243,7 +237,7 @@ $('#get_youtube').live('click',function(e)
 	$(imageurl).val(imageinfo_org);
 
 	//Clear the images
-	$('#display_img').fadeOut(500, function() {
+	$('#get_youtube').fadeOut(500, function() {
 		$(this).html("").fadeIn(500);
 	});
 
