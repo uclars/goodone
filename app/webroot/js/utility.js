@@ -217,7 +217,7 @@ $('#get_youtube').live('click',function(e)
 		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
 		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-		+ '<a href="'+imageurl_content+'" rel="nofollow" id="youtube">Check out this video</a>'
+		+ '<a href="'+imageinfo+'" rel="nofollow" id="youtube">Check out this video</a>'
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
@@ -346,7 +346,7 @@ $('#get_youtubethumnail').live('click',function(e){
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
 	$("#get_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=8e_wXc0m97w', 'big'));
-	$("#get_youtube").attr("alt","youtube(__)youtube(__)youtube");
+	$("#get_youtube").attr("alt","http://www.youtube.com/watch?v=8e_wXc0m97w(__)youtube(__)youtube");
 	//$('#youtube').youtubin({
 	//	swfWidth:320,
 	//	swfHeight:240
