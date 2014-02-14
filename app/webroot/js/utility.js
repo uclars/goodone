@@ -252,7 +252,7 @@ console.log(youtubeinfo[0]);
 	$("#get_youtube").attr("style","display:none;");
 
 
-	e.preventDefault();
+//	e.preventDefault();
 });
 
 
