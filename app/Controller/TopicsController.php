@@ -862,6 +862,7 @@ echo "</PRE>";
 
 		if (isset($_FILES['uploadedfile'])){
 			//$name = $_FILES['uploadedfile']['name'];
+$extarray=$ext=array;
 			$path = $_FILES['uploadedfile']['name'];
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
