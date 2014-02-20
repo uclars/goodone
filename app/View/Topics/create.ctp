@@ -186,9 +186,12 @@ if(!empty($editing_contents)){
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){
+/*
 echo "<PRE>";
 var_dump($econtents);
 echo "</PRE>";
+*/
+
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
 				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube'>Check out this video</a>";
