@@ -186,15 +186,10 @@ if(!empty($editing_contents)){
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){
-				/// IMAGE ///
-				$im_url = explode("(__)",h($econtents[1]));
-				if($im_url[0] != "imageupload"){ //if image is from upload, the image info disapper
-					echo "<a target='_blank' href='".h($im_url[0])."'><img src='".h($econtents[2])."' /></a>";
-					echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
-				}
-				else{
-					echo "<img src='".h($econtents[2])."' />";
-				}
+				/// YOUTUBE ///
+				$youtube_url = explode("(__)",h($econtents[1]));
+					echo "<a target='_blank' href='".h($youtube_url[0])."'><img src='".h($econtents[2])."' /></a>";
+					echo "<p><a target='_blank' href='".h($youtube_url[0])."'>Photo \"".h($youtube_url[1])."\" by ".h($youtube_url[2])."</a></p>";
 			}
 			elseif($econtents[0] == "disabled"){
 				/// DISABLE ///
