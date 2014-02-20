@@ -235,8 +235,8 @@ console.log(youtubeinfo[0]);
 	var imageurl ="#content_"+titlenum;
 
 	$(imageurlid).text(youtubeurl_content);
-	$(imageid).val(youtubeinfo_org);
-	$(imageurl).val((youtubeinfo[0]);
+	$(imageid).val(youtubeinfo[0]);
+	$(imageurl).val(youtubeinfo_org);
 
 	//Clear the images
 	$("#get_youtube").removeAttr("src");
