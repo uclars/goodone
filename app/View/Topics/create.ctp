@@ -186,6 +186,9 @@ if(!empty($editing_contents)){
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){
+echo "<PRE>";
+var_dump($econtents);
+echo "</PRE>";
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
 					echo "<a target='_blank' href='".h($youtube_url[0])."'><img src='".h($econtents[2])."' /></a>";
