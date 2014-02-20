@@ -32,12 +32,12 @@
   ga('send', 'pageview');
 
 </script>
-                        <script type='text/javascript'>
-                        $('#youtube').youtubin({
-                        swfWidth:320,
-                        swfHeight:240
-                        });
-                        </script>
+<script type='text/javascript'>
+	$('#youtube').youtubin({
+		swfWidth:320,
+		swfHeight:240
+	});
+</script>
 	</head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
