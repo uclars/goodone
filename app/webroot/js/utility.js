@@ -214,9 +214,9 @@ console.log(youtubeinfo[0]);
 	/// HTML tag for Youtube
 	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 	var ref2=$(
-		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
-		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
-		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
+		'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__youtubeurl__">'
+		+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__youtubeurl__">'
+		+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__youtubeurl__">'
 		+ '<a href="'+youtubeinfo[0]+'" rel="nofollow" id="youtube">Check out this video</a>'
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
@@ -235,7 +235,7 @@ console.log(youtubeinfo[0]);
 	var imageurl ="#content_"+titlenum;
 
 	$(imageurlid).text(youtubeurl_content);
-	$(imageid).val(youtubeurl_content);
+	$(imageid).val(youtubeinfo[0]);
 	$(imageurl).val(youtubeinfo_org);
 
 	//Clear the images
