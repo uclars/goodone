@@ -166,13 +166,6 @@
 			var title_id = <?php echo $tid; ?>;
 		</script>
 
-<script type="text/javascript">
-        $('#youtube').youtubin({
-                swfWidth:320,
-                swfHeight:240
-        });
-</script>
-
 		<!-- Basic Settings -->
 		<style type="text/css">
 			#quotationtitle{color: #969696}
