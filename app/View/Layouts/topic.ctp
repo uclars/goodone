@@ -31,7 +31,7 @@
   ga('send', 'pageview');
 
 </script>
-<script>
+<script type="text/javascript">
         $('#youtube').youtubin({
                 swfWidth:320,
                 swfHeight:240
