@@ -236,20 +236,15 @@ console.log(youtubeinfo[0]);
 
 	$(imageurlid).text(youtubeurl_content);
 	$(imageid).val(youtubeurl_content);
-	$(imageurl).val(imageinfo_org);
+	$(imageurl).val(youtubeinfo_org);
 
 	//Clear the images
-/*
-	$('#get_youtube').fadeOut(500, function() {
-		$(this).html("").fadeIn(500);
-	});
-*/
 	$("#get_youtube").removeAttr("src");
 	$("#get_youtube").removeAttr("alt");
 	$("#get_youtube").attr("style","display:none;");
 
 
-//	e.preventDefault();
+	e.preventDefault();
 });
 
 
