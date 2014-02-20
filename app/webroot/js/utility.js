@@ -227,19 +227,16 @@ console.log(youtubeinfo[0]);
 	});
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
-	//ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]["+contentnum+"]");
 	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
 	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
 
-/*
 	var imageurlid ="#commenturl_"+titlenum;
 	var imageid ="#comment_"+titlenum;
 	var imageurl ="#content_"+titlenum;
 
-	$(imageurlid).text(imageurl_content);
-	$(imageid).val(imageurl_content);
+	$(imageurlid).text(youtubeurl_content);
+	$(imageid).val(youtubeurl_content);
 	$(imageurl).val(imageinfo_org);
-*/
 
 	//Clear the images
 /*
