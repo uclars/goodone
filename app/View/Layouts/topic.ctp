@@ -31,6 +31,12 @@
   ga('send', 'pageview');
 
 </script>
+<script>
+        $('#youtube').youtubin({
+                swfWidth:320,
+                swfHeight:240
+        });
+</script>
 	</head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
