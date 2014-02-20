@@ -85,6 +85,32 @@ foreach($show_contents as $contents_array){
 		}
 		echo "</div>";
 	}
+	elseif($contents_array[0] == "__youtubeurl__"){
+		$pic_ad_array = array();
+		$pic_ad_array =split("\(__\)",$contents_array[1]);
+		//image  url
+		$pic_address = $pic_ad_array[0];
+		//image title
+		$pic_title = $pic_ad_array[1];
+		//image owner
+		$pic_user = $pic_ad_array[2];
+		//image address
+		$simg_url =$contents_array[2];
+		//$simg_url = str_replace(".jpg","_m.jpg",$contents_array[2]);
+		$simg_url = str_replace(".jpg",".jpg",$contents_array[2]);
+
+		//Display the image
+		echo "<div style='margin-bottom:10px;'>";
+		if($pic_address != "imageupload"){//if image is from upload, the link disappear
+			echo "<div>".$this->Html->link($this->Html->image($simg_url),$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
+			echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
+		}
+		else{
+			echo "<div>".$this->Html->image($simg_url)."</div>";
+			echo "<div> </div>";
+		}
+		echo "</div>";
+	}
 	else{
 		echo "<blockquote style='margin-top:20px; margin-bottom:0px'>";
 		echo "<p>".h($contents_array[1])."</p>";
