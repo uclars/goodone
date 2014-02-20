@@ -9,6 +9,7 @@
 			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
 			//echo $this->Html->script('http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http:////cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min.js', array( 'inline' => false ) );
+			echo $this->Html->script('jquery.youtubin.js', array( 'inline' => false ) );
 			echo $this->Html->css('style');
 			echo $this->Html->css('bootstrap');
 			//echo $this->Html->css('additional');
@@ -31,6 +32,12 @@
   ga('send', 'pageview');
 
 </script>
+                        <script type='text/javascript'>
+                        $('#youtube').youtubin({
+                        swfWidth:320,
+                        swfHeight:240
+                        });
+                        </script>
 	</head>
 <body>
 <div class="navbar navbar-inverse navbar-fixed-top">
