@@ -191,7 +191,7 @@ var_dump($econtents);
 echo "</PRE>";
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
-				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id="youtube">Check out this video</a>";
+				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube'>Check out this video</a>";
 				echo "<p><a target='_blank' href='".h($youtube_url[0])."'>Photo \"".h($youtube_url[1])."\" by ".h($youtube_url[2])."</a></p>";
 			}
 			elseif($econtents[0] == "disabled"){
