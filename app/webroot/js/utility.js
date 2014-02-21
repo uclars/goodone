@@ -344,7 +344,7 @@ $('#get_youtubethumnail').live('click',function(e){
 	//	swfWidth:320,
 	//	swfHeight:240
 	//});
-
+});
 
 $(function(){
 	$(".contentsBox .delete").live('click',function(e){
