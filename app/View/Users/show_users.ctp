@@ -20,7 +20,7 @@ echo "<div class='row'>";
 						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
 						echo $tlists['Topic']['description'];
 					echo "</div>";
-					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:10px;'></div>";
+					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:20px;'></div>";
 				echo "</div>";
 			}
 		}
