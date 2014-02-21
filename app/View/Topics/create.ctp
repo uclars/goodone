@@ -186,16 +186,10 @@ if(!empty($editing_contents)){
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){
-/*
-echo "<PRE>";
-var_dump($econtents);
-echo "</PRE>";
-*/
-
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
 				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube".$h."' class='youtubin'>Check out this video</a>";
-				echo "<p><a target='_blank' href='".h($youtube_url[0])."'>Photo \"".h($youtube_url[1])."\" by ".h($youtube_url[2])."</a></p>";
+				echo "<p><a target='_blank' href='".h($youtube_url[0])."'>".h($youtube_url[1])."</a></p>";
 				echo "<script type='text/javascript'>";
 					echo "$('a.youtubin').youtubin({";
 						echo "swfWidth:320,";
@@ -228,7 +222,7 @@ echo "</PRE>";
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
 	echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
-	echo " ";
+	echo "&nbsp;&nbsp;";
 	echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
 	echo "</form>"; 
 }else{
