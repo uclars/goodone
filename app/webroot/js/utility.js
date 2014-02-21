@@ -221,10 +221,12 @@ console.log(youtubeinfo[0]);
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
+/*
 	$('#youtube').youtubin({
 		swfWidth:320,
 		swfHeight:240
 	});
+*/
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
 	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
