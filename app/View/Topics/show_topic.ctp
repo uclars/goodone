@@ -94,13 +94,10 @@ foreach($show_contents as $contents_array){
 		$youtube_title = $youtube_ad_array[1];
 		//image owner
 		$youtube_user = $youtube_ad_array[2];
-		//image address
-		$youtube_url =$contents_array[2];
 
-		//Display the image
+		//Display the youtube movie
 		echo "<div style='margin-bottom:10px;'>";
 			echo "<div>".$this->Html->link("Check out this video",h($youtube_address),array('rel' => 'nofollow', 'id' => 'youtube'))."</div>";
-			//echo "<a href='".h($youtube_address)."' rel='nofollow' id='youtube'>Check out this video</a>";
 			//echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 			echo "<script type='text/javascript'>";
 				echo "$('#youtube').youtubin({";
