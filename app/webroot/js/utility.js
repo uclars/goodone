@@ -336,8 +336,6 @@ $('#get_youtubethumnail').live('click',function(e){
 
 	if(isUrl(youtubeurl_content)){
 alert("HHH");
-	}else{
-alert("ggg");
 	}
 	$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 	$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
@@ -345,7 +343,6 @@ alert("ggg");
 });
 
 function isUrl(str) {
-alert(str);
 	var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
 	'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
 	'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
@@ -354,6 +351,7 @@ alert(str);
 	'(\\#[-a-z\\d_]*)?$','i'); // fragment locator
 
 	if(!pattern.test(str)) {
+alert(str);
 		return false;
 	} else {
 		return true;
