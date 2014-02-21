@@ -199,7 +199,6 @@ $('#get_image').live('click',function(e)
 
 $('#get_youtube').live('click',function(e)
 {
-/*
 	var titlenum=0;
 	var titlenum=($("input.item_title").length) + 1;
 	var contentnum=($(".item_content").length) + 1;
@@ -245,7 +244,6 @@ console.log(youtubeinfo[0]);
 	$("#get_youtube").attr("style","display:none;");
 
 	e.preventDefault();
-*/
 });
 
 
@@ -336,7 +334,6 @@ $(function(){
 
 //// YOUTUBE //////////
 $('#get_youtubethumnail').live('click',function(e){
-/*
 	//show the movie thumnail
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
@@ -347,9 +344,6 @@ $('#get_youtubethumnail').live('click',function(e){
 	//	swfWidth:320,
 	//	swfHeight:240
 	//});
-	//$("<div><a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow'>Check out this video</a></div>").appendTo("#display_youtube").hide().fadeIn(800);
-*/
-});
 
 
 $(function(){
