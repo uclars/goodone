@@ -137,29 +137,6 @@
 						$(this).val("Input youtube url").css("color","#969696");
 					}
 				});
-
-
-
-
-
-
-///Topics/uploadImage
-
-/*
-            $('#upload_button').click(function() {
-                    $('#file_id').upload('upload.php', function(res) {
-                            $(res).insertAfter(this);
-                    }, 'html');
-            });
-*/
-
-
-
-
-
-
-
-
 			});
 
 			var username = <?php echo $userid; ?>;
