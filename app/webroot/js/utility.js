@@ -331,7 +331,7 @@ $(function(){
 
 //// YOUTUBE //////////
 $('#get_youtubethumnail').live('click',function(e){
-var youtubeurl_content = $('#youtube_input').attr("src");
+var youtubeurl_content = $('#youtube_input').attr("value");
 alert(youtubeurl_content);
 	//show the movie thumnail
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
