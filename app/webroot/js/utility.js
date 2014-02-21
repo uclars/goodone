@@ -234,9 +234,9 @@ console.log(youtubeinfo[0]);
 	var imageid ="#comment_"+titlenum;
 	var imageurl ="#content_"+titlenum;
 
-	$(imageurlid).text(youtubeurl_content);
-	$(imageid).val(youtubeinfo[0]);
-	$(imageurl).val(youtubeinfo_org);
+//	$(imageurlid).text(youtubeurl_content);
+//	$(imageid).val(youtubeinfo[0]);
+//	$(imageurl).val(youtubeinfo_org);
 
 	//Clear the images
 	$("#get_youtube").removeAttr("src");
