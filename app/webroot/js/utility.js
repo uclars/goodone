@@ -221,24 +221,22 @@ console.log(youtubeinfo[0]);
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
-/*
 	$('#youtube').youtubin({
 		swfWidth:320,
 		swfHeight:240
 	});
-*/
 
         ref2.eq(0).attr("name","data[Content][title]["+titlenum+"]");
 	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
 	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
 
-//	var imageurlid ="#commenturl_"+titlenum;
-//	var imageid ="#comment_"+titlenum;
-//	var imageurl ="#content_"+titlenum;
+	var imageurlid ="#commenturl_"+titlenum;
+	var imageid ="#comment_"+titlenum;
+	var imageurl ="#content_"+titlenum;
 
-//	$(imageurlid).text(youtubeurl_content);
-//	$(imageid).val(youtubeinfo[0]);
-//	$(imageurl).val(youtubeinfo_org);
+	$(imageurlid).text(youtubeurl_content);
+	$(imageid).val(youtubeinfo[0]);
+	$(imageurl).val(youtubeinfo_org);
 
 	//Clear the images
 	$("#get_youtube").removeAttr("src");
@@ -246,7 +244,7 @@ console.log(youtubeinfo[0]);
 	$("#get_youtube").attr("style","display:none;");
 
 
-//	e.preventDefault();
+	e.preventDefault();
 });
 
 
@@ -336,14 +334,6 @@ $(function(){
 
 
 //// YOUTUBE //////////
-$(function(){
-/*
-	$('#youtube').youtubin({
-		swfWidth:560,
-		swfHeight:340
-	});
-*/
-});
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
