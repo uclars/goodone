@@ -218,7 +218,7 @@ $('#get_youtube').live('click',function(e)
 		+ '<p class="delete">[remove]</p>'
 	).prependTo($(title_id));
 
-	$("'#youtube"+titlenum+"'").youtubin({
+	$('#youtube').youtubin({
 		swfWidth:320,
 		swfHeight:240
 	});
