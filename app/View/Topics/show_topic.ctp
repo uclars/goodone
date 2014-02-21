@@ -97,10 +97,10 @@ foreach($show_contents as $contents_array){
 
 		//Display the youtube movie
 		echo "<div style='margin-bottom:10px;'>";
-			echo "<div>".$this->Html->link("Check out this video",h($youtube_address),array('rel' => 'nofollow', 'id' => 'youtube'))."</div>";
+			echo "<div>".$this->Html->link("Check out this video",h($youtube_address),array('rel' => 'nofollow', 'id' => 'youtube', 'class' => 'youtubin'))."</div>";
 			//echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 			echo "<script type='text/javascript'>";
-				echo "$('#youtube').youtubin({";
+				echo "$('a.youtubin').youtubin({";
 					echo "swfWidth:320,";
 					echo "swfHeight:240";
 				echo "});";
