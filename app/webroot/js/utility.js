@@ -208,9 +208,6 @@ $('#get_youtube').live('click',function(e)
 	var youtubeinfo_org = $(this).attr("alt");
 	var youtubeinfo = youtubeinfo_org.split("(__)");
 
-
-console.log(youtubeinfo[0]);
-
 	/// HTML tag for Youtube
 	var ref1=$('<div id="contentsSet_'+titlenum+'" class="contentsBox"></div>').insertAfter($('.contentsBox:last'));
 	var ref2=$(
