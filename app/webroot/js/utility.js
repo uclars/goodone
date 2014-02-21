@@ -199,6 +199,7 @@ $('#get_image').live('click',function(e)
 
 $('#get_youtube').live('click',function(e)
 {
+/*
 	var titlenum=0;
 	var titlenum=($("input.item_title").length) + 1;
 	var contentnum=($(".item_content").length) + 1;
@@ -244,6 +245,7 @@ console.log(youtubeinfo[0]);
 	$("#get_youtube").attr("style","display:none;");
 
 	e.preventDefault();
+*/
 });
 
 
