@@ -11,7 +11,7 @@ echo "<div class='row'>";
 		}
 		else{
 			foreach($topic_list as $tlists){
-				echo "<div class='row' id='topic_box'>";
+				echo "<div class='row' id='topic_box' style='margin-bottom:10px;'>";
 					echo "<div class='span2'>";
 						echo $this->Html->image($tlists['Mastercategory']['url']);
 						echo "<p id='topic_delete' class='topic_delete'>[delete topic]</p>";
@@ -20,7 +20,7 @@ echo "<div class='row'>";
 						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
 						echo $tlists['Topic']['description'];
 					echo "</div>";
-					echo "<div class='span8' style='border-bottom: 2px solid #ddd; margin-bottom:20px;'></div>";
+					echo "<div class='span8' style='border-bottom: 2px solid #ddd;'></div>";
 				echo "</div>";
 			}
 		}
