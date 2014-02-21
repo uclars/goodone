@@ -335,11 +335,10 @@ $('#get_youtubethumnail').live('click',function(e){
 	var youtubeurl_content = $('#youtube_input').attr("value");
 
 	if(isUrl(youtubeurl_content)){
-alert("HHH");
+		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
+		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
+		$("#get_youtube").show('slow');
 	}
-	$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
-	$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
-	$("#get_youtube").show('slow');
 });
 
 function isUrl(str) {
@@ -351,7 +350,6 @@ function isUrl(str) {
 	'(\\#[-a-z\\d_]*)?$','i'); // fragment locator
 
 	if(!pattern.test(str)) {
-alert(str);
 		return false;
 	} else {
 		return true;
