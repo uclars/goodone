@@ -230,9 +230,9 @@ console.log(youtubeinfo[0]);
 	ref2.eq(1).attr("name","data[Content][content]["+titlenum+"]");
 	ref2.eq(2).attr("name","data[Content][comment]["+titlenum+"]" );
 
-	var imageurlid ="#commenturl_"+titlenum;
-	var imageid ="#comment_"+titlenum;
-	var imageurl ="#content_"+titlenum;
+//	var imageurlid ="#commenturl_"+titlenum;
+//	var imageid ="#comment_"+titlenum;
+//	var imageurl ="#content_"+titlenum;
 
 //	$(imageurlid).text(youtubeurl_content);
 //	$(imageid).val(youtubeinfo[0]);
