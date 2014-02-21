@@ -340,8 +340,9 @@ $('#loadingimage').show();
 
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
+$('#loadingimage').hide();
 		$("#get_youtube").show('slow');
-
+$('#youtube_input').html("");
 		
 	}
 });
