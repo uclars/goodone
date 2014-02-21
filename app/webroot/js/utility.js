@@ -336,6 +336,8 @@ $('#get_youtubethumnail').live('click',function(e){
 
 	if(isUrl(youtubeurl_content)){
 alert("HHH");
+	}else{
+alert("ggg");
 	}
 	$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 	$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
