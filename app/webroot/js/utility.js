@@ -510,7 +510,7 @@ console.log(data);
 	jQuery( '#dragArea' ).find('img,li').draggable( {
 		connectToSortable: '#sort-drop-area',
 		helper: 'clone',
-		revert: 'invalid',
+		revert: 'invalid'
 	});
 	jQuery( '#dragArea' ) . disableSelection();
 }
