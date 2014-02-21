@@ -336,7 +336,7 @@ var youtubeurl_content = $('#youtube_input').attr("value");
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
 	//$("#get_youtube").attr("src",$.jYoutube('http://www.youtube.com/watch?v=8e_wXc0m97w', 'big'));
-	$("#get_youtube").attr("src",$.jYoutube("'"+youtubeurl_content+"'", 'big'));
+	$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 	$("#get_youtube").attr("alt","http://www.youtube.com/watch?v=8e_wXc0m97w(__)youtube(__)youtube");
 	$("#get_youtube").show('slow');
 });
