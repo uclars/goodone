@@ -336,6 +336,7 @@ $(function(){
 
 //// YOUTUBE //////////
 $('#get_youtubethumnail').live('click',function(e){
+/*
 	//show the movie thumnail
 	//$("<a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow' id='youtube'>Check out this video</a>").appendTo("#display_youtube").hide().fadeIn(800);
 	//$("#display_youtube").append('<a href="http://www.youtube.com/watch?v=8e_wXc0m97w" rel="nofollow" id="youtube">Check out this video</a>');
@@ -347,6 +348,7 @@ $('#get_youtubethumnail').live('click',function(e){
 	//	swfHeight:240
 	//});
 	//$("<div><a href='http://www.youtube.com/watch?v=8e_wXc0m97w' rel='nofollow'>Check out this video</a></div>").appendTo("#display_youtube").hide().fadeIn(800);
+*/
 });
 
 
