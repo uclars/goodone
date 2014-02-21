@@ -333,10 +333,29 @@ $(function(){
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	var youtubeurl_content = $('#youtube_input').attr("value");
+
+	if(isUrl(youtubeurl_content)){
+alert("HHH");
+	}
 	$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 	$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
 	$("#get_youtube").show('slow');
 });
+
+function isUrl(str) {
+	var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+	'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+	'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+	'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+	'(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+	'(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+
+	if(!pattern.test(str)) {
+		return false;
+	} else {
+		return true;
+	}
+}
 
 $(function(){
 	$(".contentsBox .delete").live('click',function(e){
