@@ -341,7 +341,7 @@ $("#youtube_loadingimage").show();
 $('#youtube_loadingimage').hide();
 		$("#get_youtube").show('slow');
 	}
-$('#youtube_input').clear();
+$('#youtube_input').text().replace("*", "");
 });
 
 function isUrl(str) {
