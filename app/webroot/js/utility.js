@@ -334,6 +334,7 @@ $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	var youtubeurl_content = $('#youtube_input').attr("value");
 
+$('#loadingimage').show();
 	if(isUrl(youtubeurl_content)){
 $('#loadingimage').show();
 
