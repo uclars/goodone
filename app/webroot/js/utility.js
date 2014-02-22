@@ -334,16 +334,14 @@ $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	var youtubeurl_content = $('#youtube_input').attr("value");
 
-	if(isUrl(youtubeurl_content)){
 $("#loadingimage").show();
-
+	if(isUrl(youtubeurl_content)){
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
 $('#loadingimage').hide();
 		$("#get_youtube").show('slow');
-$('#youtube_input').html("");
-		
 	}
+$('#youtube_input').html("");
 });
 
 function isUrl(str) {
