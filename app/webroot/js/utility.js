@@ -335,7 +335,6 @@ $('#get_youtubethumnail').live('click',function(e){
 	var youtubeurl_content = $('#youtube_input').attr("value");
 
 	if(isUrl(youtubeurl_content)){
-$("#display_img").html("");
 $('#loadingimage').show();
 
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
