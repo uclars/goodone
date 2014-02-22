@@ -338,10 +338,10 @@ $("#loadingimage").show();
 	if(isUrl(youtubeurl_content)){
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
-$('#loadingimage').hide();
+//$('#loadingimage').hide();
 		$("#get_youtube").show('slow');
 	}
-$('#youtube_input').html("");
+//$('#youtube_input').html("");
 });
 
 function isUrl(str) {
