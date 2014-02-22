@@ -333,12 +333,12 @@ $(function(){
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	var youtubeurl_content = $('#youtube_input').attr("value");
+	$("#youtube_loadingimage").show();
 
-$("#youtube_loadingimage").show();
 	if(isUrl(youtubeurl_content)){
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
-//$('#youtube_loadingimage').hide();
+		$('#youtube_loadingimage').hide();
 		$("#get_youtube").show('slow');
 	}
 	//remove url from the input box
