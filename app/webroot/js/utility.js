@@ -338,11 +338,11 @@ $("#youtube_loadingimage").show();
 	if(isUrl(youtubeurl_content)){
 		$("#get_youtube").attr("src",$.jYoutube(youtubeurl_content, 'big'));
 		$("#get_youtube").attr("alt",youtubeurl_content+"(__)youtube(__)youtube");
-$('#youtube_loadingimage').hide();
+//$('#youtube_loadingimage').hide();
 		$("#get_youtube").show('slow');
 	}
-youtubeurl_content = "";
-$('#youtube_input').val("");
+	//remove url from the input box
+	$('#youtube_input').val("");
 });
 
 function isUrl(str) {
