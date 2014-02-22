@@ -133,7 +133,7 @@ if(!empty($editing_contents)){
 					<button class="submitinsideclass" id="get_youtubethumnail" name="get_youtubethumnail" type="submit">get movie</button>
 				</fieldset>
 				<img id="get_youtube" style="display:none;" />
-				<div id="loadingimage" style="display:none; text-align:center;">
+				<div id="youtube_loadingimage" style="display:none; text-align:center;">
 					<img src="/img/basic/loading.gif" width="16px" height="16px/">
 				</div>
 			</div>
