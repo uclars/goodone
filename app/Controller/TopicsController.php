@@ -903,54 +903,40 @@ var_dump($file_array);
 echo "</PRE>";
 
 
-//http://qiita.com/mpyw/items/939964377766a54d4682//
-try {
+	//http://qiita.com/mpyw/items/939964377766a54d4682//
+	try {
+		if (
+			!isset($_FILES['uploadedfile']['error']) ||
+			!is_int($_FILES['uploadedfile']['error'])
+		){
+			throw new RuntimeException('パラメータが不正です');
+		}
 
-    // 未定義である・複数ファイルである・$_FILES Corruption 攻撃を受けた
-    // どれかに該当していれば不正なパラメータとして処理する
-    if (
-        !isset($_FILES['uploadedfile']['error']) ||
-        !is_int($_FILES['uploadedfile']['error'])
-    ) {
-        throw new RuntimeException('パラメータが不正です');
-    }
+		// $_FILES['upfile']['error'] の値を確認
+		switch ($_FILES['uploadedfile']['error']) {
+			case UPLOAD_ERR_OK: // OK
+				break;
+			case UPLOAD_ERR_NO_FILE:
+				throw new RuntimeException('ファイルが選択されていません');
+			case UPLOAD_ERR_INI_SIZE:
+			case UPLOAD_ERR_FORM_SIZE:
+				throw new RuntimeException('ファイルサイズが大きすぎます');
+			default:
+				throw new RuntimeException('その他のエラーが発生しました');
+		}
 
-    // $_FILES['upfile']['error'] の値を確認
-    switch ($_FILES['uploadedfile']['error']) {
-        case UPLOAD_ERR_OK: // OK
-            break;
-        case UPLOAD_ERR_NO_FILE:   // ファイル未選択
-            throw new RuntimeException('ファイルが選択されていません');
-        case UPLOAD_ERR_INI_SIZE:  // php.ini定義の最大サイズ超過
-        case UPLOAD_ERR_FORM_SIZE: // フォーム定義の最大サイズ超過
-            throw new RuntimeException('ファイルサイズが大きすぎます');
-        default:
-            throw new RuntimeException('その他のエラーが発生しました');
-    }
+		if ($_FILES['uploadedfile']['size'] > 1000000) {
+			throw new RuntimeException('AAA ファイルサイズが大きすぎます');
+		}
 
-    // ここで定義するサイズ上限のオーバーチェック
-    if ($_FILES['uploadedfile']['size'] > 1000000) {
-        throw new RuntimeException('AAA ファイルサイズが大きすぎます');
-    }
-
-    // $_FILES['upfile']['mime']の値はブラウザ側で偽装可能なので
-    // MIMEタイプに対応する拡張子を自前で取得する
-    //$finfo = new finfo(FILEINFO_MIME_TYPE);
-	$allowed_filetypes = array('.jpg','.gif','.bmp','.png'); 
-	$filename = $_FILES['uploadedfile']['name']; // Get the name of the file (including file extension).
-	$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1);
-	if(!in_array($ext,$allowed_filetypes))
-         die('The file you attempted to upload is not allowed.');
-
-} catch (RuntimeException $e) {
-
-    echo $e->getMessage();
-
-}
-
-
-
-
+		$allowed_filetypes = array('.jpg','.gif','.bmp','.png'); 
+		$filename = $_FILES['uploadedfile']['name']; // Get the name of the file (including file extension).
+		$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1);
+		if(!in_array($ext,$allowed_filetypes))
+			die('The file you attempted to upload is not allowed.');
+		} catch (RuntimeException $e) {
+			echo $e->getMessage();
+		}
 	}
 
 

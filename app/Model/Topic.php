@@ -29,7 +29,7 @@ class Topic extends AppModel {
 				'finderQuery'		=> '',
 				'deleteQuery'		=> '',
 				'insertQuery'		=> '',
-				'with'			=> 'TagsTopics'
+				'with'			=> 'TagsTopic'
 		)
 	);
 	

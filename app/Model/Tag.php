@@ -3,7 +3,8 @@ class Tag extends AppModel
 {
 	public $name = 'Tag';
 	public $hasAndBelongsToMany = array(
-		'Movie' =>
+//		'Movie' =>
+		'Topic' =>
 			array(
 				'className'		=> 'Topic',
 				'joinTable'		=> 'tags_topics',
@@ -18,7 +19,7 @@ class Tag extends AppModel
 				'finderQuery'		=> '',
 				'deleteQuery'		=> '',
 				'insertQuery'		=> '',
-				'with'			=> 'TagTopics'
+				'with'			=> 'TagsTopic'
 			)
 	);
 }
