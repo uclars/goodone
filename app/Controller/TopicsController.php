@@ -73,8 +73,8 @@ $topic_array_container = $this->Topic->find('all', array('contain' => 'Tag'));
 
 
 echo "<PRE>";
-//var_dump($topic_array_container);
-var_dump($topic_array);
+var_dump($topic_array_container);
+//var_dump($topic_array);
 echo "</PRE>";
 
 
