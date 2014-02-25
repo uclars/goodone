@@ -84,12 +84,10 @@ $topic_array = $this->Topic->find('all', array(
 
 
 
-/*
 echo "<PRE>";
 //var_dump($topic_array_container);
 var_dump($topic_array);
 echo "</PRE>";
-*/
 
 
 
