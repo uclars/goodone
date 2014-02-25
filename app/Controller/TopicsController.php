@@ -68,7 +68,7 @@ class TopicsController extends AppController {
 
 
 
-$topic_array_container = $this->Topic->find('all', array('contain' => 'Tag'));
+$topic_array_container = $this->Topic->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'contain' => 'Tag'));
 
 
 
