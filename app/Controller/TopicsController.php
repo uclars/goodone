@@ -68,9 +68,12 @@ class TopicsController extends AppController {
 
 
 
+$topic_array_container = $this->Topic->find('all', array('contain' => false));
+
+
 
 echo "<PRE>";
-var_dump($topic_array);
+var_dump($topic_array_container);
 echo "</PRE>";
 
 
