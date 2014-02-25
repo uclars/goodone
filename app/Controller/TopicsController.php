@@ -66,6 +66,17 @@ class TopicsController extends AppController {
 			$topic_array_pic = $this->User->find('all', array('conditions' => array('User.id' => $topic_array[0]['Topic']['user_id']),'recursive' => -2));
 			$this->set('topic_user_pic', $topic_array_pic);
 
+
+
+
+echo "<PRE>";
+var_dump($topic_array);
+echo "</PRE>";
+
+
+
+
+
 			//get Tags
 			$tag_info = $this->_get_tags($topic_array[0]['Tag']);
 			$this->set('tag_info', $tag_info);
