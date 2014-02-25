@@ -56,10 +56,11 @@ class TopicsController extends AppController {
 $topic_array = $this->Topic->find('all', array(
         'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
         'contain' => array(
-                'Tag.name',
+                'Mastercategory',
                 'Title.title',
                 'Content.content',
-                'Comment.comment'
+                'Comment.comment',
+                'Tag.name'
         )
 ));
 
