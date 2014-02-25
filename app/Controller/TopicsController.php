@@ -49,7 +49,7 @@ class TopicsController extends AppController {
 
 		$topic_id = $this->params['named']['topicid'];
 		//$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
-		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0)));
+//		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0)));
 
 		//Chech if the topic is deleted or hide
 		if(empty($topic_array)){
@@ -68,7 +68,7 @@ class TopicsController extends AppController {
 
 
 
-$topic_array_container = $this->Topic->find('all', array(
+$topic_array = $this->Topic->find('all', array(
 	'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
 	'contain' => array(
 		'Tag.name',
@@ -81,8 +81,8 @@ $topic_array_container = $this->Topic->find('all', array(
 
 
 echo "<PRE>";
-var_dump($topic_array_container);
-//var_dump($topic_array);
+//var_dump($topic_array_container);
+var_dump($topic_array);
 echo "</PRE>";
 
 
