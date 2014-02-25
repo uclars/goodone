@@ -2,6 +2,12 @@
         $me_array = $this->Session->read('Auth.User');
         $me = $me_array['id'];
 
+
+echo "<PRE>";
+var_dump($topic_user_pic);
+echo "</PRE>";
+
+
         ///topic owner info
         if(!empty($topic_user_pic)){
 		$owner_avator = $topic_user_pic[0]['Masteravators']['url24'];
