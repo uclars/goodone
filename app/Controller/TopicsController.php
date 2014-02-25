@@ -72,9 +72,9 @@ $topic_array_container = $this->Topic->find('all', array(
 	'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
 	'contain' => array(
 		'Tag.name',
-		'Title',
-		'Content',
-		'Comment'
+		'Title.title',
+		'Content.content',
+		'Comment.comment'
 	)
 ));
 
