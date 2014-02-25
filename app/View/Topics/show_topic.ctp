@@ -4,7 +4,7 @@
 
 
 echo "<PRE>";
-var_dump($topic_user_pic);
+var_dump($topic_user_pic[0]['Masteravators']['url24']);
 echo "</PRE>";
 
 
