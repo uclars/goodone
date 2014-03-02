@@ -57,6 +57,11 @@ $me=true;
 		// default query condition
 		$conditions = array();
 
+
+$this->requestAction('/Topoics/show_topic');
+
+
+
 		// get topic detail id
 		if(!empty($this->params['named']['topicid'])){
 			$detail_id =  $this->params['named']['topicid'];
