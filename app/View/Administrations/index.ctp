@@ -11,7 +11,7 @@
 <br /><br />
 <TABLE frame='below' rules='rows'>
 <TR>
-<TD><?php echo $html->link('TOPIC','/administrations/topic'); ?></TD><TD><?php echo $html->link('COMMENT','/administrations/comment'); ?></TD>
+<TD>a</TD><TD>b</TD>
 </TR>
 <?php
 echo "<TR>";
