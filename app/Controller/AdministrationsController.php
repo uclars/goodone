@@ -71,7 +71,7 @@ $me=true;
 		$topic_array = $this->Topic->find('all', $params);
 
 echo "<PRE>";
-var_dump($conditions);
+var_dump($topic_array);
 echo "</PRE>";
 
 /*
