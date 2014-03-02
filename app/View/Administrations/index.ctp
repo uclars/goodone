@@ -9,27 +9,30 @@
 <FORM method='POST' action='/Administrations/content_check'>
 <input type='submit' value='SUBMIT'>
 <br /><br />
-<table class="table table-striped table-condensed">
+<table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th>Topic #</th>
+      <th width="10%">Topic #</th>
       <th>Topic Name</th>
       <th>Date</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
+      <td width="10%">1</td>
       <td>Test Name</td>
       <td>2014/3/2</td>
     </tr>
     <tr>
-    <tr>
-      <td>2</td>
+      <td width="10%">2</td>
       <td>Test Name2</td>
       <td>2014/3/2</td>
     </tr>
     <tr>
+      <td width="10%">3</td>
+      <td>Test Name3</td>
+      <td>2014/3/2</td>
+    </tr>
   </tbody>
 </table>
 
