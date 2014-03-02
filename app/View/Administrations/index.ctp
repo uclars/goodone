@@ -10,7 +10,7 @@
 <input type='submit' value='SUBMIT'>
 <br /><br />
 
-<table class="table">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Topic #</th>
@@ -22,6 +22,12 @@
     <tr>
       <td>1</td>
       <td>Test Name</td>
+      <td>2014/3/2</td>
+    </tr>
+    <tr>
+    <tr>
+      <td>2</td>
+      <td>Test Name2</td>
       <td>2014/3/2</td>
     </tr>
     <tr>
