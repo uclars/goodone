@@ -22,7 +22,7 @@ foreach($topics as $topicdata){
                         echo "<TR valign='TOP'>";
                                 echo "<TD style='border-width: 0px;'><input type='radio' name='content_check' value='topic/".$topicdata['topics']['id']."'>".$topicdata['topics']['id']."</TD>";
                                 echo "<TD style='border-width: 0px;'> </TD>";
-                                echo "<TD style='border-width: 0px;'>".$html->link($topicdata['topics']['name'],array('controller'=>'Administrations','action'=>'topic_detail','topicid'=>$topicdata['topics']['id']))."</TD>";
+                                echo "<TD style='border-width: 0px;'>".$this->Html->link($topicdata['topics']['name'],array('controller'=>'Administrations','action'=>'topic_detail','topicid'=>$topicdata['topics']['id']))."</TD>";
                                 echo "<TD style='border-width: 0px;'>".$topicdata['topics']['modified']."</TD>";
                         echo "</TR>";
 }
@@ -35,7 +35,7 @@ foreach($comments as $comdata){
                         echo "<TR valign='TOP'>";
                                 echo "<TD style='border-width: 0px;'><input type='radio' name='content_check' value='comment/".$comdata['comments']['id']."'>".$comdata['comments']['id']."</TD>";
                                 echo "<TD style='border-width: 0px;'> </TD>";
-                                echo "<TD style='border-width: 0px;'>".$html->link($comdata['comments']['body'],array('controller'=>'administrations', 'action'=>'comment_detail', 'commentid'=>$comdata['comments']['id']))."</TD>";
+                                echo "<TD style='border-width: 0px;'>".$this->Html->link($comdata['comments']['body'],array('controller'=>'administrations', 'action'=>'comment_detail', 'commentid'=>$comdata['comments']['id']))."</TD>";
                                 echo "<TD style='border-width: 0px;'>".$comdata['comments']['modified']."</TD>";
                         echo "</TR>";
 }
