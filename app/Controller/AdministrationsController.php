@@ -62,11 +62,7 @@ $me=true;
 			$detail_id =  $this->params['named']['topicid'];
 			$conditions['Topic.id'] = $detail_id;
 		}
-echo "<PRE>";
-var_dump($this->params['named']['topicid']);
-echo "<PRE>";
 
-/*
 		/// get list of topic
 		$params = array(
 			'conditions' => $conditions,
@@ -74,6 +70,11 @@ echo "<PRE>";
 		);
 		$topic_array = $this->Topic->find('all', $params);
 
+echo "<PRE>";
+var_dump($topic_array);
+echo "</PRE>";
+
+/*
 		$item_array=array();
 		if(!empty($topic_array)){
 			$item_array['id']=$topic_array[0]['Topic']['id'];
