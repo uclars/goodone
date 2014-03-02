@@ -63,7 +63,7 @@ $me=true;
 			$conditions['Topic.id'] = $detail_id;
 		}
 echo "<PRE>";
-var_dump($this->params['named']['topicid']));
+var_dump($this->params['named']['topicid']);
 echo "<PRE>";
 
 /*
