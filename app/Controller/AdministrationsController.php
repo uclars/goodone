@@ -7,7 +7,7 @@ class AdministrationsController extends AppController {
 
         function beforeFilter() {
                 //Bypass auth check
-                $this->Auth->allow('*');
+                //$this->Auth->allow('*');
         }
 
         function index() {
