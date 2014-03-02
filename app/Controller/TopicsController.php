@@ -1025,8 +1025,8 @@ echo "</PRE>";
 		else{
 			$topicid=$tid[1];
 			$conditions = array();
-			$conditions['Topic.id'] = $topic;
-			$conditions['Topic.user_id'] = $userid;
+			$conditions['topic.id'] = $topic;
+			$conditions['topic.user_id'] = $userid;
 			$searchresult = $this->Topic->find('all', array(
 				'conditions' => $conditions
 			));
