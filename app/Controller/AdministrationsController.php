@@ -19,6 +19,7 @@ class AdministrationsController extends AppController {
 			$topic_query = "select id, name, modified from topics where checked=0 and deleted=0 and hide=0 limit 0,100";
 			$topic_array = $this->Topic->query($topic_query);
 echo "<PRE>";
+echo "HHHH";
 var_dump($topic_array);
 echo "</PRE>";
 			$this->set('topics', $topic_array);
