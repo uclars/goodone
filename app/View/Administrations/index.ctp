@@ -22,7 +22,7 @@ foreach($topics as $topicdata){
                         echo "<TR valign='TOP'>";
                                 echo "<TD style='border-width: 0px;'><input type='radio' name='content_check' value='topic/".$topicdata['topics']['id']."'>".$topicdata['topics']['id']."</TD>";
                                 echo "<TD style='border-width: 0px;'> </TD>";
-                                echo "<TD style='border-width: 0px;'>".$html->link($topicdata['topics']['title'],array('controller'=>'administrations','action'=>'topic_detail','topicid'=>$topicdata['topics']['id']))."</TD>";
+                                echo "<TD style='border-width: 0px;'>".$html->link($topicdata['topics']['name'],array('controller'=>'Administrations','action'=>'topic_detail','topicid'=>$topicdata['topics']['id']))."</TD>";
                                 echo "<TD style='border-width: 0px;'>".$topicdata['topics']['modified']."</TD>";
                         echo "</TR>";
 }
