@@ -60,7 +60,7 @@ $me=true;
 		// get topic detail id
 		if(!empty($this->params['named']['topicid'])){
 			$detail_id =  $this->params['named']['topicid'];
-			$conditions['Topic.id'] = $detail_id;
+			$conditions['topic.id'] = $detail_id;
 		}
 
 		/// get list of topic
