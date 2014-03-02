@@ -28,6 +28,18 @@ class AdministrationsController extends AppController {
        }
 
 
+
+
+
+
+
+
+
+
+
+
+/*
+
         function newtopics(){
 
                 $this->Topic->recursive = 0;
@@ -66,7 +78,7 @@ class AdministrationsController extends AppController {
 
 //               $this->getRanking();
         }
-
+*/
 
 
 }
