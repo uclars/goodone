@@ -9,7 +9,7 @@
 <FORM method='POST' action='/Administrations/content_check'>
 <input type='submit' value='SUBMIT'>
 <br /><br />
-<table class="table table-striped table-bordered table-condensed table-hover">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
       <th>Topic #</th>
