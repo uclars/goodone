@@ -62,7 +62,11 @@ $me=true;
 			$detail_id =  $this->params['named']['topicid'];
 			$conditions['Topic.id'] = $detail_id;
 		}
+echo "<PRE>";
+var_dump($this->params['named']['topicid']));
+echo "<PRE>";
 
+/*
 		/// get list of topic
 		$params = array(
 			'conditions' => $conditions,
@@ -89,6 +93,8 @@ $me=true;
 			$item_array['deleted']="";
 		}
 		$this->set('item_array', $item_array);
+*/
+
 	}
 
 

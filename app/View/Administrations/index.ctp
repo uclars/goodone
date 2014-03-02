@@ -12,22 +12,17 @@
 <table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th width="10%">Topic #</th>
+      <th width="10%">Check</th>
       <th>Topic Name</th>
       <th>Date</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td width="10%">1</td>
-      <td>Test Name</td>
-      <td>2014/3/2</td>
-    </tr>
 <?php
 foreach($topics as $topicdata){
 	echo "<tr>";
-	echo "<td width='10%'><input type='radio' name='content_check' value='topic/".$topicdata['topics']['id']."'>".$topicdata['topics']['id']."</td>";
-	echo "<td>".$topicdata['topics']['name']."</td>";
+	echo "<td width='10%'><input type='radio' name='content_check' value='topic/".$topicdata['topics']['id']."'></td>";
+	echo "<td>".$this->Html->link($topicdata['topics']['name'],array('controller'=>'Administrations','action'=>'topic_detail','topicid'=>$topicdata['topics']['id']))."</td>";
 	echo "<td>".$topicdata['topics']['modified']."</td>";
 	echo "</tr>";
 }
