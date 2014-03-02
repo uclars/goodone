@@ -1025,8 +1025,12 @@ echo "</PRE>";
 		else{
 			$topicid=$tid[1];
 			$conditions = array();
-			$conditions['Topic.id'] = $tid[1];
-			$conditions['Topic.user_id'] = $userid;
+			if($is_admin){
+				$conditions['Topic.id'] = $tid[1];
+				$conditions['Topic.user_id'] = $userid;
+			}else{
+				$conditions['Topic.id'] = $tid[1];
+			}
 			$searchresult = $this->Topic->find('all', array(
 				'conditions' => $conditions
 			));
