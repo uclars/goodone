@@ -75,9 +75,6 @@ $this->requestAction('/Topics/create');
 		);
 		$topic_array = $this->Topic->find('all', $params);
 
-echo "<PRE>";
-var_dump($topic_array);
-echo "</PRE>";
 
 /*
 		$item_array=array();
