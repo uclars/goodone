@@ -28,7 +28,43 @@ $me=true;
                 }
        }
 
+	function topic_detail(){
+		// default query condition
+		$conditions = array();
 
+		// get topic detail id
+		if(!empty($this->params['named']['topicid'])){
+			$detail_id =  $this->params['named']['topicid'];
+			$conditions['Topic.id'] = $detail_id;
+		}
+
+		/// get list of topic
+		$params = array(
+			'conditions' => $conditions,
+			'order' => array('created ASC')
+		);
+		$topic_array = $this->Topic->find('all', $params);
+
+		$item_array=array();
+		if(!empty($topic_array)){
+			$item_array['id']=$topic_array[0]['Topic']['id'];
+			$item_array['userid']=$topic_array[0]['Topic']['userid'];
+			$item_array['title']=$topic_array[0]['Topic']['title'];
+			$item_array['body']=$topic_array[0]['Topic']['body'];
+			$item_array['category']=$topic_array[0]['Topic']['category'];
+			$item_array['hide']=$topic_array[0]['Topic']['hide'];
+			$item_array['deleted']=$topic_array[0]['Topic']['deleted'];
+		}else{
+			$item_array['id']="";
+			$item_array['userid']="";
+			$item_array['title']="";
+			$item_array['body']="";
+			$item_array['category']="";
+			$item_array['hide']="";
+			$item_array['deleted']="";
+		}
+		$this->set('item_array', $item_array);
+	}
 
 
 
