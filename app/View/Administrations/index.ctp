@@ -23,16 +23,13 @@
       <td>Test Name</td>
       <td>2014/3/2</td>
     </tr>
-    <tr>
-      <td width="10%">2</td>
-      <td>Test Name2</td>
-      <td>2014/3/2</td>
-    </tr>
-    <tr>
-      <td width="10%">3</td>
-      <td>Test Name3</td>
-      <td>2014/3/2</td>
-    </tr>
+<?php
+foreach($topics as $topicdata){
+	echo "<td width='10%'><input type='radio' name='content_check' value='topic/".$topicdata['topics']['id']."'>".$topicdata['topics']['id']."</td>";
+	echo "<td>".$topicdata['topics']['name']."</td>";
+	echo "<td>".$topicdata['topics']['modified']."</td>";
+}
+?>
   </tbody>
 </table>
 
