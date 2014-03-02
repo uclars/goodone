@@ -1013,17 +1013,22 @@ echo "</PRE>";
 
 	function _checkUser($userid, $topicurl){
 		$searchresult=FALSE;
-
+		//get topic id
 		$tid = split(":",$topicurl);
+
+		//if the user is admin, alow to create/edit the topic
+		$is_admin = true;
 
 		if(empty($tid[1])){
 			return TRUE;
-//			return FALSE;
 		}
 		else{
 			$topicid=$tid[1];
+			$conditions = array();
+			$conditions['Topic.id'] = $topic;
+			$conditions['Topic.user_id'] = $userid;
 			$searchresult = $this->Topic->find('all', array(
-				'conditions' => array(array('Topic.user_id' => $userid), array('Topic.id' => $topicid))
+				'conditions' => $conditions
 			));
 
 			return $searchresult;
