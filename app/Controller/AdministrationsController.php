@@ -14,7 +14,7 @@ class AdministrationsController extends AppController {
                 $me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
 
-                if(!empty($me))){
+                if(!empty($me)){
 			// get topic 100 list
 			$topic_query = "select id, title, modified from topics where checked=0 and deleted=0 and hide=0 limit 0,100";
 			$topic_array = $this->Topic->query($topic_query);
