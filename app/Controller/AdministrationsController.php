@@ -28,6 +28,31 @@ $me=true;
                 }
        }
 
+
+	function content_check(){
+		//get value from checked item
+		$contentid = $_REQUEST['content_check'];
+		//value is like this type/id ex. comment/3, topic/2
+		//split value [0]=>type  [1]=>id number
+		$content_array = split("/",$contentid);
+
+
+/*
+		if($content_array[0]=="comment"){
+			$check_query = "update comments set checked=1 where id='".$content_array[1]."'";
+			$this->Comment->query($check_query);
+		}
+		elseif($content_array[0]=="topic"){
+			$check_query = "update topics set checked=1 where id='".$content_array[1]."'";
+			$this->Topic->query($check_query);
+		}
+*/
+
+
+		$this->redirect('/Administrations/');
+	}
+
+
 	function topic_detail(){
 		// default query condition
 		$conditions = array();
