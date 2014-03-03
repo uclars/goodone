@@ -1032,7 +1032,9 @@ echo "</PRE>";
 				//check if the traffic comes form admin page, otherwise it comes from direct which is not correct
 				if($treferer == "http://0-0b.com/administrations"){
 					$conditions['Topic.id'] = $tid[1];
-				}	
+				}else{	
+					return FALSE;
+				}
 			}else{
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
@@ -1043,7 +1045,6 @@ echo "</PRE>";
 
 			//return $searchresult;
 
-debug($searchresult);
 			if(empty($searchresult)){
 				return FALSE;
 			}else{
