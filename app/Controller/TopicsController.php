@@ -1020,7 +1020,7 @@ echo "</PRE>";
 
 		//if the user is admin, alow to create/edit the topic
 		//$is_admin = $this->_checkAdmin($userid);
-		$is_admin = TRUE;
+		$is_admin = FALSE;
 
 		if(empty($tid[1])){
 			return TRUE;
