@@ -1,4 +1,5 @@
 <?php
+$this->requestAction('/Topics/create/topicid:150',array('return'));
 //Get topic Title,Description,Category which stays in frist item in the array
 echo "<PRE>";
 var_dump($editing_contents);
