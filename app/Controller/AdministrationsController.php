@@ -58,7 +58,7 @@ $me=true;
 		$conditions = array();
 
 
-$this->requestAction('/Topics/create');
+$this->requestAction('/Topics/create/topicid:150');
 
 
 
