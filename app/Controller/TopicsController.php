@@ -1020,7 +1020,7 @@ echo "</PRE>";
 
 		//if the user is admin, alow to create/edit the topic
 		//$is_admin = $this->_checkAdmin($userid);
-		$is_admin = TRUE;
+		$is_admin = 1;
 
 		if(empty($tid[1])){
 			return TRUE;
@@ -1037,10 +1037,7 @@ echo "</PRE>";
 					$conditions['Topic.user_id'] = $userid;
 				}
 			}else{
-				if(!$is_admin){
-echo "YYYY";
-					return FALSE;
-				}
+				return FALSE;
 			}
 
 			$searchresult = $this->Topic->find('all', array(
