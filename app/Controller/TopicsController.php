@@ -1035,13 +1035,9 @@ echo "</PRE>";
 					$conditions['Topic.id'] = $tid[1];
 				}
 			}else{
-				if($is_admin){
-					$conditions['Topic.id'] = $tid[1];
-					$conditions['Topic.user_id'] = $userid;
-				}else{
-					$conditions['Topic.id'] = $tid[1];
-					$conditions['Topic.user_id'] = $userid;
-				}
+				//only own created contents can edit from direct access, even if the user is admin
+				$conditions['Topic.id'] = $tid[1];
+				$conditions['Topic.user_id'] = $userid;
 			}
 
 			$searchresult = $this->Topic->find('all', array(
