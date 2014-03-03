@@ -1037,7 +1037,7 @@ echo "</PRE>";
 			}else{
 				if($is_admin){
 					$conditions['Topic.id'] = $tid[1];
-				}else[
+				}else{
 					$conditions['Topic.id'] = $tid[1];
 					$conditions['Topic.user_id'] = $userid;
 				}
