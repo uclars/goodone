@@ -162,10 +162,12 @@ echo "</PRE>";
 		$me = $me_array['id'];
 		$this->set('userid',$me);
 
-		//check the user who is the creator of the Topic
+		//get the topicid
 		$targettopic = $this->here;
+		//get the referer to chekc if traffice comes form admin page, otherwise it's direct traffice which is not correct
 		$targetreferer = $this->referer();
-debug($targetreferer);
+
+		//check the user who is the creator of the Topic Or Admin
 		$is_correctuser = $this->_checkUser($me, $targettopic);
 
 		if(empty($is_correctuser)){
@@ -1036,7 +1038,13 @@ echo "</PRE>";
 				'conditions' => $conditions
 			));
 
-			return $searchresult;
+			//return $searchresult;
+
+			if(empty($searchresult)){
+				return FALSE;
+			}else{
+				return $userid
+			}
 		}
 	}
 
