@@ -1015,7 +1015,8 @@ echo "</PRE>";
 		$tid = split(":",$topicurl);
 
 		//if the user is admin, alow to create/edit the topic
-		$is_admin = true;
+		//$is_admin = $this->_checkAdmin($userid);
+		$is_admin = false;
 
 		if(empty($tid[1])){
 			return TRUE;
@@ -1035,6 +1036,11 @@ echo "</PRE>";
 
 			return $searchresult;
 		}
+	}
+
+	function _checkAdmin($adminuserid){
+		//check if the user has admin priviledge
+
 	}
 
 	function deletetopic(){
