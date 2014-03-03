@@ -1037,7 +1037,9 @@ echo "</PRE>";
 					$conditions['Topic.user_id'] = $userid;
 				}
 			}else{
-				return FALSE;
+				if($is_admin){
+					return FALSE;
+				}
 			}
 
 			$searchresult = $this->Topic->find('all', array(
