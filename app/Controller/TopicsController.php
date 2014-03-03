@@ -167,7 +167,6 @@ echo "</PRE>";
 		$is_correctuser = $this->_checkUser($me, $targettopic);
 
 		if(empty($is_correctuser)){
-		//if(!$is_correctuser){
 			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
 		}
 		else{
@@ -179,12 +178,13 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
+/*
 debug($newtopicid);
 
 debug($this->params);
 debug($this->data);
 exit;
-
+*/
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
