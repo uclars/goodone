@@ -1043,7 +1043,7 @@ echo "</PRE>";
 			if(empty($searchresult)){
 				return FALSE;
 			}else{
-				return $userid
+				return $userid;
 			}
 		}
 	}
