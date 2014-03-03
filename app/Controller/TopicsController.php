@@ -168,7 +168,7 @@ echo "</PRE>";
 		$targetreferer = $this->referer();
 
 		//check the user who is the creator of the Topic Or Admin
-		$is_correctuser = $this->_checkUser($me, $targettopic);
+		$is_correctuser = $this->_checkUser($me, $targettopic, $targetreferer);
 
 		if(empty($is_correctuser)){
 			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
@@ -1013,14 +1013,18 @@ echo "</PRE>";
 		return $contents_array;
 	}
 
-	function _checkUser($userid, $topicurl){
+	function _checkUser($userid, $topicurl, $treferer){
 		$searchresult=FALSE;
 		//get topic id
 		$tid = split(":",$topicurl);
 
+
+debug($treferer);
+
+
 		//if the user is admin, alow to create/edit the topic
 		//$is_admin = $this->_checkAdmin($userid);
-		$is_admin = FALSE;
+		$is_admin = TRUE;
 
 		if(empty($tid[1])){
 			return TRUE;
@@ -1029,7 +1033,9 @@ echo "</PRE>";
 			$topicid=$tid[1];
 			$conditions = array();
 			if($is_admin){
-				$conditions['Topic.id'] = $tid[1];
+				if($treferer === "/Administrations/topic_detail/"){
+					$conditions['Topic.id'] = $tid[1];
+				}
 			}else{
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
