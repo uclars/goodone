@@ -1,5 +1,10 @@
 <?php
 //Get topic Title,Description,Category which stays in frist item in the array
+echo "<PRE>";
+var_dump($editing_contents);
+echo "</PRE>";
+
+
 if(!empty($editing_contents)){
 	$topicitems = array_shift($editing_contents);
 	$tid = $topicitems[0];
