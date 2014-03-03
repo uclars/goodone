@@ -1018,10 +1018,6 @@ echo "</PRE>";
 		//get topic id
 		$tid = split(":",$topicurl);
 
-
-debug($treferer);
-
-
 		//if the user is admin, alow to create/edit the topic
 		//$is_admin = $this->_checkAdmin($userid);
 		$is_admin = TRUE;
@@ -1033,9 +1029,10 @@ debug($treferer);
 			$topicid=$tid[1];
 			$conditions = array();
 			if($is_admin){
-				if($treferer === "/Administrations/topic_detail/"){
+				//check if the traffic comes form admin page, otherwise it comes from direct which is not correct
+				if($treferer === "http://0-0b.com/administrations"){
 					$conditions['Topic.id'] = $tid[1];
-				}
+				}	
 			}else{
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
