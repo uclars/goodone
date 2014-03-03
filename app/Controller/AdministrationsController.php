@@ -54,12 +54,15 @@ $me=true;
 
 
 	function topic_detail(){
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
+
 		// default query condition
 		$conditions = array();
 
-
+		$redirecturl = "/Topics/create/topicid:".$this->params['named']['topicid'];
 //$this->requestAction('/Topics/create/topicid:150',array('return'));
-
+$this->redirect($redirecturl);
 
 
 		// get topic detail id
