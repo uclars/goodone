@@ -164,7 +164,7 @@ echo "</PRE>";
 
 		//check the user who is the creator of the Topic
 		$targettopic = $this->here;
-		$targetreferer = referer();
+		$targetreferer = $this->referer();
 debug($targetreferer);
 		$is_correctuser = $this->_checkUser($me, $targettopic);
 
