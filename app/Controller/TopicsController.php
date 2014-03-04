@@ -168,7 +168,8 @@ echo "</PRE>";
 		$targetreferer = $this->referer();
 
 		//check the user who is the creator of the Topic Or Admin
-		$is_correctuser = $this->_checkUser($me, $targettopic, $targetreferer);
+		$is_admin = $this->_checkAdmin($me);
+		$is_correctuser = $this->_checkUser($me, $is_admin, $targettopic, $targetreferer);
 
 		if(empty($is_correctuser)){
 			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
@@ -1013,7 +1014,7 @@ echo "</PRE>";
 		return $contents_array;
 	}
 
-	function _checkUser($userid, $topicurl, $treferer){
+	function _checkUser($userid, $is_admin, $topicurl, $treferer){
 		$searchresult=FALSE;
 		//get topic id
 		$tid = split(":",$topicurl);
@@ -1056,6 +1057,11 @@ echo "</PRE>";
 
 	function _checkAdmin($adminuserid){
 		//check if the user has admin priviledge
+		$admin_num = $this->User->find('all',array(
+			'conditions' => array('User.id' => $adminuserid)
+		));
+
+debug($admin_num);
 
 	}
 
