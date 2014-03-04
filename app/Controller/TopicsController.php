@@ -1057,10 +1057,12 @@ echo "</PRE>";
 
 	function _checkAdmin($adminuserid){
 		//check if the user has admin priviledge
-		$admin_num = $this->User->find('all',array(
+		$admin_array=array();
+		$admin_array = $this->User->find('all',array(
 			'conditions' => array('User.id' => $adminuserid)
 		));
 
+		$admin_num = $admin_array['admin'];
 debug($admin_num);
 
 	}
