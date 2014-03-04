@@ -57,7 +57,13 @@ if(!empty($editing_contents)){
 		?>
 	</div>
 	<div class='span4'>
-<?php echo $tuserid; ?>
+	<?php
+		if(empty($tuserid)){
+			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
+		}else{
+			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
+		}
+	?>
 	</div>
 	<div class='span4'>
 <?php echo $tcheck; ?>
