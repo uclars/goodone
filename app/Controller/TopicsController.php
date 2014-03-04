@@ -973,6 +973,8 @@ echo "</PRE>";
 		$topic_title = $topic_array[0]['Topic']['name'];
 		$topic_category = $topic_array[0]['Topic']['category'];
 		$topic_description = $topic_array[0]['Topic']['description'];
+		$topic_userid = $topic_array[0]['Topic']['user_id'];
+		$topic_check = $topic_array[0]['Topic']['checked'];
 
 		$contents_array = array();
 		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description);
