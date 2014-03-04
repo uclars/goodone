@@ -1033,18 +1033,19 @@ echo "</PRE>";
 			if($treferer === "http://0-0b.com/administrations"){
 				if($is_admin!=0){
 					$conditions['Topic.id'] = $tid[1];
+					$searchresult = $this->Topic->find('all', array(
+						'conditions' => $conditions
+					));
 				}
 			}else{
 				//only own created contents can edit from direct access, even if the user is admin
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
+				$searchresult = $this->Topic->find('all', array(
+					'conditions' => $conditions
+				));
 			}
 
-			$searchresult = $this->Topic->find('all', array(
-				'conditions' => $conditions
-			));
-
-debug($conditions);
 			//return $searchresult;
 
 			if(empty($searchresult)){
