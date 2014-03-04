@@ -1062,8 +1062,8 @@ echo "</PRE>";
 			'conditions' => array('User.id' => $adminuserid)
 		));
 
-		$admin_num = $admin_array[0]['admin'];
-debug($admin_array);
+		$admin_num = $admin_array[0]['User']['admin'];
+debug($admin_num);
 
 	}
 
