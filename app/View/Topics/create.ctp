@@ -1,4 +1,6 @@
 <?php
+debug($topicitems);
+
 //Get topic Title,Description,Category which stays in frist item in the array
 if(!empty($editing_contents)){
 	$topicitems = array_shift($editing_contents);
