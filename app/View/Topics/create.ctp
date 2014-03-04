@@ -1,5 +1,5 @@
 <?php
-debug($topicitems);
+debug($editing_contents);
 
 //Get topic Title,Description,Category which stays in frist item in the array
 if(!empty($editing_contents)){
