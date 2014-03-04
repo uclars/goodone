@@ -1,6 +1,4 @@
 <?php
-debug($editing_contents);
-
 //Get topic Title,Description,Category which stays in frist item in the array
 if(!empty($editing_contents)){
 	$topicitems = array_shift($editing_contents);
@@ -59,10 +57,10 @@ if(!empty($editing_contents)){
 		?>
 	</div>
 	<div class='span4'>
-echo $tuserid;
+<?php echo $tuserid; ?>
 	</div>
 	<div class='span4'>
-echo $tcheck;
+<?php echo $tcheck; ?>
 	</div>
 	<div class='span4'>
 	</div>
