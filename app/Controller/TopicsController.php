@@ -1044,7 +1044,7 @@ echo "</PRE>";
 				'conditions' => $conditions
 			));
 
-debug($searchresult);
+debug($conditions);
 			//return $searchresult;
 
 			if(empty($searchresult)){
