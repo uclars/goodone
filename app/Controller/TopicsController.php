@@ -1063,8 +1063,7 @@ echo "</PRE>";
 		));
 
 		$admin_num = $admin_array[0]['User']['admin'];
-debug($admin_num);
-
+		return $admin_num;
 	}
 
 	function deletetopic(){
