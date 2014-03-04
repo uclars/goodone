@@ -1018,7 +1018,7 @@ echo "</PRE>";
 		$searchresult=FALSE;
 		//get topic id
 		$tid = split(":",$topicurl);
-
+debug($is_admin);
 		//if the user is admin, alow to create/edit the topic
 		//$is_admin = 1;
 
