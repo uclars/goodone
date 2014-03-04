@@ -8,6 +8,8 @@ if(!empty($editing_contents)){
 	$ttitle = $topicitems[1];
 	$tcategory = $topicitems[2];
 	$tdescription = $topicitems[3];
+	$tuserid = $topicitems[4];
+	$tcheck = $topicitems[5];
 }
 ?>
 <!--<section id="forms">-->
@@ -55,6 +57,14 @@ if(!empty($editing_contents)){
 				'escape' => false)
 			);
 		?>
+	</div>
+	<div class='span4'>
+echo $tuserid;
+	</div>
+	<div class='span4'>
+echo $tcheck;
+	</div>
+	<div class='span4'>
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
