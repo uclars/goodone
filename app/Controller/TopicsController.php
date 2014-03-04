@@ -1063,7 +1063,7 @@ echo "</PRE>";
 		));
 
 		$admin_num = $admin_array[0]['admin'];
-debug($admin_num);
+debug($admin_array);
 
 	}
 
