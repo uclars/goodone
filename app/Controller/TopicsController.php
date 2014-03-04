@@ -1020,8 +1020,7 @@ echo "</PRE>";
 		$tid = split(":",$topicurl);
 
 		//if the user is admin, alow to create/edit the topic
-		//$is_admin = $this->_checkAdmin($userid);
-		$is_admin = 1;
+		//$is_admin = 1;
 
 		if(empty($tid[1])){
 			return TRUE;
@@ -1063,7 +1062,6 @@ echo "</PRE>";
 		));
 
 		$admin_num = $admin_array[0]['User']['admin'];
-debug($admin_num);
 		return $admin_num;
 	}
 
