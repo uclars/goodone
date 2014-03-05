@@ -65,10 +65,19 @@ if(!empty($editing_contents)){
 		}
 	?>
 	</div>
-	<div class='span4'>
-<?php echo $tcheck; ?>
-	</div>
-	<div class='span4'>
+	<div class='span8'>
+		<?php
+			if(empty($tags)){
+				$tags = "";
+			}
+
+			echo $this->form->input('Clipping_Tags',array(
+				'type' => 'textarea',
+				'name' => 'hiddentags',
+				'value' => $tags,
+				'escape' => false)
+			);
+		?>
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
@@ -245,6 +254,11 @@ if(!empty($auth)){
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
 }
+
+
+echo $tcheck;
+
+
 ?>
 <!--</section>-->
 

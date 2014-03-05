@@ -17,7 +17,6 @@ $me=true;
 
                 if(!empty($me)){
 			// get topic 100 list
-			//$topic_query = "select id, name, modified from topics where checked=0 and deleted=0 and hide=0 limit 0,100";
 			$topic_query = "select id, name, modified from topics where checked=0 and deleted=0 limit 0,100";
 			$topic_array = $this->Topic->query($topic_query);
 			$this->set('topics', $topic_array);
