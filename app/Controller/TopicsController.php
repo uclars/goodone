@@ -1033,8 +1033,6 @@ echo "</PRE>";
 
 			//check if the traffic comes form admin page, otherwise it comes from direct which is not correct
 			if($treferer === "http://0-0b.com/administrations/"){
-echo "HLHL";
-debug($is_admin);
 				if($is_admin!=0){
 					$conditions['Topic.id'] = $tid[1];
 					$searchresult = $this->Topic->find('all', array(
@@ -1042,8 +1040,6 @@ debug($is_admin);
 					));
 				}
 			}else{
-echo "HLHL";
-debug($treferer);
 				//only own created contents can edit from direct access, even if the user is admin
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
@@ -1053,8 +1049,6 @@ debug($treferer);
 			}
 
 			//return $searchresult;
-debug($searchresult);
-exit;
 			if(empty($searchresult)){
 				return FALSE;
 			}else{
