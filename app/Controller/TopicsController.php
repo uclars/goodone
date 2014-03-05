@@ -183,14 +183,10 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
-/*
 debug($newtopicid);
-
 debug($this->params);
 debug($this->data);
 exit;
-*/
-
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
@@ -205,8 +201,6 @@ exit;
 
 				if(isset($this->data) && !empty($this->data))
 				{
-echo "JJJ";
-exit;
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
