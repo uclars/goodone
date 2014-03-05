@@ -68,7 +68,7 @@ if(!empty($editing_contents)){
 	<div class='span8'>
 		<?php
 			if(empty($tags)){
-				$tags = "";
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
 			}else{
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}
