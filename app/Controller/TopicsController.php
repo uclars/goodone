@@ -1033,6 +1033,7 @@ echo "</PRE>";
 
 			//check if the traffic comes form admin page, otherwise it comes from direct which is not correct
 			if($treferer === "http://0-0b.com/administrations"){
+echo "HLHL";
 debug($is_admin);
 				if($is_admin!=0){
 					$conditions['Topic.id'] = $tid[1];
