@@ -172,7 +172,9 @@ echo "</PRE>";
 		$is_correctuser = $this->_checkUser($me, $is_admin, $targettopic, $targetreferer);
 
 		if(empty($is_correctuser)){
-			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
+			if($is_admin != 0){
+				$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
+			}
 		}
 		else{
 			$result;
@@ -183,10 +185,14 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
+
+/*
 debug($newtopicid);
 debug($this->params);
 debug($this->data);
 exit;
+*/
+
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
