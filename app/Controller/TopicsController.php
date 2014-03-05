@@ -451,6 +451,7 @@ exit;
 
 	function _set_topic_title($orgcontents_base,$topic_id_base,$me_base,$datacontents_base){
 		$orgdata=$data=array();
+		$adminnumber = $this->_checkAdmin($me_base);
 
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
@@ -461,8 +462,11 @@ exit;
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
-		//$data['user_id']=$me_base;
-		$data['user_id']=$datacontents_base["Topic_Userid"];
+		if($adminnumber == 0){
+			$data['user_id']=$me_base;
+		}else{
+			$data['user_id']=$datacontents_base["Topic_Userid"];
+		}
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
