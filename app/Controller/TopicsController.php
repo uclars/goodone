@@ -453,6 +453,9 @@ exit;
 		$orgdata=$data=array();
 		$adminnumber = $this->_checkAdmin($me_base);
 
+debug($datacontents_base);
+
+
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
 		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
