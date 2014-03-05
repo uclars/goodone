@@ -291,6 +291,9 @@ exit;
 			$orgdatacontents=$orgcontents;
 
 
+debug($datacontents);
+exit;
+
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
@@ -447,9 +450,6 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
-
-debug($datacontents_base);
-exit;
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
