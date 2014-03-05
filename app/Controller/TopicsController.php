@@ -206,7 +206,6 @@ $t=array();
 $t=$this->data;
 
 debug($t);
-exit;
 
 				if(isset($this->data) && !empty($this->data))
 				{
