@@ -205,6 +205,8 @@ exit;
 
 				if(isset($this->data) && !empty($this->data))
 				{
+echo "JJJ";
+exit;
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
@@ -295,9 +297,6 @@ exit;
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
 
-
-echo "HLHL";
-exit;
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
