@@ -468,11 +468,10 @@ exit;
 		$data['description']=$datacontents_base["Topic_Description"];
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
-debug($data);
-exit;
-
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
+debug($isnewtopicinfo);
+exit;
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
 			$this->Topic->save($data);
