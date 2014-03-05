@@ -295,6 +295,8 @@ exit;
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
 
+debug($datacontents);
+exit;
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
