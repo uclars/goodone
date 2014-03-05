@@ -183,11 +183,14 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
+/*
 debug($newtopicid);
 
 debug($this->params);
 debug($this->data);
-//exit;
+exit;
+*/
+
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
@@ -205,6 +208,7 @@ debug($this->data);
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
+					$data['Topic_Userid'] = $this->data['Topic_Userid'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
 					$data['Content']['title'] = $this->data['Content']['title'];
 					$data['Content']['content'] = $this->data['Content']['content'];
@@ -237,6 +241,7 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
@@ -261,6 +266,7 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
@@ -407,6 +413,12 @@ exit;
 				}else{
 					$data['description']=$this->data["Topic_Description"];
 				}
+				/// topic userid 
+				if(is_null($this->data["Topic_Userid"])){
+					$data['userid']=$datacontents['request'][8];
+				}else{
+					$data['userid']=$this->data["Topic_Userid"];
+				}
 				//publish or hide
 				$data['hide']=$this->data["Topic_Publish"];
 
@@ -442,14 +454,16 @@ exit;
 
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
-		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
+		//$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['userid']=$orgcontents_base[0]['Topic']['userid'];
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
-		$data['user_id']=$me_base;
+		//$data['user_id']=$me_base;
+		$data['user_id']=$datacontents_base["Topic_Userid"];
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
