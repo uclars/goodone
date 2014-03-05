@@ -60,7 +60,7 @@ if(!empty($editing_contents)){
 	<?php
 		//show user id input only if the user is admin
 		if($admin_num == 0){
-			//echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
+			echo $this->form->hidden('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$me));
 		}else{
 			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
 		}
