@@ -1050,7 +1050,7 @@ echo "</PRE>";
 
 			//return $searchresult;
 debug($searchresult);
-
+exit;
 			if(empty($searchresult)){
 				return FALSE;
 			}else{
