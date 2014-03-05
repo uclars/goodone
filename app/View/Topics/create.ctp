@@ -71,7 +71,7 @@ if(!empty($editing_contents)){
 				$tags = "";
 			}
 
-			echo $this->form->input('Clipping_Tags',array(
+			echo $this->form->input('Clipping_Tags_(ex._tag1;tag2;tag3)',array(
 				'type' => 'textarea',
 				'name' => 'hiddentags',
 				'value' => $tags,
