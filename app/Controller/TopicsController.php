@@ -449,6 +449,7 @@ exit;
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
 
 debug($datacontents_base);
+exit;
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
