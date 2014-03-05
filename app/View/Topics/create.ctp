@@ -8,6 +8,9 @@ if(!empty($editing_contents)){
 	$tdescription = $topicitems[3];
 	$tuserid = $topicitems[4];
 	$tcheck = $topicitems[5];
+
+debug($editing_contents);
+
 }
 ?>
 <!--<section id="forms">-->
