@@ -197,6 +197,10 @@ exit;
                                 $topic_array = array();
                                 $topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
                                 $edit_result = $this->_get_editcontents($topic_array);
+
+debug($edit_result);
+exit;
+
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
 
@@ -228,11 +232,6 @@ exit;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
 					$edit_result = $this->_get_editcontents($topic_array);
-
-
-debug($edit_result);
-exit;
-
 
 					$this->set('editing_contents',$edit_result);
 					$this->set('tid',$topicid);
