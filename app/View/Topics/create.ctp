@@ -8,10 +8,6 @@ if(!empty($editing_contents)){
 	$tdescription = $topicitems[3];
 	$tuserid = $topicitems[4];
 	$tcheck = $topicitems[5];
-
-
-debug($admin_num);
-
 }
 ?>
 <!--<section id="forms">-->
@@ -62,21 +58,27 @@ debug($admin_num);
 	</div>
 	<div class='span4'>
 	<?php
-		if(empty($tuserid)){
-			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
+		//show user id input only if the user is admin
+		if($admin_num != 0){
+			if(empty($tuserid)){
+				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
 		}else{
-			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
+				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
+			}
 		}
 	?>
 	</div>
 	<div class='span8'>
-		<?php
+	<?php
+		//show tag input only if the user is admin
+		if($admin_num != 0){
 			if(empty($tags)){
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
 			}else{
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}
-		?>
+		}
+	?>
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
