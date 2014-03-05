@@ -459,10 +459,6 @@ exit;
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
 
-
-debug($datacontents_base);
-exit;
-
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
 		//$data['user_id']=$me_base;
@@ -471,6 +467,9 @@ exit;
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
 		$data['hide']=$datacontents_base["Topic_Publish"];
+
+debug($data);
+exit;
 
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
