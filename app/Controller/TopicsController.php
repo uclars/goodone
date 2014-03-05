@@ -172,7 +172,7 @@ echo "</PRE>";
 		$is_correctuser = $this->_checkUser($me, $is_admin, $targettopic, $targetreferer);
 
 		if(empty($is_correctuser)){
-			if($is_admin != 0){
+			if($is_admin == 0){
 				$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
 			}
 		}
