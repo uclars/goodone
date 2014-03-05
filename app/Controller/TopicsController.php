@@ -452,6 +452,9 @@ exit;
 	function _set_topic_title($orgcontents_base,$topic_id_base,$me_base,$datacontents_base){
 		$orgdata=$data=array();
 
+echo "HH";
+exit;
+
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
 		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
