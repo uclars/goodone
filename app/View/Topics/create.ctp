@@ -267,9 +267,6 @@ function createsubmit(submitnum){
 	var hd=document.topictitle.hiddendescription.value;
 	var hu=document.topictitle.hiddenuserid.value;
 
-alert(hu);
-console.log(hu);
-
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
