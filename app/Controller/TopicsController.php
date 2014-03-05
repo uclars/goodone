@@ -296,6 +296,8 @@ exit;
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
 
+debug($datacontents);
+
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
@@ -452,9 +454,6 @@ exit;
 	function _set_topic_title($orgcontents_base,$topic_id_base,$me_base,$datacontents_base){
 		$orgdata=$data=array();
 		$adminnumber = $this->_checkAdmin($me_base);
-
-debug($datacontents_base);
-
 
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
