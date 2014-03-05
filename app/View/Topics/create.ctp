@@ -9,7 +9,8 @@ if(!empty($editing_contents)){
 	$tuserid = $topicitems[4];
 	$tcheck = $topicitems[5];
 
-debug($editing_contents);
+
+debug($admin_num);
 
 }
 ?>

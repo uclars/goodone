@@ -169,6 +169,7 @@ echo "</PRE>";
 
 		//check the user who is the creator of the Topic Or Admin
 		$is_admin = $this->_checkAdmin($me);
+		$this->set('admin_num',$is_admin);
 		$is_correctuser = $this->_checkUser($me, $is_admin, $targettopic, $targetreferer);
 
 		if(empty($is_correctuser) && $is_admin == 0){
