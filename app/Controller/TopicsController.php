@@ -185,12 +185,10 @@ echo "</PRE>";
 
 			$newtopicid=$this->Session->read('new_topicid');
 
-/*
 debug($newtopicid);
 debug($this->params);
 debug($this->data);
-exit;
-*/
+//exit;
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -295,8 +293,6 @@ exit;
 			$orgcontentarray=array();
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
-
-debug($datacontents);
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
