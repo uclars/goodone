@@ -228,6 +228,12 @@ exit;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
 					$edit_result = $this->_get_editcontents($topic_array);
+
+
+debug($edit_result);
+exit;
+
+
 					$this->set('editing_contents',$edit_result);
 					$this->set('tid',$topicid);
 
@@ -290,9 +296,6 @@ exit;
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
 
-
-debug($datacontents);
-exit;
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
