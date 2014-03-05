@@ -448,6 +448,8 @@ exit;
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
 
+debug($datacontents_base);
+
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
 		$data['user_id']=$me_base;
