@@ -1049,6 +1049,7 @@ echo "</PRE>";
 			}
 
 			//return $searchresult;
+debug($searchresult);
 
 			if(empty($searchresult)){
 				return FALSE;
