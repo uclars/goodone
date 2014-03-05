@@ -59,27 +59,21 @@ if(!empty($editing_contents)){
 	<div class='span4'>
 	<?php
 		//show user id input only if the user is admin
-		//if($admin_num != 0){
-			//if(empty($tuserid)){
-			if($admin_num != 0){
-				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
+		if($admin_num == 0){
+			//echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>""));
 		}else{
-				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
-			}
-		//}
+			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
+		}
 	?>
 	</div>
 	<div class='span8'>
 	<?php
 		//show tag input only if the user is admin
-		//if($admin_num != 0){
-			//if(empty($tags)){
-			if($admin_num != 0){
-				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
-			}else{
-				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
-			}
-		//}
+		if($admin_num == 0){
+			//echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+		}else{
+			echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
+		}
 	?>
 	</div>
 	<?php echo $this->Form->end(); ?>
