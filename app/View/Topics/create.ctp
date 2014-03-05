@@ -69,14 +69,9 @@ if(!empty($editing_contents)){
 		<?php
 			if(empty($tags)){
 				$tags = "";
+			}else{
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}
-
-			echo $this->form->input('Clipping_Tags',array(
-				'type' => 'textarea',
-				'name' => 'hiddentags',
-				'value' => $tags,
-				'escape' => false)
-			);
 		?>
 	</div>
 	<?php echo $this->Form->end(); ?>
