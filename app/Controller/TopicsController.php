@@ -1042,6 +1042,8 @@ debug($is_admin);
 					));
 				}
 			}else{
+echo "HLHL";
+debug($treferer);
 				//only own created contents can edit from direct access, even if the user is admin
 				$conditions['Topic.id'] = $tid[1];
 				$conditions['Topic.user_id'] = $userid;
