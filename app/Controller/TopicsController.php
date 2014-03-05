@@ -454,11 +454,10 @@ exit;
 
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
-		//$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
+		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
-		$orgdata['userid']=$orgcontents_base[0]['Topic']['userid'];
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
