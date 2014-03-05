@@ -268,6 +268,8 @@ function createsubmit(submitnum){
 	var hu=document.topictitle.hiddenuserid.value;
 
 
+alart(ti);
+
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
