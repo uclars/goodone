@@ -459,8 +459,6 @@ exit;
 		$orgdata=$data=array();
 		$adminnumber = $this->_checkAdmin($me_base);
 
-debug($datacontents_base);
-exit;
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
 		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
@@ -487,6 +485,8 @@ exit;
 		}
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
+debug($data);
+exit;
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
 		if(!empty($isnewtopicinfo)){
