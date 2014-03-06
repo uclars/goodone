@@ -1020,8 +1020,9 @@ echo "</PRE>";
 		$topic_check = $topic_array[0]['Topic']['checked'];
 		$topic_tags = $topic_array[0]['Tag']['name'];
 
+		//array for all contents of the topic
 		$contents_array = array();
-		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check,$topic_tags);
+		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check);
 		$i = $j = $k = 0;
 
 		if(!empty($topic_array[0]['Title']) AND !empty($topic_array[0]['Content']) and !empty($topic_array[0]['Comment'])){
@@ -1055,6 +1056,26 @@ echo "</PRE>";
 			for($l = 1; $l < $item_num+1; $l++){
 				$contents_array[$l]=array($ctitle_array[$l-1],$ccontents_array[$l-1],$ccomment_array[$l-1]);
 			}
+		}
+
+		$n = $m = 0;
+		if(!empty($topic_array[0]['Tag'])){
+			//get All Tag name
+			foreach($topic_array[0]['Tag'] as $content_tag_array){
+				$ctag_array[$n] = $content_tag_array['name'];
+				$n++;
+			}
+
+			$contents_array += array('key' => $ctag_array);
+/*
+			//size of array
+			$tag_num = count($ctitle_array);
+			//combine the three arrays into one array
+			//*first item of the array is Topic title, description, category
+			for($m = 1; $m < $item_num+1; $l++){
+				$contents_array[$l]=array($ctitle_array[$l-1],$ccontents_array[$l-1],$ccomment_array[$l-1]);
+			}
+*/
 		}
 
 		return $contents_array;
