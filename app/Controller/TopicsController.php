@@ -232,11 +232,11 @@ debug($this->data);
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
+					//update tags
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
-debug($tagarr);
 
-	/////				$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -270,6 +270,9 @@ debug($tagarr);
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
 
+						//tag 
+						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
+
 						$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
@@ -296,6 +299,9 @@ debug($tagarr);
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
 
+						//tag
+						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
+
 						$this->_save_data($data,$me,"","");
 
 						//delete topic id session
@@ -319,6 +325,12 @@ debug($tagarr);
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
+
+			////////////// Tag /////////
+			
+debug($orgcontents));
+debug($datacontents);
+exit;
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
