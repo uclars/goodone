@@ -1066,7 +1066,7 @@ echo "</PRE>";
 				$n++;
 			}
 
-			$contents_array += array(0 => $ctag_array);
+			$contents_array[0]+=array('6' => $ctag_array);
 /*
 			//size of array
 			$tag_num = count($ctitle_array);
