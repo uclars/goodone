@@ -187,7 +187,7 @@ echo "</PRE>";
 
 
                 $topic_array = $this->Topic->find('all', array(
-                        'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
+                        'conditions' => array('Topic.id' => $newtopicid, 'Topic.hide' => 0, 'Topic.deleted' => 0),
                         'contain' => array(
                                 'Mastercategory',
                                 'Title.title',
