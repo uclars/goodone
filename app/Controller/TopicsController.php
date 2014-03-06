@@ -197,7 +197,7 @@ echo "</PRE>";
                         )
                 ));
 
-
+debug($newtopicid);
 debug($topic_array);
 debug($newtopicid);
 debug($this->params);
