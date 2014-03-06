@@ -185,11 +185,11 @@ echo "</PRE>";
 
 			$newtopicid=$this->Session->read('new_topicid');
 
-/*
+
 debug($this->params);
 debug($this->data);
-exit;
-*/
+//exit;
+
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -229,7 +229,7 @@ exit;
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
-					$this->_save_data($data,$me,$topicid,$topic_array);
+	/////				$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session

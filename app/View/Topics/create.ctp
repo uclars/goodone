@@ -70,20 +70,10 @@ if(!empty($editing_contents)){
 	</div>
 	<div class='span8'>
 	<?php
-		$tags="";
-/*
-		foreach($ttag_array as $tinfo){
-			$tags .= "$tinfo, ";
-		}
-*/
-		$tags = implode(",",$ttag_array);
-
-
-
 		//show tag input only if the user is admin
-		if($admin_num == 0){
-			//echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
-		}else{
+		if($admin_num != 0){
+			$tags="";
+			$tags = implode(",",$ttag_array);
 			echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 		}
 	?>
@@ -288,6 +278,7 @@ function createsubmit(submitnum){
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
 	var hu=document.topictitle.hiddenuserid.value;
+	var ht=document.topictitle.hiddentags.value;
 	var hk=document.topictitle.hiddencheck.checked;
 
 
@@ -295,6 +286,7 @@ function createsubmit(submitnum){
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_Userid.value = hu;
+	document.createsub.Topic_Tag.value = ht;
 	document.createsub.Topic_Publish.value = submitnum;
 	document.createsub.Topic_Check.value = hk;
 }
