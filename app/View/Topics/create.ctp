@@ -71,9 +71,14 @@ if(!empty($editing_contents)){
 	<div class='span8'>
 	<?php
 		$tags="";
+/*
 		foreach($ttag_array as $tinfo){
 			$tags .= "$tinfo, ";
 		}
+*/
+		$tags = implode(",",array_map( function($x){ return "<<$x>>";}, $ttag_array));
+
+
 
 		//show tag input only if the user is admin
 		if($admin_num == 0){
