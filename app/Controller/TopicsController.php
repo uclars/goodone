@@ -299,8 +299,10 @@ exit;
 			$orgcommentarray=array();
 			$orgdatacontents=$orgcontents;
 
+
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
+debug($datacontents);
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
 
@@ -477,8 +479,6 @@ exit;
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
 		$checkstatus = $datacontents_base["Topic_Check"];
-debug($checkstatus);
-exit;
 		if($checkstatus == TRUE){
 			$data['checked']=1;
 		}else{
