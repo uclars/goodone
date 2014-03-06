@@ -478,6 +478,7 @@ exit;
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
 		$checkstatus = $datacontents_base["Topic_Check"];
+debug($checkstatus);
 		if($checkstatus){
 			$data['checked']=1;
 		}else{
