@@ -188,7 +188,7 @@ echo "</PRE>";
 debug($newtopicid);
 debug($this->params);
 debug($this->data);
-exit;
+//exit;
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
