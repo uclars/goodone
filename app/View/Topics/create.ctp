@@ -243,7 +243,7 @@ if(!empty($editing_contents)){
 <div id="working" class="working" style="display:none;">........................</div>
 <?php
 // If the content is checked by admin, the button is checked
-echo "<div class="checkbox">";
+echo "<div class='checkbox'>";
 echo $this->Form->input('Contents_Checked', array(
 	'type' => 'checkbox',
 	'checked' => $tcheck,
