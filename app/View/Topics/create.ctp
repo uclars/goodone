@@ -76,7 +76,7 @@ if(!empty($editing_contents)){
 			$tags .= "$tinfo, ";
 		}
 */
-		$tags = implode(",",array_map(function($x){ return "'$x'";}, $ttag_array));
+		$tags = implode(",",$ttag_array);
 
 
 
