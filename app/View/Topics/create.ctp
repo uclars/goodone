@@ -279,11 +279,6 @@ function createsubmit(submitnum){
 	var hk=document.topictitle.hiddencheck.checked;
 
 
-
-console.log(hk);
-
-
-
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
