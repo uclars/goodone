@@ -77,8 +77,7 @@ if(!empty($editing_contents)){
 	?>
 	</div>
 	<div class='span12'>
-		<input type='hidden' name='hiddencheck' value='0' />
-		<input type='checkbox' name='hiddencheck' value='1' />Contents is checked
+		<input type='checkbox' name='hiddencheck' />Contents is checked
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
@@ -271,7 +270,7 @@ function createsubmit(submitnum){
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
 	var hu=document.topictitle.hiddenuserid.value;
-	var hk=document.topictitle.hiddencheck.value;
+	var hk=document.topictitle.hiddencheck.checked;
 
 
 
