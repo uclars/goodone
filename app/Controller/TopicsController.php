@@ -476,7 +476,12 @@ exit;
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
-		$data['checked']=$datacontents_base["Topic_Check"];
+		$checkstatus = $datacontents_base["Topic_Check"];
+		if($checkstatus == TRUE){
+			$data['checked']=1;
+		}else{
+			$data['checked']=0;
+		}
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
 		/// Compare old data and new data to see if there are differences ///
