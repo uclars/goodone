@@ -189,10 +189,10 @@ echo "</PRE>";
                 $topic_array = $this->Topic->find('all', array(
                         'conditions' => array('Topic.hide' => 0, 'Topic.deleted' => 0),
                         'contain' => array(
-                                'Mastercategory',
-                                'Title.title',
-                                'Content.content',
-                                'Comment.comment',
+                       //         'Mastercategory',
+                       //         'Title.title',
+                       //         'Content.content',
+                       //         'Comment.comment',
                                 'Tag.name'
                         )
                 ));
