@@ -302,9 +302,6 @@ exit;
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
-echo "HH";
-debug($datacontents);
-exit;
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
 
@@ -462,6 +459,8 @@ exit;
 		$orgdata=$data=array();
 		$adminnumber = $this->_checkAdmin($me_base);
 
+debug($datacontents_base);
+exit;
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
 		$orgdata['user_id']=$orgcontents_base[0]['Topic']['user_id'];
