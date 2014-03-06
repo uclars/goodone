@@ -211,7 +211,6 @@ exit;
                                 $this->set('tid',$topicid);
 
 
-debug($topic_array);
 debug($edit_result);
 
 
@@ -1018,7 +1017,7 @@ echo "</PRE>";
 		$topic_description = $topic_array[0]['Topic']['description'];
 		$topic_userid = $topic_array[0]['Topic']['user_id'];
 		$topic_check = $topic_array[0]['Topic']['checked'];
-		$topic_tags = $topic_array[0]['Topic']['tag'];
+		$topic_tags = $topic_array[0]['Tag']['name'];
 
 		$contents_array = array();
 		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check,$topic_tags);
