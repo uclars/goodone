@@ -246,7 +246,7 @@ if(!empty($editing_contents)){
 echo "<div>";
 echo $this->Form->input('Contents_Checked', array(
 	'type' => 'checkbox',
-	'checked => $tcheck,
+	'checked' => $tcheck,
 	'label' => 'Content is checked'
 )); 
 echo "</div>";
