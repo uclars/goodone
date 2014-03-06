@@ -247,7 +247,7 @@ echo "<div class='well'>";
 echo $this->Form->input('Contents_Checked', array(
 	'type' => 'checkbox',
 	'checked' => $tcheck,
-	'label' => 'Content is reviewed'
+	'label' => ' Content is reviewed'
 )); 
 echo "</div>";
 
