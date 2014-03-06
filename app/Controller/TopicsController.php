@@ -328,7 +328,7 @@ debug($this->data);
 
 			////////////// Tag /////////
 			
-debug($orgcontents));
+debug($orgcontents);
 debug($datacontents);
 exit;
 
