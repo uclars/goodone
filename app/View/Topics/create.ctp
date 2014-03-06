@@ -70,7 +70,7 @@ if(!empty($editing_contents)){
 	</div>
 	<div class='span8'>
 	<?php
-		//$tags=null;
+		$tags;
 		foreach($ttag_array as $tinfo){
 			$tags+="$tinfo, ";
 		}
