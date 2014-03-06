@@ -80,7 +80,7 @@ if(!empty($editing_contents)){
 		<?php
 		$checkoption = null;
 		if($tcheck != 0){
-			$checkoption = "checked='1'";
+			$checkoption = "checked=\"1\"";
 		}
 		?>
 		<input type='checkbox' name='hiddencheck' <?php echo $checkoption; ?>>Contents is checked
