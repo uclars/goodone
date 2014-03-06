@@ -478,7 +478,7 @@ exit;
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
 		$checkstatus = $datacontents_base["Topic_Check"];
-		if($checkstatus == TRUE){
+		if($checkstatus){
 			$data['checked']=1;
 		}else{
 			$data['checked']=0;
