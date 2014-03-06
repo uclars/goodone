@@ -247,6 +247,9 @@ echo "<div>";
 echo $this->Form->Checkbox('Contents_Checked',array('value'=> $tcheck));
 echo "</div>";
 
+echo $tcheck;
+
+
 //submit button
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
