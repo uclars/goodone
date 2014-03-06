@@ -244,11 +244,11 @@ if(!empty($editing_contents)){
 <?php
 // If the content is checked by admin, the button is checked
 echo "<div class='well'>";
-echo $this->Form->input('Contents_Checked', array(
+echo $this->Form->input('Topic_Checke', array(
 	'type' => 'checkbox',
 	'checked' => $tcheck,
 	'name' => 'hiddencheck',
-	'id' => 'Topic_Check',
+	'id' => 'hiddencheck',
 	'label' => ' Content is reviewed'
 )); 
 echo "</div>";
