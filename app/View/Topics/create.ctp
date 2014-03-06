@@ -76,6 +76,17 @@ if(!empty($editing_contents)){
 		}
 	?>
 	</div>
+<?php
+	// If the content is checked by admin, the button is checked
+	echo "<div class='well'>";
+	echo $this->Form->input('Topic_Checke', array(
+		'type' => 'checkbox',
+		'checked' => $tcheck,
+		'name' => 'hiddencheck',
+		'label' => ' Content is reviewed'
+	)); 
+	echo "</div>";
+?>
 	<?php echo $this->Form->end(); ?>
 </div>
 
@@ -243,17 +254,6 @@ if(!empty($editing_contents)){
 </div>
 <div id="working" class="working" style="display:none;">........................</div>
 <?php
-// If the content is checked by admin, the button is checked
-echo "<div class='well'>";
-echo $this->Form->input('Topic_Checke', array(
-	'type' => 'checkbox',
-	'checked' => $tcheck,
-	'name' => 'hiddencheck',
-	'id' => 'hiddencheck',
-	'label' => ' Content is reviewed'
-)); 
-echo "</div>";
-
 //submit button
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
