@@ -70,11 +70,11 @@ if(!empty($editing_contents)){
 	</div>
 	<div class='span8'>
 	<?php
-		$tags;
+		$tags="";
 		foreach($ttag_array as $tinfo){
 			$tags .= "$tinfo, ";
 		}
-debug($tags);
+
 		//show tag input only if the user is admin
 		if($admin_num == 0){
 			//echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
