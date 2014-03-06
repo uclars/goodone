@@ -244,9 +244,13 @@ if(!empty($editing_contents)){
 <?php
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
-	echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
-	echo "&nbsp;&nbsp;";
-	echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+	if($admin_num == 0){
+		echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
+		echo "&nbsp;&nbsp;";
+		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+	}else{
+		echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+	}
 	echo "</form>"; 
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";

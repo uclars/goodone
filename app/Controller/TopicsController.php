@@ -420,8 +420,10 @@ exit;
 					$data['userid']=$this->data["Topic_Userid"];
 				}
 				//publish or hide
-				$data['hide']=$this->data["Topic_Publish"];
-
+				$publish_num=$this->data["Topic_Publish"];
+				if($publish_num < 2){
+					$data['hide']=$this->data["Topic_Publish"];
+				}
 
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
