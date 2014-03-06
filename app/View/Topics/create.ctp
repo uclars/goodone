@@ -78,7 +78,7 @@ if(!empty($editing_contents)){
 	</div>
 <?php
 	// If the content is checked by admin, the button is checked
-	echo "<div class='well'>";
+	echo "<div class='span12'>";
 	echo $this->Form->input('Topic_Check', array(
 		'type' => 'checkbox',
 		'checked' => $tcheck,
