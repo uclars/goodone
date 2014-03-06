@@ -242,6 +242,9 @@ if(!empty($editing_contents)){
 </div>
 <div id="working" class="working" style="display:none;">........................</div>
 <?php
+// If the content is checked by admin, the button is checked
+echo $this->Form->Checkbox('Contents_Checked',array('value'=> $tcheck));
+
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
 	if($admin_num == 0){
@@ -255,11 +258,6 @@ if(!empty($auth)){
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
 }
-
-	echo $this->Form->Checkbox('Contents_Checked',array('value'=>0));
-echo $tcheck;
-
-
 ?>
 <!--</section>-->
 
