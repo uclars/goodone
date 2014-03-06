@@ -1017,9 +1017,10 @@ echo "</PRE>";
 		$topic_description = $topic_array[0]['Topic']['description'];
 		$topic_userid = $topic_array[0]['Topic']['user_id'];
 		$topic_check = $topic_array[0]['Topic']['checked'];
+		$topic_tags = $topic_array[0]['Topic']['tag'];
 
 		$contents_array = array();
-		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check);
+		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check,$topic_tags);
 		$i = $j = $k = 0;
 
 		if(!empty($topic_array[0]['Title']) AND !empty($topic_array[0]['Content']) and !empty($topic_array[0]['Comment'])){
