@@ -186,9 +186,11 @@ echo "</PRE>";
 			$newtopicid=$this->Session->read('new_topicid');
 
 
+/*
 debug($this->params);
 debug($this->data);
 //exit;
+*/
 
 
 			//if edit page, get the contents
@@ -219,6 +221,7 @@ debug($this->data);
 					$data['Topic_Description'] = $this->data['Topic_Description'];
 					$data['Topic_Check'] = $this->data['Topic_Check'];
 					$data['Topic_Userid'] = $this->data['Topic_Userid'];
+					$data['Topic_Tag'] = $this->data['Topic_Tag'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
 					$data['Content']['title'] = $this->data['Content']['title'];
 					$data['Content']['content'] = $this->data['Content']['content'];
@@ -228,6 +231,9 @@ debug($this->data);
 					{
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
+					$tagarr = explode(',', $this->data['Topic_Tag']);
+					
+debug($tagarr);
 
 	/////				$this->_save_data($data,$me,$topicid,$topic_array);
 				}
