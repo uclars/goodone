@@ -72,7 +72,7 @@ if(!empty($editing_contents)){
 	<?php
 		$tags;
 		foreach($ttag_array as $tinfo){
-			$tags+="$tinfo, ";
+			$tags .= "$tinfo, ";
 		}
 debug($tags);
 		//show tag input only if the user is admin
