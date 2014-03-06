@@ -210,12 +210,6 @@ exit;
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
 
-
-debug($topic_array);
-debug($edit_result);
-
-
-
                                 $data['id']=$topicid;
 
 				if(isset($this->data) && !empty($this->data))
@@ -1025,6 +1019,7 @@ echo "</PRE>";
 		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check);
 		$i = $j = $k = 0;
 
+		//get All Title, Contetns, Comments, and put them into the content array
 		if(!empty($topic_array[0]['Title']) AND !empty($topic_array[0]['Content']) and !empty($topic_array[0]['Comment'])){
 			//Title
 			foreach($topic_array[0]['Title'] as $content_title_array){
@@ -1058,24 +1053,16 @@ echo "</PRE>";
 			}
 		}
 
+		//get All Tag name, and put them into the content array
 		$n = $m = 0;
 		if(!empty($topic_array[0]['Tag'])){
-			//get All Tag name
+			//get tags from DB
 			foreach($topic_array[0]['Tag'] as $content_tag_array){
 				$ctag_array[$n] = $content_tag_array['name'];
 				$n++;
 			}
 
 			$contents_array[0]+=array('6' => $ctag_array);
-/*
-			//size of array
-			$tag_num = count($ctitle_array);
-			//combine the three arrays into one array
-			//*first item of the array is Topic title, description, category
-			for($m = 1; $m < $item_num+1; $l++){
-				$contents_array[$l]=array($ctitle_array[$l-1],$ccontents_array[$l-1],$ccomment_array[$l-1]);
-			}
-*/
 		}
 
 		return $contents_array;
