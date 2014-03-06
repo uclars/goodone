@@ -231,7 +231,8 @@ debug($this->data);
 					{
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
-					$tagarr = explode(',', $this->data['Topic_Tag']);
+
+					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
 debug($tagarr);
 
@@ -864,6 +865,12 @@ exit;
 				}
 			}
 		}
+	}
+
+	function _make_tagarray($tagstring){
+		$tag_array_t = explode(',',$tagstring);
+
+		return $tag_array_t;
 	}
 
 	function image(){
