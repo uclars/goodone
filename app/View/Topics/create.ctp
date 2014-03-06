@@ -247,6 +247,8 @@ echo "<div class='well'>";
 echo $this->Form->input('Contents_Checked', array(
 	'type' => 'checkbox',
 	'checked' => $tcheck,
+	'name' => 'hiddencheck',
+	'id' => 'hiddencheck',
 	'label' => ' Content is reviewed'
 )); 
 echo "</div>";
@@ -275,12 +277,13 @@ function createsubmit(submitnum){
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
 	var hu=document.topictitle.hiddenuserid.value;
+	var hk=document.topictitle.hiddencheck.value;
 
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_Userid.value = hu;
 	document.createsub.Topic_Publish.value = submitnum;
-	document.createsub.Topic_Check.value = submitnum;
+	document.createsub.Topic_Check.value = hk;
 }
 </SCRIPT>
