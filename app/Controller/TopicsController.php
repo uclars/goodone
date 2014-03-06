@@ -185,10 +185,12 @@ echo "</PRE>";
 
 			$newtopicid=$this->Session->read('new_topicid');
 
+/*
 debug($newtopicid);
 debug($this->params);
 debug($this->data);
-//exit;
+exit;
+*/
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -207,6 +209,7 @@ debug($this->data);
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
+					$data['Topic_Check'] = $this->data['Topic_Check'];
 					$data['Topic_Userid'] = $this->data['Topic_Userid'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
 					$data['Content']['title'] = $this->data['Content']['title'];
@@ -218,7 +221,7 @@ debug($this->data);
 						$data['Content']['comment'][$key] = $commentarr[$key];
 					}
 
-//////////////////////					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -240,6 +243,7 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
@@ -265,6 +269,7 @@ debug($this->data);
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
 						$data['Content']['title'] = $this->data['Content']['title'];
@@ -459,6 +464,7 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
@@ -470,6 +476,7 @@ exit;
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
+		$data['checked']=$datacontents_base["Topic_Check"];
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
 		/// Compare old data and new data to see if there are differences ///
