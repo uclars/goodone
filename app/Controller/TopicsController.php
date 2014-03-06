@@ -186,9 +186,19 @@ echo "</PRE>";
 			$newtopicid=$this->Session->read('new_topicid');
 
 
-$to = $this->Topic->find('all'); 
+                $topic_array = $this->Topic->find('all', array(
+                        'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
+                        'contain' => array(
+                                'Mastercategory',
+                                'Title.title',
+                                'Content.content',
+                                'Comment.comment',
+                                'Tag.name'
+                        )
+                ));
 
-debug($to);
+
+debug($topic_array);
 debug($newtopicid);
 debug($this->params);
 debug($this->data);
