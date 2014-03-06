@@ -1012,7 +1012,7 @@ echo "</PRE>";
 		$topic_description = $topic_array[0]['Topic']['description'];
 		$topic_userid = $topic_array[0]['Topic']['user_id'];
 		$topic_check = $topic_array[0]['Topic']['checked'];
-		$topic_tags = $topic_array[0]['Tag']['name'];
+		//$topic_tags = $topic_array[0]['Tag']['name'];
 
 		//array for all contents of the topic
 		$contents_array = array();
