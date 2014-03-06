@@ -210,6 +210,11 @@ exit;
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
 
+
+debug($edit_result);
+
+
+
                                 $data['id']=$topicid;
 
 				if(isset($this->data) && !empty($this->data))
