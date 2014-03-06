@@ -185,30 +185,27 @@ echo "</PRE>";
 
 			$newtopicid=$this->Session->read('new_topicid');
 
-
-                $topic_array = $this->Topic->find('all', array(
-                        'conditions' => array('Topic.id' => 1, 'Topic.hide' => 0, 'Topic.deleted' => 0),
-                        'contain' => array(
-                       //         'Mastercategory',
-                       //         'Title.title',
-                       //         'Content.content',
-                       //         'Comment.comment',
-                                'Tag.name'
-                        )
-                ));
-
-debug($topic_array);
+/*
 debug($this->params);
 debug($this->data);
 exit;
-
+*/
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
 
                                 $topic_array = array();
-                                $topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
+                                $topic_array = $this->Topic->find('all', array(
+					'conditions' => array('Topic.id' => $topicid),
+					'contain' => array(
+						'Mastercategory',
+						'Title.title',
+						'Content.content',
+						'Comment.comment',
+						'Tag.name'
+					)
+				));
                                 $edit_result = $this->_get_editcontents($topic_array);
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
