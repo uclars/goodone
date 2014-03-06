@@ -171,6 +171,7 @@ if(!empty($editing_contents)){
 		<input type="hidden" name="Topic_Category" id="Topic_Category">
 		<input type="hidden" name="Topic_Description" id="Topic_Description">
 		<input type="hidden" name="Topic_Userid" id="Topic_Userid">
+		<input type="hidden" name="Topic_Check" id="Topic_Check">
 		<input type="hidden" name="Topic_Publish" id="Topic_Publish">
 		<input type="hidden" name="data[num]" id="num">
 		<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
