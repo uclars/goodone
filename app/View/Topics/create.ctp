@@ -77,7 +77,7 @@ if(!empty($editing_contents)){
 	?>
 	</div>
 	<div class='span12'>
-		<input type='checkbox' name='hiddencheck' value=1>Contents is checked
+		<input type='checkbox' name='hiddencheck'>Contents is checked
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
