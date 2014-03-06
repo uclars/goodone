@@ -300,9 +300,10 @@ exit;
 			$orgdatacontents=$orgcontents;
 
 
+debug($datacontents);
+exit;
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
-debug($datacontents);
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
 
