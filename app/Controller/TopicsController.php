@@ -211,6 +211,7 @@ exit;
                                 $this->set('tid',$topicid);
 
 
+debug($topic_array);
 debug($edit_result);
 
 
