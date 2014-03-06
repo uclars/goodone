@@ -244,11 +244,12 @@ if(!empty($editing_contents)){
 <?php
 // If the content is checked by admin, the button is checked
 echo "<div>";
-echo $this->Form->Checkbox('Contents_Checked',array('value'=> 1));
+echo $this->Form->input('Contents_Checked', array(
+	'type' => 'checkbox',
+	'checked => $tcheck,
+	'label' => 'Content is checked'
+)); 
 echo "</div>";
-
-echo $tcheck;
-
 
 //submit button
 $auth = $this->Session->read('Auth.User');
