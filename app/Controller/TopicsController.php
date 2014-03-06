@@ -485,8 +485,6 @@ exit;
 		}
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
-debug($data);
-exit;
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
 		if(!empty($isnewtopicinfo)){
