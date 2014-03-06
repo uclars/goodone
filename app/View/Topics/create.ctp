@@ -256,7 +256,7 @@ if(!empty($auth)){
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
 }
 
-
+	echo $this->Form->Checkbox('Contents_Checked',array('value'=>0));
 echo $tcheck;
 
 
@@ -276,5 +276,6 @@ function createsubmit(submitnum){
 	document.createsub.Topic_Description.value = hd;
 	document.createsub.Topic_Userid.value = hu;
 	document.createsub.Topic_Publish.value = submitnum;
+	document.createsub.Topic_Check.value = submitnum;
 }
 </SCRIPT>
