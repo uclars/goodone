@@ -332,6 +332,8 @@ debug($this->data);
 			//Compare the old tag array and new tag array, and if tags are modified, update the DB
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
+debug($newtagarray);
+debug($orgtagarray);
 			$isnewtag=array_diff_assoc($newtagarray,$orgtagarray);
 			if(!empty($isnewtag)){
 				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
