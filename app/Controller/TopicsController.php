@@ -330,9 +330,6 @@ debug($this->data);
 			$orgdatacontents=$orgcontents;
 
 
-debug($datacontents);
-exit;
-
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
@@ -359,6 +356,10 @@ exit;
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
+
+
+debug($orgcontents);
+exit;
 			$orgtitlearray = $this->_make_orgdata_title_array($orgcontents);
 			$orgcontentarray = $this->_make_orgdata_content_array($orgcontents);
 			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
