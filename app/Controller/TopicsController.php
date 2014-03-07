@@ -1160,14 +1160,12 @@ echo "</PRE>";
 		//get All Tag name, and put them into the content array, except deleted=1
 		$n = 0;
 		if(!empty($topic_array[0]['Tag'])){
-
-debug($topic_array[0]);
-exit;
-
 			//get tags from DB
 			foreach($topic_array[0]['Tag'] as $content_tag_array){
-				$ctag_array[$n] = $content_tag_array['name'];
-				$n++;
+				if($content_tag_array['TagsTopic']['deleted'] != 1){
+					$ctag_array[$n] = $content_tag_array['name'];
+					$n++;
+				}
 			}
 
 			$contents_array[0]+=array('6' => $ctag_array);
