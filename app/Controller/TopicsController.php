@@ -356,10 +356,6 @@ debug($this->data);
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
-
-
-debug($orgcontents);
-exit;
 			$orgtitlearray = $this->_make_orgdata_title_array($orgcontents);
 			$orgcontentarray = $this->_make_orgdata_content_array($orgcontents);
 			$orgcommentarray = $this->_make_orgdata_comment_array($orgcontents);
@@ -376,7 +372,12 @@ exit;
 			//$topicid = $orgdata['id'];
 
 
-/*
+
+
+
+
+
+
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -400,7 +401,10 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
-*/
+
+
+
+
 
 
 
