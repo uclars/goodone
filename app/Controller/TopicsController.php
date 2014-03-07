@@ -334,8 +334,17 @@ debug($this->data);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
 debug($newtagarray);
 debug($orgtagarray);
-			//$isnewtag=array_diff_assoc($newtagarray,$orgtagarray);
+
+    $diff_a_to_b = array_diff($newtagarray, $orgtagarray);
+    $diff_b_to_a = array_diff($orgtagarray, $newtagarray);
+
+
+debug($diff_a_to_b);
+debug($diff_b_to_a);
+
+
 			$isnewtag=array_diff($newtagarray,$orgtagarray);
+
 
 debug($isnewtag);
 exit;
