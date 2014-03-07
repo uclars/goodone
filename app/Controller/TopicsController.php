@@ -335,15 +335,8 @@ debug($this->data);
 debug($newtagarray);
 debug($orgtagarray);
 
-    $diff_a_to_b = array_diff($newtagarray, $orgtagarray);
-    $diff_b_to_a = array_diff($orgtagarray, $newtagarray);
 
-
-debug($diff_a_to_b);
-debug($diff_b_to_a);
-
-
-			$isnewtag=array_diff($newtagarray,$orgtagarray);
+			$isnewtag=_arrayDiff($newtagarray,$orgtagarray);
 
 
 debug($isnewtag);
@@ -553,6 +546,13 @@ exit;
 		}
 
 		return $orgtagarray_base;
+	}
+	function _arrayDiff($Array_1, $Array_2){
+		$Compare_1_To_2 = array_diff($Array_1,$Array_2);
+		$Compare_2_To_1 = array_diff($Array_2,$Array_1);
+		$Difference_Array = array_merge($Compare_1_To_2,$Compare_2_To_1);
+
+		return $Difference_Array;
 	}
 
 	function _make_orgdata_title_array($orgcontents_base){
