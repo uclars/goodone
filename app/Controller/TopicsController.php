@@ -566,8 +566,10 @@ exit;
 		$orgtitlearray_base = array();
 		$s=1;
 
+debug($orgcontents_base);
 		// make original title array from DB 
 		if(empty($orgcontents_base)){
+debug($orgcontents_base);
 			$orgtitlearray_base[0]=$orgcontents_base;
 		}else{
 		foreach($orgcontents_base as $orgcontent){
