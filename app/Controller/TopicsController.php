@@ -529,7 +529,7 @@ exit;
 
 	function _make_orgdata_tag_array($orgcontents_base){
 		$orgtagarray_base = array();
-		$s=1;
+		$s=0;
 
 		// make original title array from DB 
 		foreach($orgcontents_base as $orgcontent){
