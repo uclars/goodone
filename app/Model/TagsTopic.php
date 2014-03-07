@@ -24,7 +24,7 @@ class TagsTopic extends AppModel
 
 		$tagstopic_id=$isTagTopic[0]['TagsTopic']['id'];
                 $tagdata = array();
-                $tagdata['d'] = $tagstopic_id;
+                $tagdata['id'] = $tagstopic_id;
                 $tagdata['topic_id'] = $topicid;
                 $tagdata['tag_id'] = $newtagid;
 
