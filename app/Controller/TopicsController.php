@@ -348,9 +348,6 @@ debug($this->data);
 			//get deleted tags from origin
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
-debug($newtagarray);
-debug($orgtagarray);
-exit;
 			if(!empty($isnewtag) || !empty($isdeletetag)){
 				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
@@ -549,8 +546,10 @@ exit;
 		// make original title array from DB 
 		foreach($orgcontents_base as $orgcontent){
 			foreach($orgcontent['Tag'] as $orgtags){
-				$orgtagarray_base[$s]=$orgtags['name'];
-				$s++;
+				if($orgtags['TagsTopic']['deleted']!=1){
+					$orgtagarray_base[$s]=$orgtags['name'];
+					$s++;
+				}
 			}
 		}
 
