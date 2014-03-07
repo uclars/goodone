@@ -17,6 +17,9 @@ class TagsTopic extends AppModel
 	function updateNewTagTopic($topicid, $newtagid){
 		$isTagTopic=$this->find('all',array(
                         'conditions' => array('TagsTopic.topic_id' => $topicid, 'TagsTopic.tag_id' => $newtagid)
+			'contain' => array(
+                                'Tag'
+                        )
                 ));
 
 debug($isTagTopic);
