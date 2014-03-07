@@ -187,9 +187,11 @@ echo "</PRE>";
 
 
 
+/*
 debug($this->params);
 debug($this->data);
 //exit;
+*/
 
 
 			//if edit page, get the contents
@@ -199,6 +201,7 @@ debug($this->data);
                                 $topic_array = array();
                                 $topic_array = $this->Topic->find('all', array(
 					'conditions' => array('Topic.id' => $topicid),
+/*
 					'contain' => array(
 						'Mastercategory',
 						'Title.title',
@@ -206,6 +209,7 @@ debug($this->data);
 						'Comment.comment',
 						'Tag.name'
 					)
+*/
 				));
 
 
@@ -237,7 +241,7 @@ debug($this->data);
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
 
-///////////					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
