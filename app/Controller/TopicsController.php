@@ -708,14 +708,22 @@ exit;
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
 		$i=1;
+		//new tag. check if the tag isn in DB.
 		foreach($newtagarray as $key=>$tag)
 		{
-			$ab = $this->Tag->find('all', array(
-                                        'conditions' => array('Tag.name' => $tag),
-                                        'contain' => array(
-                                                'Tag.name'
-                                        )
-                                ));
+			$isTaginDB = $this->Tag->find('all', array(
+					'conditions' => array('Tag.name' => $tag),
+					'contain' => array(
+						'Tag.name'
+					)
+				    ));
+
+			if(empty($isTaginDB)){
+				$tagdata = array();
+				$tagdata['name'] = $tag;
+				$this->Tag->create();
+				$ab = $this->Tag->save($tagdata);
+			}
 debug($tag);
 debug($ab);
 exit;
