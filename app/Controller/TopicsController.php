@@ -326,7 +326,7 @@ debug($this->data);
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
-				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
+////////				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
 
 			////////////// Tag /////////
@@ -344,7 +344,7 @@ debug($this->data);
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
 			if(!empty($isnewtag) || !empty($isdeletetag)){
-/////////				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
+				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
 			
 
