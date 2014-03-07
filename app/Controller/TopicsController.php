@@ -341,7 +341,7 @@ debug($orgtagarray);
 
 
 debug($isnewtag);
-debug($isoldtag);
+debug($isdeletetag);
 exit;
 			if(!empty($isnewtag)){
 				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
