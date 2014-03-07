@@ -187,11 +187,9 @@ echo "</PRE>";
 
 
 
-/*
 debug($this->params);
 debug($this->data);
 //exit;
-*/
 
 
 			//if edit page, get the contents
@@ -239,7 +237,7 @@ debug($this->data);
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
 
-					$this->_save_data($data,$me,$topicid,$topic_array);
+///////////					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -326,7 +324,7 @@ debug($this->data);
 
 			////////////// Topic Title, Category, Description /////////
 			if(!is_array(@$datacontents['request'])){
-////////				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
+				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
 
 			////////////// Tag /////////
