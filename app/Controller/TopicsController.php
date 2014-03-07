@@ -327,9 +327,15 @@ debug($this->data);
 			}
 
 			////////////// Tag /////////
+			//Compare the old tag array and new tag array, and if tags are modified, update the DB
+			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
+			$isnewtag=array_diff_assoc($newtitlearray,$orgtagarray);
+			if(!empty($isnewtga)){
+				$this->_update_title($newtagarray, $orgdatacontents, $topic_id, $me);
+			}
 			
 debug($orgcontents);
-debug($datacontents);
+debug($orgtagarray);
 exit;
 
 			///////////// Each title, contents, comments ///////////
@@ -379,7 +385,6 @@ exit;
 
 
 			//Compare the old title array and new title array, and if titles are modified, update the DB
-
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
 				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
@@ -518,6 +523,21 @@ exit;
 			//save Topic name and category to DB
 			$this->Topic->save($data);
 		}
+	}
+
+	function _make_orgdata_tag_array($orgcontents_base){
+		$orgtagarray_base = array();
+		$s=1;
+
+		// make original title array from DB 
+		foreach($orgcontents_base as $orgcontent){
+			foreach($orgcontent['Tag'] as $orgtags){
+				$orgtagarray_base[$s]=$orgtags['name'];
+				$s++;
+			}
+		}
+
+		return $orgtagarray_base;
 	}
 
 	function _make_orgdata_title_array($orgcontents_base){
