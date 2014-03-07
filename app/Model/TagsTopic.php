@@ -14,6 +14,7 @@ class TagsTopic extends AppModel
 		),
 	);
 
+	public $primaryKey = 'no'; 
 	function markDelete($topic_id,$d_tag){
 debug($d_tag);
 		$tagdata = array();
