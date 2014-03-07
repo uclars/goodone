@@ -568,16 +568,15 @@ exit;
 
 debug($orgcontents_base);
 		// make original title array from DB 
-		if(empty($orgcontents_base)){
-debug($orgcontents_base);
-			$orgtitlearray_base[0]=$orgcontents_base;
-		}else{
 		foreach($orgcontents_base as $orgcontent){
 			foreach($orgcontent['Title'] as $orgtitles){
+				if(empty($orgtitles)){
+					$orgtitlearray_base[0]=array("");
+				}else{
 				$orgtitlearray_base[$s]=$orgtitles['title'];
 				$s++;
+				}
 			}
-		}
 		}
 
 		return $orgtitlearray_base;
