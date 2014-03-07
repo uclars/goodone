@@ -18,7 +18,7 @@ class TagsTopic extends AppModel
 		$isTagTopic=$this->find('all',array(
                         'conditions' => array('TagsTopic.topic_id' => $topicid, 'TagsTopic.tag_id' => $newtagid),
 			'contain' => array(
-                                'TagsTopic'
+                                'TagsTopic.id'
                         )
                 ));
 
