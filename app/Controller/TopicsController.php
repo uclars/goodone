@@ -707,27 +707,32 @@ exit;
         }
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
-		$i=1;
 		//new tag. check if the tag isn in DB.
-		foreach($newtagarray as $key=>$tag)
+		foreach($newtagarray as $key=>$na_tag)
 		{
 			///////////////// Tag Table ///////////////////
 			//find if there is the new tag in the TAG table already
-			$isTaginDB = $this->Tag->findTag($tag);
+			$isTaginDB = $this->Tag->findTag($na_tag);
 			//if the tag is not in the DB, insert it into the DB
 			if(empty($isTaginDB)){
-				$this->_insertNewTag($tag);
+				$this->_insertNewTag($na_tag);
 			}
 		}
 
-		foreach($newtagarray as $key=>$tag)
+		foreach($newtagarray as $key=>$no_tag)
 		{
 			//////////////// Tags_Topics Table ////////////
 			//get new tag id
-			$isTaginDB = $this->Tag->findTag($tag);
+			$isTaginDB = $this->Tag->findTag($no_tag);
 			$newtagid = $isTaginDB[0]['Tag']['id'];
 			//insert the new tag into the tag_topics db
-$aa=			$this->_insertNewTagTopic($topic_id,$newtagid);
+			$this->_insertNewTagTopic($topic_id,$newtagid);
+		}
+
+		foreach($deletetagarray as $key=>$d_tag)
+		{
+			
+$aa=			$this->TagsTopic->markDelete($topic_id,$d_tag);
 
 debug($aa);
 exit;
