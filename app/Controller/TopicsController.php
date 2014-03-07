@@ -568,7 +568,7 @@ exit;
 
 		// make original title array from DB 
 		foreach($orgcontents_base as $orgcontent){
-debug($orgcontent);
+debug($orgcontent['Title']);
 			foreach($orgcontent['Title'] as $orgtitles){
 				if(empty($orgtitles)){
 					$orgtitlearray_base[0]=array("");
