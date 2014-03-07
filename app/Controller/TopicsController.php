@@ -718,6 +718,7 @@ exit;
 					)
 				    ));
 
+debug($isTaginDB);
 			//if the tag is not in the DB, insert it into the DB
 			if(empty($isTaginDB)){
 //				$this->_insertNewTag($tag);
@@ -725,7 +726,6 @@ exit;
 
 			//insert the new tag into the tag_topics db
 			$newtagid = $isTaginDB['Tag']['id'];
-debug($isTaginDB);
 //			$this->_insertNewTagTopic($topic_id,$newtagid);
 
 			$aa = $this->Tag->findTag($tag);
