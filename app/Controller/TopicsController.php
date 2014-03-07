@@ -348,6 +348,8 @@ debug($this->data);
 			//get deleted tags from origin
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
+debug($isnewtag);
+exit;
 			if(!empty($isnewtag) || !empty($isdeletetag)){
 				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
@@ -724,8 +726,6 @@ exit;
         }
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
-debug($newtagarray);
-exit;
 		//new tag. check if the tag isn in DB.
 		foreach($newtagarray as $key=>$na_tag)
 		{
