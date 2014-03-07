@@ -724,6 +724,8 @@ exit;
         }
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
+debug($newtagarray);
+exit;
 		//new tag. check if the tag isn in DB.
 		foreach($newtagarray as $key=>$na_tag)
 		{
