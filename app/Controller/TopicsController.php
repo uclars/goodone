@@ -702,8 +702,13 @@ exit;
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
 
+		//delete empty values
+		$newtags = array_filter($newtagarray, "strlen");
+		//re-numbering
+		$newags = array_values($newtags); 
+
 debug($deletetagarray);
-debug($newtagarray);
+debug($newtags);
 exit;
 
 
