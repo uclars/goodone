@@ -332,13 +332,9 @@ debug($this->data);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
 			$isnewtag=array_diff_assoc($newtagarray,$orgtagarray);
 			if(!empty($isnewtag)){
-debug($isnewtag);
-				$this->_update_title($newtagarray, $orgdatacontents, $topic_id, $me);
+				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
 			}
 			
-debug($datacontents);
-debug($orgtagarray);
-exit;
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
@@ -698,6 +694,43 @@ exit;
 			return $newcommentarray;
 		}
         }
+
+	function _update_tag($newtagarray, $orgdatacontents, $topic_id, $me){
+
+debug($orgdatacontents);
+debug($newtagarray);
+exit;
+
+
+		$i=1;
+		foreach($newtagarray as $key=>$tag)
+		{
+			if($title === "disabled"){
+				$orgdatatitlesize = count($orgdatacontents[0]['Title']);
+				//delete from DB when delete item from org contents
+				if($key<=$orgdatatitlesize){
+					$deletetitleid = $orgdatacontents[0]['Title'][$key-1]['id'];
+					$this->Title->delete($deletetitleid);
+				}
+			}else{
+				if(!empty($orgdatacontents[0]['Title'][$key-1]['id'])){
+					$titleid =$orgdatacontents[0]['Title'][$key-1]['id'];
+				}else{
+					$titleid = NULL;
+				}
+
+				$this->Title->create();
+				$data["id"]=$titleid;
+				$data["topic_id"]=$topic_id;
+				$data["content_id"]=$i;
+				$data["title"]=$title;
+				$data["user_id"]=$me;
+				$this->Title->save($data);
+
+				$i++;
+			}
+		}
+	}
 
 	function _update_title($newtitlearray, $orgdatacontents, $topic_id, $me){
 		$i=1;
