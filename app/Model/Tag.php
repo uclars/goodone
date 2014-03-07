@@ -23,7 +23,8 @@ class Tag extends AppModel
 			)
 	);
 
-	function findTag($tagname){
+//http://blog.syuhari.jp/archives/172
+	public function findTag($tagname){
 		return $this->Tag->find('all', array(
 			'conditions' => array('Tag.name' => $tagname),
 			'contain' => array(
