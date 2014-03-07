@@ -711,24 +711,20 @@ exit;
 		//new tag. check if the tag isn in DB.
 		foreach($newtagarray as $key=>$tag)
 		{
-			$isTaginDB = $this->Tag->find('all', array(
-					'conditions' => array('Tag.name' => $tag),
-					'contain' => array(
-						'Tag.name'
-					)
-				    ));
-
-debug($tag);
+			///////////////// Tag Table ///////////////////
+			//find if there is the new tag in the TAG table already
+			$isTaginDB = $this->Tag->findTag($tag);
 			//if the tag is not in the DB, insert it into the DB
 			if(empty($isTaginDB)){
-//				$this->_insertNewTag($tag);
+				$this->_insertNewTag($tag);
 			}
 
-			//insert the new tag into the tag_topics db
+			//////////////// Tags_Topics Table ////////////
+			//get new tag id
 			$newtagid = $isTaginDB[0]['Tag']['id'];
-//			$this->_insertNewTagTopic($topic_id,$newtagid);
+			//insert the new tag into the tag_topics db
+$aa=			$this->_insertNewTagTopic($topic_id,$newtagid);
 
-			$aa = $this->Tag->findTag($tag);
 debug($aa);
 exit;
 
