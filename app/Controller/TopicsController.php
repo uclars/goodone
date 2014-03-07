@@ -348,7 +348,8 @@ debug($this->data);
 			//get deleted tags from origin
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
-debug($isnewtag);
+debug($newtagarray);
+debug($orgtagarray);
 exit;
 			if(!empty($isnewtag) || !empty($isdeletetag)){
 				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
