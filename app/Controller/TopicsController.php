@@ -336,10 +336,12 @@ debug($newtagarray);
 debug($orgtagarray);
 
 
-			$isnewtag=$this->_arrayDiff($newtagarray,$orgtagarray);
+			$isnewtag=array_diff($newtagarray,$orgtagarray);
+			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
 
 debug($isnewtag);
+debug($isoldtag);
 exit;
 			if(!empty($isnewtag)){
 				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
@@ -546,13 +548,6 @@ exit;
 		}
 
 		return $orgtagarray_base;
-	}
-	function _arrayDiff($Array_1, $Array_2){
-		$Compare_1_To_2 = array_diff($Array_1,$Array_2);
-		$Compare_2_To_1 = array_diff($Array_2,$Array_1);
-		$Difference_Array = array_merge($Compare_1_To_2,$Compare_2_To_1);
-
-		return $Difference_Array;
 	}
 
 	function _make_orgdata_title_array($orgcontents_base){
