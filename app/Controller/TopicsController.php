@@ -710,7 +710,14 @@ exit;
 		$i=1;
 		foreach($newtagarray as $key=>$tag)
 		{
+			$ab = $this->Tag->find('all', array(
+                                        'conditions' => array('Tag.name' => $tag),
+                                        'contain' => array(
+                                                'Tag.name'
+                                        )
+                                ));
 debug($tag);
+debug($ab);
 exit;
 
 
