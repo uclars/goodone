@@ -334,7 +334,7 @@ debug($this->data);
 				$this->_update_title($newtagarray, $orgdatacontents, $topic_id, $me);
 			}
 			
-debug($orgcontents);
+debug($datacontents);
 debug($orgtagarray);
 exit;
 
