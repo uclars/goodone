@@ -24,7 +24,8 @@ class Tag extends AppModel
 	);
 
 //http://blog.syuhari.jp/archives/172
-	public function findTag($tagname){
+	public function findTag(){
+		$tagname = "a";
 		return $this->Tag->find('all', array(
 			'conditions' => array('Tag.name' => $tagname),
 			'contain' => array(
