@@ -210,10 +210,6 @@ debug($this->data);
 				));
 
 
-debug($topic_array);
-exit;
-
-
                                 $edit_result = $this->_get_editcontents($topic_array);
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
