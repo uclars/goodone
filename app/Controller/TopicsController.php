@@ -1161,7 +1161,7 @@ echo "</PRE>";
 		$n = 0;
 		if(!empty($topic_array[0]['Tag'])){
 
-debug($topic_array[0]['Tag']);
+debug($topic_array[0]);
 exit;
 
 			//get tags from DB
