@@ -14,18 +14,9 @@ class TagsTopic extends AppModel
 		),
 	);
 
-	public $primaryKey = 'no'; 
 	function markDelete($topic_id,$d_tag){
-debug($d_tag);
-		$tagdata = array();
-		$tagdata['topic_id'] = $topic_id;
-		$tagdata['tag_id'] = $d_tag;
-		$tagdata['deleted'] = 1;
-
-debug($tagdata);
-
-	//	$this->create();
-		$this->updateAll($tagdata);
+		$delte_query = "Update tags_topics Set 'deleted'=1 Where 'topic_id'=".$topic_id." AND 'tag_id'=".$d_tag.";"
+		$this->query($delte_query);
 	}
 }
 ?>
