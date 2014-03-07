@@ -734,36 +734,8 @@ exit;
 			//get delte tag id
                         $isTaginDB = $this->Tag->findTag($d_tag);
                         $deletetagid = $isTaginDB[0]['Tag']['id'];
-$aa=			$this->TagsTopic->markDelete($topic_id,$deletetagid);
-
-debug($aa);
-exit;
-
-
-			if($title === "disabled"){
-				$orgdatatitlesize = count($orgdatacontents[0]['Title']);
-				//delete from DB when delete item from org contents
-				if($key<=$orgdatatitlesize){
-					$deletetitleid = $orgdatacontents[0]['Title'][$key-1]['id'];
-					$this->Title->delete($deletetitleid);
-				}
-			}else{
-				if(!empty($orgdatacontents[0]['Title'][$key-1]['id'])){
-					$titleid =$orgdatacontents[0]['Title'][$key-1]['id'];
-				}else{
-					$titleid = NULL;
-				}
-
-				$this->Title->create();
-				$data["id"]=$titleid;
-				$data["topic_id"]=$topic_id;
-				$data["content_id"]=$i;
-				$data["title"]=$title;
-				$data["user_id"]=$me;
-				$this->Title->save($data);
-
-				$i++;
-			}
+			//set deleted column to 1
+			$this->TagsTopic->markDelete($topic_id,$deletetagid);
 		}
 	}
 
@@ -1185,9 +1157,13 @@ echo "</PRE>";
 			}
 		}
 
-		//get All Tag name, and put them into the content array
-		$n = $m = 0;
+		//get All Tag name, and put them into the content array, except deleted=1
+		$n = 0;
 		if(!empty($topic_array[0]['Tag'])){
+
+debug($topic_array[0]['Tag']);
+exit;
+
 			//get tags from DB
 			foreach($topic_array[0]['Tag'] as $content_tag_array){
 				$ctag_array[$n] = $content_tag_array['name'];
