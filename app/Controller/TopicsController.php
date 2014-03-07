@@ -745,7 +745,7 @@ exit;
 			$isTaginDB = $this->Tag->findTag($no_tag);
 			$newtagid = $isTaginDB[0]['Tag']['id'];
 			//insert the new tag into the tag_topics db
-			$this->_insertNewTagTopic($topic_id,$newtagid);
+			$this->TagsTopic->updateNewTagTopic($topic_id,$newtagid);
 		}
 
 		foreach($deletetagarray as $key=>$d_tag)
@@ -975,10 +975,6 @@ exit;
 	}
 
 	function _insertNewTagTopic($topicid, $newtagid){
-
-debug($newtagid);
-exit;
-
 		$tagdata = array();
 		$tagdata['topic_id'] = $topicid;
 		$tagdata['tag_id'] = $newtagid;
