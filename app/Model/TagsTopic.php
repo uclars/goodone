@@ -22,7 +22,6 @@ class TagsTopic extends AppModel
 
 		$this->create();
 		$this->save($tagdata);
-		$this->save();
 	}
 }
 ?>
