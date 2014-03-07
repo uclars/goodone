@@ -28,8 +28,8 @@ class TagsTopic extends AppModel
                 $tagdata['topic_id'] = $topicid;
                 $tagdata['tag_id'] = $newtagid;
 
-                $this->TagsTopic->create();
-                $this->TagsTopic->save($tagdata);
+                $this->create();
+                $this->save($tagdata);
         }
 
 	function markDelete($topic_id,$d_tag){
