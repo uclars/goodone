@@ -336,7 +336,7 @@ debug($newtagarray);
 debug($orgtagarray);
 
 
-			$isnewtag=_arrayDiff($newtagarray,$orgtagarray);
+			$isnewtag=$this->_arrayDiff($newtagarray,$orgtagarray);
 
 
 debug($isnewtag);
