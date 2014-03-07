@@ -332,19 +332,12 @@ debug($this->data);
 			//Compare the old tag array and new tag array, and if tags are modified, update the DB
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
-debug($newtagarray);
-debug($orgtagarray);
-
 
 			$isnewtag=array_diff($newtagarray,$orgtagarray);
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
-
-debug($isnewtag);
-debug($isdeletetag);
-exit;
-			if(!empty($isnewtag)){
-				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
+			if(!empty($isnewtag) || !empty($isdeletetag)){
+				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
 			
 
@@ -707,9 +700,9 @@ exit;
 		}
         }
 
-	function _update_tag($newtagarray, $orgdatacontents, $topic_id, $me){
+	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
 
-debug($orgdatacontents);
+debug($deletetagarray);
 debug($newtagarray);
 exit;
 
