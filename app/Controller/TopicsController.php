@@ -718,14 +718,16 @@ exit;
 					)
 				    ));
 
+			//if the tag is not in the DB, insert it into the DB
 			if(empty($isTaginDB)){
-				$tagdata = array();
-				$tagdata['name'] = $tag;
-				$this->Tag->create();
-				$ab = $this->Tag->save($tagdata);
+				$this->_insertNewTag($tag);
 			}
-debug($tag);
-debug($ab);
+
+			//insert the new tag into the tag_topics db
+			$newtagid = $isTaginDB['id'];
+			$this->_insertNewTagTopic($topic_id,$newtagid);
+
+debug($newtagid);
 exit;
 
 
@@ -962,6 +964,23 @@ exit;
 		$tag_array_t = explode(',',$tagstring);
 
 		return $tag_array_t;
+	}
+
+	function _insertNewTag($newtag){
+		$tagdata = array();
+		$tagdata['name'] = $newtag;
+
+		$this->Tag->create();
+		$this->Tag->save($tagdata);
+	}
+
+	function _insertNewTagTopoic($topicid, $newtagid){
+		$tagdata = array();
+		$tagdata['topic_id'] = $topicid;
+		$tagdata['tag_id'] = $newtagid;
+
+		$this->TagsTopic->create();
+		$this->TagsTopic->save($tagdata);
 	}
 
 	function image(){
