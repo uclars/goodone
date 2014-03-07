@@ -229,6 +229,8 @@ debug($this->data);
 					$data['Topic_Userid'] = $this->data['Topic_Userid'];
 					$data['Topic_Tag'] = $this->data['Topic_Tag'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
+					//// titles, contents, comments
+					if(!empty($data['Content'])){
 					$data['Content']['title'] = $this->data['Content']['title'];
 					$data['Content']['content'] = $this->data['Content']['content'];
 
@@ -236,6 +238,7 @@ debug($this->data);
 					foreach($data['Content']['title'] as $key => $title)
 					{
 						$data['Content']['comment'][$key] = $commentarr[$key];
+					}
 					}
 
 					//update tags
