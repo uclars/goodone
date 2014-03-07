@@ -718,7 +718,10 @@ exit;
 			if(empty($isTaginDB)){
 				$this->_insertNewTag($tag);
 			}
+		}
 
+		foreach($newtagarray as $key=>$tag)
+		{
 			//////////////// Tags_Topics Table ////////////
 			//get new tag id
 			$isTaginDB = $this->Tag->findTag($tag);
