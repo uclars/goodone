@@ -187,10 +187,11 @@ echo "</PRE>";
 
 
 
+/*
 debug($this->params);
 debug($this->data);
 //exit;
-
+*/
 
 
 			//if edit page, get the contents
@@ -238,7 +239,7 @@ debug($this->data);
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
 
-//////////////					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -343,7 +344,7 @@ debug($this->data);
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
 			if(!empty($isnewtag) || !empty($isdeletetag)){
-				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
+/////////				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
 			
 
