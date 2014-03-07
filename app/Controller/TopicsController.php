@@ -718,7 +718,7 @@ exit;
 					)
 				    ));
 
-debug($isTaginDB);
+debug($tag);
 			//if the tag is not in the DB, insert it into the DB
 			if(empty($isTaginDB)){
 //				$this->_insertNewTag($tag);
