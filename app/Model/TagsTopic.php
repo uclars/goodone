@@ -16,17 +16,15 @@ class TagsTopic extends AppModel
 
 	function updateNewTagTopic($topicid, $newtagid){
 		$isTagTopic=$this->find('all',array(
-                        'conditions' => array('TagsTopic.topic_id' => $topicid, 'TagsTopic.tag_id' => $newtagid),
+			'conditions' => array('TagsTopic.topic_id' => $topicid, 'TagsTopic.tag_id' => $newtagid),
 			'contain' => array(
-                                'TagsTopic.id'
-                        )
+				'TagsTopic.id'
+			)
                 ));
 
-debug($isTagTopic);
-exit;
-
-
+		$tagstopic_id=$isTagTopic[0]['TagsTopic']['id'];
                 $tagdata = array();
+                $tagdata['d'] = $tagstopic_id;
                 $tagdata['topic_id'] = $topicid;
                 $tagdata['tag_id'] = $newtagid;
 
