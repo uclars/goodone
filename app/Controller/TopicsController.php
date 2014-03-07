@@ -7,7 +7,7 @@ class TopicsController extends AppController {
 //        var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
         var $helpers = array('Html', 'Form', 'Session', 'Facebook.Facebook');
 	var $layout = 'topic';
-        public $uses = array('Topic','Content','Title','Comment','User','Disqus.DisqusPost');
+	public $uses = array('Topic','Content','Title','Comment','Tag,','TagsTopic','User','Disqus.DisqusPost');
 //        var $uses = array('Topic', 'User', 'Comment','Commentgood', 'Mastercategory','Relatedtopic','Task','Content');
         //var $components = array('Logincheck');
 	public $components = array(
@@ -337,9 +337,10 @@ debug($this->data);
 			//re-numbering
 			$newtagarray = array_values($newtagarray); 
 
+			//get added tags to origin
 			$isnewtag=array_diff($newtagarray,$orgtagarray);
+			//get deleted tags from origin
 			$isdeletetag=array_diff($orgtagarray,$newtagarray);
-
 
 			if(!empty($isnewtag) || !empty($isdeletetag)){
 				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
@@ -706,20 +707,13 @@ exit;
         }
 
 	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
-
-		//delete empty values
-		$newtags = array_filter($newtagarray, "strlen");
-		//re-numbering
-		$newags = array_values($newtags); 
-
-debug($deletetagarray);
-debug($newtags);
-exit;
-
-
 		$i=1;
 		foreach($newtagarray as $key=>$tag)
 		{
+debug($tag);
+exit;
+
+
 			if($title === "disabled"){
 				$orgdatatitlesize = count($orgdatacontents[0]['Title']);
 				//delete from DB when delete item from org contents
