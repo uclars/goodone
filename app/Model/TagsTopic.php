@@ -24,7 +24,7 @@ debug($d_tag);
 
 debug($tagdata);
 
-		$this->create();
+	//	$this->create();
 		$this->save($tagdata);
 	}
 }
