@@ -7,7 +7,7 @@ class TopicsController extends AppController {
 //        var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
         var $helpers = array('Html', 'Form', 'Session', 'Facebook.Facebook');
 	var $layout = 'topic';
-	public $uses = array('Topic','Content','Title','Comment','Tag,','TagsTopic','User','Disqus.DisqusPost');
+	public $uses = array('Topic','Content','Title','Comment','Tag','TagsTopic','User','Disqus.DisqusPost');
 //        var $uses = array('Topic', 'User', 'Comment','Commentgood', 'Mastercategory','Relatedtopic','Task','Content');
         //var $components = array('Logincheck');
 	public $components = array(
@@ -712,11 +712,9 @@ exit;
 		{
 			$ab = $this->Tag->find('all', array(
                                         'conditions' => array('Tag.name' => $tag),
-/*
                                         'contain' => array(
                                                 'Tag.name'
                                         )
-*/
                                 ));
 debug($tag);
 debug($ab);
