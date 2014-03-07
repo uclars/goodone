@@ -974,7 +974,7 @@ exit;
 		$this->Tag->save($tagdata);
 	}
 
-	function __insertNewTagTopic($topicid, $newtagid){
+	function _insertNewTagTopic($topicid, $newtagid){
 		$tagdata = array();
 		$tagdata['topic_id'] = $topicid;
 		$tagdata['tag_id'] = $newtagid;
