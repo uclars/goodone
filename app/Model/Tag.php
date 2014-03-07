@@ -22,5 +22,14 @@ class Tag extends AppModel
 				'with'			=> 'TagsTopic'
 			)
 	);
+
+	function findTag($tagname){
+		return $this->Tag->find('all', array(
+			'conditions' => array('Tag.name' => $tagname),
+			'contain' => array(
+				'Tag.name'
+			)
+		));
+	}
 }
 ?>

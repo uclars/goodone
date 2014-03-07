@@ -727,7 +727,8 @@ exit;
 			$newtagid = $isTaginDB[0]['Tag']['id'];
 			$this->_insertNewTagTopic($topic_id,$newtagid);
 
-debug($newtagid);
+			$aa = $this->Tag->findTag($tag);
+debug($aa);
 exit;
 
 
