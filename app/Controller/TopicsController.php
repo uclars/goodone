@@ -725,7 +725,7 @@ debug($tag);
 			}
 
 			//insert the new tag into the tag_topics db
-			$newtagid = $isTaginDB['Tag']['id'];
+			$newtagid = $isTaginDB[0]['Tag']['id'];
 //			$this->_insertNewTagTopic($topic_id,$newtagid);
 
 			$aa = $this->Tag->findTag($tag);
