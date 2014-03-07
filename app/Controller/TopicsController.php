@@ -221,8 +221,7 @@ debug($this->data);
 
 				if(isset($this->data) && !empty($this->data))
 				{
-debug($this->data);
-exit;
+//debug($this->data);
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
