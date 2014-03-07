@@ -975,6 +975,10 @@ exit;
 	}
 
 	function _insertNewTagTopic($topicid, $newtagid){
+
+debug($newtagid);
+exit;
+
 		$tagdata = array();
 		$tagdata['topic_id'] = $topicid;
 		$tagdata['tag_id'] = $newtagid;
