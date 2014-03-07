@@ -377,7 +377,6 @@ debug($this->data);
 
 
 
-/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -401,7 +400,6 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
-*/
 
 
 
