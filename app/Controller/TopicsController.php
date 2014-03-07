@@ -731,8 +731,10 @@ exit;
 
 		foreach($deletetagarray as $key=>$d_tag)
 		{
-			
-$aa=			$this->TagsTopic->markDelete($topic_id,$d_tag);
+			//get delte tag id
+                        $isTaginDB = $this->Tag->findTag($d_tag);
+                        $deletetagid = $isTaginDB[0]['Tag']['id'];
+$aa=			$this->TagsTopic->markDelete($topic_id,$deletetagid);
 
 debug($aa);
 exit;
