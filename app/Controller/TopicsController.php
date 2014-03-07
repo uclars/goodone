@@ -712,9 +712,11 @@ exit;
 		{
 			$ab = $this->Tag->find('all', array(
                                         'conditions' => array('Tag.name' => $tag),
+/*
                                         'contain' => array(
                                                 'Tag.name'
                                         )
+*/
                                 ));
 debug($tag);
 debug($ab);
