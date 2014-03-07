@@ -334,6 +334,7 @@ debug($this->data);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
 debug($newtagarray);
 debug($orgtagarray);
+exit;
 			$isnewtag=array_diff_assoc($newtagarray,$orgtagarray);
 			if(!empty($isnewtag)){
 				$this->_update_tag($newtagarray, $orgdatacontents, $topic_id, $me);
