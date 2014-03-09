@@ -11,7 +11,7 @@ if(!empty($editing_contents)){
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
 
-debug($editing_contents);
+debug($topicitems);
 
 
 }
