@@ -22,9 +22,12 @@ class TagsTopic extends AppModel
 			)
                 ));
 
-		$tagstopic_id=$isTagTopic[0]['TagsTopic']['id'];
                 $tagdata = array();
-                $tagdata['id'] = $tagstopic_id;
+		if(!empty($isTagTopic[0]['TagsTopic']['id'])){
+			///when there is no value for this tag and topic combination, no id(=insert new record into DB)
+			$tagstopic_id=$isTagTopic[0]['TagsTopic']['id'];
+                	$tagdata['id'] = $tagstopic_id;
+		}
                 $tagdata['topic_id'] = $topicid;
                 $tagdata['tag_id'] = $newtagid;
 
