@@ -76,9 +76,9 @@ if(!empty($editing_contents)){
 	<?php
 		//show tag input only if the user is admin
 		if($admin_num != 0){
-			$tags="";
-			$tags = implode(",",$ttag_array);
-			if(!empty($tags)){
+			if(!empty($ttag_array)){
+				$tags="";
+				$tags = implode(",",$ttag_array);
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}else{
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
