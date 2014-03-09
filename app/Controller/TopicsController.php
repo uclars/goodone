@@ -1212,8 +1212,7 @@ echo "</PRE>";
 				if($content_tag_array['TagsTopic']['deleted'] != 1){
 					$ctag_array[$n] = $content_tag_array['name'];
 					$n++;
-				}
-			}else{
+				}else{
 				//if the tag form is empty
 				$ctag_array[0] = "";
 			}
