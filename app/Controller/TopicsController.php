@@ -489,6 +489,7 @@ exit;
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
 				if(!empty($newtitlearray['Content']['title'])){
+debug($newtitlearray['Content']['title']);
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
 				//save contents to DB
@@ -501,6 +502,7 @@ exit;
 				if(!empty($newcommentarray['Content']['comment'])){
 					$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
 				}
+exit;
 			}// end of if(there are values in the from)
 		}// end of else(New create or Edit)
 
