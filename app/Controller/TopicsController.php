@@ -502,7 +502,7 @@ if($newcontentarray['Content']['content']){
 }
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-if($newcommentarray['Content']['comment']);
+if($newcommentarray['Content']['comment']){
 				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
 }
 			}// end of if
