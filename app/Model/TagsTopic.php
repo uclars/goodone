@@ -22,9 +22,6 @@ class TagsTopic extends AppModel
 			)
                 ));
 
-debug($isTagTopic);
-
-
 		$tagstopic_id=$isTagTopic[0]['TagsTopic']['id'];
                 $tagdata = array();
                 $tagdata['id'] = $tagstopic_id;
