@@ -497,11 +497,11 @@ exit;
 				//save the first tag(category) into DB
 				if(empty($this->data["Topic_Tag"])){
 					//when tags are empty
-					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6]);
+					$this->TagsTopic->updateNewTagTopic($topicid, $this->data["Topic_Category"]);
 				}else{
 					//when tags have some words
 					$tag_array = array();
-					$tag_array = implode(',',$datacontents['request'][6]);
+					$tag_array = implode(',',$this->data["Topic_Category"]);
 					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
 
