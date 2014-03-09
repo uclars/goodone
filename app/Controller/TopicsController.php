@@ -782,7 +782,11 @@ exit;
 
 	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
 		//Compare the old tag array and new tag array, and if tags are modified, update the DB
-		$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
+		if(!empty($orgcontents)){
+			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
+		}else{
+			$orgtagarray = array("");
+		}
 		$newtagarray = explode(",",$datacontents['Topic_Tag']);
 		//delete empty values
 		$newtagarray = array_filter($newtagarray, "strlen");
