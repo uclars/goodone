@@ -10,10 +10,6 @@ if(!empty($editing_contents)){
 	$tcheck = $topicitems[5];
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
-
-debug($topicitems);
-
-
 }
 ?>
 <!--<section id="forms">-->
