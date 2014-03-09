@@ -11,7 +11,6 @@ if(!empty($editing_contents)){
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
 }
-else{echo "++";}
 ?>
 <!--<section id="forms">-->
 <div class='row'>
@@ -63,7 +62,11 @@ else{echo "++";}
 	<?php
 		//show user id input only if the user is admin
 		if($admin_num == 0){
-			echo $this->form->hidden('hiddenuserid',array("name"=>"hiddenuserid","value"=>$userid));
+			if(!empty($userid)){
+				echo $this->form->hidden('hiddenuserid',array("name"=>"hiddenuserid","value"=>$userid));
+			}else{
+				echo $this->form->hidden('hiddenuserid',array("name"=>"hiddenuserid","value"=>$me));
+			}
 		}else{
 			echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
 		}
@@ -73,9 +76,11 @@ else{echo "++";}
 	<?php
 		//show tag input only if the user is admin
 		if($admin_num != 0){
+			if(!empty($tags)){
 			$tags="";
 			$tags = implode(",",$ttag_array);
 			echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
+			}
 		}
 	?>
 	</div>
@@ -83,7 +88,11 @@ else{echo "++";}
 		<?php
 		$checkoption = null;
 		if($tcheck != 0){
-			$checkoption = "checked=\"1\"";
+			if(!empty($tcheck)){
+				$checkoption = "checked=\"1\"";
+			}else{
+				$checkoption = "checked=\"0\"";
+			}
 		}
 		?>
 		<input type='checkbox' name='hiddencheck' <?php echo $checkoption; ?>>Contents is checked
