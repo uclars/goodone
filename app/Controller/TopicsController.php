@@ -214,9 +214,6 @@ debug($this->data);
 
 
                                 $edit_result = $this->_get_editcontents($topic_array);
-
-debug($edit_result);
-
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
 

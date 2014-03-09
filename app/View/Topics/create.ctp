@@ -10,11 +10,6 @@ if(!empty($editing_contents)){
 	$tcheck = $topicitems[5];
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
-
-
-
-debug($editing_contents);
-
 }
 ?>
 <!--<section id="forms">-->
@@ -79,6 +74,10 @@ debug($editing_contents);
 	</div>
 	<div class='span8'>
 	<?php
+
+
+debug($tags);
+
 		//show tag input only if the user is admin
 		if($admin_num != 0){
 			if(!empty($tags)){
