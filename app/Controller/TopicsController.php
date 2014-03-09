@@ -213,10 +213,6 @@ debug($this->data);
 				));
 
 
-debug($topic_array);
-exit;
-
-
                                 $edit_result = $this->_get_editcontents($topic_array);
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
@@ -1203,9 +1199,16 @@ echo "</PRE>";
 
 		//get All Tag name, and put them into the content array, except deleted=1
 		$n = 0;
+
+
+debug($topic_array[0]['Tag']);
+
 		if(!empty($topic_array[0]['Tag'])){
 			//get tags from DB
 			foreach($topic_array[0]['Tag'] as $content_tag_array){
+
+debug($content_tag_array);
+
 				if($content_tag_array['TagsTopic']['deleted'] != 1){
 					$ctag_array[$n] = $content_tag_array['name'];
 					$n++;
@@ -1214,6 +1217,9 @@ echo "</PRE>";
 
 			$contents_array[0]+=array('6' => $ctag_array);
 		}
+debug($contents_array);
+exit;
+
 
 		return $contents_array;
 	}
