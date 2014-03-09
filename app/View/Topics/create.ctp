@@ -67,7 +67,7 @@ if(!empty($editing_contents)){
 			if(!empty($tuserid)){
 				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
 			}else{
-				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$me));
+				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$userid));
                         }
 		}
 	?>
@@ -80,6 +80,8 @@ if(!empty($editing_contents)){
 				$tags="";
 				$tags = implode(",",$ttag_array);
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
+			}else{
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
 			}
 		}
 	?>
