@@ -272,6 +272,8 @@ debug($this->data);
 						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
+                                        ////Get titles, contents, comments from DB
+                                        if(isset($this->data['Content']) && !empty($this->data['Content'])){
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
 
@@ -280,11 +282,12 @@ debug($this->data);
 						{
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
+					}
 
 						//tag 
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 
-						$this->_save_data($data,$me,$topicid,$topic_array);
+//////////////////////						$this->_save_data($data,$me,$topicid,$topic_array);
 					}
 
 					//delete topic id session
