@@ -406,6 +406,7 @@ exit;
 */
 
 
+
 			//Compare the old title array and new title array, and if titles are modified, update the DB
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
@@ -446,6 +447,13 @@ exit;
 
 		}
 		else{
+
+debug($this->data);
+//delete topic id session
+$this->Session->delete('new_topicid');
+exit;
+
+
 			///  NEW Creat Topic ////
 			//get contents form FORM
 			if(!empty($datacontents))
@@ -504,6 +512,12 @@ exit;
 					$tag_array = implode(',',$this->data["Topic_Category"]);
 					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
+
+
+debug($this->data);
+//delete topic id session
+$this->Session->delete('new_topicid');
+exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
