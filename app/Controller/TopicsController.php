@@ -474,7 +474,6 @@ exit;
 
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
-				//$topicid = $result['Topic']['id'];
 				// get the last id
 				$topicid = $this->Topic->getLastInsertID();
 
@@ -487,26 +486,23 @@ exit;
 				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 
-
-
-
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-if(!empty($newtitlearray['Content']['title'])){
-				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
-}
+				if(!empty($newtitlearray['Content']['title'])){
+					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+				}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-if(!empty($newcontentarray['Content']['content'])){
-				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
-}
+				if(!empty($newcontentarray['Content']['content'])){
+					$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+				}
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-if(!empty($newcommentarray['Content']['comment'])){
-				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
-}
-			}// end of if
-		}// end of else
+				if(!empty($newcommentarray['Content']['comment'])){
+					$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+				}
+			}// end of if(there are values in the from)
+		}// end of else(New create or Edit)
 
 		$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
 	}
