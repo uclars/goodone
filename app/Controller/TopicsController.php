@@ -1213,6 +1213,9 @@ echo "</PRE>";
 					$ctag_array[$n] = $content_tag_array['name'];
 					$n++;
 				}
+			}else{
+				//if the tag form is empty
+				$ctag_array[0] = ""
 			}
 
 			$contents_array[0]+=array('6' => $ctag_array);
