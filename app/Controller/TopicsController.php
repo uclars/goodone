@@ -830,9 +830,11 @@ exit;
 		{
 			//get delte tag id
                         $isTaginDB = $this->Tag->findTag($d_tag);
-                        $deletetagid = $isTaginDB[0]['Tag']['id'];
-			//set deleted column to 1
-			$this->TagsTopic->markDelete($topic_id,$deletetagid);
+			if(!empty($isTaginDB)){
+                	        $deletetagid = $isTaginDB[0]['Tag']['id'];
+				//set deleted column to 1
+				$this->TagsTopic->markDelete($topic_id,$deletetagid);
+			}
 		}
 	}
 
