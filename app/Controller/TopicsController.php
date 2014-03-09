@@ -252,10 +252,8 @@ debug($this->data);
 
 			////// Create page
 			}else{
-				if(!empty($newtopicid)){
-debug($newtopicid);
-
 /*
+				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
@@ -289,14 +287,14 @@ debug($newtopicid);
 						//tag 
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 
-//////////////////////						$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 					}
 
 					//delete topic id session
 					$this->Session->delete('new_topicid');
-*/
 				}
 				else{
+*/
 					$this->set('tid',"0");
 
 					if(isset($this->data) && !empty($this->data))
@@ -327,7 +325,7 @@ debug($newtopicid);
 						//delete topic id session
 						$this->Session->delete('new_topicid');
 					}
-				}
+//				}
 			}//edit page or crate page
 		}//is_correctuser
 	}
