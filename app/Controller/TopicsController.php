@@ -253,6 +253,7 @@ debug($this->data);
 			////// Create page
 			}else{
 				if(!empty($newtopicid)){
+/*
 					$topicid = $newtopicid;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
@@ -291,6 +292,7 @@ debug($this->data);
 
 					//delete topic id session
 					$this->Session->delete('new_topicid');
+*/
 				}
 				else{
 					$this->set('tid',"0");
@@ -507,10 +509,13 @@ exit;
 				}
 
 
+/*
 debug($this->data);
 //delete topic id session
 $this->Session->delete('new_topicid');
 exit;
+*/
+
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
@@ -1207,6 +1212,7 @@ echo "</PRE>";
 		//get All Tag name, and put them into the content array, except deleted=1
 		$n = 0;
 		if(!empty($topic_array[0]['Tag'])){
+			////if there are some vluews in the tag inputbox
 			//get tags from DB
 			foreach($topic_array[0]['Tag'] as $content_tag_array){
 				if($content_tag_array['TagsTopic']['deleted'] != 1){
@@ -1218,6 +1224,7 @@ echo "</PRE>";
 			$contents_array[0]+=array('6' => $ctag_array);
 		}
 		else{
+			////if there is no values in the inputbox
 			$contents_array[0]+=array('6' => "");
 		}
 
