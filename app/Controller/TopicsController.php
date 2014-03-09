@@ -484,7 +484,9 @@ exit;
 				}
 
 
+if(is_null($this->data["Topic_Tag"])){
 debug($this->data["Topic_Tag"]);
+}
 //delete topic id session
 $this->Session->delete('new_topicid');
 exit;
