@@ -11,10 +11,6 @@ if(!empty($editing_contents)){
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
 }
-
-
-echo $tid;
-
 ?>
 <!--<section id="forms">-->
 <div class='row'>
