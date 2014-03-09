@@ -252,7 +252,6 @@ debug($this->data);
 
 			////// Create page
 			}else{
-				///First save/publish with contents in the form
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
@@ -293,7 +292,6 @@ debug($this->data);
 					//delete topic id session
 					$this->Session->delete('new_topicid');
 				}
-				///view the first create page without contents
 				else{
 					$this->set('tid',"0");
 
@@ -305,6 +303,8 @@ debug($this->data);
 						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
+                                        ////Get titles, contents, comments from DB
+                                        if(isset($this->data['Content']) && !empty($this->data['Content'])){
 						$data['Content']['title'] = $this->data['Content']['title'];
 						$data['Content']['content'] = $this->data['Content']['content'];
 
@@ -313,11 +313,12 @@ debug($this->data);
 						{
 							$data['Content']['comment'][$key] = $commentarr[$key];
 						}
+					}
 
 						//tag
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 
-						$this->_save_data($data,$me,"","");
+//////////////////////////////						$this->_save_data($data,$me,"","");
 
 						//delete topic id session
 						$this->Session->delete('new_topicid');
