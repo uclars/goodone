@@ -497,6 +497,7 @@ exit;
 				$this->Session->write('new_topicid', $topicid );
 
 			
+debug($this->data["Topic_Category"]);
 				//save the first tag(category) into DB
 				$tag_array=$isdeletetag=$isnewtag=$newtagarray=$orgtagarray=array();
 				if(empty($this->data["Topic_Tag"])){
