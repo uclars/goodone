@@ -249,8 +249,9 @@ debug($this->data);
 
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
+
+			////// Create page
 			}else{
-echo "crete";
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
@@ -283,12 +284,13 @@ echo "crete";
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 
 						$this->_save_data($data,$me,$topicid,$topic_array);
-				}
+					}
 
 					//delete topic id session
 					$this->Session->delete('new_topicid');
 				}
 				else{
+echo "new";
 					$this->set('tid',"0");
 
 					if(isset($this->data) && !empty($this->data))
@@ -317,7 +319,7 @@ echo "crete";
 						$this->Session->delete('new_topicid');
 					}
 				}
-			}
+			}//edit page or crate page
 		}//is_correctuser
 	}
 
