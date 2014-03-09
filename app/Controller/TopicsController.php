@@ -253,6 +253,8 @@ debug($this->data);
 			////// Create page
 			}else{
 				if(!empty($newtopicid)){
+debug($newtopicid);
+
 /*
 					$topicid = $newtopicid;
 					$topic_array = array();
