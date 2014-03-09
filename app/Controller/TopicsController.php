@@ -317,7 +317,6 @@ debug($this->data);
 						//delete topic id session
 						$this->Session->delete('new_topicid');
 					}
-					else{echo "else";}
 				}
 			}//edit page or crate page
 		}//is_correctuser
