@@ -1212,9 +1212,6 @@ echo "</PRE>";
 		//get All Tag name, and put them into the content array, except deleted=1
 		$n = 0;
 
-debug($topic_array);
-
-
 		if(!empty($topic_array[0]['Tag'])){
 			////if there are some vluews in the tag inputbox
 			//get tags from DB
