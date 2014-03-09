@@ -502,6 +502,7 @@ debug($newcontentarray['Content']['content']);
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
 debug($newcommentarray['Content']['comment']);
 //				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+exit;
 
 			}// end of if
 		}// end of else
