@@ -447,13 +447,6 @@ exit;
 
 		}
 		else{
-
-debug($datacontents);
-//delete topic id session
-$this->Session->delete('new_topicid');
-exit;
-
-
 			///  NEW Creat Topic ////
 			//get contents form FORM
 			if(!empty($datacontents))
