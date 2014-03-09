@@ -252,6 +252,7 @@ debug($this->data);
 
 			////// Create page
 			}else{
+				///First save/publish with contents in the form
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
@@ -289,6 +290,7 @@ debug($this->data);
 					//delete topic id session
 					$this->Session->delete('new_topicid');
 				}
+				///view the first create page without contents
 				else{
 					$this->set('tid',"0");
 
