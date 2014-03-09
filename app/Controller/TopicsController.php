@@ -489,10 +489,8 @@ exit;
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
 				if(!empty($newtitlearray['Content']['title'][0])){
-debug($newtitlearray['Content']['title']);
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
-else{echo "NULL";}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
 				if(!empty($newcontentarray['Content']['content'][0])){
@@ -500,10 +498,9 @@ else{echo "NULL";}
 				}
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-				if(!empty($newcommentarray['Content']['comment'])){
+				if(!empty($newcommentarray['Content']['comment'][0])){
 					$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
 				}
-exit;
 			}// end of if(there are values in the from)
 		}// end of else(New create or Edit)
 
