@@ -1214,7 +1214,7 @@ echo "</PRE>";
 					$n++;
 				}else{
 					//if the tag form is empty
-					$ctag_array[0] = "";
+					$ctag_array[0] = NULL;
 				}
 			}
 
