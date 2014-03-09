@@ -484,14 +484,6 @@ exit;
 				}
 
 
-if(is_null($this->data["Topic_Tag"])){
-debug($this->data["Topic_Tag"]);
-}
-//delete topic id session
-$this->Session->delete('new_topicid');
-exit;
-
-
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
 				//$topicid = $result['Topic']['id'];
@@ -503,8 +495,14 @@ exit;
 
 			
 				//save the first tag(category) into DB
-				if(is_null($this->data["Topic_Tag"])){
+				if(empty($this->data["Topic_Tag"])){
+					//when tags are empty
 					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6]);
+				}else{
+					//when tags have some words
+					$tag_array = array();
+					$tag_array = implode(',',$datacontents['request'][6])
+					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array)
 				}
 
 				// save titles to DB
