@@ -488,7 +488,7 @@ exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-				if(!is_null($newtitlearray['Content']['title'])){
+				if(!empty($newtitlearray['Content']['title'][0])){
 debug($newtitlearray['Content']['title']);
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
