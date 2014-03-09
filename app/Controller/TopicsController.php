@@ -1218,7 +1218,7 @@ echo "</PRE>";
 			$contents_array[0]+=array('6' => $ctag_array);
 		}
 		else{
-			$contents_array[0]+=array('6' => "")
+			$contents_array[0]+=array('6' => "");
 		}
 
 		return $contents_array;
