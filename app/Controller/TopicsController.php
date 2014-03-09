@@ -252,6 +252,7 @@ debug($this->data);
 
 			////// Create page
 			}else{
+debug($newtopicid);
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
@@ -271,17 +272,17 @@ debug($this->data);
 						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
-                                        ////Get titles, contents, comments from DB
-                                        if(isset($this->data['Content']) && !empty($this->data['Content'])){
-						$data['Content']['title'] = $this->data['Content']['title'];
-						$data['Content']['content'] = $this->data['Content']['content'];
+						////Get titles, contents, comments from DB
+						if(isset($this->data['Content']) && !empty($this->data['Content'])){
+							$data['Content']['title'] = $this->data['Content']['title'];
+							$data['Content']['content'] = $this->data['Content']['content'];
 
-						$commentarr = $this->data['Content']['comment'];
-						foreach($data['Content']['title'] as $key => $title)
-						{
-							$data['Content']['comment'][$key] = $commentarr[$key];
+							$commentarr = $this->data['Content']['comment'];
+							foreach($data['Content']['title'] as $key => $title)
+							{
+								$data['Content']['comment'][$key] = $commentarr[$key];
+							}
 						}
-					}
 
 						//tag 
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
@@ -303,17 +304,17 @@ debug($this->data);
 						$data['Topic_Check'] = $this->data['Topic_Check'];
 						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
-                                        ////Get titles, contents, comments from DB
-                                        if(isset($this->data['Content']) && !empty($this->data['Content'])){
-						$data['Content']['title'] = $this->data['Content']['title'];
-						$data['Content']['content'] = $this->data['Content']['content'];
+						////Get titles, contents, comments from DB
+						if(isset($this->data['Content']) && !empty($this->data['Content'])){
+							$data['Content']['title'] = $this->data['Content']['title'];
+							$data['Content']['content'] = $this->data['Content']['content'];
 
-						$commentarr = $this->data['Content']['comment'];
-						foreach($data['Content']['title'] as $key => $title)
-						{
-							$data['Content']['comment'][$key] = $commentarr[$key];
+							$commentarr = $this->data['Content']['comment'];
+							foreach($data['Content']['title'] as $key => $title)
+							{
+								$data['Content']['comment'][$key] = $commentarr[$key];
+							}
 						}
-					}
 
 						//tag
 						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
