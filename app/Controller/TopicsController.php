@@ -492,18 +492,19 @@ exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-debug($newtitlearray['Content']['title']);
-//				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+if(empty($newtitlearray['Content']['title'])){
+				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-debug($newcontentarray['Content']['content']);
-//				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+if($newcontentarray['Content']['content']){
+				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+}
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-debug($newcommentarray['Content']['comment']);
-//				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
-exit;
-
+if($newcommentarray['Content']['comment']);
+				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+}
 			}// end of if
 		}// end of else
 
