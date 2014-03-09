@@ -290,7 +290,6 @@ debug($this->data);
 					$this->Session->delete('new_topicid');
 				}
 				else{
-echo "new";
 					$this->set('tid',"0");
 
 					if(isset($this->data) && !empty($this->data))
@@ -318,6 +317,7 @@ echo "new";
 						//delete topic id session
 						$this->Session->delete('new_topicid');
 					}
+					else{echo "else";}
 				}
 			}//edit page or crate page
 		}//is_correctuser
