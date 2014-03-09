@@ -486,6 +486,10 @@ exit;
 				}
 
 
+debug($this->data["Topic_Tag"]);
+exit;
+
+
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
 				//$topicid = $result['Topic']['id'];
@@ -497,7 +501,7 @@ exit;
 
 			
 				//save the first tag(category) into DB
-				if($is_null($this->data["Topic_Tag"])){
+				if(is_null($this->data["Topic_Tag"])){
 					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6]);
 				}
 
