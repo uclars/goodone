@@ -501,8 +501,8 @@ exit;
 				}else{
 					//when tags have some words
 					$tag_array = array();
-					$tag_array = implode(',',$datacontents['request'][6])
-					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array)
+					$tag_array = implode(',',$datacontents['request'][6]);
+					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
 
 				// save titles to DB
