@@ -347,24 +347,6 @@ debug($this->data);
 			////////////// Tag /////////
 			$this->_update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me);
 
-/*
-			//Compare the old tag array and new tag array, and if tags are modified, update the DB
-			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
-			$newtagarray = explode(",",$datacontents['Topic_Tag']);
-			//delete empty values
-			$newtagarray = array_filter($newtagarray, "strlen");
-			//re-numbering
-			$newtagarray = array_values($newtagarray); 
-
-			//get added tags to origin
-			$isnewtag=array_diff($newtagarray,$orgtagarray);
-			//get deleted tags from origin
-			$isdeletetag=array_diff($orgtagarray,$newtagarray);
-
-			if(!empty($isnewtag) || !empty($isdeletetag)){
-				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
-			}
-*/			
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
@@ -501,52 +483,25 @@ exit;
 
 			
 				//save the first tag(category) into DB
-/*
-				$tag_array=$isdeletetag=$isnewtag=$newtagarray=$orgtagarray=array();
-				if(empty($this->data["Topic_Tag"])){
-					//when tags are empty, set the first tag to its category number
-					//$this->TagsTopic->updateNewTagTopic($topicid, $this->data["Topic_Category"]);
-					$newtagarray=array($this->data["Topic_Category"]);
-				}else{
-					//when tags have some words
-					//$tag_array = array();
-debug($this->data["Topic_Tag"]);
-					$tag_array = implode(',',$this->data["Topic_Category"]);
-					//$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
-				}
-*/
-			$orgdatacontents=$orgcontents;
-			$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
+				$orgdatacontents=$orgcontents;
+				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 
-/*
-			//get added tags to origin
-			$isnewtag=array_diff($newtagarray,$orgtagarray);
-			//get deleted tags from origin
-			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
-			if(!empty($isnewtag) || !empty($isdeletetag)){
-				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
-			}
-*/
-
-/*
-debug($this->data);
-//delete topic id session
-$this->Session->delete('new_topicid');
-exit;
-*/
 
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+debug($newtitlearray['Content']['title']);
+//				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+debug($newcontentarray['Content']['content']);
+//				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+debug($newcommentarray['Content']['comment']);
+//				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
 
 			}// end of if
 		}// end of else
