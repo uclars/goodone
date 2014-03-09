@@ -1212,16 +1212,14 @@ echo "</PRE>";
 				if($content_tag_array['TagsTopic']['deleted'] != 1){
 					$ctag_array[$n] = $content_tag_array['name'];
 					$n++;
-				}else{
-					//if the tag form is empty
-					$ctag_array[0] = "";
 				}
 			}
 
 			$contents_array[0]+=array('6' => $ctag_array);
 		}
-
-debug($contents_array);
+		else{
+			$contents_array[0]+=array('6' => "")
+		}
 
 		return $contents_array;
 	}
