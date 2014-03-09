@@ -1225,7 +1225,10 @@ debug($topic_array);
 				}
 			}
 
-			$contents_array[0]+=array('6' => $ctag_array);
+			if(!empty($ctag_array)){
+				///when all the values are deleted from the tag inpubox, $ctag_array will be null
+				$contents_array[0]+=array('6' => $ctag_array);
+			}
 		}
 		else{
 			////if there is no values in the inputbox
