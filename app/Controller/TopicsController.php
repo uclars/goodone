@@ -1215,7 +1215,7 @@ echo "</PRE>";
 				}
 			}else{
 				//if the tag form is empty
-				$ctag_array[0] = ""
+				$ctag_array[0] = "";
 			}
 
 			$contents_array[0]+=array('6' => $ctag_array);
