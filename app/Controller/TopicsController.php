@@ -488,13 +488,14 @@ exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-				if(!empty($newtitlearray['Content']['title'])){
+				if(!is_null($newtitlearray['Content']['title'])){
 debug($newtitlearray['Content']['title']);
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
+else{echo "NULL";}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-				if(!empty($newcontentarray['Content']['content'])){
+				if(!empty($newcontentarray['Content']['content'][0])){
 					$this->_save_new_topic_content($newcontentarray, $data, $topicid);
 				}
 				//save comments to DB
