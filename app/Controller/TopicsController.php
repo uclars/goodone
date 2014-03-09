@@ -485,14 +485,21 @@ exit;
 					$data['hide']=$this->data["Topic_Publish"];
 				}
 
+
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
 				//$topicid = $result['Topic']['id'];
 				// get the last id
-				$topicid = $this->Topic->getLastInsertID();;
+				$topicid = $this->Topic->getLastInsertID();
 
 				//set new topic id into session
 				$this->Session->write('new_topicid', $topicid );
+
+			
+				//save the first tag(category) into DB
+				if($is_null($this->data["Topic_Tag"])){
+					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6])
+				}
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
