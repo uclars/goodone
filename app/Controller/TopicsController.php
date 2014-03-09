@@ -345,6 +345,9 @@ debug($this->data);
 			}
 
 			////////////// Tag /////////
+			$this->_update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me);
+
+/*
 			//Compare the old tag array and new tag array, and if tags are modified, update the DB
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
 			$newtagarray = explode(",",$datacontents['Topic_Tag']);
@@ -361,7 +364,7 @@ debug($this->data);
 			if(!empty($isnewtag) || !empty($isdeletetag)){
 				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
 			}
-			
+*/			
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
@@ -497,7 +500,6 @@ exit;
 				$this->Session->write('new_topicid', $topicid );
 
 			
-debug($this->data["Topic_Category"]);
 				//save the first tag(category) into DB
 				$tag_array=$isdeletetag=$isnewtag=$newtagarray=$orgtagarray=array();
 				if(empty($this->data["Topic_Tag"])){
@@ -507,7 +509,7 @@ debug($this->data["Topic_Category"]);
 				}else{
 					//when tags have some words
 					//$tag_array = array();
-debug($this->data["Topic_Category"]);
+debug($this->data["Topic_Tag"]);
 					$tag_array = implode(',',$this->data["Topic_Category"]);
 					//$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
@@ -772,7 +774,27 @@ exit;
 		}
         }
 
-	function _update_tag($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
+
+	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
+		//Compare the old tag array and new tag array, and if tags are modified, update the DB
+		$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
+		$newtagarray = explode(",",$datacontents['Topic_Tag']);
+		//delete empty values
+		$newtagarray = array_filter($newtagarray, "strlen");
+		//re-numbering
+		$newtagarray = array_values($newtagarray);
+
+		//get added tags to origin
+		$isnewtag=array_diff($newtagarray,$orgtagarray);
+		//get deleted tags from origin
+		$isdeletetag=array_diff($orgtagarray,$newtagarray);
+
+		if(!empty($isnewtag) || !empty($isdeletetag)){
+			$this->_save_tag_info($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
+		}
+	}
+
+	function _save_tag_info($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
 		//new tag. check if the tag isn in DB.
 		foreach($newtagarray as $key=>$na_tag)
 		{
