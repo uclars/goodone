@@ -448,7 +448,7 @@ exit;
 		}
 		else{
 
-debug($this->data);
+debug($datacontents);
 //delete topic id session
 $this->Session->delete('new_topicid');
 exit;
