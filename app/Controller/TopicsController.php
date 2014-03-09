@@ -498,16 +498,28 @@ exit;
 
 			
 				//save the first tag(category) into DB
+				$tag_array=$isdeletetag=$isnewtag=$newtagarray=$orgtagarray=array();
 				if(empty($this->data["Topic_Tag"])){
-					//when tags are empty
-					$this->TagsTopic->updateNewTagTopic($topicid, $this->data["Topic_Category"]);
+					//when tags are empty, set the first tag to its category number
+					//$this->TagsTopic->updateNewTagTopic($topicid, $this->data["Topic_Category"]);
+					$newtagarray=array($this->data["Topic_Category"]);
 				}else{
 					//when tags have some words
-					$tag_array = array();
+					//$tag_array = array();
+debug($this->data["Topic_Category"]);
 					$tag_array = implode(',',$this->data["Topic_Category"]);
-					$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
+					//$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
+/*
+			//get added tags to origin
+			$isnewtag=array_diff($newtagarray,$orgtagarray);
+			//get deleted tags from origin
+			$isdeletetag=array_diff($orgtagarray,$newtagarray);
 
+			if(!empty($isnewtag) || !empty($isdeletetag)){
+				$this->_update_tag($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
+			}
+*/
 
 /*
 debug($this->data);
