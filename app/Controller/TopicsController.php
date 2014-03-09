@@ -498,7 +498,7 @@ exit;
 			
 				//save the first tag(category) into DB
 				if($is_null($this->data["Topic_Tag"])){
-					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6])
+					$this->TagsTopic->updateNewTagTopic($topicid, $datacontents['request'][6]);
 				}
 
 				// save titles to DB
