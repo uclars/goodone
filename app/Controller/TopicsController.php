@@ -501,6 +501,7 @@ exit;
 
 			
 				//save the first tag(category) into DB
+/*
 				$tag_array=$isdeletetag=$isnewtag=$newtagarray=$orgtagarray=array();
 				if(empty($this->data["Topic_Tag"])){
 					//when tags are empty, set the first tag to its category number
@@ -513,7 +514,11 @@ debug($this->data["Topic_Tag"]);
 					$tag_array = implode(',',$this->data["Topic_Category"]);
 					//$this->TagsTopic->updateNewTagTopic($topicid, $tag_array);
 				}
-exit;
+*/
+			$orgdatacontents=$orgcontents;
+			$this->_update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me);
+
+
 /*
 			//get added tags to origin
 			$isnewtag=array_diff($newtagarray,$orgtagarray);
