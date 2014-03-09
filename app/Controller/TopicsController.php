@@ -516,7 +516,7 @@ debug($this->data["Topic_Tag"]);
 				}
 */
 			$orgdatacontents=$orgcontents;
-			$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topic_id,$me);
+			$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 
 /*
