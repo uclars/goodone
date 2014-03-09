@@ -253,7 +253,6 @@ debug($this->data);
 			////// Create page
 			}else{
 				if(!empty($newtopicid)){
-/*
 					$topicid = $newtopicid;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
@@ -292,7 +291,6 @@ debug($this->data);
 
 					//delete topic id session
 					$this->Session->delete('new_topicid');
-*/
 				}
 				else{
 					$this->set('tid',"0");
