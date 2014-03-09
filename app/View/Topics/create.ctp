@@ -64,7 +64,7 @@ if(!empty($editing_contents)){
 		if($admin_num == 0){
 			echo $this->form->hidden('hiddenuserid',array("name"=>"hiddenuserid","value"=>$userid));
 		}else{
-			if(!empty($userid)){
+			if(!empty($tuserid)){
 				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
 			}else{
 				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$me));
