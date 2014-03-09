@@ -228,16 +228,16 @@ debug($this->data);
 					$data['Topic_Userid'] = $this->data['Topic_Userid'];
 					$data['Topic_Tag'] = $this->data['Topic_Tag'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
-					//// titles, contents, comments
+					////Get titles, contents, comments from DB
 					if(isset($this->data['Content']) && !empty($this->data['Content'])){
-					$data['Content']['title'] = $this->data['Content']['title'];
-					$data['Content']['content'] = $this->data['Content']['content'];
-
-					$commentarr = $this->data['Content']['comment'];
-					foreach($data['Content']['title'] as $key => $title)
-					{
-						$data['Content']['comment'][$key] = $commentarr[$key];
-					}
+						$data['Content']['title'] = $this->data['Content']['title'];
+						$data['Content']['content'] = $this->data['Content']['content'];
+	
+						$commentarr = $this->data['Content']['comment'];
+						foreach($data['Content']['title'] as $key => $title)
+						{
+							$data['Content']['comment'][$key] = $commentarr[$key];
+						}
 					}
 
 					//update tags
@@ -250,6 +250,7 @@ debug($this->data);
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
 			}else{
+echo "crete";
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
