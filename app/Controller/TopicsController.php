@@ -47,7 +47,7 @@ class TopicsController extends AppController {
 		//set user info to the view
 		$this->set('auth', $isAuthenticated);
 
-		$topic_referer =env('HTTP_REFERER');
+		$topic_referer =  Router::url( $this->referer(), true );
  
 
 debug($topic_referer);
