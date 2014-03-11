@@ -283,7 +283,7 @@ if(!empty($auth)){
 			echo "&nbsp;&nbsp;";
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
 			echo "&nbsp;&nbsp;";
-			echo "<button type='submit' class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
+			echo "<button lass='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
 		}else{
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
 		}
