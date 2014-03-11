@@ -62,16 +62,20 @@ class TopicsController extends AppController {
 			)
 		));
 
+
+/*
 debug($topic_array);
 debug($isAuthenticated);
 exit;
+*/
+
 
 		//Chech if the topic is deleted
 		if(empty($topic_array)){
 			$this->redirect('/');
 		}
 		else{
-			if($topic_array[0]['Topic']['user_id']!=$isAuthenticated){
+			if($topic_array[0]['Topic']['user_id']!=$isAuthenticated['id']){
 				if($topic_array[0]['Topic']['hide']>0){
 					//if the user isn't a creator and hide is bigger than 0, redirect to /
 					$this->redirect('/');
