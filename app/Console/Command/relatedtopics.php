@@ -15,7 +15,7 @@ class RelatedtopicsShell extends Shell{
 		$topics_array = array(); //list of all topics
 		//get list of all topics
 		//may need to separete the task because when topic is large enosh, array cloud have the cache problem
-		$topics_array = $this->Topic->find('all',array('fields'=>array('id'), 'conditions'=>array('Topic.deleted'=>0, 'Topic.id <>'=>"1")));
+		$topics_array = $this->Topic->find('all',array('fields'=>array('id'), 'conditions'=>array('Topic.deleted'=>0)));
 
 
 
