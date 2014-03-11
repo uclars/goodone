@@ -63,7 +63,7 @@ class TopicsController extends AppController {
 		));
 
 
-debug($topic_arrayi[0]['Topic']['user_id']);
+debug($topic_array[0]['Topic']['user_id']);
 debug($isAuthenticated['id']);
 //exit;
 
