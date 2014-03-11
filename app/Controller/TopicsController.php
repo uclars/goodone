@@ -52,7 +52,6 @@ class TopicsController extends AppController {
 		//http://book.cakephp.org/2.0/en/core-libraries/behaviors/containable.html
 		$topic_array = $this->Topic->find('all', array(
 			'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
-//			'conditions' => array('Topic.id' => $topic_id, 'Topic.deleted' => 0),
 			'contain' => array(
 				'Mastercategory',
 				'Title.title',
@@ -63,24 +62,11 @@ class TopicsController extends AppController {
 		));
 
 
-debug($topic_array[0]['Topic']['user_id']);
-debug($isAuthenticated['id']);
-//exit;
-
-
 		//Chech if the topic is deleted
 		if(empty($topic_array)){
 			$this->redirect('/');
 		}
 		else{
-/*
-			if($topic_array[0]['Topic']['user_id']!=$isAuthenticated['id']){
-				if($topic_array[0]['Topic']['hide']>0){
-					//if the user isn't a creator and hide is bigger than 0, redirect to /
-					$this->redirect('/');
-				}
-			}else{
-*/
 			//Topic Array for all
 			$this->set('topics', $topic_array);
 
@@ -146,7 +132,6 @@ echo "</PRE>";
 	
 			$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
 			$this->set('show_contents',$show_array);
-//		}
 		}
 /*
 echo "<PRE>";
