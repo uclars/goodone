@@ -73,12 +73,14 @@ debug($isAuthenticated['id']);
 			$this->redirect('/');
 		}
 		else{
+/*
 			if($topic_array[0]['Topic']['user_id']!=$isAuthenticated['id']){
 				if($topic_array[0]['Topic']['hide']>0){
 					//if the user isn't a creator and hide is bigger than 0, redirect to /
 					$this->redirect('/');
 				}
 			}else{
+*/
 			//Topic Array for all
 			$this->set('topics', $topic_array);
 
@@ -144,7 +146,7 @@ echo "</PRE>";
 	
 			$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
 			$this->set('show_contents',$show_array);
-		}
+//		}
 		}
 /*
 echo "<PRE>";
