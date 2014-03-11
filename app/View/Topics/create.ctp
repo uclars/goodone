@@ -273,7 +273,7 @@ if(!empty($auth)){
 		echo "&nbsp;&nbsp;";
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
 			echo "&nbsp;&nbsp;";
-			echo "<button type='submit' class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
+			echo "<button class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
 	}else{
 
 		if($userid==$tuserid){
