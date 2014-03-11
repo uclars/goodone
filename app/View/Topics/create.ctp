@@ -274,9 +274,14 @@ if(!empty($auth)){
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
 	}else{
 
-debug($userid);
-
-		echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+		if($userid==$tuserid){
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
+			echo "&nbsp;&nbsp;";
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+		}else{
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+		}
 	}
 	echo "</form>"; 
 }else{
