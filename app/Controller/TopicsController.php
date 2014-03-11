@@ -63,11 +63,9 @@ class TopicsController extends AppController {
 		));
 
 
-/*
-debug($topic_array);
-debug($isAuthenticated);
-exit;
-*/
+debug($topic_arrayi[0]['Topic']['user_id']);
+debug($isAuthenticated['id']);
+//exit;
 
 
 		//Chech if the topic is deleted

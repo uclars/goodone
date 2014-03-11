@@ -317,6 +317,6 @@ function createsubmit(submitnum){
 function viewthepage(topicid){
 	var viewurl;
 	viewurl = "http://0-0b.com/Topics/show_topic/topicid:"+topicid;
-	window.open( viewurl , "_blank" ); 
+	window.open( viewurl , "" ); 
 }
 </SCRIPT>
