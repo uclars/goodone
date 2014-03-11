@@ -272,13 +272,18 @@ if(!empty($auth)){
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 		echo "&nbsp;&nbsp;";
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+			echo "&nbsp;&nbsp;";
+			echo "<button type='submit' class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
 	}else{
 
 		if($userid==$tuserid){
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 			echo "&nbsp;&nbsp;";
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+			echo "&nbsp;&nbsp;";
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+			echo "&nbsp;&nbsp;";
+			echo "<button type='submit' class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
 		}else{
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
 		}
@@ -308,5 +313,10 @@ function createsubmit(submitnum){
 	document.createsub.Topic_Tag.value = ht;
 	document.createsub.Topic_Publish.value = submitnum;
 	document.createsub.Topic_Check.value = hk;
+}
+function viewthepage(topicid){
+	var viewurl;
+	viewurl = "http://0-0b.com/Topics/show_topic/topicid:"+topicid;
+	window.open( viewurl , "" ); 
 }
 </SCRIPT>
