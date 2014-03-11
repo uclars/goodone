@@ -47,6 +47,11 @@ class TopicsController extends AppController {
 		//set user info to the view
 		$this->set('auth', $isAuthenticated);
 
+		$topic_referer = $this->referer();
+
+debug($topic_referer);
+exit;
+
 		$topic_id = $this->params['named']['topicid'];
 		//Use Containable to reduce the SQL Query
 		//http://book.cakephp.org/2.0/en/core-libraries/behaviors/containable.html
@@ -60,6 +65,7 @@ class TopicsController extends AppController {
 				'Tag.name'
 			)
 		));
+
 
 
 		//Chech if the topic is deleted
