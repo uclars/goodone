@@ -273,6 +273,9 @@ if(!empty($auth)){
 		echo "&nbsp;&nbsp;";
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
 	}else{
+
+debug($me);
+
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
 	}
 	echo "</form>"; 
