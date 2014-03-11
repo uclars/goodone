@@ -62,6 +62,9 @@ class TopicsController extends AppController {
 			)
 		));
 
+debug($topic_array);
+exit;
+
 		//Chech if the topic is deleted or hide
 		if(empty($topic_array)){
 			$this->redirect('/');
