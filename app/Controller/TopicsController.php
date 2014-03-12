@@ -496,7 +496,7 @@ exit;
 			
 				//save the first tag(category) into DB
 				$orgdatacontents=$orgcontents;
-				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
+//				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 
 				// save titles to DB
