@@ -76,7 +76,7 @@ debug($topic_array[0]['Topic']['user_id']);
 		else{
 		//Check if the topic is hide
 		if($topic_array[0]['Topic']['hide']>0){
-			if($isAuthenticated['userid']!=$topic_array[0]['Topic']['user_id']){
+			if($isAuthenticated['id']!=$topic_array[0]['Topic']['user_id']){
 				$this->redirect('/');
 			}else{
 				$show_contents=TRUE;
