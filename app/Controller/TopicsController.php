@@ -52,8 +52,8 @@ class TopicsController extends AppController {
 		//http://book.cakephp.org/2.0/en/core-libraries/behaviors/containable.html
 		$topic_array = $this->Topic->find('all', array(
 			'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
-			//'conditions' => array('Topic.id' => $topic_id),
-			'contain' => array(
+			'conditions' => array('Topic.id' => $topic_id),
+			//'contain' => array(
 				'Mastercategory',
 				'Title.title',
 				'Content.content',
@@ -63,8 +63,6 @@ class TopicsController extends AppController {
 		));
 
 
-debug($topic_array);
-exit;
 
 
 		//Chech if the topic is deleted
