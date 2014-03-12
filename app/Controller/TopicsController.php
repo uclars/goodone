@@ -63,6 +63,9 @@ class TopicsController extends AppController {
 		));
 
 
+debug($topic_array);
+exit;
+
 
 		//Chech if the topic is deleted
 		if(empty($topic_array)){
