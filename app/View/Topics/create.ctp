@@ -11,6 +11,8 @@ if(!empty($editing_contents)){
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
 }else{
+	//New Topic
+	$tid = "";
 	$tuserid = "";
 }
 ?>
@@ -270,6 +272,7 @@ if(!empty($editing_contents)){
 //submit button
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
+if(!empty($tid)){
 	if($admin_num == 0){
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 		echo "&nbsp;&nbsp;";
@@ -290,6 +293,11 @@ if(!empty($auth)){
 		}
 	}
 	echo "</form>"; 
+}else{
+	echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
+	echo "&nbsp;&nbsp;";
+	echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+}
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
 }
