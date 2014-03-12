@@ -64,12 +64,25 @@ class TopicsController extends AppController {
 
 
 
-
-		//Chech if the topic is deleted
+		$show_contents=FALSE;
+		//Check if the topic is deleted
 		if(empty($topic_array)){
 			$this->redirect('/');
 		}
 		else{
+		//Check if the topic is hide
+		if($topic_array[0]['Topic']['hide']>0){
+			if($isAuthenticated['userid']!=$topic_array[0]['Topic']['user_id']){
+				$this->redirect('/');
+			}else{
+				$show_contents=TRUE;
+			}
+		}else{
+			$show_contents=TRUE;
+		}
+		}
+
+		if($show_contents){
 			//Topic Array for all
 			$this->set('topics', $topic_array);
 
