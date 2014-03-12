@@ -584,7 +584,8 @@ exit;
 		//foreach($orgcontents_base as $orgcontent){
 		foreach($orgcontents_base as $orgtitle){
 			if(empty($orgtitle)){
-				$orgtitlearray_base[0]="";
+				//$orgtitlearray_base[0]="";
+				$orgtitlearray_base[0]=array("");
 			}else{
 				foreach($orgtitle['Title'] as $orgtitles){
 					$orgtitlearray_base[$s]=$orgtitles['title'];
@@ -603,7 +604,8 @@ exit;
 		// make original contents array from DB
 		foreach($orgcontents_base as $orgcontent){
 			if(empty($orgcontent)){
-				$orgcontentarray_base[0]="";
+				//$orgcontentarray_base[0]="";
+				$orgcontentarray_base[0]=array("");
 			}else{
 				foreach($orgcontent['Content'] as $orgcontents){
 					$orgcontentarray_base[$r]=$orgcontents['content'];
@@ -622,7 +624,8 @@ exit;
 		// make original comments array from DB
 		foreach($orgcontents_base as $orgcomment){
 			if(empty($orgcomment)){
-				$orgcommentarray_base[0]="";
+				//$orgcommentarray_base[0]="";
+				$orgcommentarray_base[0]=array("");
 			}else{
 				foreach($orgcomment['Comment'] as $orgcomments){
 					$orgcommentarray_base[$o]=$orgcomments['comment'];
