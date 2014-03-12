@@ -580,11 +580,11 @@ exit;
 
 		// make original title array from DB 
 		//foreach($orgcontents_base as $orgcontent){
-		foreach($orgcontents_base as $orgtitles){
-			if(empty($orgtitles)){
+		foreach($orgcontents_base as $orgtitle){
+			if(empty($orgtitle)){
 				$orgtitlearray_base[0]="";
 			}else{
-				foreach($orgcontent['Title'] as $orgtitles){
+				foreach($orgtitle['Title'] as $orgtitles){
 					$orgtitlearray_base[$s]=$orgtitles['title'];
 					$s++;
 				}
