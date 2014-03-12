@@ -62,28 +62,26 @@ class TopicsController extends AppController {
 			)
 		));
 
-
-
-debug($isAuthenticated);
-debug($topic_array[0]['Topic']['user_id']);
-
-
 		$show_contents=FALSE;
 		//Check if the topic is deleted
 		if(empty($topic_array)){
+			//if it's deleted topic, redirect
 			$this->redirect('/');
 		}
 		else{
-		//Check if the topic is hide
-		if($topic_array[0]['Topic']['hide']>0){
-			if($isAuthenticated['id']!=$topic_array[0]['Topic']['user_id']){
-				$this->redirect('/');
+			//Check if the topic is hide
+			if($topic_array[0]['Topic']['hide']>0){
+				//if the topic is hide and current user is not topic creator, redirect
+				if($isAuthenticated['id']!=$topic_array[0]['Topic']['user_id']){
+					$this->redirect('/');
+				}else{
+				//if the current user is the topic crator, show the contents
+					$show_contents=TRUE;
+				}
 			}else{
+				//if the topic is not deleted and hide, show the contents
 				$show_contents=TRUE;
 			}
-		}else{
-			$show_contents=TRUE;
-		}
 		}
 
 		if($show_contents){
@@ -152,14 +150,9 @@ echo "</PRE>";
 	
 			$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
 			$this->set('show_contents',$show_array);
+		}else{
+			$this->redirect('/');
 		}
-/*
-echo "<PRE>";
-var_dump($show_array);
-echo "</PRE>";
-*/
-
-
 	}
 
 	function _get_tags($tags_array){
