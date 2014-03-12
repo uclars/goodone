@@ -584,7 +584,7 @@ exit;
 			if(empty($orgtitle['Title'])){
 debug($orgtitle);
 				//$orgtitlearray_base[0]="";
-				$orgtitlearray_base[0]=array("");
+				$orgtitlearray_base[0]="";
 			}else{
 				foreach($orgtitle['Title'] as $orgtitles){
 					$orgtitlearray_base[$s]=$orgtitles['title'];
