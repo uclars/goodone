@@ -582,6 +582,7 @@ exit;
 		//foreach($orgcontents_base as $orgcontent){
 		foreach($orgcontents_base as $orgtitle){
 			if(empty($orgtitle)){
+degub($orgtitle);
 				//$orgtitlearray_base[0]="";
 				$orgtitlearray_base[0]=array("");
 			}else{
