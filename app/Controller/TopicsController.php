@@ -379,6 +379,7 @@ debug($this->data);
 			//$topicid = $orgdata['id'];
 
 
+/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -402,6 +403,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 
