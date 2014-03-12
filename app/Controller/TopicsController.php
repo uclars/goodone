@@ -581,6 +581,7 @@ exit;
 		// make original title array from DB 
 		//foreach($orgcontents_base as $orgcontent){
 		foreach($orgcontents_base as $orgtitle){
+degub($orgtitle);
 			if(empty($orgtitle)){
 degub($orgtitle);
 				//$orgtitlearray_base[0]="";
