@@ -379,6 +379,7 @@ debug($this->data);
 			//$topicid = $orgdata['id'];
 
 
+/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -402,6 +403,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 
@@ -924,12 +926,9 @@ exit;
 		if(!empty($datacontents["Content"]["title"]))
 		{
 			$i=1;
-			//foreach($this->data["Content"]["title"] as $key=>$title)
 			foreach($datacontents["Content"]["title"] as $key=>$title)
 			{
 				if($title === "disabled"){
-//						$this->Title->delete($topicid);
-//						$this->Title->save($data);
 				}else{
 					$this->Title->create();
 					$data["topic_id"]=$topicid;
@@ -950,27 +949,19 @@ exit;
 		if(!empty($datacontents["Content"]["content"]))
 		{
 			$l=1;
-			//foreach($this->data["Content"]["content"] as $key=>$content)
 			foreach($datacontents["Content"]["content"] as $key=>$content)
 			{
-//				foreach($content as $k=>$con)
-//				{
 					if($content === "disabled"){
-
-					//	$this->Content->save($data);
 					}else{
 						$this->Content->create();
 						$data["topic_id"]=$topicid;
-						//$data["content_id"]=$key;
 						$data["content_id"]=$l;
-						//$data["content_id"]=$k; -> this is for sub number of contents: in case many text in each content
 						$data["content"]=$content;
 						$data["user_id"]=$data["user_id"];
 						$this->Content->save($data);
 
 						$l++;
 					}
-//				}
 			}
 		}
 	}
@@ -979,16 +970,12 @@ exit;
 		if(!empty($datacontents["Content"]["comment"]))
 		{
 			$j=1;
-			//foreach($this->data["Content"]["comment"] as $key=>$comment)
 			foreach($datacontents["Content"]["comment"] as $key=>$comment)
 			{
 				if($comment === "disabled"){
-//                                      $this->Title->delete($topicid);
-//					$this->Comment->save($data);
 				}else{
 				$this->Comment->create();
 				$data["topic_id"]=$topicid;
-				//$data["content_id"]=$key;
 				$data["content_id"]=$j;
 					if($comment === "Comment"){
 						$data["comment"]="";
