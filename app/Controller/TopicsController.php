@@ -410,20 +410,20 @@ exit;
 			//Compare the old title array and new title array, and if titles are modified, update the DB
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
-				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
+//				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
 			}
 
 			//Compare the old contents array and new contents array, and if contents are modified, update the DB
 			//$isnewcontent=$this->_getcontentdiff($newcontentarray,$orgcontentarray);
 			$isnewcontent=array_diff_assoc($newcontentarray,$orgcontentarray);
 			if(!empty($isnewcontent)){
-				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
+//				$this->_update_contents($newcontentarray, $orgdatacontents, $topic_id, $me);
 			}
 
 			//Compare the old comment array and new comment array, and if comments are modified, update the DB
 			$isnewcomment=array_diff_assoc($newcommentarray,$orgcommentarray);
 			if(!empty($isnewcomment)){
-				$this->_update_comments($newcommentarray, $orgdatacontents, $topic_id, $me);
+//				$this->_update_comments($newcommentarray, $orgdatacontents, $topic_id, $me);
 			}
 
 
@@ -486,7 +486,7 @@ exit;
 
 
 				//save Topic name and category to DB
-//				$result = $this->Topic->save($data);
+				$result = $this->Topic->save($data);
 				// get the last id
 				$topicid = $this->Topic->getLastInsertID();
 
