@@ -10,6 +10,10 @@ if(!empty($editing_contents)){
 	$tcheck = $topicitems[5];
 	$ttag_array = array();
 	$ttag_array = $topicitems[6];
+
+
+debug($topicitems);
+
 }
 ?>
 <!--<section id="forms">-->
@@ -275,7 +279,6 @@ if(!empty($auth)){
 			echo "&nbsp;&nbsp;";
 			echo "<button class='submitclass' onclick='viewthepage(".$tid.");'>View</button>";
 	}else{
-
 		if($userid==$tuserid){
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 			echo "&nbsp;&nbsp;";
