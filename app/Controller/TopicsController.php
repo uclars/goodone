@@ -379,6 +379,7 @@ debug($this->data);
 			//$topicid = $orgdata['id'];
 
 
+/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -402,6 +403,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 
@@ -582,8 +584,6 @@ exit;
 		//foreach($orgcontents_base as $orgcontent){
 		foreach($orgcontents_base as $orgtitle){
 			if(empty($orgtitle['Title'])){
-debug($orgtitle);
-				//$orgtitlearray_base[0]="";
 				$orgtitlearray_base[0]="";
 			}else{
 				foreach($orgtitle['Title'] as $orgtitles){
@@ -602,9 +602,8 @@ debug($orgtitle);
 
 		// make original contents array from DB
 		foreach($orgcontents_base as $orgcontent){
-			if(empty($orgcontent)){
-				//$orgcontentarray_base[0]="";
-				$orgcontentarray_base[0]=array("");
+			if(empty($orgcontent['Content'])){
+				$orgcontentarray_base[0]="";
 			}else{
 				foreach($orgcontent['Content'] as $orgcontents){
 					$orgcontentarray_base[$r]=$orgcontents['content'];
@@ -622,9 +621,8 @@ debug($orgtitle);
 
 		// make original comments array from DB
 		foreach($orgcontents_base as $orgcomment){
-			if(empty($orgcomment)){
-				//$orgcommentarray_base[0]="";
-				$orgcommentarray_base[0]=array("");
+			if(empty($orgcomment['Comment'])){
+				$orgcommentarray_base[0]="";
 			}else{
 				foreach($orgcomment['Comment'] as $orgcomments){
 					$orgcommentarray_base[$o]=$orgcomments['comment'];
