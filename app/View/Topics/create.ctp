@@ -327,5 +327,6 @@ function viewthepage(topicid){
 	var viewurl;
 	viewurl = "http://0-0b.com/Topics/show_topic/topicid:"+topicid;
 	window.open( viewurl , "" ); 
+	return;
 }
 </SCRIPT>
