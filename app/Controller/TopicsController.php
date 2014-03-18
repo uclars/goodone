@@ -549,8 +549,10 @@ exit;
 		}else{
 			$data['checked']="0";
 		}
-		$data['hide']=$datacontents_base["Topic_Publish"];
-
+		$hidestatus = $datacontents_base["Topic_Publish"];
+		if($hidestatus != 2){ //if update(2), the hide status doen't change
+			$data['hide']=$datacontents_base["Topic_Publish"];
+		}
 
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff_assoc($data,$orgdata);
