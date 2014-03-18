@@ -255,6 +255,10 @@ debug($this->data);
 					//update tags
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
+debug($data);
+debug($topic_array);
+exit;
+
 
 					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
@@ -551,16 +555,8 @@ exit;
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
 
-
-debug($data);
-debug($orgdata);
-
-
-
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
-debug($isnewtopicinfo);
-exit;
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
 			$this->Topic->save($data);
