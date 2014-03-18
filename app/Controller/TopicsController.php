@@ -545,9 +545,9 @@ exit;
 		$data['description']=$datacontents_base["Topic_Description"];
 		$checkstatus = $datacontents_base["Topic_Check"];
 		if($checkstatus == "true"){
-			$data['checked']=1;
+			$data['checked']="1";
 		}else{
-			$data['checked']=0;
+			$data['checked']="0";
 		}
 		$data['hide']=$datacontents_base["Topic_Publish"];
 
