@@ -200,10 +200,11 @@ echo "</PRE>";
 
 
 
+/*
 debug($this->params);
 debug($this->data);
 //exit;
-
+*/
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -255,7 +256,7 @@ debug($this->data);
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
 
-//					$this->_save_data($data,$me,$topicid,$topic_array);
+					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
@@ -548,6 +549,14 @@ exit;
 			$data['checked']=0;
 		}
 		$data['hide']=$datacontents_base["Topic_Publish"];
+
+
+
+debug($data);
+exit;
+
+
+
 
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff($data,$orgdata);
