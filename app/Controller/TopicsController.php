@@ -255,10 +255,6 @@ debug($this->data);
 					//update tags
 					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 					
-debug($data);
-debug($topic_array);
-exit;
-
 
 					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
@@ -534,6 +530,7 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
 
 		/// new Topic title,category,description, if there are ///
