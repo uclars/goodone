@@ -554,10 +554,6 @@ exit;
 
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff_assoc($data,$orgdata);
-debug($data);
-debug($orgdata);
-debug($isnewtopicinfo);
-exit;
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
 			$this->Topic->save($data);
