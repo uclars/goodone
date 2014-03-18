@@ -1,5 +1,5 @@
 <?php
-class RelatedtopicsShell extends Shell{
+class RelatedtopicsShell extends AppShell{
 	//var $uses = array('Topic','Followingtopics','Relatedtopic');
 	var $uses = array('Topic','Tag','TagsTopic');
 
@@ -17,6 +17,16 @@ class RelatedtopicsShell extends Shell{
 		//may need to separete the task because when topic is large enosh, array cloud have the cache problem
 		$topics_array = $this->Topic->find('all',array('fields'=>array('id'), 'conditions'=>array('Topic.deleted'=>0)));
 
+		foreach($topics_array as $topiclist){
+			$topics_users_array = array(); //list of topics and users
+			$sql = "SELECT topic_id,count(*) AS q FROM tags_topics WHERE tag_id IN (select tag_id from tags_topics where topic_id=".$topiclist['Topic']['id'].") AND topic_id!=".$topiclist['Topic']['id']." GROUP BY topic_id ORDER BY q desc";
+
+			//get related topic id for each topic
+                        $topic_temp_array = $this->TagsTopic->query($sql);
+
+debug($topic_temp_array);
+
+		}
 
 
 
