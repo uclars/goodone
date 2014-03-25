@@ -121,6 +121,7 @@ foreach($show_contents as $contents_array){
 		 //"put right column contents here!!";
 	echo "</div>";
 
+/*
 	// Tags
 	echo "<div class='span12'>";
 		echo "<h3>Tags</h3>";
@@ -128,6 +129,7 @@ foreach($show_contents as $contents_array){
 			echo "$tinfo, ";
 		}
 	echo "</div>";
+*/
 	//Comment
 ?>
 	<div class='span12'>
