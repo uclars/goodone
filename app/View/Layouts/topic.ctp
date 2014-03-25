@@ -33,10 +33,12 @@
 
 </script>
 <script type='text/javascript'>
-                                $('a.youtubin').youtubin({
-                                        swfWidth:320,
-                                        swfHeight:240
-                                });
+$(function(){
+$('a.youtubin').youtubin({
+	swfWidth:320,
+	swfHeight:240
+});
+});
 /*
 	$('#youtube').youtubin({
 		swfWidth:320,
