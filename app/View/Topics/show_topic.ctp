@@ -96,6 +96,9 @@ foreach($show_contents as $contents_array){
 		$youtube_user = $youtube_ad_array[2];
 
 
+		//Display the youtube movie
+		echo "<div style='margin-top:20px; margin-bottom:10px;'>";
+
 
                         echo "<script type='text/javascript'>";
                                 echo "$('a.youtubin').youtubin({";
@@ -107,8 +110,6 @@ foreach($show_contents as $contents_array){
 
 
 
-		//Display the youtube movie
-		echo "<div style='margin-top:20px; margin-bottom:10px;'>";
 			echo "<div>".$this->Html->link("Check out this video",h($youtube_address),array('rel' => 'nofollow', 'id' => 'youtube', 'class' => 'youtubin'))."</div>";
 			//echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 
