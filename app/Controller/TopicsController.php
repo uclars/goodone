@@ -427,6 +427,7 @@ exit;
 
 
 
+/*
 echo "<PRE>";
 var_dump($newtitlearray);
 echo "</PRE>";
@@ -440,6 +441,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
+*/
 
 
 		}
