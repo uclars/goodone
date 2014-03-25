@@ -332,7 +332,8 @@ $(function(){
 //// YOUTUBE //////////
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
-	var youtubeurl_content = $('#youtube_input').attr("value");
+	var youtubeurl_content_org = $('#youtube_input').attr("value");
+	var youtubeurl_content = youtubeurl_content_org.replace(https:, "http:");
 
 console.log(youtubeurl_content);
 
