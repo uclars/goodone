@@ -333,6 +333,10 @@ $(function(){
 $('#get_youtubethumnail').live('click',function(e){
 	//show the movie thumnail
 	var youtubeurl_content = $('#youtube_input').attr("value");
+
+console.log(youtubeurl_content);
+
+
 	$("#youtube_loadingimage").show();
 
 	if(isUrl(youtubeurl_content)){
