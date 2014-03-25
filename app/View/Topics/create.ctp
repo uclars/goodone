@@ -242,7 +242,7 @@ if(!empty($editing_contents)){
 				$youtube_url = explode("(__)",h($econtents[1]));
 
 
-console.log($youtube_url);
+debug($youtube_url);
 
 
 				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube".$h."' class='youtubin'>Check out this video</a>";
