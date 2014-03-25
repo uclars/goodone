@@ -240,6 +240,11 @@ if(!empty($editing_contents)){
 			elseif($econtents[0] == "__youtubeurl__"){
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
+
+
+console.log($youtube_url);
+
+
 				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube".$h."' class='youtubin'>Check out this video</a>";
 				echo "<p><a target='_blank' href='".h($youtube_url[0])."'>".h($youtube_url[1])."</a></p>";
 				echo "<script type='text/javascript'>";
