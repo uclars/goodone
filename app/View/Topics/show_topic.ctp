@@ -89,8 +89,7 @@ foreach($show_contents as $contents_array){
 		$youtube_ad_array = array();
 		$youtube_ad_array =split("\(__\)",$contents_array[1]);
 		//youtube  url
-		//$youtube_address = $youtube_ad_array[0];
-		$youtube_address = "http://www.youtube.com/watch?v=ZbhW_GDuk0c";
+		$youtube_address = $youtube_ad_array[0];
 		//youtube title
 		$youtube_title = $youtube_ad_array[1];
 		//image owner
@@ -104,12 +103,9 @@ foreach($show_contents as $contents_array){
 
 
 			echo "<script type='text/javascript'>";
-				//echo "$('a.youtubin').youtubin({";
-				echo "$(function() {";
-				echo "$('#youtube').youtubin({";
+				echo "$('a.youtubin').youtubin({";
 					echo "swfWidth:320,";
 					echo "swfHeight:240";
-				echo "});";
 				echo "});";
 			echo "</script>";
 
