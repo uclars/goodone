@@ -89,7 +89,8 @@ foreach($show_contents as $contents_array){
 		$youtube_ad_array = array();
 		$youtube_ad_array =split("\(__\)",$contents_array[1]);
 		//youtube  url
-		$youtube_address = $youtube_ad_array[0];
+		//$youtube_address = $youtube_ad_array[0];
+		$youtube_address = "http://www.youtube.com/watch?v=8e_wXc0m97w";
 		//youtube title
 		$youtube_title = $youtube_ad_array[1];
 		//image owner
