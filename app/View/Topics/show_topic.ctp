@@ -102,14 +102,13 @@ foreach($show_contents as $contents_array){
 			//echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 
 
-/*
 			echo "<script type='text/javascript'>";
-				echo "$('a.youtubin').youtubin({";
+				//echo "$('a.youtubin').youtubin({";
+				echo "$('#youtube').youtubin({";
 					echo "swfWidth:320,";
 					echo "swfHeight:240";
 				echo "});";
 			echo "</script>";
-*/
 
 
 		echo "</div>";
