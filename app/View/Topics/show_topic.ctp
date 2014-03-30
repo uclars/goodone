@@ -121,7 +121,7 @@ foreach($show_contents as $contents_array){
 	echo "<div class='span2'>";
 		 //"put right column contents here!!";
 
-echo "<a href=\"http://www.kqzyfj.com/click-6439315-11136360\" target=\"_top\">";
+echo "<a href=\"http://www.kqzyfj.com/click-6439315-11136360\" target=\"_blank\">";
 echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
 
 
