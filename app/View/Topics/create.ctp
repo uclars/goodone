@@ -88,7 +88,7 @@ if(!empty($editing_contents)){
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
 			}
 		}else{
-				echo $this->form->hidden('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+				echo $this->form->hidden('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>"tag"));
 		}
 	?>
 	</div>
