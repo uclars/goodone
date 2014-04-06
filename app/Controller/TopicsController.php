@@ -561,11 +561,21 @@ exit;
 			$data['hide']=$datacontents_base["Topic_Publish"];
 		}
 
+
+
+echo "<PRE>";
+var_dump($data);
+echo "</PRE>";
+
+
+
+
+
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff_assoc($data,$orgdata);
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
-			$this->Topic->save($data);
+//			$this->Topic->save($data);
 		}
 	}
 
