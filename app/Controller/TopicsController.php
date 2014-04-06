@@ -233,10 +233,12 @@ exit;
 				{
 
 
+/*
 echo "<PRE>";
 var_dump($this->data);
 echo "</PRE>";
 exit;
+*/
 
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];

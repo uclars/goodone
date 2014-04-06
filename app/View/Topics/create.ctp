@@ -85,7 +85,7 @@ if(!empty($editing_contents)){
 				$tags = implode(",",$ttag_array);
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}else{
-				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>"tag"));
 			}
 		}
 	?>
@@ -317,11 +317,6 @@ function createsubmit(submitnum){
 	var hu=document.topictitle.hiddenuserid.value;
 	var ht=document.topictitle.hiddentags.value;
 	var hk=document.topictitle.hiddencheck.checked;
-
-
-console.log(ti);
-console.log(hc);
-
 
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
