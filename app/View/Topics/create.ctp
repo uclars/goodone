@@ -103,7 +103,9 @@ if(!empty($editing_contents)){
 		?>
 		<?php if($admin_num == 1){ ?>
 		<input type='checkbox' name='hiddencheck' <?php echo $checkoption; ?>>Contents is checked
-		<?php } ?>
+		<?php }else{ ?>
+		<input type='hidden' name='hiddencheck' value=0 />
+		<?php }?>
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
