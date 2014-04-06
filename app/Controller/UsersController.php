@@ -129,7 +129,7 @@ class UsersController extends AppController
 
 $p_user = $this->User->find();
 echo("<PRE>");
-//var_dump($id);
+var_dump($me);
 var_dump($p_user);
 echo("</PRE>");
 exit;
