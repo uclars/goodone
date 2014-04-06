@@ -127,15 +127,17 @@ class UsersController extends AppController
 		}
 
 
-$p_user = $this->User->find();
-echo("<PRE>");
-var_dump($me);
-var_dump($p_user);
-echo("</PRE>");
-exit;
-
 		/// get creating/created topics ///
 		$topic_list = $this->_getCreateTopics($id);
+
+
+
+echo "<PRE>";
+var_dump($topic_list);
+echo "</PRE>";
+exit;
+
+
 		$this->set('topic_list', $topic_list);
 
 
@@ -202,6 +204,10 @@ exit;
 		$conditions = array('Topic.user_id' => $id, 'Topic.deleted' => 0);
 		$fields = array();
 		$order = array('Topic.id DESC');
+
+var_dump($conditions);
+
+
 		$topic_array = $this->Topic->find('all', array('conditions' => $conditions, 'fields'=>$fields, 'order' => $order));
 
 		return $topic_array;
