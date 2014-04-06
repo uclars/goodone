@@ -175,6 +175,15 @@ echo "</PRE>";
 		$me = $me_array['id'];
 		$this->set('userid',$me);
 
+
+
+echo "<PRE>";
+var_dump($me);
+echo "</PRE>";
+
+
+
+
 		//get the topicid
 		$targettopic = $this->here;
 		//get the referer to chekc if traffice comes form admin page, otherwise it's direct traffice which is not correct
