@@ -175,15 +175,6 @@ echo "</PRE>";
 		$me = $me_array['id'];
 		$this->set('userid',$me);
 
-
-
-echo "<PRE>";
-var_dump($me);
-echo "</PRE>";
-
-
-
-
 		//get the topicid
 		$targettopic = $this->here;
 		//get the referer to chekc if traffice comes form admin page, otherwise it's direct traffice which is not correct
@@ -209,11 +200,9 @@ echo "</PRE>";
 
 
 
-/*
 debug($this->params);
 debug($this->data);
-//exit;
-*/
+exit;
 
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
@@ -541,16 +530,6 @@ exit;
 		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
 		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 
-
-
-
-echo "<PRE>";
-var_dump($datacontents_base);
-echo "</PRE>";
-exit;
-
-
-
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
 		if($adminnumber == 0){
@@ -572,21 +551,11 @@ exit;
 			$data['hide']=$datacontents_base["Topic_Publish"];
 		}
 
-
-
-echo "<PRE>";
-var_dump($data);
-echo "</PRE>";
-
-
-
-
-
 		/// Compare old data and new data to see if there are differences ///
 		$isnewtopicinfo=array_diff_assoc($data,$orgdata);
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
-//			$this->Topic->save($data);
+			$this->Topic->save($data);
 		}
 	}
 
