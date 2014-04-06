@@ -544,7 +544,7 @@ exit;
 
 
 echo "<PRE>";
-var_dump($me_base)
+var_dump($me_base);
 var_dump($orgcontents_base[0]['Topic']);
 echo "</PRE>";
 
