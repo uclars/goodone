@@ -387,6 +387,7 @@ debug($this->data);
 			//$topicid = $orgdata['id'];
 
 
+/*
 echo "<PRE>";
 var_dump($orgtitlearray);
 echo "</PRE>";
@@ -410,7 +411,7 @@ var_dump($newcommentarray);
 echo "</PRE>";
 
 exit;
-
+*/
 
 
 			//Compare the old title array and new title array, and if titles are modified, update the DB
@@ -544,10 +545,9 @@ exit;
 
 
 echo "<PRE>";
-var_dump($me_base);
-var_dump($orgcontents_base[0]['Topic']);
+var_dump($datacontents_base);
 echo "</PRE>";
-
+exit;
 
 
 
