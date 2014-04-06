@@ -232,8 +232,10 @@ exit;
 				if(isset($this->data) && !empty($this->data))
 				{
 
+
+echo "<PRE>";
 var_dump($this->data);
-echo "HLHL";
+echo "</PRE>";
 exit;
 
 					$data['Topic_Title'] = $this->data['Topic_Title'];
