@@ -540,6 +540,17 @@ exit;
 		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
 		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 
+
+
+
+echo "<PRE>";
+var_dump($me_base)
+var_dump($orgcontents_base[0]['Topic']);
+echo "</PRE>";
+
+
+
+
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
 		if($adminnumber == 0){
