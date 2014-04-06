@@ -232,7 +232,7 @@ exit;
 				if(isset($this->data) && !empty($this->data))
 				{
 
-var_dup($this->data);
+var_dump($this->data);
 echo "HLHL";
 exit;
 
