@@ -292,8 +292,8 @@ if(!empty($tid)){
 			echo "&nbsp;&nbsp;";
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
 			// view page -- need save to view, but better to view without save
-			echo "&nbsp;&nbsp;";
-			echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
+			//echo "&nbsp;&nbsp;";
+			//echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
 			echo "&nbsp;&nbsp;";
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
 		}else{
