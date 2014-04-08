@@ -33,7 +33,9 @@ class FB {
 
 
 echo "FB";
-echo $params;
+echo "<PRE>";
+var_dump($params);
+echo "</PRE>";
 echo "---------------------";
 
 
