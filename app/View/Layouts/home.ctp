@@ -41,8 +41,8 @@
                                         <li class="divider-vertical"></li>
 <?php
 	if(empty($auth)){
-//echo $this->Facebook->registration();
-					echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
+echo $this->Facebook->registration();
+					//echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
 					//echo $this->Facebook->login(array('custom' => true, 'redirect' => '/', 'id' => 'fbconnect', 'img' => 'connectwithfacebook.gif'));
 	}
 	else{
