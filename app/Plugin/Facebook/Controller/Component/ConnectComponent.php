@@ -132,16 +132,6 @@ class ConnectComponent extends Component {
 		}
 		// set Auth to a convenience publiciable
 		$Auth = $this->Controller->Auth;
-
-
-echo "F controller";
-echo "<PRE>";
-var_dump($this->FB->api('/me'));
-echo "</PRE>";
-exit;
-
-
-
 		if (!$this->__initUserModel()) {
 			return false;
 		}
