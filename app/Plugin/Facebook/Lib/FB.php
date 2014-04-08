@@ -30,6 +30,14 @@ class FB {
     * @return mixed return value of result from Facebook API
     */
   public function __call($method, $params){
+
+
+echo "FB";
+echo $params;
+echo "---------------------";
+
+
+
   	try {
   		return call_user_func_array(array(self::$Facebook, $method), $params);
   	} catch (FacebookApiException $e) {
