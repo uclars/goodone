@@ -506,6 +506,12 @@ exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
+
+
+echo "<PRE>";
+var_dump($datacontents);
+echo "</PRE>";
+exit;
 				if(!empty($newtitlearray['Content']['title'][0])){
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
@@ -932,17 +938,6 @@ exit;
 	}
 
 	function _save_new_topic_title($datacontents, $data, $topicid){
-
-
-echo "<PRE>";
-var_dump($datacontents);
-echo "</PRE>";
-exit;
-
-
-
-
-
 		if(!empty($datacontents["Content"]["title"]))
 		{
 			$i=1;
