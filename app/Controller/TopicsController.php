@@ -932,6 +932,17 @@ exit;
 	}
 
 	function _save_new_topic_title($datacontents, $data, $topicid){
+
+
+echo "<PRE>";
+var_dump($datacontents);
+echo "</PRE>";
+exit;
+
+
+
+
+
 		if(!empty($datacontents["Content"]["title"]))
 		{
 			$i=1;
@@ -1071,27 +1082,16 @@ exit;
 				echo "</li>";
 			}
 			echo "<button id='moreButton' class='moreButton'>more</button>";
-
-
-
-//$this->set('flickr_contents',$result);
-//echo("<PRE>");
-//var_dump($result);
-//echo("</PRE>");
 	}
 
+
 	function uploadImage(){
-/*
-echo "<PRE>";
-var_dump($_FILES);
-echo "</PRE>";
-*/
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
 			//$name = $_FILES['uploadedfile']['name'];
-$extarray=$ext=array();
+			$extarray=$ext=array();
 			$path = $_FILES['uploadedfile']['name'];
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -1126,12 +1126,6 @@ $extarray=$ext=array();
 	}
 
 	function _checkImagefile($file_array){
-
-echo "<PRE>";
-var_dump($file_array);
-echo "</PRE>";
-
-
 	//http://qiita.com/mpyw/items/939964377766a54d4682//
 	try {
 		if (
