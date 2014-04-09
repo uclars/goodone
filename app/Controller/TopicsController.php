@@ -506,24 +506,17 @@ exit;
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-
-echo "<PRE>";
-var_dump($newtitlearray);
-echo "</PRE>";
-exit;
-
-
-				if(!empty($newtitlearray['Content']['title'][0])){
+				if(!empty($newtitlearray['Content']['title'])){
 					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
 				}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-				if(!empty($newcontentarray['Content']['content'][0])){
+				if(!empty($newcontentarray['Content']['content'])){
 					$this->_save_new_topic_content($newcontentarray, $data, $topicid);
 				}
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-				if(!empty($newcommentarray['Content']['comment'][0])){
+				if(!empty($newcommentarray['Content']['comment'])){
 					$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
 				}
 			}// end of if(there are values in the from)
