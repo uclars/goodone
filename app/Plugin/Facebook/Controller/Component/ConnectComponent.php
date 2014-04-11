@@ -162,12 +162,12 @@ class ConnectComponent extends Component {
 			elseif(empty($this->authUser) && $this->createUser) {
 				/* add by suzuki at 2013/03/21*/
 				$user_array = $this->user(); //facebook user array
-
+/* for debug
 echo "<PRE>";
 var_dump($user_array);
 echo "</PRE>";
 exit;
-
+*/
 				$this->Controller->Session->write('registration',TRUE);
 				$avatornum=$this->_getAvoter();
 				/* */
