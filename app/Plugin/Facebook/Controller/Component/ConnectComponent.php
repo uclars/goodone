@@ -162,16 +162,19 @@ class ConnectComponent extends Component {
 			elseif(empty($this->authUser) && $this->createUser) {
 				/* add by suzuki at 2013/03/21*/
 				$user_array = $this->user(); //facebook user array
+/* for debug
 echo "<PRE>";
 var_dump($user_array);
 echo "</PRE>";
 exit;
+*/
 				$this->Controller->Session->write('registration',TRUE);
 				$avatornum=$this->_getAvoter();
 				/* */
 		
 				$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
-				$this->authUser[$this->User->alias]['username'] = $user_array['username'];
+				//$this->authUser[$this->User->alias]['username'] = $user_array['username'];
+				$this->authUser[$this->User->alias]['username'] = $user_array['name'];
 				$this->authUser[$this->User->alias]['email'] = $user_array['email'];
 				$this->authUser[$this->User->alias]['gender'] = $user_array['gender'];
 				$this->authUser[$this->User->alias]['birthday'] = date('Y-m-d',strtotime($user_array['birthday']));
