@@ -56,7 +56,7 @@
 		}else{
 			$myname = $auth['username'];
 		}
-                                        echo "<li><a href='/topics/create'>Create Roundup</a></li>";
+                                        echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 					echo "<li class='dropdown'>";
 						echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu'>";
