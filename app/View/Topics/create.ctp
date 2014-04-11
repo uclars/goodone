@@ -284,8 +284,8 @@ if(!empty($tid)){
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 		echo "&nbsp;&nbsp;";
 		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
-			echo "&nbsp;&nbsp;";
-			echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
+		//echo "&nbsp;&nbsp;";
+		//echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
 	}else{
 		if($userid==$tuserid){
 			echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
