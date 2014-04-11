@@ -43,7 +43,7 @@
 	if(empty($auth)){
 					//echo $this->Facebook->registration();
 					//echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
-					echo $this->Facebook->login(array('style'=>'margin:15px;','scope'=>'email, user_birthday','show-faces'=>'false'));
+					echo "<li>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</li>";
 					//echo $this->Facebook->login(array('custom' => true, 'redirect' => '/', 'id' => 'fbconnect', 'img' => 'connectwithfacebook.gif'));
 	}
 	else{
