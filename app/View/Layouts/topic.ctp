@@ -61,7 +61,7 @@ G                                <span class="icon-bar"></span>
 	else{
 		//mypage url
 		$mypage_url = "/Users/show_users/id:".$auth['id'];
-		if(empty()){
+		if(empty($auth['id'])){
 			//if $auth[id] doesn't have id value, redirect to get id
 			return $this->redirect($this->request->here);
 		}
