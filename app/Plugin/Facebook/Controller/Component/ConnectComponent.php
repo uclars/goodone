@@ -173,8 +173,8 @@ exit;
 				/* */
 		
 				$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
-				$this->authUser[$this->User->alias]['username'] = $user_array['username'];
-				//$this->authUser[$this->User->alias]['username'] = $user_array['name'];
+				//$this->authUser[$this->User->alias]['username'] = $user_array['username'];
+				$this->authUser[$this->User->alias]['username'] = $user_array['name'];
 				$this->authUser[$this->User->alias]['email'] = $user_array['email'];
 				$this->authUser[$this->User->alias]['gender'] = $user_array['gender'];
 				$this->authUser[$this->User->alias]['birthday'] = date('Y-m-d',strtotime($user_array['birthday']));

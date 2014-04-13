@@ -60,6 +60,12 @@ G                                <span class="icon-bar"></span>
 	}
 	else{
 		//mypage url
+
+echo "<PRE>";
+var_dump($auth);
+echo "</PRE>";
+
+
 		$mypage_url = "/Users/show_users/id:".$auth['id'];
 		$logout_url = $this->Facebook->logout(array('redirect'=>array('controller'=>'Users', 'action'=>'logout'),'label'=>'LOGOUT'));
 		// User Name
