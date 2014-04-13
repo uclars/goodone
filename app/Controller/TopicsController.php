@@ -46,6 +46,7 @@ class TopicsController extends AppController {
 		if(!empty($isAuthenticated)){
 			if(empty($isAuthenticated['id'])){
 				//if $auth[id] doesn't have id value, redirect to get id
+				//this happens just after the creation of a user
 				$this->Redirect(Router::url());
 			}
 		}
