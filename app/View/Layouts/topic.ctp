@@ -63,7 +63,7 @@ G                                <span class="icon-bar"></span>
 		$mypage_url = "/Users/show_users/id:".$auth['id'];
 		if(empty($auth['id'])){
 			//if $auth[id] doesn't have id value, redirect to get id
-			return $this->redirect($this->request->here);
+			$this->redirect($this->Html->url('', true));
 		}
 		$logout_url = $this->Facebook->logout(array('redirect'=>array('controller'=>'Users', 'action'=>'logout'),'label'=>'LOGOUT'));
 		// User Name
