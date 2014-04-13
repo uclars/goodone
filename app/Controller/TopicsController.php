@@ -43,9 +43,11 @@ class TopicsController extends AppController {
 ////////////////////////////////////////////////////////////
 	function show_topic(){
 		$isAuthenticated = $this->Session->read('Auth.User');
-		if(empty($isAuthenticated['id'])){
-			//if $auth[id] doesn't have id value, redirect to get id
-			$this->Redirect(Router::url());
+		if(!empty($isAuthenticated)){
+			if(empty($isAuthenticated['id'])){
+				//if $auth[id] doesn't have id value, redirect to get id
+				$this->Redirect(Router::url());
+			}
 		}
 		$isInvited = TRUE;
 		//set user info to the view
