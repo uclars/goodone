@@ -64,6 +64,7 @@ G                                <span class="icon-bar"></span>
 echo "<PRE>";
 var_dump($auth);
 echo "</PRE>";
+exit;
 
 
 		$mypage_url = "/Users/show_users/id:".$auth['id'];
