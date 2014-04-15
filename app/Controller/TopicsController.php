@@ -771,7 +771,9 @@ exit;
 		}else{
 			$orgtagarray = array("");
 		}
-		$newtagarray = explode(",",$datacontents['Topic_Tag']);
+		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
+		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
+		$newtagarray = explode(",",$newtagcontents);
 		//delete empty values
 		$newtagarray = array_filter($newtagarray, "strlen");
 		//re-numbering
