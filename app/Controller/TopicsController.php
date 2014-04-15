@@ -1010,7 +1010,8 @@ exit;
 	}
 
 	function _make_tagarray($tagstring){
-		$tag_array_t = explode(',',$tagstring);
+		$newtagstring = preg_replace('/(\s)/','',$tagstring);
+		$tag_array_t = explode(',',$newtagstring);
 
 		return $tag_array_t;
 	}
@@ -1096,7 +1097,7 @@ exit;
 
 			//file check (type and size)
 			if(array_search($ext,$extarray) === FALSE){
-				echo "1|The selected file could not be uploaded. Only JPEG, PNG and GIF images are supported.|";
+				echo "1|The selected file could not be uploaded. Only JPG, PNG and GIF images are supported.|";
 			}elseif($_FILES['uploadedfile']['size'] > 512000){
 				echo "2|The max file size is 500KB.|";
 			}else{
