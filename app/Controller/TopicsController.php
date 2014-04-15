@@ -773,10 +773,6 @@ exit;
 		}
 		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
 		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
-echo "<PRE>";
-var_dump($newtagcontents);
-echo "</PRE>";
-exit;
 		$newtagarray = explode(",",$newtagcontents);
 		//delete empty values
 		$newtagarray = array_filter($newtagarray, "strlen");
