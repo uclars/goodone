@@ -1010,7 +1010,14 @@ exit;
 	}
 
 	function _make_tagarray($tagstring){
+echo "<PRE>";
+var_dump($tagstring);
+echo "</PRE>";
 		$newtagstring = preg_replace('/(\s)/','',$tagstring);
+echo "<PRE>";
+var_dump($newtagstring);
+echo "</PRE>";
+exit;
 		$tag_array_t = explode(',',$newtagstring);
 
 		return $tag_array_t;
