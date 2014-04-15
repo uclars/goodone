@@ -773,6 +773,10 @@ exit;
 		}
 		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
 		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
+echo "<PRE>";
+var_dump($newtagcontents);
+echo "</PRE>";
+exit;
 		$newtagarray = explode(",",$newtagcontents);
 		//delete empty values
 		$newtagarray = array_filter($newtagarray, "strlen");
@@ -1012,14 +1016,7 @@ exit;
 	}
 
 	function _make_tagarray($tagstring){
-echo "<PRE>";
-var_dump($tagstring);
-echo "</PRE>";
 		$newtagstring = preg_replace('/(\s)/','',$tagstring);
-echo "<PRE>";
-var_dump($newtagstring);
-echo "</PRE>";
-exit;
 		$tag_array_t = explode(',',$newtagstring);
 
 		return $tag_array_t;
