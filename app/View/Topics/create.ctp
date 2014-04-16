@@ -85,7 +85,7 @@ if(!empty($editing_contents)){
 			if($admin_num != 0){
 				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}else{
-				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+				echo $this->form->hidden('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
 			}
 		}else{
 			if($admin_num != 0){
