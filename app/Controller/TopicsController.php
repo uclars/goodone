@@ -513,6 +513,13 @@ exit;
 				$newtagcontents = $this->data;
 				if(empty($newtagcontents["Topic_Tag"])){
 					$newtagcontents["Topic_Tag"]=$this->Tag->findCategory($newtagcontents["Topic_Category"]);
+
+echo "<PRE>";
+var_dump($newtagcontents["Topic_Tag"]);
+echo "</PRE>";
+exit;
+
+
 				}
 
 				$this->_update_tag($orgcontents,$orgdatacontents,$newtagcontents,$topicid,$me);
