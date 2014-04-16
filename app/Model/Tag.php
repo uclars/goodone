@@ -34,9 +34,7 @@ class Tag extends AppModel
 	}
 
 	public function findCategory($catnum){
-		$catname_query = "Select name from Tags Where id=".$catnum.";";
-echo  $catname_query;
-exit;
+		$catname_query = "Select name from tags Where id=".$catnum.";";
                 return $this->query($catname_query);
 	}
 }
