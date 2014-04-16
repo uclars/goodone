@@ -512,7 +512,7 @@ exit;
 				//if there are no tag value, put category number
 				$newtagcontents = $this->data;
 				if(empty($newtagcontents["Topic_Tag"])){
-					$newtagcontents["Topic_Tag"]=$newtagcontents["Topic_Category"];
+					$newtagcontents["Topic_Tag"]=$this->Tag->findCategory($newtagcontents["Topic_Category"]);
 				}
 
 				$this->_update_tag($orgcontents,$orgdatacontents,$newtagcontents,$topicid,$me);

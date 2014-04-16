@@ -32,5 +32,14 @@ class Tag extends AppModel
 			)
 		));
 	}
+
+	public function findCategory($catnum){
+		return $this->find('all', array(
+			'conditions' => array('Tag.id' => $catnum),
+			'contain' => array(
+				'Tag.id'
+			)
+		));
+	}
 }
 ?>
