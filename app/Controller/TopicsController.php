@@ -765,6 +765,15 @@ exit;
 
 
 	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
+
+echo "<PRE>";
+var_dump($orgcontents);
+var_dump($orgdatacontents);
+echo "</PRE>";
+exit;
+
+
+
 		//Compare the old tag array and new tag array, and if tags are modified, update the DB
 		if(!empty($orgcontents)){
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
