@@ -508,7 +508,7 @@ exit;
 			
 				//save the first tag(category) into DB
 				$orgdatacontents=$orgcontents=$newtagcontents;
-				$newtagcontents = $this->data;
+				$newtagcontents = $this->data["Topic_Tag"];
 				//if there are no tag value, put category number
 				if(empty($newtagcontents)){
 					$this->data["Topic_Tag"]=$this->data["Topic_Category"];
