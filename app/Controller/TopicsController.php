@@ -765,19 +765,12 @@ exit;
 
 
 	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
-
-echo "<PRE>";
-var_dump($datacontents);
-echo "</PRE>";
-exit;
-
-
-
 		//Compare the old tag array and new tag array, and if tags are modified, update the DB
 		if(!empty($orgcontents)){
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
 		}else{
-			$orgtagarray = array("");
+			$categ_num=$datacontents["Topic_Category"];
+			$orgtagarray = array($categ_num);
 		}
 		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
 		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
