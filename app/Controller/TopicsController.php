@@ -507,7 +507,12 @@ exit;
 
 			
 				//save the first tag(category) into DB
-				$orgdatacontents=$orgcontents;
+				$orgdatacontents=$orgcontents=$newtagcontents;
+				$newtagcontents = $this->data;
+				//if there are no tag value, put category number
+				if(empty($newtagcontents)){
+					$this->data["Topic_Tag"]=$this->data["Topic_Category"];
+				}
 				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 
@@ -769,8 +774,7 @@ exit;
 		if(!empty($orgcontents)){
 			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
 		}else{
-			$categ_num=$datacontents["Topic_Category"];
-			$orgtagarray = array($categ_num);
+			$orgtagarray = array("");
 		}
 		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
 		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
