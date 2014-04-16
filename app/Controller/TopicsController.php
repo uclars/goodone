@@ -767,8 +767,7 @@ exit;
 	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
 
 echo "<PRE>";
-var_dump($orgcontents);
-var_dump($orgdatacontents);
+var_dump($datacontents);
 echo "</PRE>";
 exit;
 
