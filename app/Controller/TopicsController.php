@@ -507,20 +507,21 @@ exit;
 
 			
 				//save the first tag(category) into DB
-				$orgdatacontents=$orgcontents=$newtagcontents;
-				$newtagcontents = $this->data["Topic_Tag"];
+				$orgdatacontents=$orgcontents;
+
+				$newtagcontents = $this->data;
 				//if there are no tag value, put category number
-				if(empty($newtagcontents)){
-					$this->data["Topic_Tag"]=$this->data["Topic_Category"];
+				if(empty($newtagcontents["Topic_Tag"])){
+					$newtagcontents["Topic_Tag"]=$newtagcontents["Topic_Category"];
 				}
 
 echo "<PRE>";
-var_dump($this->data);
+var_dump($newtagcontents);
 echo "</PRE>";
 exit;
 
-				$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
-
+				$this->_update_tag($orgcontents,$orgdatacontents,$newtagcontents,$topicid,$me);
+				//$this->_update_tag($orgcontents,$orgdatacontents,$this->data,$topicid,$me);
 
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
