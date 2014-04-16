@@ -513,7 +513,7 @@ exit;
 				$newtagcontents = $this->data;
 				if(empty($newtagcontents["Topic_Tag"])){
 					$newtagcontents_array=$this->Tag->findCategory($newtagcontents["Topic_Category"]);
-					$newtagcontents["Topic_Tag"]=$newtagcontents_array[0]["tags"]["name"]
+					$newtagcontents["Topic_Tag"]=$newtagcontents_array[0]["tags"]["name"];
 
 echo "<PRE>";
 var_dump($newtagcontents["Topic_Tag"]);
