@@ -189,11 +189,12 @@ echo "</PRE>";
 			//update. get new related list
 			$related_topic_new_array = $this->TagsTopic->update_newrelatedtopics($topicid);
 
+/*
 echo "<PRE>";
 var_dump($related_topic_new_array);
 var_dump($related_topic_array);
 echo "</PRE>";
-
+*/
 			
 		}else{
 			//no update. return current list
