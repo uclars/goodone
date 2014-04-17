@@ -1,6 +1,7 @@
 <?php
 class Relatedtopic extends AppModel {
 	public $name = 'Relatedtopic';
+	 public $hasMany = array('Topic');
 
 	public function update_newrelatedtopics($topicid,$new_topci_array,$isnew){
 		if(empty($isnew)){
