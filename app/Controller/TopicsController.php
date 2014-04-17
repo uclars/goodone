@@ -179,7 +179,7 @@ echo "</PRE>";
 		$this->TagsTopic->get_newrelatedtopics($topicid);
 
 $today = date("Y-m-d")." 00:00:00";
-if($today > $last_update_related){
+if($today < $last_update_related){
 echo "<PRE>";
 var_dump($last_update_related);
 echo "</PRE>";
