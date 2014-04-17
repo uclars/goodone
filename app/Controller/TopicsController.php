@@ -174,7 +174,11 @@ echo "</PRE>";
 		$last_update_related = $last_update_related_base = $related_topic_array = $related_topic_new_array = "";
 		//get existing related topic table and last update
 		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
-		$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
+		if(empty($related_topic_array)){
+			$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
+		}else{
+			$last_update_related_base = $this->TagsTopic->update_newrelatedtopics($topicid);
+		}
 
 		////if the last relatedtopic is within a week, no update////
 		//change date to the unix time in order to compare

@@ -47,10 +47,12 @@ class TagsTopic extends AppModel
 		$new_rank = $this->query($relatedtopics_query);
 
 
+/*
 echo "<PRE>";
-echo $relatedtopics_query;
 var_dump($new_rank);
 echo "</PRE>";
+*/
+
 	}
 }
 ?>
