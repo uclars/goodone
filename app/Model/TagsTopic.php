@@ -46,7 +46,7 @@ class TagsTopic extends AppModel
 		$relatedtopics_query="SELECT topic_id,count(*) AS rank FROM tags_topics WHERE tag_id IN (select tag_id from tags_topics where topic_id=".$topic_id.") AND topic_id!=".$topic_id." GROUP BY topic_id ORDER BY rank desc";
 		$new_rank_tmp = $this->query($relatedtopics_query);
 
-		foreach($new_rank_tmp as $ranking){
+		foreach($new_rank_tmp['tags_topics'] as $ranking){
 var_dump($ranking);
 echo "<BR>";
 		}
