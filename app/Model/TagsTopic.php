@@ -48,6 +48,7 @@ class TagsTopic extends AppModel
 
 
 echo "<PRE>";
+echo $relatedtopics_query;
 var_dump($new_rank);
 echo "</PRE>";
 	}
