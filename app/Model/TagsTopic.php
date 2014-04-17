@@ -48,18 +48,17 @@ class TagsTopic extends AppModel
 
 		$i=0;
 		foreach($new_rank_tmp as $ranking){
+			//only 10 elements
 			if($i<10){
-var_dump($ranking['tags_topics']['topic_id']);
-echo "<BR>";
+				array_push($new_rank,$ranking['tags_topics']['topic_id']);
 				$i++;
 			}else{
-echo "HHH";
 				break;
 			}
 		}
 
 echo "<PRE>";
-var_dump($new_rank_tmp);
+var_dump($new_rank);
 echo "</PRE>";
 
 
