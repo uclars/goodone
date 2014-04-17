@@ -129,6 +129,7 @@ echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" he
 
 		foreach($ranking as $rankingtitle){
 			
+var_dump($rankingtitle);
 		}
 
 	echo "</div>";
