@@ -188,7 +188,7 @@ var_dump($last_update_related);
 echo "</PRE>";
 }else{
 
-echo ($today < $last_update_related);
+echo "adfaf";
 
 }
 
