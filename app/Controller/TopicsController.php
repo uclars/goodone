@@ -177,7 +177,7 @@ echo "</PRE>";
 		if(!empty($related_topic_array)){
 			$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
 		}else{
-			$last_update_related_base = $this->TagsTopic->update_newrelatedtopics($topicid);
+			$last_update_related_base = "1970/01/01";
 		}
 
 		////if the last relatedtopic is within a week, no update////
