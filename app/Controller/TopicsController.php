@@ -106,12 +106,10 @@ class TopicsController extends AppController {
 
 
 
-/*
 echo "<PRE>";
 var_dump($topic_array_pic);
 //var_dump($topic_array);
 echo "</PRE>";
-*/
 
 
 
