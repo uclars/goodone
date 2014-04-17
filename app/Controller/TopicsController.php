@@ -188,6 +188,11 @@ echo "</PRE>";
 		if($oneweekbefore > $last_update_related){
 			//update. get new related list
 			$related_topic_new_array = $this->TagsTopic->update_newrelatedtopics($topicid);
+
+echo "<PRE>";
+var_dump($related_topic_new_array);
+echo "</PRE>";
+
 			
 		}else{
 			//no update. return current list
