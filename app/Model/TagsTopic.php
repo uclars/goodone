@@ -48,7 +48,7 @@ class TagsTopic extends AppModel
 
 		foreach($new_rank_tmp as $ranking){
 var_dump($ranking);
-excho "<BR>";
+echo "<BR>";
 		}
 
 echo "<PRE>";
