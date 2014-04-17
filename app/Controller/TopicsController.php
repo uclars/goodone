@@ -119,7 +119,7 @@ echo "</PRE>";
 			$this->set('tag_info', $tag_info);
 
 			//get related topics
-			$this->_get_relatedtopics($topic_array[0]['Topic']['id');
+			$this->_get_relatedtopics($topic_array[0]['Topic']['id']);
 
 			//size of content items
 			$item_num = count($topic_array[0]['Comment']);
