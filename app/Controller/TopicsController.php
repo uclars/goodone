@@ -187,7 +187,7 @@ echo "</PRE>";
 			
 		}else{
 			//no update. return current list
-			return $related_topic_array
+			return $related_topic_array;
 		}
 
 
