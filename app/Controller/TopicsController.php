@@ -119,11 +119,10 @@ echo "</PRE>";
 			$this->set('tag_info', $tag_info);
 
 			//get related topics
-			var_dump($this->TagsTopic->get_relatedtopics($topic_array[0]['Topic']['id']));
+			$this->_get_relatedtopics($topic_array[0]['Topic']['id');
 
-			//size of items
+			//size of content items
 			$item_num = count($topic_array[0]['Comment']);
-
 			//first contents
 			foreach($topic_array as $each_topics){
 				//Each Title
@@ -149,7 +148,6 @@ echo "</PRE>";
 				}
 			}
 
-
 			//combine the three arrays into one array
 			$show_array=array();
 			for($l = 0; $l < $item_num; $l++){
@@ -172,6 +170,15 @@ echo "</PRE>";
 		return $tag_name_array;
 	}
 
+	function _get_relatedtopics($topicid){
+		$last_update_related = $this->Relatedtopic->find('all',array('conditions' => array('topic_id' => $topicid)));
+		$this->TagsTopic->get_newrelatedtopics($topicid);
+
+
+echo "<PRE>";
+var_dump($last_update_related);
+echo "</PRE>";
+	}
 
 /////////////////////////////////////////////////////////////
 /////////  Create Topics ////////////////////////////////////
