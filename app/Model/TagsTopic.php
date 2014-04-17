@@ -41,7 +41,7 @@ class TagsTopic extends AppModel
 	}
 
 	public function update_newrelatedtopics($topic_id){
-		$new_rank=$new_rank_temp="";
+		$new_rank=$new_rank_tmp="";
 
 		$relatedtopics_query="SELECT topic_id,count(*) AS rank FROM tags_topics WHERE tag_id IN (select tag_id from tags_topics where topic_id=".$topic_id.") AND topic_id!=".$topic_id." GROUP BY topic_id ORDER BY rank desc";
 		$new_rank_tmp = $this->query($relatedtopics_query);
@@ -51,7 +51,7 @@ class TagsTopic extends AppModel
 		}
 
 echo "<PRE>";
-var_dump($new_rank_temp);
+var_dump($new_rank_tmp);
 echo "</PRE>";
 
 
