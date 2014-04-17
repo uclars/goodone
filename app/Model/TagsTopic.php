@@ -47,7 +47,7 @@ class TagsTopic extends AppModel
 		$new_rank_tmp = $this->query($relatedtopics_query);
 
 		foreach($new_rank_tmp as $ranking){
-
+echo $ranking."<BR>";
 		}
 
 echo "<PRE>";
