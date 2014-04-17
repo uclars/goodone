@@ -48,9 +48,11 @@ class TagsTopic extends AppModel
 
 
 		for($i=0;$i<10;$i++){
-
-echo $new_rank_tmp[$i]['tags_topics']['topic_id']."<BR>";
-
+			if(empty($new_rank_tmp[$i]['tags_topics']['topic_id'])){
+				$new_rank[]="";
+			}else{
+				$new_rank[]=$new_rank_tmp[$i]['tags_topics']['topic_id'];
+			}
 		}
 
 /*
