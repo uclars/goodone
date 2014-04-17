@@ -188,7 +188,7 @@ echo "</PRE>";
 		if($oneweekbefore > $last_update_related){
 			//update. get new related list
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
-			$this->Relatedtopic->update_newrelatedtopics($related_topic_new_array);
+			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array);
 
 /*
 echo "<PRE>";
