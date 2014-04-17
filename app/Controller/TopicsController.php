@@ -120,9 +120,7 @@ echo "</PRE>";
 
 			//get related topics
 			$rtopic = $this->_get_relatedtopics($topic_array[0]['Topic']['id']);
-echo "<PRE>";
-var_dump($rtopic);
-echo "</PRE>";
+			$this->set('ranking',$rtopic);
 
 			//size of content items
 			$item_num = count($topic_array[0]['Comment']);
@@ -195,19 +193,10 @@ echo "</PRE>";
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
 			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 			return $related_topic_array;
-/*
-echo "<PRE>";
-var_dump($related_topic_new_array);
-var_dump($related_topic_array);
-echo "</PRE>";
-*/			
 		}else{
 			//no update. return current list
 			return $related_topic_array;
 		}
-
-
-
 	}
 
 /////////////////////////////////////////////////////////////

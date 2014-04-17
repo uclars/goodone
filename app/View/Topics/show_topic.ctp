@@ -126,6 +126,7 @@ echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" he
 //echo "<a href=\"http://www.kqzyfj.com/click-6439315-11136360\" target=\"_blank\">";
 //echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
 		echo "</div>";
+echo $ranking;
 
 	echo "</div>";
 
