@@ -171,16 +171,17 @@ echo "</PRE>";
 	}
 
 	function _get_relatedtopics($topicid){
-		$last_update_related = $related_topic_array = "";
+		$last_update_related = $related_topic_array = $today = "";
 		//get existing related topic table and last update
 		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 		$last_update_related = $related_topic_array[0]['Relatedtopic']['modified'];
 
 		$this->TagsTopic->get_newrelatedtopics($topicid);
 
-$today = date("Y-m-d")." 00:00:00";
+$today = gmdate("Y/m/d",strtotime("-38 week"));
 if($today < $last_update_related){
 echo "<PRE>";
+var_dump($today);
 var_dump($last_update_related);
 echo "</PRE>";
 }
