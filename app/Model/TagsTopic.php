@@ -55,6 +55,10 @@ class TagsTopic extends AppModel
 			}
 		}
 
+echo "<PRE>";
+var_dump($new_rank);
+echo "</PRE>";
+
 /*
 		foreach($new_rank_tmp as $ranking){
 			//only 10 elements
