@@ -51,7 +51,7 @@ class TagsTopic extends AppModel
 		}
 
 echo "<PRE>";
-var_dump($new_rank);
+var_dump($new_rank_temp);
 echo "</PRE>";
 
 
