@@ -191,6 +191,7 @@ echo "</PRE>";
 
 echo "<PRE>";
 var_dump($related_topic_new_array);
+var_dump($related_topic_array);
 echo "</PRE>";
 
 			
