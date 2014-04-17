@@ -171,7 +171,11 @@ echo "</PRE>";
 	}
 
 	function _get_relatedtopics($topicid){
-		$last_update_related = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+		$last_update_related = $related_topic_array = "";
+		//get existing related topic table and last update
+		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+		$last_update_related = $related_topic_array[0]['Relatedtopic']['modified'];
+
 		$this->TagsTopic->get_newrelatedtopics($topicid);
 
 
