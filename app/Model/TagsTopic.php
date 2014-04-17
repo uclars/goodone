@@ -55,21 +55,6 @@ class TagsTopic extends AppModel
 			}
 		}
 
-echo "<PRE>";
-var_dump($new_rank);
-echo "</PRE>";
-
-/*
-		foreach($new_rank_tmp as $ranking){
-			//only 10 elements
-			if($i<10){
-				$new_rank[]=$ranking['tags_topics']['topic_id'];
-				$i++;
-			}else{
-				break;
-			}
-		}
-*/
 		return $new_rank;
 	}
 }
