@@ -119,7 +119,10 @@ echo "</PRE>";
 			$this->set('tag_info', $tag_info);
 
 			//get related topics
-			$this->_get_relatedtopics($topic_array[0]['Topic']['id']);
+			$rtopic = $this->_get_relatedtopics($topic_array[0]['Topic']['id']);
+echo "<PRE>";
+var_dump($rtopic);
+echo "</PRE>";
 
 			//size of content items
 			$item_num = count($topic_array[0]['Comment']);
@@ -190,7 +193,8 @@ echo "</PRE>";
 			//update. get new related list
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
-
+			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+			return $related_topic_array;
 /*
 echo "<PRE>";
 var_dump($related_topic_new_array);
