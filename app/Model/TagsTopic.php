@@ -50,6 +50,7 @@ class TagsTopic extends AppModel
 		foreach($new_rank_tmp as $ranking){
 			//only 10 elements
 			if($i<10){
+echo $ranking['tags_topics']['topic_id']."<BR>";
 				$new_rank[$i]=$ranking['tags_topics']['topic_id'];
 				$i++;
 			}else{
