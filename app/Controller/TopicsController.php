@@ -171,24 +171,26 @@ echo "</PRE>";
 	}
 
 	function _get_relatedtopics($topicid){
-		$last_update_related = $last_update_related_base = $related_topic_array = $today = "";
+		$last_update_related = $last_update_related_base = $related_topic_array = $related_topic_new_array = "";
 		//get existing related topic table and last update
 		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 		$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
 
-		$this->TagsTopic->get_newrelatedtopics($topicid);
+		////if the last relatedtopic is within a week, no update////
+		//change date to the unix time in order to compare
+		$oneweekbefore = strtotime('-1 week');
+		$last_update_related = strtotime($last_update_related_base);
 
-$oneweekbefore = strtotime('-1 week');
-$last_update_related = strtotime($last_update_related_base);
+		if($oneweekbefore > $last_update_related){
+			//update. get new related list
+			$related_topic_new_array = $this->TagsTopic->update_newrelatedtopics($topicid);
+			
+		}else{
+			//no update. return current list
+			return $related_topic_array
+		}
 
-echo $oneweekbefore;
-echo "<BR> $last_update_related";
 
-if($oneweekbefore > $last_update_related){
-echo "<PRE>";
-var_dump($last_update_related);
-echo "</PRE>";
-}
 
 	}
 
