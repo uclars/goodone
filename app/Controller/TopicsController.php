@@ -105,18 +105,21 @@ class TopicsController extends AppController {
 
 
 
-
+/*
 echo "<PRE>";
 //var_dump($topic_array_pic);
 var_dump($topic_array);
 echo "</PRE>";
-
+*/
 
 
 
 			//get Tags
 			$tag_info = $this->_get_tags($topic_array[0]['Tag']);
 			$this->set('tag_info', $tag_info);
+
+			//get related topics
+			var_dump($this->TagsTopic->get_relatedtopics($topic_array[0]['Topic']['id']));
 
 			//size of items
 			$item_num = count($topic_array[0]['Comment']);
