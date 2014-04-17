@@ -179,6 +179,8 @@ echo "</PRE>";
 		$this->TagsTopic->get_newrelatedtopics($topicid);
 
 $today = gmdate("Y/m/d",strtotime("-38 week"));
+echo $today;
+echo "<BR>$last_update_related";
 if($today < $last_update_related){
 echo "<PRE>";
 var_dump($today);
