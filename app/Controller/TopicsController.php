@@ -210,7 +210,7 @@ echo "</PRE>";
 			//get title and id number
 			foreach($related_topic_array[0]['Relatedtopic'] as $related_item){
 				for($j=0;$j<10;$j++){
-				echo $related_item[$j]."<BR>";
+				echo $related_item."<BR>";
 				}
 			}
 			return $related_topic_array;
