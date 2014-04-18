@@ -211,6 +211,13 @@ echo "</PRE>";
 					//get title from item number
 					$topic_find_query = "select name from topics where id=".$rtopic_item.";";
 					$topictitle = $this->Topic->query($topic_find_query);
+
+
+echo "<PRE>";
+var_dump($topictitle);
+echo "</PRE>";
+
+
 					$ranking_array[]=array($rtopic_item=>$topictitle[0]['topics']['name']);
 				}
 			}
