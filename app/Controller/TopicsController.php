@@ -199,6 +199,10 @@ echo "</PRE>";
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
 			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 
+			foreach($related_topic_array as $related_item){
+				var_dump($related_item);
+			}
+
 			return $related_topic_array;
 		}else{
 			//no update. return current list
