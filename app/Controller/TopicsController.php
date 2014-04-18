@@ -192,6 +192,11 @@ echo "</PRE>";
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
 			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+
+echo "<PRE>";
+var_dump($related_topic_array);
+echo "</PRE>";
+
 			return $related_topic_array;
 		}else{
 			//no update. return current list
