@@ -208,8 +208,11 @@ echo "</PRE>";
 		}else{
 			///no update. return current list///
 			//get title and id number
+echo "<PRE>";
+var_dump($related_topic_array[0]['Relatedtopic']);
+echo "</PRE>";
 				for($j=0;$j<10;$j++){
-				echo $related_topic_array[0]['Relatedtopic'][$j]."<BR>";
+	//			echo $related_topic_array[0]['Relatedtopic'][$j]."<BR>";
 				}
 			return $related_topic_array;
 		}
