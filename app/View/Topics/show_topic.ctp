@@ -127,12 +127,14 @@ echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" he
 //echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
 		echo "</div>";
 
-		foreach($ranking as $key=>$rankingtitle){
+		foreach($ranking as $ranking_array){
+		foreach($ranking_array as $key=>$rankingtitle){
 var_dump($rankingtitle);
 var_dump($key);
 			echo "<div>";
 			$this->Html->link($rankingtitle[$key],array('Controller' => 'Topics', 'Action' => 'show_topic', 'topicid' => $key));
 			echo "</div>";
+		}
 		}
 
 	echo "</div>";

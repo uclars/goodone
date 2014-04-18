@@ -204,7 +204,7 @@ echo "</PRE>";
 			//get title only from ranking item of array
 			if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
 				//get title from item number
-				$topic_find_query = "select name from topics where id=".$rtopic_item.";";
+				$topic_find_query = "select name from topics where id=".$rtopic_item." AND hide=0 AND deleted=0;";
 				$topictitle = $this->Topic->query($topic_find_query);
 
 				if(!empty($topictitle)){
