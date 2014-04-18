@@ -127,10 +127,13 @@ foreach($show_contents as $contents_array){
 //echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
 		echo "</div>";
 
+		echo "<h3>Related Topics</h3>";
 		foreach($ranking as $ranking_array){
 			foreach($ranking_array as $key=>$rankingtitle){
-				echo "<div class=\"alert alert-dismissable alert-success\">";
-					echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
+				echo "<div class=\"list-group\">";
+					echo "<a href='/Topics/show_topic/topicid:$key' class='list-group-item'>";
+						echo "<p class='list-group-item-text'>$rankingtitle</p>";
+					echo "</a>";
 				echo "</div>";
 			}
 		}
