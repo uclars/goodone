@@ -128,7 +128,8 @@ echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" he
 		echo "</div>";
 
 		foreach($ranking as $key=>$rankingtitle){
-var_dump($rankingtitle[$key]);
+var_dump($rankingtitle);
+var_dump($key);
 			echo "<div>";
 			$this->Html->link($rankingtitle[$key],array('Controller' => 'Topics', 'Action' => 'show_topic', 'topicid' => $key));
 			echo "</div>";
