@@ -193,7 +193,6 @@ echo "</PRE>";
 		$oneweekbefore = strtotime('-1 week');
 		$last_update_related = strtotime($last_update_related_base);
 
-		$ranking_array=();
 		if($oneweekbefore > $last_update_related){
 			///update. get new related list///
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
