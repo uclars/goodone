@@ -121,20 +121,18 @@ foreach($show_contents as $contents_array){
 	echo "<div class='span2'>";
 		 //"put right column contents here!!";
 		echo "<div style='text-aligh:center;'>";
-echo "<a href=\"http://www.jdoqocy.com/click-6439315-11136322\" target=\"_blank\">";
-echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" height=\"600\" alt=\"InterNations.org\" border=\"0\"/></a>";
+			echo "<a href=\"http://www.jdoqocy.com/click-6439315-11136322\" target=\"_blank\">";
+			echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" height=\"600\" alt=\"InterNations.org\" border=\"0\"/></a>";
 //echo "<a href=\"http://www.kqzyfj.com/click-6439315-11136360\" target=\"_blank\">";
 //echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
 		echo "</div>";
 
 		foreach($ranking as $ranking_array){
-		foreach($ranking_array as $key=>$rankingtitle){
-var_dump($rankingtitle);
-var_dump($key);
-			echo "<div>";
-			echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
-			echo "</div>";
-		}
+			foreach($ranking_array as $key=>$rankingtitle){
+				echo "<div>";
+				echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
+				echo "</div>";
+			}
 		}
 
 	echo "</div>";
