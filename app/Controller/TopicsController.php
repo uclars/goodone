@@ -193,31 +193,28 @@ echo "</PRE>";
 		$oneweekbefore = strtotime('-1 week');
 		$last_update_related = strtotime($last_update_related_base);
 
+		$ranking_array=();
 		if($oneweekbefore > $last_update_related){
 			///update. get new related list///
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
 			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 
-			//get title and id number
-			foreach($related_topic_array as $related_item){
-				var_dump($related_item);
-			}
-
-			return $related_topic_array;
 		}else{
 			///no update. return current list///
+		}
+
 			//get title and id number
-echo "<PRE>";
-var_dump($related_topic_array[0]['Relatedtopic']);
-echo "</PRE>";
+		$ranking_array=$item_pair=array();
 			foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
+				//get title only from ranking item of array
 				if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
-				echo $rtopic_item."<BR>";
+					//get title from item number
+					$topictitle = $this->Topic->find('all',array('conditions' => array('id' => $rtopic_item)));
+					$ranking_array[]=$item_pair($rtopic_item=>$topictitle);
 				}
 			}
-			return $related_topic_array;
-		}
+			return $ranking_array;
 	}
 
 /////////////////////////////////////////////////////////////
