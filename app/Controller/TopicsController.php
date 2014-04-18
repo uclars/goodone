@@ -123,11 +123,6 @@ echo "</PRE>";
 			$this->set('ranking',$rtopic);
 
 
-echo "<PRE>";
-var_dump($rtopic);
-echo "</PRE>";
-
-
 			//size of content items
 			$item_num = count($topic_array[0]['Comment']);
 			//first contents
