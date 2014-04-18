@@ -211,9 +211,11 @@ echo "</PRE>";
 echo "<PRE>";
 var_dump($related_topic_array[0]['Relatedtopic']);
 echo "</PRE>";
-				for($j=0;$j<10;$j++){
-	//			echo $related_topic_array[0]['Relatedtopic'][$j]."<BR>";
+			foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
+				if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
+				echo $rtopic_item."<BR>";
 				}
+			}
 			return $related_topic_array;
 		}
 	}
