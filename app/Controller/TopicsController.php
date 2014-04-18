@@ -209,7 +209,7 @@ echo "</PRE>";
 			///no update. return current list///
 			//get title and id number
 				for($j=0;$j<10;$j++){
-				echo $related_topic_array[0]['Relatedtopics'][$j]."<BR>";
+				echo $related_topic_array[0]['Relatedtopic'][$j]."<BR>";
 				}
 			return $related_topic_array;
 		}
