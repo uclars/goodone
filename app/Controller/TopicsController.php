@@ -208,11 +208,9 @@ echo "</PRE>";
 		}else{
 			///no update. return current list///
 			//get title and id number
-			foreach($related_topic_array[0]['Relatedtopic'] as $related_item){
 				for($j=0;$j<10;$j++){
-				echo $related_item."<BR>";
+				echo $related_topic_array[$j]."<BR>";
 				}
-			}
 			return $related_topic_array;
 		}
 	}
