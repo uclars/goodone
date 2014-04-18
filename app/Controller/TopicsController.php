@@ -205,23 +205,20 @@ echo "</PRE>";
 
 			//get title and id number
 		$ranking_array=$item_pair=array();
-			foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
-				//get title only from ranking item of array
-				if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
-					//get title from item number
-					$topic_find_query = "select name from topics where id=".$rtopic_item.";";
-					$topictitle = $this->Topic->query($topic_find_query);
+		foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
+			//get title only from ranking item of array
+			if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
+				//get title from item number
+				$topic_find_query = "select name from topics where id=".$rtopic_item.";";
+				$topictitle = $this->Topic->query($topic_find_query);
 
-
-echo "<PRE>";
-var_dump($topictitle);
-echo "</PRE>";
-
-
+				if(!empty($topictitle)){
 					$ranking_array[]=array($rtopic_item=>$topictitle[0]['topics']['name']);
 				}
+
 			}
-			return $ranking_array;
+		}
+		return $ranking_array;
 	}
 
 /////////////////////////////////////////////////////////////
