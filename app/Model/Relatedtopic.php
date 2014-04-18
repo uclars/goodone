@@ -4,7 +4,7 @@ class Relatedtopic extends AppModel {
 
 	public function update_newrelatedtopics($topicid,$new_topci_array,$isnew){
 
-echo "J ".$new." <BR>";
+echo "J ".$isnew." <BR>";
 
 		if(empty($isnew)){
 			//if there are a record, update new ranking
