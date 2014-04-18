@@ -206,7 +206,7 @@ echo "</PRE>";
 			return $related_topic_array;
 		}else{
 			//no update. return current list
-			foreach($related_topic_array as $related_item){
+			foreach($related_topic_array['Relatedtopic'] as $related_item){
 				var_dump($related_item);
 			}
 			return $related_topic_array;
