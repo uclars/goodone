@@ -130,10 +130,8 @@ foreach($show_contents as $contents_array){
 		echo "<h2>Related Topics</h2>";
 		foreach($ranking as $ranking_array){
 			foreach($ranking_array as $key=>$rankingtitle){
-				echo "<div class=\"panel panel-default\">";
-					echo "<div class=\"panel-body\">";
-						echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
-					echo "</div>";
+				echo "<div class=\"well well-sm\">";
+					echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
 				echo "</div>";
 			}
 		}
