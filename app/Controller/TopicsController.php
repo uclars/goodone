@@ -210,6 +210,9 @@ echo "</PRE>";
 				if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
 					//get title from item number
 					$topictitle = $this->Topic->find('all',array('conditions' => array('Topic.id' => $rtopic_item)));
+echo "<PRE>";
+var_dump($topictitle);
+echo "</PRE>";
 					$ranking_array[]=array($rtopic_item=>$topictitle);
 				}
 			}
