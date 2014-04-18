@@ -258,6 +258,14 @@ div#content #topictitle
 }
 
 
+/* Related Topic */
+.relatedtopic
+{
+        background: #fafafa;
+        float:center;
+        border-style: hidden hidden solid hidden;
+}
+
 /* Tutorial */
 div#tutorial0
 {
