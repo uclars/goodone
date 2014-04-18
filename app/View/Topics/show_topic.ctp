@@ -129,8 +129,8 @@ foreach($show_contents as $contents_array){
 
 		foreach($ranking as $ranking_array){
 			foreach($ranking_array as $key=>$rankingtitle){
-				echo "<div>";
-				echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
+				echo "<div class=\"alert alert-dismissable alert-success\">";
+					echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
 				echo "</div>";
 			}
 		}
