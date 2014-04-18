@@ -194,20 +194,24 @@ echo "</PRE>";
 		$last_update_related = strtotime($last_update_related_base);
 
 		if($oneweekbefore > $last_update_related){
-			//update. get new related list
+			///update. get new related list///
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
 			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
 
+			//get title and id number
 			foreach($related_topic_array as $related_item){
 				var_dump($related_item);
 			}
 
 			return $related_topic_array;
 		}else{
-			//no update. return current list
+			///no update. return current list///
+			//get title and id number
 			foreach($related_topic_array[0]['Relatedtopic'] as $related_item){
-				var_dump($related_item);
+				for($j=0;$j<10;$j++){
+				var_dump($related_item[$j]);
+				}
 			}
 			return $related_topic_array;
 		}
