@@ -189,6 +189,7 @@ echo "</PRE>";
 		$last_update_related = strtotime($last_update_related_base);
 
 		if($oneweekbefore > $last_update_related){
+echo "HHH<BR>";
 			///update. get new related list///
 			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
 			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
