@@ -1,16 +1,6 @@
 <?php
 class Relatedtopic extends AppModel {
 	public $name = 'Relatedtopic';
-	public $belongsTo = array(
-                'Topic' => array(
-                        'className' => 'Topic',
-                        'foreignKey' => 'topicid',
-                        'conditions' => '',
-                        'fields' => 'Topic.name',
-                        'order' => '',
-                        'type' => 'INNER'
-                )
-        );
 
 	public function update_newrelatedtopics($topicid,$new_topci_array,$isnew){
 		if(empty($isnew)){
