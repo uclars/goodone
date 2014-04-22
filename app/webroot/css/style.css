@@ -263,8 +263,8 @@ div#content #topictitle
 {
         background: #fafafa;
         float:center;
-        border-style: hidden hidden solid hidden;
-	margin:40 40 40 40;
+        border-style: hidden hidden dashed hidden;
+	margin:10px 0px 0px 0px;
 }
 
 /* Tutorial */
