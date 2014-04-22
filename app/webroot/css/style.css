@@ -264,7 +264,7 @@ div#content #topictitle
         background: #fafafa;
         float:center;
         border-style: hidden hidden dashed hidden;
-	border-style: solid; border-width: thin;
+	border-width: thin;
 	margin:10px 0px 0px 0px;
 }
 
