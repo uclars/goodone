@@ -94,7 +94,7 @@ G                                <span class="icon-bar"></span>
 ?>
 	<footer class="footer">
 		<div class="container">
-			<p>&copy; 2013 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
+			<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
 		</div>
 	</footer>
 </div>
