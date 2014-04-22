@@ -85,7 +85,7 @@
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
 				<p>Thanks for coming to my private project site.</p>
-				<p>Good one provides only bare essentials someone has already searched and selected.</p>
+				<!--<p>Good one provides only bare essentials someone has already searched and selected.</p>-->
 				<p>I've started this project because I think what I researched can be helpful to someone. </p>
 			</div>
 		</div>
