@@ -83,7 +83,7 @@
 				<!--<h1>Most important contents only</h1>-->
 				<!--<h1>Share what you reserched</h1>-->
 				<h1>No More Unnecessary Search!</h1>
-				<h1>Because Someone Already Done It Before</h1>
+				<h1>Someone Already Done It Before</h1>
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
 				<p>Thanks for coming to my private project site.</p>
