@@ -142,7 +142,7 @@ echo "<BR>";
 echo "<div class='span12'>";
 //LIKE Button
 echo $this->here;
-echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".$this->here."' target='_blank'> Share on Facebook </a>";
+echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".Router::url( $this->here, true )."' target='_blank'> Share on Facebook </a>";
 echo "</div>";
 
 
