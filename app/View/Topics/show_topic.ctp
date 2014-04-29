@@ -141,7 +141,8 @@ foreach($show_contents as $contents_array){
 	echo "<div class='span12'>";
 		//Share Button
 		//echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->image()."</a>";
-		echo "<a href='http://www.facebook.com/sharer.php?u='".urlencode(Router::url($this->here, true))."class='e-facebook_link_middle' target='_blank' onclick='var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(this.href,'sharer','toolbar=0,status=0,width=626,height=256,top='+sTop+',left='+sLeft);return false;'>Share On Facebook</a>";
+		$encoded_url=urlencode(Router::url($this->here, true));
+		echo "<a href='http://www.facebook.com/sharer.php?u='".$encoded_url."class='e-facebook_link_middle' target='_blank' onclick=\"var sTop = window.screen.height/2-(218); var sLeft = window.screen.width/2-(313);window.open(this.href,'sharer','toolbar=0,status=0,width=626,height=256,top='+sTop+',left='+sLeft);return false;\">Share On Facebook</a>";
 	echo "</div>";
 
 
