@@ -140,7 +140,7 @@ foreach($show_contents as $contents_array){
 
 echo "<BR>";
 //LIKE Button
-echo $this->Facebook->share();
+$this->Facebook->share();
 
 /*
 	// Tags
