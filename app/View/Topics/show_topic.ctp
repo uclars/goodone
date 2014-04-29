@@ -140,10 +140,10 @@ foreach($show_contents as $contents_array){
 
 	echo "<div class='span12'>";
 		//Share Button
-		echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->HTML->image('basic/shareonfacebook.jpg')."</a>";
+		echo "<div style='margin:50px 0 0 0;'>
+			echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->HTML->image('basic/shareonfacebook.jpg')."</a>";
+		echo "</div>";
 	echo "</div>";
-
-
 
 /*
 	// Tags
