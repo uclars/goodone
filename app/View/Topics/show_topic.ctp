@@ -141,7 +141,7 @@ foreach($show_contents as $contents_array){
 echo "<BR>";
 echo "<div class='span12'>";
 //LIKE Button
-echo $this->Facebook->share(array('layout'=>'link'));
+echo $this->Facebook->share(array('style'=>'link'));
 echo "</div>";
 
 
