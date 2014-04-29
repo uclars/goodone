@@ -141,7 +141,7 @@ foreach($show_contents as $contents_array){
 echo "<BR>";
 echo "<div class='span12'>";
 //LIKE Button
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" target="_blank">
+echo "<a href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com' target='_blank'>
  Share on Facebook
 </a>
 echo "</div>";
