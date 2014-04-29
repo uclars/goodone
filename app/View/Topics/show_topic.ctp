@@ -139,8 +139,12 @@ foreach($show_contents as $contents_array){
 	echo "</div>";
 
 echo "<BR>";
+echo "<div class='span12'>";
 //LIKE Button
 echo $this->Facebook->share();
+echo "</div>";
+
+
 
 /*
 	// Tags
