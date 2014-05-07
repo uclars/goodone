@@ -132,7 +132,6 @@ class ConnectComponent extends Component {
 		}
 		// set Auth to a convenience publiciable
 		$Auth = $this->Controller->Auth;
-<<<<<<< HEAD
 
 
 echo "<PRE>";
@@ -142,8 +141,6 @@ exit;
 
 
 
-=======
->>>>>>> b2f9e1cce3cef4587681ab9da63bae217e27020c
 		if (!$this->__initUserModel()) {
 			return false;
 		}
