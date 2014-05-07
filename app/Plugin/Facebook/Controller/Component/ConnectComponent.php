@@ -134,11 +134,12 @@ class ConnectComponent extends Component {
 		$Auth = $this->Controller->Auth;
 
 
+/* debug
 echo "<PRE>";
 var_dump($this->FB->api('/me'));
 echo "</PRE>";
 exit;
-
+*/
 
 
 		if (!$this->__initUserModel()) {
