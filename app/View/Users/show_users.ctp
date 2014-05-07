@@ -7,7 +7,7 @@ echo "<div class='row'>";
 	echo "<div class='span8'>";
 		echo "<div style='font-weight:bold; font-size:150%; margin-bottom:20px;'>Topics you created:</div>";
 		if(empty($topic_list)){
-			echo "<span style='margin-left:10px;'>no roundups yet</span>";
+			echo "<span style='margin-left:10px;'>No Topics Yet</span>";
 		}
 		else{
 			foreach($topic_list as $tlists){

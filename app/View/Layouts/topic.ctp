@@ -56,7 +56,7 @@ G                                <span class="icon-bar"></span>
                                         <li class="divider-vertical"></li>
 <?php
         if(empty($auth)){
-					echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
+					echo $this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'));
 	}
 	else{
 		//mypage url
@@ -68,7 +68,7 @@ G                                <span class="icon-bar"></span>
 		}else{
 			$myname = $auth['username'];
 		}
-					echo "<li><a href='/topics/create'>Create Roundup</a></li>";
+					echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 					echo "<li class='dropdown'>";
 						echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu'>";
@@ -94,7 +94,7 @@ G                                <span class="icon-bar"></span>
 ?>
 	<footer class="footer">
 		<div class="container">
-			<p>&copy; 2013 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
+			<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
 		</div>
 	</footer>
 </div>

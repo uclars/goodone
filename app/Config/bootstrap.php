@@ -96,7 +96,17 @@
  *		'persistent' => true, // [optional] set this to false for non-persistent connections
  *	));
  */
-Cache::config('default', array('engine' => 'File'));
+
+//Cache::config('default', array('engine' => 'File'));
+///////////////////////
+// add this for error Warning: SplFileInfo::openFile(/goodone/app/tmp/cache/persistent/myapp_cake_core_cake_dev_) and
+// Warning: SplFileInfo::openFile(/goodone/app/tmp/cache/persistent/myapp_cake_core_cake_console_) [splfileinfo.openfile]: failed to open stream: Permission denied in /goodone/lib/Cake/Cache/Engine/FileEngine.php
+Cache::config('default', array(
+    'engine' => 'File',
+    'mask' => 0666,
+));
+///////////////////////
+
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.

@@ -6,6 +6,14 @@ if(!empty($editing_contents)){
 	$ttitle = $topicitems[1];
 	$tcategory = $topicitems[2];
 	$tdescription = $topicitems[3];
+	$tuserid = $topicitems[4];
+	$tcheck = $topicitems[5];
+	$ttag_array = array();
+	$ttag_array = $topicitems[6];
+}else{
+	//New Topic
+	$tid = "";
+	$tuserid = "";
 }
 ?>
 <!--<section id="forms">-->
@@ -53,6 +61,56 @@ if(!empty($editing_contents)){
 				'escape' => false)
 			);
 		?>
+	</div>
+	<div class='span4'>
+	<?php
+		//show user id input only if the user is admin
+		if($admin_num == 0){
+			echo $this->form->hidden('hiddenuserid',array("name"=>"hiddenuserid","value"=>$userid));
+		}else{
+			if(!empty($tuserid)){
+				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$tuserid));
+			}else{
+				echo $this->form->input('User_Id',array("name"=>"hiddenuserid", "id"=>"userid","class"=>"inputtitle","value"=>$userid));
+                        }
+		}
+	?>
+	</div>
+	<div class='span8'>
+	<?php
+		if(!empty($ttag_array)){
+			$tags="";
+			$tags = implode(",",$ttag_array);
+			//show tag input only if the user is admin
+			if($admin_num != 0){
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
+			}else{
+				echo $this->form->hidden('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>$tags));
+			}
+		}else{
+			//show tag input only if the user is admin
+			if($admin_num != 0){
+				echo $this->form->input('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+			}else{
+				echo $this->form->hidden('Clipping_Tags',array("name"=>"hiddentags", "id"=>"tags","class"=>"inputtitle","value"=>""));
+			}
+		}
+	?>
+	</div>
+	<div class='12'>
+		<?php
+		$checkoption = null;
+		if(!empty($tcheck)){
+			if($tcheck != 0){
+				$checkoption = "checked=\"1\"";
+			}
+		}
+		?>
+		<?php if($admin_num == 1){ ?>
+		<input type='checkbox' name='hiddencheck' <?php echo $checkoption; ?>>Contents is checked
+		<?php }else{ ?>
+		<input type='hidden' name='hiddencheck' value=0 />
+		<?php }?>
 	</div>
 	<?php echo $this->Form->end(); ?>
 </div>
@@ -105,7 +163,7 @@ if(!empty($editing_contents)){
 			<div class="row">
 				<div class="span12" id="image_upload">
 					<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
-					<div style="font-size:smaller;">jpeg, gif, png images. less than 500KB.</div>
+					<div style="font-size:smaller;">jpg, gif, png images. less than 500KB.</div>
 					<div id="change_to_flickr" style="margin-top:60px;"><p class="click_link">[flickr search]</p></div> 
 				</div>
 				<div class="span12" id="flickr_search">
@@ -148,6 +206,9 @@ if(!empty($editing_contents)){
 		<input type="hidden" name="Topic_Title" id="Topic_Title">
 		<input type="hidden" name="Topic_Category" id="Topic_Category">
 		<input type="hidden" name="Topic_Description" id="Topic_Description">
+		<input type="hidden" name="Topic_Userid" id="Topic_Userid">
+		<input type="hidden" name="Topic_Tag" id="Topic_Tag">
+		<input type="hidden" name="Topic_Check" id="Topic_Check">
 		<input type="hidden" name="Topic_Publish" id="Topic_Publish">
 		<input type="hidden" name="data[num]" id="num">
 		<?php echo "<hr size='5' color='#333333' noshade style='margin:0 0 10px'>";?>
@@ -188,6 +249,7 @@ if(!empty($editing_contents)){
 			elseif($econtents[0] == "__youtubeurl__"){
 				/// YOUTUBE ///
 				$youtube_url = explode("(__)",h($econtents[1]));
+
 				echo "<a href='".h($youtube_url[0])."' rel='nofollow' id='youtube".$h."' class='youtubin'>Check out this video</a>";
 				echo "<p><a target='_blank' href='".h($youtube_url[0])."'>".h($youtube_url[1])."</a></p>";
 				echo "<script type='text/javascript'>";
@@ -219,12 +281,36 @@ if(!empty($editing_contents)){
 </div>
 <div id="working" class="working" style="display:none;">........................</div>
 <?php
+//submit button
 $auth = $this->Session->read('Auth.User');
 if(!empty($auth)){
+if(!empty($tid)){
+	if($admin_num == 0){
+		echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
+		echo "&nbsp;&nbsp;";
+		echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+		//echo "&nbsp;&nbsp;";
+		//echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
+	}else{
+		if($userid==$tuserid){
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
+			echo "&nbsp;&nbsp;";
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
+			// view page -- need save to view, but better to view without save
+			//echo "&nbsp;&nbsp;";
+			//echo "<button class='submitclass' onclick='viewthepage(".$tid."); return false;'>View</button>";
+			echo "&nbsp;&nbsp;";
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+		}else{
+			echo "<button type='submit' class='submitclass' onclick='createsubmit(2);'>Update</button>";
+		}
+	}
+	echo "</form>"; 
+}else{
 	echo "<button type='submit' class='submitclass' onclick='createsubmit(1);'>Save</button>";
 	echo "&nbsp;&nbsp;";
 	echo "<button type='submit' class='submitclass' onclick='createsubmit(0);'>Publish</button>";
-	echo "</form>"; 
+}
 }else{
 	echo "<button class='submitdisableclass' disabled>Facebook login needed to save</button>";
 }
@@ -237,10 +323,21 @@ function createsubmit(submitnum){
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
+	var hu=document.topictitle.hiddenuserid.value;
+	var ht=document.topictitle.hiddentags.value;
+	var hk=document.topictitle.hiddencheck.checked;
 
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
+	document.createsub.Topic_Userid.value = hu;
+	document.createsub.Topic_Tag.value = ht;
 	document.createsub.Topic_Publish.value = submitnum;
+	document.createsub.Topic_Check.value = hk;
+}
+function viewthepage(topicid){
+	var viewurl;
+	viewurl = "http://0-0b.com/Topics/show_topic/topicid:"+topicid;
+	window.open( viewurl , "" ); 
 }
 </SCRIPT>

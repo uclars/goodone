@@ -95,6 +95,7 @@ foreach($show_contents as $contents_array){
 		//image owner
 		$youtube_user = $youtube_ad_array[2];
 
+
 		//Display the youtube movie
 		echo "<div style='margin-top:20px; margin-bottom:10px;'>";
 			echo "<div>".$this->Html->link("Check out this video",h($youtube_address),array('rel' => 'nofollow', 'id' => 'youtube', 'class' => 'youtubin'))."</div>";
@@ -119,8 +120,32 @@ foreach($show_contents as $contents_array){
 	echo "</div>";
 	echo "<div class='span2'>";
 		 //"put right column contents here!!";
+		echo "<div style='text-aligh:center;'>";
+			echo "<a href=\"http://www.jdoqocy.com/click-6439315-11136322\" target=\"_blank\">";
+			echo "<img src=\"http://www.ftjcfx.com/image-6439315-11136322\" width=\"160\" height=\"600\" alt=\"InterNations.org\" border=\"0\"/></a>";
+//echo "<a href=\"http://www.kqzyfj.com/click-6439315-11136360\" target=\"_blank\">";
+//echo "<img src=\"http://www.awltovhc.com/image-6439315-11136360\" width=\"125\" height=\"125\" alt=\"InterNations.org\" border=\"0\"/></a>";
+		echo "</div>";
+
+		echo "<div style='margin-top:25px;'><h4>Related Topics</h4></div>";
+		foreach($ranking as $ranking_array){
+			foreach($ranking_array as $key=>$rankingtitle){
+				echo "<div class='relatedtopic'>";
+					echo "<a href='/Topics/show_topic/topicid:$key'>$rankingtitle</a>";
+				echo "</div>";
+			}
+		}
+
 	echo "</div>";
 
+	echo "<div class='span12'>";
+		//Share Button
+		echo "<div style='margin:50px 0 0 0;'>";
+			echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->HTML->image('basic/shareonfacebook.jpg')."</a>";
+		echo "</div>";
+	echo "</div>";
+
+/*
 	// Tags
 	echo "<div class='span12'>";
 		echo "<h3>Tags</h3>";
@@ -128,6 +153,7 @@ foreach($show_contents as $contents_array){
 			echo "$tinfo, ";
 		}
 	echo "</div>";
+*/
 	//Comment
 ?>
 	<div class='span12'>

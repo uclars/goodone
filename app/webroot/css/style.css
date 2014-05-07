@@ -258,6 +258,16 @@ div#content #topictitle
 }
 
 
+/* Related Topic */
+.relatedtopic
+{
+        background: #fafafa;
+        float:center;
+        border-style: hidden hidden dashed hidden;
+	border-width: thin;
+	margin:10px 0px 0px 0px;
+}
+
 /* Tutorial */
 div#tutorial0
 {

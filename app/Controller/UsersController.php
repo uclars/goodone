@@ -127,15 +127,6 @@ class UsersController extends AppController
 		}
 
 
-/*
-$p_user = $this->User->find();
-echo("<PRE>");
-//var_dump($id);
-var_dump($p_user);
-echo("</PRE>");
-exit;
-*/
-
 		/// get creating/created topics ///
 		$topic_list = $this->_getCreateTopics($id);
 		$this->set('topic_list', $topic_list);

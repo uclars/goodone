@@ -7,7 +7,7 @@ class TopicsController extends AppController {
 //        var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
         var $helpers = array('Html', 'Form', 'Session', 'Facebook.Facebook');
 	var $layout = 'topic';
-        public $uses = array('Topic','Content','Title','Comment','User','Disqus.DisqusPost');
+	public $uses = array('Topic','Content','Title','Comment','Tag','TagsTopic','Relatedtopic','User','Disqus.DisqusPost');
 //        var $uses = array('Topic', 'User', 'Comment','Commentgood', 'Mastercategory','Relatedtopic','Task','Content');
         //var $components = array('Logincheck');
 	public $components = array(
@@ -43,19 +43,55 @@ class TopicsController extends AppController {
 ////////////////////////////////////////////////////////////
 	function show_topic(){
 		$isAuthenticated = $this->Session->read('Auth.User');
+		if(!empty($isAuthenticated)){
+			if(empty($isAuthenticated['id'])){
+				//if $auth[id] doesn't have id value, redirect to get id
+				//this happens just after the creation of a user
+				$this->Redirect(Router::url());
+			}
+		}
 		$isInvited = TRUE;
 		//set user info to the view
 		$this->set('auth', $isAuthenticated);
 
 		$topic_id = $this->params['named']['topicid'];
-		//$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id)));
-		$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0)));
+		//Use Containable to reduce the SQL Query
+		//http://book.cakephp.org/2.0/en/core-libraries/behaviors/containable.html
+		$topic_array = $this->Topic->find('all', array(
+			//'conditions' => array('Topic.id' => $topic_id, 'Topic.hide' => 0, 'Topic.deleted' => 0),
+			'conditions' => array('Topic.id' => $topic_id, 'Topic.deleted' => 0),
+			'contain' => array(
+				'Mastercategory',
+				'Title.title',
+				'Content.content',
+				'Comment.comment',
+				'Tag.name'
+			)
+		));
 
-		//Chech if the topic is deleted or hide
+		$show_contents=FALSE;
+		//Check if the topic is deleted
 		if(empty($topic_array)){
+			//if it's deleted topic, redirect
 			$this->redirect('/');
 		}
 		else{
+			//Check if the topic is hide
+			if($topic_array[0]['Topic']['hide']>0){
+				//if the topic is hide and current user is not topic creator, redirect
+				if($isAuthenticated['id']!=$topic_array[0]['Topic']['user_id']){
+					$this->redirect('/');
+				}else{
+				//if the current user is the topic crator, show the contents
+					$show_contents=TRUE;
+				}
+			}else{
+				//if the topic is not deleted and hide, show the contents
+				$show_contents=TRUE;
+			}
+		}
+
+		if($show_contents){
 			//Topic Array for all
 			$this->set('topics', $topic_array);
 
@@ -69,11 +105,12 @@ class TopicsController extends AppController {
 
 
 
+/*
 echo "<PRE>";
+//var_dump($topic_array_pic);
 var_dump($topic_array);
 echo "</PRE>";
-
-
+*/
 
 
 
@@ -81,9 +118,13 @@ echo "</PRE>";
 			$tag_info = $this->_get_tags($topic_array[0]['Tag']);
 			$this->set('tag_info', $tag_info);
 
-			//size of items
-			$item_num = count($topic_array[0]['Comment']);
+			//get related topics
+			$rtopic = $this->_get_relatedtopics($topic_array[0]['Topic']['id']);
+			$this->set('ranking',$rtopic);
 
+
+			//size of content items
+			$item_num = count($topic_array[0]['Comment']);
 			//first contents
 			foreach($topic_array as $each_topics){
 				//Each Title
@@ -109,7 +150,6 @@ echo "</PRE>";
 				}
 			}
 
-
 			//combine the three arrays into one array
 			$show_array=array();
 			for($l = 0; $l < $item_num; $l++){
@@ -118,14 +158,9 @@ echo "</PRE>";
 	
 			$this->set('title_for_layout',$topic_array[0]['Topic']['name']); //Topic Title
 			$this->set('show_contents',$show_array);
+		}else{
+			$this->redirect('/');
 		}
-/*
-echo "<PRE>";
-var_dump($show_array);
-echo "</PRE>";
-*/
-
-
 	}
 
 	function _get_tags($tags_array){
@@ -137,6 +172,49 @@ echo "</PRE>";
 		return $tag_name_array;
 	}
 
+	function _get_relatedtopics($topicid){
+		$last_update_related = $last_update_related_base = $related_topic_array = $related_topic_new_array = $new = "";
+		//get existing related topic table and last update
+		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+		if(!empty($related_topic_array)){
+			$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
+		}else{
+			$new="YES";
+			$last_update_related_base="1970/01/01";
+		}
+
+		////if the last relatedtopic is within a week, no update////
+		//change date to the unix time in order to compare
+		$oneweekbefore = strtotime('-1 week');
+		$last_update_related = strtotime($last_update_related_base);
+
+		if($oneweekbefore > $last_update_related){
+			///update. get new related list///
+			$related_topic_new_array = $this->TagsTopic->get_newrelatedtopics($topicid);
+			$this->Relatedtopic->update_newrelatedtopics($topicid,$related_topic_new_array,$new);
+			$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+
+		}else{
+			///no update. return current list///
+		}
+
+			//get title and id number
+		$ranking_array=$item_pair=array();
+		foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
+			//get title only from ranking item of array
+			if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
+				//get title from item number
+				$topic_find_query = "select name from topics where id=".$rtopic_item." AND hide=0 AND deleted=0;";
+				$topictitle = $this->Topic->query($topic_find_query);
+
+				if(!empty($topictitle)){
+					$ranking_array[]=array($rtopic_item=>$topictitle[0]['topics']['name']);
+				}
+
+			}
+		}
+		return $ranking_array;
+	}
 
 /////////////////////////////////////////////////////////////
 /////////  Create Topics ////////////////////////////////////
@@ -148,12 +226,17 @@ echo "</PRE>";
 		$me = $me_array['id'];
 		$this->set('userid',$me);
 
-		//check the user who is the creator of the Topic
+		//get the topicid
 		$targettopic = $this->here;
-		$is_correctuser = $this->_checkUser($me, $targettopic);
+		//get the referer to chekc if traffice comes form admin page, otherwise it's direct traffice which is not correct
+		$targetreferer = $this->referer();
 
-		if(empty($is_correctuser)){
-		//if(!$is_correctuser){
+		//check the user who is the creator of the Topic Or Admin
+		$is_admin = $this->_checkAdmin($me);
+		$this->set('admin_num',$is_admin);
+		$is_correctuser = $this->_checkUser($me, $is_admin, $targettopic, $targetreferer);
+
+		if(empty($is_correctuser) && $is_admin == 0){
 			$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
 		}
 		else{
@@ -165,20 +248,32 @@ echo "</PRE>";
 
 
 			$newtopicid=$this->Session->read('new_topicid');
-/*
-debug($newtopicid);
 
+
+/*
 debug($this->params);
 debug($this->data);
 exit;
 */
-
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
 
                                 $topic_array = array();
-                                $topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
+                                $topic_array = $this->Topic->find('all', array(
+					'conditions' => array('Topic.id' => $topicid),
+/*
+					'contain' => array(
+						'Mastercategory',
+						'Title.title',
+						'Content.content',
+						'Comment.comment',
+						'Tag.name'
+					)
+*/
+				));
+
+
                                 $edit_result = $this->_get_editcontents($topic_array);
                                 $this->set('editing_contents',$edit_result);
                                 $this->set('tid',$topicid);
@@ -187,30 +282,53 @@ exit;
 
 				if(isset($this->data) && !empty($this->data))
 				{
+
+
+/*
+echo "<PRE>";
+var_dump($this->data);
+echo "</PRE>";
+exit;
+*/
+
 					$data['Topic_Title'] = $this->data['Topic_Title'];
 					$data['Topic_Category'] = $this->data['Topic_Category'];
 					$data['Topic_Description'] = $this->data['Topic_Description'];
+					$data['Topic_Check'] = $this->data['Topic_Check'];
+					$data['Topic_Userid'] = $this->data['Topic_Userid'];
+					$data['Topic_Tag'] = $this->data['Topic_Tag'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
-					$data['Content']['title'] = $this->data['Content']['title'];
-					$data['Content']['content'] = $this->data['Content']['content'];
-
-					$commentarr = $this->data['Content']['comment'];
-					foreach($data['Content']['title'] as $key => $title)
-					{
-						$data['Content']['comment'][$key] = $commentarr[$key];
+					////Get titles, contents, comments from DB
+					if(isset($this->data['Content']) && !empty($this->data['Content'])){
+						$data['Content']['title'] = $this->data['Content']['title'];
+						$data['Content']['content'] = $this->data['Content']['content'];
+	
+						$commentarr = $this->data['Content']['comment'];
+						foreach($data['Content']['title'] as $key => $title)
+						{
+							$data['Content']['comment'][$key] = $commentarr[$key];
+						}
 					}
+
+					//update tags
+					$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
+					
 
 					$this->_save_data($data,$me,$topicid,$topic_array);
 				}
 
                                 //delete topic id session
                                 $this->Session->delete('new_topicid');
+
+			////// Create page
 			}else{
+/*
 				if(!empty($newtopicid)){
 					$topicid = $newtopicid;
 					$topic_array = array();
 					$topic_array = $this->Topic->find('all', array('conditions' => array('Topic.id' => $topicid)));
 					$edit_result = $this->_get_editcontents($topic_array);
+
 					$this->set('editing_contents',$edit_result);
 					$this->set('tid',$topicid);
 
@@ -221,23 +339,32 @@ exit;
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Check'] = $this->data['Topic_Check'];
+						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
-						$data['Content']['title'] = $this->data['Content']['title'];
-						$data['Content']['content'] = $this->data['Content']['content'];
+						////Get titles, contents, comments from DB
+						if(isset($this->data['Content']) && !empty($this->data['Content'])){
+							$data['Content']['title'] = $this->data['Content']['title'];
+							$data['Content']['content'] = $this->data['Content']['content'];
 
-						$commentarr = $this->data['Content']['comment'];
-						foreach($data['Content']['title'] as $key => $title)
-						{
-							$data['Content']['comment'][$key] = $commentarr[$key];
+							$commentarr = $this->data['Content']['comment'];
+							foreach($data['Content']['title'] as $key => $title)
+							{
+								$data['Content']['comment'][$key] = $commentarr[$key];
+							}
 						}
 
-						$this->_save_data($data,$me,$topicid,$topic_array);
-				}
+						//tag 
+						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
+
+					$this->_save_data($data,$me,$topicid,$topic_array);
+					}
 
 					//delete topic id session
 					$this->Session->delete('new_topicid');
 				}
 				else{
+*/
 					$this->set('tid',"0");
 
 					if(isset($this->data) && !empty($this->data))
@@ -245,23 +372,31 @@ exit;
 						$data['Topic_Title'] = $this->data['Topic_Title'];
 						$data['Topic_Category'] = $this->data['Topic_Category'];
 						$data['Topic_Description'] = $this->data['Topic_Description'];
+						$data['Topic_Check'] = $this->data['Topic_Check'];
+						$data['Topic_Userid'] = $this->data['Topic_Userid'];
 						$data['Topic_Publish'] = $this->data['Topic_Publish'];
-						$data['Content']['title'] = $this->data['Content']['title'];
-						$data['Content']['content'] = $this->data['Content']['content'];
+						////Get titles, contents, comments from DB
+						if(isset($this->data['Content']) && !empty($this->data['Content'])){
+							$data['Content']['title'] = $this->data['Content']['title'];
+							$data['Content']['content'] = $this->data['Content']['content'];
 
-						$commentarr = $this->data['Content']['comment'];
-						foreach($data['Content']['title'] as $key => $title)
-						{
-							$data['Content']['comment'][$key] = $commentarr[$key];
+							$commentarr = $this->data['Content']['comment'];
+							foreach($data['Content']['title'] as $key => $title)
+							{
+								$data['Content']['comment'][$key] = $commentarr[$key];
+							}
 						}
+
+						//tag
+						$tagarr = $this->_make_tagarray($this->data['Topic_Tag']);
 
 						$this->_save_data($data,$me,"","");
 
 						//delete topic id session
 						$this->Session->delete('new_topicid');
 					}
-				}
-			}
+//				}
+			}//edit page or crate page
 		}//is_correctuser
 	}
 
@@ -278,6 +413,10 @@ exit;
 			if(!is_array(@$datacontents['request'])){
 				$this->_set_topic_title($orgcontents,$topic_id,$me,$datacontents);
 			}
+
+			////////////// Tag /////////
+			$this->_update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me);
+
 
 			///////////// Each title, contents, comments ///////////
 			/// make the org content array from DB, in order to compare the new content array
@@ -324,9 +463,7 @@ exit;
 */
 
 
-
 			//Compare the old title array and new title array, and if titles are modified, update the DB
-
 			$isnewtitle=array_diff_assoc($newtitlearray,$orgtitlearray);
 			if(!empty($isnewtitle)){
 				$this->_update_title($newtitlearray, $orgdatacontents, $topic_id, $me);
@@ -391,31 +528,57 @@ exit;
 				}else{
 					$data['description']=$this->data["Topic_Description"];
 				}
+				/// topic userid 
+				if(is_null($this->data["Topic_Userid"])){
+					$data['userid']=$datacontents['request'][8];
+				}else{
+					$data['userid']=$this->data["Topic_Userid"];
+				}
 				//publish or hide
-				$data['hide']=$this->data["Topic_Publish"];
+				$publish_num=$this->data["Topic_Publish"];
+				if($publish_num < 2){
+					$data['hide']=$this->data["Topic_Publish"];
+				}
 
 
 				//save Topic name and category to DB
 				$result = $this->Topic->save($data);
-				//$topicid = $result['Topic']['id'];
 				// get the last id
-				$topicid = $this->Topic->getLastInsertID();;
+				$topicid = $this->Topic->getLastInsertID();
 
 				//set new topic id into session
 				$this->Session->write('new_topicid', $topicid );
 
+			
+				//save the first tag(category) into DB
+				$orgdatacontents=$orgcontents;
+
+				//if there are no tag value, put category number
+				$newtagcontents = $this->data;
+				if(empty($newtagcontents["Topic_Tag"])){
+					$newtagcontents_array=$this->Tag->findCategory($newtagcontents["Topic_Category"]);
+					$newtagcontents["Topic_Tag"]=$newtagcontents_array[0]["tags"]["name"];
+				}
+
+				$this->_update_tag($orgcontents,$orgdatacontents,$newtagcontents,$topicid,$me);
+
 				// save titles to DB
 				$newtitlearray['Content']['title'] = $this->_make_newdata_title_array($datacontents);
-				$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+				if(!empty($newtitlearray['Content']['title'])){
+					$this->_save_new_topic_title($newtitlearray, $data, $topicid);
+				}
 				//save contents to DB
 				$newcontentarray['Content']['content'] = $this->_make_newdata_content_array($datacontents);
-				$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+				if(!empty($newcontentarray['Content']['content'])){
+					$this->_save_new_topic_content($newcontentarray, $data, $topicid);
+				}
 				//save comments to DB
 				$newcommentarray['Content']['comment'] = $this->_make_newdata_comment_array($datacontents);
-				$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
-
-			}// end of if
-		}// end of else
+				if(!empty($newcommentarray['Content']['comment'])){
+					$this->_save_new_topic_comment($newcommentarray, $data, $topicid);
+				}
+			}// end of if(there are values in the from)
+		}// end of else(New create or Edit)
 
 		$this->redirect(array('controller'=>'Users','action'=>'show_users','id'=>$me));
 	}
@@ -423,6 +586,7 @@ exit;
 
 	function _set_topic_title($orgcontents_base,$topic_id_base,$me_base,$datacontents_base){
 		$orgdata=$data=array();
+		$adminnumber = $this->_checkAdmin($me_base);
 
 		/// original Topic title,category,description ///
 		$orgdata['id']=$orgcontents_base[0]['Topic']['id'];
@@ -430,21 +594,53 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
+		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 
 		/// new Topic title,category,description, if there are ///
 		$data['id']=$topic_id_base;
-		$data['user_id']=$me_base;
+		if($adminnumber == 0){
+			$data['user_id']=$me_base;
+		}else{
+			$data['user_id']=$datacontents_base["Topic_Userid"];
+		}
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
-		$data['hide']=$datacontents_base["Topic_Publish"];
+		$checkstatus = $datacontents_base["Topic_Check"];
+		if($checkstatus == "true"){
+			$data['checked']="1";
+		}else{
+			$data['checked']="0";
+		}
+		$hidestatus = $datacontents_base["Topic_Publish"];
+		if($hidestatus != 2){ //if update(2), the hide status doen't change
+			$data['hide']=$datacontents_base["Topic_Publish"];
+		}
 
 		/// Compare old data and new data to see if there are differences ///
-		$isnewtopicinfo=array_diff($data,$orgdata);
+		$isnewtopicinfo=array_diff_assoc($data,$orgdata);
 		if(!empty($isnewtopicinfo)){
 			//save Topic name and category to DB
 			$this->Topic->save($data);
 		}
+	}
+
+	function _make_orgdata_tag_array($orgcontents_base){
+		$orgtagarray_base = array();
+		$s=0;
+
+		// make original title array from DB 
+		foreach($orgcontents_base as $orgcontent){
+			foreach($orgcontent['Tag'] as $orgtags){
+				if($orgtags['TagsTopic']['deleted']!=1){
+					$orgtagarray_base[$s]=$orgtags['name'];
+					$s++;
+				}
+			}
+		}
+
+		return $orgtagarray_base;
 	}
 
 	function _make_orgdata_title_array($orgcontents_base){
@@ -452,10 +648,15 @@ exit;
 		$s=1;
 
 		// make original title array from DB 
-		foreach($orgcontents_base as $orgcontent){
-			foreach($orgcontent['Title'] as $orgtitles){
-				$orgtitlearray_base[$s]=$orgtitles['title'];
-				$s++;
+		//foreach($orgcontents_base as $orgcontent){
+		foreach($orgcontents_base as $orgtitle){
+			if(empty($orgtitle['Title'])){
+				$orgtitlearray_base[0]="";
+			}else{
+				foreach($orgtitle['Title'] as $orgtitles){
+					$orgtitlearray_base[$s]=$orgtitles['title'];
+					$s++;
+				}
 			}
 		}
 
@@ -468,9 +669,13 @@ exit;
 
 		// make original contents array from DB
 		foreach($orgcontents_base as $orgcontent){
-			foreach($orgcontent['Content'] as $orgcontents){
-				$orgcontentarray_base[$r]=$orgcontents['content'];
-				$r++;
+			if(empty($orgcontent['Content'])){
+				$orgcontentarray_base[0]="";
+			}else{
+				foreach($orgcontent['Content'] as $orgcontents){
+					$orgcontentarray_base[$r]=$orgcontents['content'];
+					$r++;
+				}
 			}
 		}
 
@@ -482,10 +687,14 @@ exit;
 		$o=1;
 
 		// make original comments array from DB
-		foreach($orgcontents_base as $orgcontent){
-			foreach($orgcontent['Comment'] as $orgcomments){
-				$orgcommentarray_base[$o]=$orgcomments['comment'];
-				$o++;
+		foreach($orgcontents_base as $orgcomment){
+			if(empty($orgcomment['Comment'])){
+				$orgcommentarray_base[0]="";
+			}else{
+				foreach($orgcomment['Comment'] as $orgcomments){
+					$orgcommentarray_base[$o]=$orgcomments['comment'];
+					$o++;
+				}
 			}
 		}
 
@@ -513,6 +722,7 @@ exit;
 					}
 				}
 			}
+
 			unset($newtitlearray[0]);  //array starts from 1
 			return $newtitlearray;
 
@@ -603,6 +813,67 @@ exit;
 			return $newcommentarray;
 		}
         }
+
+
+	function _update_tag($orgcontents,$orgdatacontents,$datacontents,$topic_id,$me){
+		//Compare the old tag array and new tag array, and if tags are modified, update the DB
+		if(!empty($orgcontents)){
+			$orgtagarray = $this->_make_orgdata_tag_array($orgcontents);
+		}else{
+			$orgtagarray = array("");
+		}
+		//$newtagarray = explode(",",$datacontents['Topic_Tag']);
+		$newtagcontents = preg_replace('/(\s)/','',$datacontents['Topic_Tag']);
+		$newtagarray = explode(",",$newtagcontents);
+		//delete empty values
+		$newtagarray = array_filter($newtagarray, "strlen");
+		//re-numbering
+		$newtagarray = array_values($newtagarray);
+
+		//get added tags to origin
+		$isnewtag=array_diff($newtagarray,$orgtagarray);
+		//get deleted tags from origin
+		$isdeletetag=array_diff($orgtagarray,$newtagarray);
+
+		if(!empty($isnewtag) || !empty($isdeletetag)){
+			$this->_save_tag_info($isnewtag, $isdeletetag, $orgdatacontents, $topic_id, $me);
+		}
+	}
+
+	function _save_tag_info($newtagarray, $deletetagarray, $orgdatacontents, $topic_id, $me){
+		//new tag. check if the tag isn in DB.
+		foreach($newtagarray as $key=>$na_tag)
+		{
+			///////////////// Tag Table ///////////////////
+			//find if there is the new tag in the TAG table already
+			$isTaginDB = $this->Tag->findTag($na_tag);
+			//if the tag is not in the DB, insert it into the DB
+			if(empty($isTaginDB)){
+				$this->_insertNewTag($na_tag);
+			}
+		}
+
+		foreach($newtagarray as $key=>$no_tag)
+		{
+			//////////////// Tags_Topics Table ////////////
+			//get new tag id
+			$isTaginDB = $this->Tag->findTag($no_tag);
+			$newtagid = $isTaginDB[0]['Tag']['id'];
+			//insert the new tag into the tag_topics db
+			$this->TagsTopic->updateNewTagTopic($topic_id,$newtagid);
+		}
+
+		foreach($deletetagarray as $key=>$d_tag)
+		{
+			//get delte tag id
+                        $isTaginDB = $this->Tag->findTag($d_tag);
+			if(!empty($isTaginDB)){
+                	        $deletetagid = $isTaginDB[0]['Tag']['id'];
+				//set deleted column to 1
+				$this->TagsTopic->markDelete($topic_id,$deletetagid);
+			}
+		}
+	}
 
 	function _update_title($newtitlearray, $orgdatacontents, $topic_id, $me){
 		$i=1;
@@ -725,12 +996,9 @@ exit;
 		if(!empty($datacontents["Content"]["title"]))
 		{
 			$i=1;
-			//foreach($this->data["Content"]["title"] as $key=>$title)
 			foreach($datacontents["Content"]["title"] as $key=>$title)
 			{
 				if($title === "disabled"){
-//						$this->Title->delete($topicid);
-//						$this->Title->save($data);
 				}else{
 					$this->Title->create();
 					$data["topic_id"]=$topicid;
@@ -751,27 +1019,19 @@ exit;
 		if(!empty($datacontents["Content"]["content"]))
 		{
 			$l=1;
-			//foreach($this->data["Content"]["content"] as $key=>$content)
 			foreach($datacontents["Content"]["content"] as $key=>$content)
 			{
-//				foreach($content as $k=>$con)
-//				{
 					if($content === "disabled"){
-
-					//	$this->Content->save($data);
 					}else{
 						$this->Content->create();
 						$data["topic_id"]=$topicid;
-						//$data["content_id"]=$key;
 						$data["content_id"]=$l;
-						//$data["content_id"]=$k; -> this is for sub number of contents: in case many text in each content
 						$data["content"]=$content;
 						$data["user_id"]=$data["user_id"];
 						$this->Content->save($data);
 
 						$l++;
 					}
-//				}
 			}
 		}
 	}
@@ -780,16 +1040,12 @@ exit;
 		if(!empty($datacontents["Content"]["comment"]))
 		{
 			$j=1;
-			//foreach($this->data["Content"]["comment"] as $key=>$comment)
 			foreach($datacontents["Content"]["comment"] as $key=>$comment)
 			{
 				if($comment === "disabled"){
-//                                      $this->Title->delete($topicid);
-//					$this->Comment->save($data);
 				}else{
 				$this->Comment->create();
 				$data["topic_id"]=$topicid;
-				//$data["content_id"]=$key;
 				$data["content_id"]=$j;
 					if($comment === "Comment"){
 						$data["comment"]="";
@@ -804,6 +1060,30 @@ exit;
 				}
 			}
 		}
+	}
+
+	function _make_tagarray($tagstring){
+		$newtagstring = preg_replace('/(\s)/','',$tagstring);
+		$tag_array_t = explode(',',$newtagstring);
+
+		return $tag_array_t;
+	}
+
+	function _insertNewTag($newtag){
+		$tagdata = array();
+		$tagdata['name'] = $newtag;
+
+		$this->Tag->create();
+		$this->Tag->save($tagdata);
+	}
+
+	function _insertNewTagTopic($topicid, $newtagid){
+		$tagdata = array();
+		$tagdata['topic_id'] = $topicid;
+		$tagdata['tag_id'] = $newtagid;
+
+		$this->TagsTopic->create();
+		$this->TagsTopic->save($tagdata);
 	}
 
 	function image(){
@@ -853,27 +1133,16 @@ exit;
 				echo "</li>";
 			}
 			echo "<button id='moreButton' class='moreButton'>more</button>";
-
-
-
-//$this->set('flickr_contents',$result);
-//echo("<PRE>");
-//var_dump($result);
-//echo("</PRE>");
 	}
 
+
 	function uploadImage(){
-/*
-echo "<PRE>";
-var_dump($_FILES);
-echo "</PRE>";
-*/
 		$me_array = $this->Session->read('Auth.User');
 		$me = $me_array['id'];
 
 		if (isset($_FILES['uploadedfile'])){
 			//$name = $_FILES['uploadedfile']['name'];
-$extarray=$ext=array();
+			$extarray=$ext=array();
 			$path = $_FILES['uploadedfile']['name'];
 			$extarray = array("jpg","gif","png");
 			$ext = pathinfo($path, PATHINFO_EXTENSION);
@@ -881,7 +1150,7 @@ $extarray=$ext=array();
 
 			//file check (type and size)
 			if(array_search($ext,$extarray) === FALSE){
-				echo "1|The selected file could not be uploaded. Only JPEG, PNG and GIF images are supported.|";
+				echo "1|The selected file could not be uploaded. Only JPG, PNG and GIF images are supported.|";
 			}elseif($_FILES['uploadedfile']['size'] > 512000){
 				echo "2|The max file size is 500KB.|";
 			}else{
@@ -908,12 +1177,6 @@ $extarray=$ext=array();
 	}
 
 	function _checkImagefile($file_array){
-
-echo "<PRE>";
-var_dump($file_array);
-echo "</PRE>";
-
-
 	//http://qiita.com/mpyw/items/939964377766a54d4682//
 	try {
 		if (
@@ -956,11 +1219,16 @@ echo "</PRE>";
 		$topic_title = $topic_array[0]['Topic']['name'];
 		$topic_category = $topic_array[0]['Topic']['category'];
 		$topic_description = $topic_array[0]['Topic']['description'];
+		$topic_userid = $topic_array[0]['Topic']['user_id'];
+		$topic_check = $topic_array[0]['Topic']['checked'];
+		//$topic_tags = $topic_array[0]['Tag']['name'];
 
+		//array for all contents of the topic
 		$contents_array = array();
-		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description);
+		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check);
 		$i = $j = $k = 0;
 
+		//get All Title, Contetns, Comments, and put them into the content array
 		if(!empty($topic_array[0]['Title']) AND !empty($topic_array[0]['Content']) and !empty($topic_array[0]['Comment'])){
 			//Title
 			foreach($topic_array[0]['Title'] as $content_title_array){
@@ -994,26 +1262,85 @@ echo "</PRE>";
 			}
 		}
 
+		//get All Tag name, and put them into the content array, except deleted=1
+		$n = 0;
+
+		if(!empty($topic_array[0]['Tag'])){
+			////if there are some vluews in the tag inputbox
+			//get tags from DB
+			foreach($topic_array[0]['Tag'] as $content_tag_array){
+				if($content_tag_array['TagsTopic']['deleted'] != 1){
+					$ctag_array[$n] = $content_tag_array['name'];
+					$n++;
+				}
+			}
+
+			if(!empty($ctag_array)){
+				///when all the values are deleted from the tag inpubox, $ctag_array will be null
+				$contents_array[0]+=array('6' => $ctag_array);
+			}else{
+				////if there is no values in the inputbox
+				$contents_array[0]+=array('6' => "");
+			}
+		}
+		else{
+			////if there is no values in the inputbox
+			$contents_array[0]+=array('6' => "");
+		}
+
 		return $contents_array;
 	}
 
-	function _checkUser($userid, $topicurl){
+	function _checkUser($userid, $is_admin, $topicurl, $treferer){
 		$searchresult=FALSE;
-
+		//get topic id
 		$tid = split(":",$topicurl);
+
+		//if the user is admin, alow to create/edit the topic
+		//$is_admin = 1;
 
 		if(empty($tid[1])){
 			return TRUE;
-//			return FALSE;
 		}
 		else{
 			$topicid=$tid[1];
-			$searchresult = $this->Topic->find('all', array(
-				'conditions' => array(array('Topic.user_id' => $userid), array('Topic.id' => $topicid))
-			));
+			$conditions = array();
 
-			return $searchresult;
+			//check if the traffic comes form admin page, otherwise it comes from direct which is not correct
+			if($treferer === "http://0-0b.com/administrations/"){
+				if($is_admin!=0){
+					$conditions['Topic.id'] = $tid[1];
+					$searchresult = $this->Topic->find('all', array(
+						'conditions' => $conditions
+					));
+				}
+			}else{
+				//only own created contents can edit from direct access, even if the user is admin
+				$conditions['Topic.id'] = $tid[1];
+				$conditions['Topic.user_id'] = $userid;
+				$searchresult = $this->Topic->find('all', array(
+					'conditions' => $conditions
+				));
+			}
+
+			//return $searchresult;
+			if(empty($searchresult)){
+				return FALSE;
+			}else{
+				return $userid;
+			}
 		}
+	}
+
+	function _checkAdmin($adminuserid){
+		//check if the user has admin priviledge
+		$admin_array=array();
+		$admin_array = $this->User->find('all',array(
+			'conditions' => array('User.id' => $adminuserid)
+		));
+
+		$admin_num = $admin_array[0]['User']['admin'];
+		return $admin_num;
 	}
 
 	function deletetopic(){

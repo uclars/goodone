@@ -41,8 +41,9 @@
                                         <li class="divider-vertical"></li>
 <?php
 	if(empty($auth)){
-//echo $this->Facebook->registration();
-					echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
+					//echo $this->Facebook->registration();
+					//echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
+					echo "<li>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</li>";
 					//echo $this->Facebook->login(array('custom' => true, 'redirect' => '/', 'id' => 'fbconnect', 'img' => 'connectwithfacebook.gif'));
 	}
 	else{
@@ -55,7 +56,7 @@
 		}else{
 			$myname = $auth['username'];
 		}
-                                        echo "<li><a href='/topics/create'>Create Roundup</a></li>";
+                                        echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 					echo "<li class='dropdown'>";
 						echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu'>";
@@ -79,11 +80,15 @@
 			<!--<h1>Satisfy MA30+'s Curiosity</h1>-->
 			<!--<p class="lead">Exciting & Useful Contetns for Mature Audiences</p>-->
 			<div style='text-align:center; color:#333; line-height:150%; margin-bottom:35px'>
-				<h1>Most important contents only</h1>
-				<h1>Share what you reserched</h1>
+				<!--<h1>Most important contents only</h1>-->
+				<!--<h1>Share what you reserched</h1>-->
+				<h1>No More Unnecessary Searches!</h1>
+				<h1>Someone Already Done It Before</h1>
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
-				<p>Good one provides only bare essentials someone has already searched and selected.</p>
+				<p>Thanks for coming to my private project site.</p>
+				<!--<p>Good one provides only bare essentials someone has already searched and selected.</p>-->
+				<p>I've started this project because I think what I researched can be helpful to someone. </p>
 			</div>
 		</div>
 	</div>
@@ -93,7 +98,7 @@
 ?>
 	<footer class="footer">
 		<div class="container">
-			<p>&copy; 2013 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
+			<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
 		</div>
 	</footer>
 </div>	

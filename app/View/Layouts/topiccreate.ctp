@@ -346,9 +346,7 @@
                                         <li class="divider-vertical"></li>
 <?php
         if(empty($auth)){
-//echo $this->Facebook->registration();
-                                        echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
-                                        //echo $this->Facebook->login(array('custom' => true, 'redirect' => '/', 'id' => 'fbconnect', 'img' => 'connectwithfacebook.gif'));
+					echo "<li>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</li>";
         }
         else{
                 //mypage url
@@ -384,7 +382,7 @@
 ?>
 	<footer class="footer">
 		 <div class="container">
-			<p>&copy; 2013 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
+			<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
 		</div>
 	</footer>
 </div>

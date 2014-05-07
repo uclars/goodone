@@ -98,9 +98,7 @@
                                         <li class="divider-vertical"></li>
 <?php
         if(empty($auth)){
-//echo $this->Facebook->registration();
-                                        echo $this->Facebook->login(array('style'=>'margin:15px;','perms'=>'email, user_birthday','show-faces'=>'false'));
-                                        //echo $this->Facebook->login(array('custom' => true, 'redirect' => '/', 'id' => 'fbconnect', 'img' => 'connectwithfacebook.gif'));
+		echo "<li>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</li>";
         }
 	elseif(empty($auth['id']) AND !empty($auth['facebook_id'])){
 	}
@@ -114,7 +112,7 @@
                 }else{
                         $myname = $auth['username'];
                 }
-					echo "<li><a href='/topics/create'>Create Roundup</a></li>";
+					echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 					echo "<li class='dropdown'>";
                                                 echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname."<b class='caret'></b></a>";
                                                 echo "<ul class='dropdown-menu'>";

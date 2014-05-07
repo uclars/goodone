@@ -1,6 +1,7 @@
 <?php
 class Topic extends AppModel {
 	public $name = 'Topic';
+	public $actsAs = array('Containable');
 	public $hasMany = array('Title','Content','Comment');
 	public $belongsTo = array(
 		'Mastercategory' => array(

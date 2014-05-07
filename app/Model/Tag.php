@@ -22,5 +22,20 @@ class Tag extends AppModel
 				'with'			=> 'TagsTopic'
 			)
 	);
+
+//http://blog.syuhari.jp/archives/172
+	public function findTag($tagname){
+		return $this->find('all', array(
+			'conditions' => array('Tag.name' => $tagname),
+			'contain' => array(
+				'Tag.name'
+			)
+		));
+	}
+
+	public function findCategory($catnum){
+		$catname_query = "Select name from tags Where id=".$catnum.";";
+                return $this->query($catname_query);
+	}
 }
 ?>
