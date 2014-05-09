@@ -1,6 +1,7 @@
-/app/tmp/
-/lib/Cake/Console/Templates/skel/tmp/
-/build/
-/dist/
+app/tmp/
+lib/Cake/Console/Templates/skel/tmp/
+build/
+dist/
 .DS_Store
-/tags/
+tags/
+app/Config/facebook.php
