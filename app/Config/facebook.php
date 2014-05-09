@@ -2,8 +2,6 @@
 /**
   * Get an api_key and secret from facebook and fill in this content.
   * save the file to app/config/facebook.php
-  * save the file to app/config/facebook.php
-  * save the file to app/config/facebook.php
   */
 $config = array(
   'Facebook' => array(
