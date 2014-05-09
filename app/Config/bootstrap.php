@@ -194,4 +194,13 @@ CakePlugin::loadAll(array('Facebook',
     array('bootstrap' => true, 'routes' => true),
  ));
 
+
+/* for this warning
+Warning: SplFileInfo::openFile(/goodone/app/tmp/cache/persistent/myapp_cake_core_cake_dev_) [splfileinfo.openfile]: failed to open stream: Permission denied in /goodone/lib/Cake/Cache/Engine/FileEngine.php on line 313
+*/
+Cache::config('default', array(
+    'mask' => 0666,
+));
+
+
 define("SHOW_INVITE", FALSE); //if invite function is on=>true
