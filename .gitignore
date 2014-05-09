@@ -4,3 +4,4 @@
 /dist
 .DS_Store
 /tags
+/app/Config/facebook.php
