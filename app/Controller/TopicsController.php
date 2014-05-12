@@ -176,6 +176,7 @@ echo "</PRE>";
 		$last_update_related = $last_update_related_base = $related_topic_array = $related_topic_new_array = $new = "";
 		//get existing related topic table and last update
 		$related_topic_array = $this->Relatedtopic->find('all',array('conditions' => array('topicid' => $topicid)));
+
 		if(!empty($related_topic_array)){
 			$last_update_related_base = $related_topic_array[0]['Relatedtopic']['modified'];
 		}else{
