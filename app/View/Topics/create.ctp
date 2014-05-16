@@ -28,7 +28,9 @@ if(!empty($editing_contents)){
                         }
 		?>
 	</div>
+	<div class="row-fluid">
 	<div class='span4'>
+		<div class="row-fluid">
 		<?php
 			if(empty($tcategory)){
 				$tcategory = 5;
@@ -47,6 +49,13 @@ if(!empty($editing_contents)){
 					7 => 'sports'),
 				'default' => $tcategory)
 			);?>
+
+			#Topic picture
+			<div class='span12' id="image_upload">
+				<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
+				<div style="font-size:smaller;">jpg, gif, png images. less than 500KB.</div>
+			</div>
+		</div><!-- end of class fluid -->
 	</div>
 	<div class='span8'>
 		<?php
@@ -62,6 +71,7 @@ if(!empty($editing_contents)){
 			);
 		?>
 	</div>
+	</div><!-- end of class fluid -->
 	<div class='span4'>
 	<?php
 		//show user id input only if the user is admin

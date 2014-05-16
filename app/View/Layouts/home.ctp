@@ -82,13 +82,17 @@
 			<div style='text-align:center; color:#333; line-height:150%; margin-bottom:35px'>
 				<!--<h1>Most important contents only</h1>-->
 				<!--<h1>Share what you reserched</h1>-->
-				<h1>No More Unnecessary Searches!</h1>
-				<h1>Someone Already Done It Before</h1>
+				<!--<h1>No More Unnecessary Searches!</h1>-->
+				<h1>Revolutionise Your Tedious Trawling</h1>
+				<!--<h1>Someone Already Done It Before</h1>-->
+				<h1>Find Crucially Relevant, Tailored Results</h1>
 			</div>
 			<div style='font-size:18px; text-align:center; line-height:110%; margin-bottom:55px;'>
-				<p>Thanks for coming to my private project site.</p>
+				<p>Eliminate trawling through useless links to find key information</p>
+				<!--<p>Thanks for coming to my private project site.</p>-->
 				<!--<p>Good one provides only bare essentials someone has already searched and selected.</p>-->
-				<p>I've started this project because I think what I researched can be helpful to someone. </p>
+				<!--<p>I've started this project because I think what I researched can be helpful to someone. </p>-->
+				<p>here I cherry pick the best and host it all in one place. Finding what you need has never been easier!</p>
 			</div>
 		</div>
 	</div>
