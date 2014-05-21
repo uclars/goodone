@@ -290,6 +290,7 @@ $('#moreButton').live('click',function(e){
 
 
 /// File Upload /////
+//image upload
 function image_upload(){
 	$("#display_img").html("");
 	$('#loadingimage').show();
@@ -313,6 +314,34 @@ function image_upload(){
 	});
 }
 
+//topic image upload
+function topicimage_upload(){
+	$("#topic_display_img").html("");
+	$('#topicloadingimage').show();
+
+	$('#Topic_Image').upload('/Topics/uploadImage', function(res) {
+		//get the image url from response which is like "num of url|url+whole HTML"
+		url=res.split("|");
+		url_num = url[0];
+		url_rest = url[1];
+
+		if(url_num == "1"){
+			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
+		}else if(url_num == "2"){
+			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
+		}else{
+			url_image = url_rest.substring(0, url_num);
+			image_url_tag = "<img id='topicimage' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
+			var apptag ="<input type='hidden' name='hiddentopicimage' value='"+url_image+"' id ='hiddentopicimage'>";
+			$("#topic_display_img").after(apptag);
+		}
+		$('#topicloadingimage').hide();
+		$("#topic_display_img").html(image_url_tag);
+	});
+
+}
+
+//flickr image upload
 $(function(){
 	//default view of image is "image upload"
 	$("#flickr_search").css("display", "none"); 

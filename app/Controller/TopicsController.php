@@ -285,6 +285,7 @@ exit;
 				{
 
 
+
 /*
 echo "<PRE>";
 var_dump($this->data);
@@ -298,6 +299,7 @@ exit;
 					$data['Topic_Check'] = $this->data['Topic_Check'];
 					$data['Topic_Userid'] = $this->data['Topic_Userid'];
 					$data['Topic_Tag'] = $this->data['Topic_Tag'];
+					$data['Topic_Image'] = $this->data['Topic_Image'];
 					$data['Topic_Publish'] = $this->data['Topic_Publish'];
 					////Get titles, contents, comments from DB
 					if(isset($this->data['Content']) && !empty($this->data['Content'])){
@@ -595,6 +597,7 @@ exit;
 		$orgdata['name']=$orgcontents_base[0]['Topic']['name'];
 		$orgdata['category']=$orgcontents_base[0]['Topic']['category'];
 		$orgdata['description']=$orgcontents_base[0]['Topic']['description'];
+		$orgdata['topic_image']=$orgcontents_base[0]['Topic']['topic_image'];
 		$orgdata['checked']=$orgcontents_base[0]['Topic']['checked'];
 		$orgdata['hide']=$orgcontents_base[0]['Topic']['hide'];
 
@@ -608,6 +611,7 @@ exit;
 		$data['name']=$datacontents_base["Topic_Title"];
 		$data['category']=$datacontents_base["Topic_Category"];
 		$data['description']=$datacontents_base["Topic_Description"];
+		$data['topic_image']=$datacontents_base["Topic_Image"];
 		$checkstatus = $datacontents_base["Topic_Check"];
 		if($checkstatus == "true"){
 			$data['checked']="1";
@@ -1177,6 +1181,46 @@ exit;
 		}
 	}
 
+	function uploadTopicImage(){
+		$me_array = $this->Session->read('Auth.User');
+		$me = $me_array['id'];
+
+		if (isset($_FILES['uploadedfile'])){
+			//$name = $_FILES['uploadedfile']['name'];
+			$extarray=$ext=array();
+			$path = $_FILES['uploadedfile']['name'];
+			$extarray = array("jpg","gif","png");
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			$name=$me."_".date("YmdHis").".".$ext;
+
+			//file check (type and size)
+			if(array_search($ext,$extarray) === FALSE){
+				echo "1|The selected file could not be uploaded. Only JPG, PNG and GIF images are supported.|";
+			}elseif($_FILES['uploadedfile']['size'] > 512000){
+				echo "2|The max file size is 500KB.|";
+			}else{
+				$filename = $_FILES['uploadedfile']['tmp_name'];
+				$handle = fopen($filename, "r");
+				$data = fread($handle, filesize($filename));
+				$POST_DATA = array('file'=>base64_encode($data), 'name'=>$name, 'userid'=>$me);
+
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_URL, 'http://solidpower.qee.jp/upload_topic_save.php');
+				curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+				curl_setopt($curl, CURLOPT_POST, 1);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($curl, CURLOPT_HEADER, false);
+				curl_setopt($curl, CURLOPT_POSTFIELDS, $POST_DATA);
+				$response = curl_exec($curl);
+				curl_close ($curl);
+	
+				$res_length=strlen($response);
+				//substr($response, 0, $res_length);
+				echo$res_length."|". $response;
+			}
+		}
+	}
+
 	function _checkImagefile($file_array){
 	//http://qiita.com/mpyw/items/939964377766a54d4682//
 	try {
@@ -1220,13 +1264,14 @@ exit;
 		$topic_title = $topic_array[0]['Topic']['name'];
 		$topic_category = $topic_array[0]['Topic']['category'];
 		$topic_description = $topic_array[0]['Topic']['description'];
+		$topic_topicimage = $topic_array[0]['Topic']['topic_image'];
 		$topic_userid = $topic_array[0]['Topic']['user_id'];
 		$topic_check = $topic_array[0]['Topic']['checked'];
 		//$topic_tags = $topic_array[0]['Tag']['name'];
 
 		//array for all contents of the topic
 		$contents_array = array();
-		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_userid,$topic_check);
+		$contents_array[0]=array($topic_id,$topic_title,$topic_category,$topic_description,$topic_topicimage,$topic_userid,$topic_check);
 		$i = $j = $k = 0;
 
 		//get All Title, Contetns, Comments, and put them into the content array
@@ -1278,15 +1323,15 @@ exit;
 
 			if(!empty($ctag_array)){
 				///when all the values are deleted from the tag inpubox, $ctag_array will be null
-				$contents_array[0]+=array('6' => $ctag_array);
+				$contents_array[0]+=array('7' => $ctag_array);
 			}else{
 				////if there is no values in the inputbox
-				$contents_array[0]+=array('6' => "");
+				$contents_array[0]+=array('7' => "");
 			}
 		}
 		else{
 			////if there is no values in the inputbox
-			$contents_array[0]+=array('6' => "");
+			$contents_array[0]+=array('7' => "");
 		}
 
 		return $contents_array;

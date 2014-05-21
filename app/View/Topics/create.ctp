@@ -2,14 +2,16 @@
 //Get topic Title,Description,Category which stays in frist item in the array
 if(!empty($editing_contents)){
 	$topicitems = array_shift($editing_contents);
+
 	$tid = $topicitems[0];
 	$ttitle = $topicitems[1];
 	$tcategory = $topicitems[2];
 	$tdescription = $topicitems[3];
-	$tuserid = $topicitems[4];
-	$tcheck = $topicitems[5];
+	$timage = $topicitems[4];
+	$tuserid = $topicitems[5];
+	$tcheck = $topicitems[6];
 	$ttag_array = array();
-	$ttag_array = $topicitems[6];
+	$ttag_array = $topicitems[7];
 }else{
 	//New Topic
 	$tid = "";
@@ -50,10 +52,25 @@ if(!empty($editing_contents)){
 				'default' => $tcategory)
 			);?>
 
-			#Topic picture
-			<div class='span12' id="image_upload">
-				<input type="file" name="uploadedfile" id="file_id" onchange="image_upload();">
+			Topic Picture
+			<div class='span12'>
+				<?php
+				echo "<div id='topicloadingimage' style='display:none; text-align:center;'>";
+				echo "<img src='/img/basic/loading.gif' width='16px' height='16px' />";
+				echo "</div>";
+				echo "<div id='topic_display_img'>";
+					if(empty($timage)){
+						echo $this->form->hidden('hiddentopicimage',array("name"=>"hiddentopicimage","value"=>""));
+					}else{
+						echo $this->HTML->image($timage);
+						echo $this->form->hidden('hiddentopicimage',array("name"=>"hiddentopicimage","value"=>$timage));
+					}
+				echo "</div>";
+				?>				
+				<input type="file" name="uploadedfile" id="Topic_Image" onchange="topicimage_upload();">
+			<?php //echo $this->form->hidden('hiddentopicimage',array("name"=>"hiddentopicimage","value"=>$timage)); ?>
 				<div style="font-size:smaller;">jpg, gif, png images. less than 500KB.</div>
+
 			</div>
 		</div><!-- end of class fluid -->
 	</div>
@@ -216,6 +233,7 @@ if(!empty($editing_contents)){
 		<input type="hidden" name="Topic_Title" id="Topic_Title">
 		<input type="hidden" name="Topic_Category" id="Topic_Category">
 		<input type="hidden" name="Topic_Description" id="Topic_Description">
+		<input type="hidden" name="Topic_Image" id="Topic_Image">
 		<input type="hidden" name="Topic_Userid" id="Topic_Userid">
 		<input type="hidden" name="Topic_Tag" id="Topic_Tag">
 		<input type="hidden" name="Topic_Check" id="Topic_Check">
@@ -330,9 +348,11 @@ if(!empty($tid)){
 
 <SCRIPT language="JavaScript">
 function createsubmit(submitnum){
+
 	var ti=document.topictitle.hiddentitle.value;
 	var hc=document.topictitle.hiddencategory.value;
 	var hd=document.topictitle.hiddendescription.value;
+	var im = document.getElementById("hiddentopicimage").value
 	var hu=document.topictitle.hiddenuserid.value;
 	var ht=document.topictitle.hiddentags.value;
 	var hk=document.topictitle.hiddencheck.checked;
@@ -340,6 +360,7 @@ function createsubmit(submitnum){
 	document.createsub.Topic_Title.value = ti;
 	document.createsub.Topic_Category.value = hc;
 	document.createsub.Topic_Description.value = hd;
+	document.createsub.Topic_Image.value = im;
 	document.createsub.Topic_Userid.value = hu;
 	document.createsub.Topic_Tag.value = ht;
 	document.createsub.Topic_Publish.value = submitnum;
