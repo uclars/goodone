@@ -39,6 +39,10 @@ footer {
   display:block;
 }
 
+h3{
+  margin-top:0px;
+}
+
 a,a:hover {
   color:#223344;
   text-decoration:none;
@@ -90,7 +94,11 @@ a,a:hover {
 
 .panel .lead {
   overflow:hidden;
-  height:90px;
+  height:40px;
+}
+
+.lead {
+  margin-bottom:0px;
 }
 
 .label-float{
