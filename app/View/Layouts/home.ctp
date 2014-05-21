@@ -7,7 +7,7 @@
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
 			echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
-			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css');
+			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 			echo $this->Html->css('newlayout');
 
 			echo $this->fetch('meta');
@@ -43,7 +43,7 @@
 		}
 				echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 				echo "<li class='dropdown'>";
-					echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname." <i class='glyphicon glyphicon-search'></i></a>";
+					echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname." <i class='fa fa-male fa-lg'></i></a>";
 						echo "<ul class='dropdown-menu' style='padding:12px;'>";
 							echo "<li><a href='".$mypage_url."'>My Page</a></li>";
 							echo "<li class='divider'></li>";
