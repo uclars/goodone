@@ -10,7 +10,9 @@
 		<div class="row">
 			<div class="col-xs-9">
 				<?php echo "<p>".h($topic['Topic']['description'])."</p>"; ?>
-				<p class="lead"><button class="btn btn-default">Read More</button></p>
+				<p class="lead">
+					<?php echo "<a href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."' class='btn btn-default btn-sm' role='button'>more <i class='fa fa-play-circle-o'></i></a>"; ?>
+				</p>
 			</div>
 		</div>
 	</div>

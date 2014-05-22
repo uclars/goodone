@@ -24,7 +24,7 @@
 <header class="navbar navbar-default navbar-fixed-top" role="banner">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="/" class="navbar-brand">Good One</a>
+			<a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a>
 		</div>
 		<nav class="collapse navbar-collapse" role="navigation">
 			<ul class="nav navbar-right navbar-nav">
@@ -115,7 +115,7 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<ul class="list-inline">
-					<li><i class="icon-facebook icon-2x"></i></li>
+					<li><i class="icon-facebook"></i></li>
 					<li><i class="icon-twitter icon-2x"></i></li>
 					<li><i class="icon-google-plus icon-2x"></i></li>
 					<li><i class="icon-pinterest icon-2x"></i></li>
