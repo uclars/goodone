@@ -21,16 +21,8 @@ else{
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div style='text-align:center;'>
-					<script type="text/javascript">
-						( function() {
-							if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
-							var unit = {"calltype":"async[2]","publisher":"whisprr","width":250,"height":250,"sid":"Chitika Default","color_text":"999999"};
-							var placement_id = window.CHITIKA.units.length;
-							window.CHITIKA.units.push(unit);
-							document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
-						}());
-					</script>
-					<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+					<a href="http://www.jdoqocy.com/click-6439315-11648852" target="_blank">
+					<img src="http://www.awltovhc.com/image-6439315-11648852" width="250" height="250" alt="" border="0"/></a>
 				</div>
 			</div>
 		</div>
@@ -40,13 +32,43 @@ else{
 				<h4>CATEGORIES</h4>
 			</div>
 			<div id="cat-navi">
-				<a href="#" class="list-group-item hidden-xs">Life</a>
-				<a href="#" class="list-group-item hidden-xs active">Business</a>
-				<a href="#" class="list-group-item hidden-xs">Politics</a>
-				<a href="#" class="list-group-item hidden-xs">IT</a>
-				<a href="#" class="list-group-item hidden-xs">Trivia</a>
-				<a href="#" class="list-group-item hidden-xs">Entertainment</a>
-				<a href="#" class="list-group-item hidden-xs">Sports</a>
+			<?php
+			if($topics[0]['Mastercategory']['name'] === "life"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Life</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Life</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "business"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Business</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Business</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "politics"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Politics</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Politics</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "IT"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>IT</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>IT</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "trivia"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Trivia</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Trivia</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "entertainment"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Entertainment</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Entertainment</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "sports"){
+				echo "<a href='#' class='list-group-item hidden-xs active'>Sports</a>";
+			}else{
+				echo "<a href='#' class='list-group-item hidden-xs'>Sports</a>";
+			}
+			?>
 			</div>
 		</div>
 	</div>
