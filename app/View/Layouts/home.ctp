@@ -43,7 +43,7 @@
 		}
 				echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 				echo "<li class='dropdown'>";
-					echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname." <i class='fa fa-male fa-lg'></i></a>";
+					echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-male fa-lg'></i> ".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu' style='padding:12px;'>";
 							echo "<li><a href='".$mypage_url."'>My Page</a></li>";
 							echo "<li class='divider'></li>";

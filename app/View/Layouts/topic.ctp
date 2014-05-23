@@ -6,20 +6,23 @@
 			echo $this->Html->meta('utf-8');
 			echo "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=9; IE=8; IE=7; IE=EDGE; chrome=1\" />";
 			echo $this->Html->script('https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js', array( 'inline' => false ) );
-			echo $this->Html->script('bootstrap.js', array( 'inline' => false ) );
-			//echo $this->Html->script('http://cdnjs.cloudflare.com/ajax/libs/json3/3.2.4/json3.min.js', array( 'inline' => false ) );
+			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http:////cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('jquery.youtubin.js', array( 'inline' => false ) );
-			echo $this->Html->css('style');
-			echo $this->Html->css('bootstrap');
-			//echo $this->Html->css('additional');
-			echo $this->Html->css('layout');
+			echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
+			echo $this->Html->css('http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&amp;subset=latin,latin-ext');
+			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+			//echo $this->Html->css('style');
+			echo $this->Html->css('topiclayout');
 
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
 			echo $this->fetch('script');
 		?>
-
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+		<![endif]-->
 		
 		<title><?php echo $title_for_layout; ?></title>
 <script>
@@ -42,62 +45,70 @@
 </script>
 	</head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-inner">
-                <div class="container">
-                        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-G                                <span class="icon-bar"></span>
-                        </a>
-                        <a class="brand" href="/">Good One</a>
-                        <div class="nav-collapse">
-                                <ul class="nav pull-right">
-                                        <li class="divider-vertical"></li>
+<?php $auth = $this->Session->read('Auth.User'); ?>
+<header class="navbar navbar-default navbar-fixed-top" role="banner">
+        <div class="container">
+                <div class="navbar-header">
+                        <a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a>
+                </div>
+                <nav class="collapse navbar-collapse" role="navigation">
+                        <ul class="nav navbar-right navbar-nav">
 <?php
         if(empty($auth)){
-					echo $this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'));
-	}
-	else{
-		//mypage url
-		$mypage_url = "/Users/show_users/id:".$auth['id'];
-		$logout_url = $this->Facebook->logout(array('redirect'=>array('controller'=>'Users', 'action'=>'logout'),'label'=>'LOGOUT'));
-		// User Name
-		if(empty($auth['username'])){
-			$myname = $auth['email'];
-		}else{
-			$myname = $auth['username'];
-		}
-					echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
+                                echo "<span class='fb-connect'>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</span>";
+        }else{
+                //mypage url
+                $mypage_url = "/Users/show_users/id:".$auth['id'];
+                $logout_url = $this->Facebook->logout(array('redirect'=>array('controller'=>'Users', 'action'=>'logout'),'label'=>'LOGOUT'));
+                // User Name
+                if(empty($auth['username'])){
+                        $myname = $auth['email'];
+                }else{
+                        $myname = $auth['username'];
+                }
+                                echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
 					echo "<li class='dropdown'>";
-						echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'>".$myname."<b class='caret'></b></a>";
+						echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-male fa-lg'></i> ".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu'>";
 							echo "<li><a href='".$mypage_url."'>My Page</a></li>";
-							//echo "<li><a href='#'>Something else here</a></li>";
+                                                        //echo "<li><a href='#'>Something else here</a></li>";
 							echo "<li class='divider'></li>";
 							echo "<li>".$logout_url."</li>";
 						echo "</ul>";
-					echo "</li>";
+				echo "</li>";
         }
 ?>
-					</ul>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
+                        </ul>
+                </nav>
+        </div>
+</header>
+
 
 <div class="container">
 <?php
 	$this->session->flash();
 	echo $this->fetch('content');
 ?>
-	<footer class="footer">
-		<div class="container">
-			<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
-		</div>
-	</footer>
 </div>
+
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<ul class="list-inline">
+					<li><i class="icon-facebook"></i></li>
+					<li><i class="icon-twitter icon-2x"></i></li>
+					<li><i class="icon-google-plus icon-2x"></i></li>
+					<li><i class="icon-pinterest icon-2x"></i></li>
+				</ul>
+			</div>
+			<div class="col-sm-8">
+				<p>&copy; 2014 0-0b.com &middot; <a href="/privacypolicy.html">Privacy</a> &middot; <a href="/termsofuse.html">Terms</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
 <script type="text/javascript">
 	/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 	var disqus_shortname = 'goodone'; // required: replace example with your forum shortname
