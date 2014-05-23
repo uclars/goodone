@@ -21,8 +21,16 @@ else{
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div style='text-align:center;'>
-					<a href="http://www.tkqlhce.com/click-6439315-11648852" target="_blank">
-					<img src="http://www.awltovhc.com/image-6439315-11648852" width="250" height="250" alt="" border="0"/></a>
+					<script type="text/javascript">
+						( function() {
+							if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+							var unit = {"calltype":"async[2]","publisher":"whisprr","width":250,"height":250,"sid":"Chitika Default","color_text":"999999"};
+							var placement_id = window.CHITIKA.units.length;
+							window.CHITIKA.units.push(unit);
+							document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+						}());
+					</script>
+					<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 				</div>
 			</div>
 		</div>
@@ -46,12 +54,23 @@ else{
 <!-- CONTENT SIDE-->
 	<div class="col-sm-8 col-lg-8">
 	<!-- article-->
-		<?php echo "<img class='img-responsive' src='".$this->html->image($topics[0]['Mastercategory']['url'])."' alt='post image'>"; ?>
-		<?php echo "<h2 class=''>".h($topics[0]['Topic']['name'])."</h2>"; ?>
+		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left">
+		<?php
+		if(!empty($topics[0]['Topic']['topic_image'])){
+			echo "<img class='img-responsive' src='".$topics[0]['Topic']['topic_image']."' alt='post image'>";
+		}else{
+			echo "<img class='img-responsive' src='".$topics[0]['Mastercategory']['url']."' alt='post image'>";
+		}
+		?>
+		</div>
+		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+			<?php echo "<h2 class=''>".h($topics[0]['Topic']['name'])."</h2>"; ?>
 			<p class=" clearfix">
 				<?php echo "<span class='fb-like'>".$this->Facebook->like(array('layout'=>'button_count'))."</span>"; ?>
+				<?php echo " | ".$topics[0]['Mastercategory']['name']; ?>
 				<?php echo " | ".$this->html->image($owner_avator)." ".$owner_name; ?>
 			</p>
+		</div>
 		<?php echo "<p class='lead'>".h($topics[0]['Topic']['description'])."</p>"; ?>
 		<hr>
 
@@ -128,7 +147,8 @@ foreach($show_contents as $contents_array){
 
 	//Share Button
 	echo "<div style='margin:50px 0 0 0;'>";
-		echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->HTML->image('basic/shareonfacebook.jpg')."</a>";
+		//echo "<a href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."' rel='nofollow' target='_blank'>".$this->HTML->image('basic/shareonfacebook.jpg')."</a>";
+		echo "<a class='btn btn-facebook btn-lg' href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."'><i class='icon-facebook icon-large'></i> Facebook Share</a>";
 	echo "</div>";
 ?>
 
