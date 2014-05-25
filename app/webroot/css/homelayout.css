@@ -129,6 +129,6 @@ a,a:hover {
 	border-color: transparent;
 }
 
-.fb-like { display: inline-block; height: 28px; overflow: hidden; position: relative; top: 15px;}
+.fb-like { /*display: inline-block;*/ height: 28px; overflow: hidden; position: relative; top: 15px;}
 /*http://stackoverflow.com/questions/10465535/fb-login-button-and-positioning*/
 

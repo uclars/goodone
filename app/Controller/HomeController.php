@@ -16,7 +16,7 @@ class HomeController extends AppController {
 		'authorize' => 'Controller'),
 		'Facebook.Connect' => array('model' => 'User')
 	);
-        var $uses = array('User', 'Topic', 'Comment', 'Loginlog', 'Blacklist');
+        var $uses = array('User', 'Topic', 'Comment', 'Loginlog', 'Blacklist','Tag');
 
         function beforeFilter() {
                 //Call Parent Class
@@ -80,6 +80,11 @@ class HomeController extends AppController {
 
 			//set user info to the view
 			$this->set('auth', $isAuthenticated);
+
+			//Use dynamic unbind in controller to redule SQL Query in the HOME Controller which doesn't need title queries
+			//http://hijiriworld.com/web/cakephp-bindmodel/
+			$this->Topic->UnbindModel(array('hasMany' => array('Title','Content','Comment')));
+			$this->Topic->UnbindModel(array('hasAndBelongsToMany' => array('Tag')));
 
 			//get all the contents
 			// get date (today and a week from today)

@@ -55,6 +55,10 @@ class TopicsController extends AppController {
 		$this->set('auth', $isAuthenticated);
 
 		$topic_id = $this->params['named']['topicid'];
+
+		//Use dynamic bind in controller to redule SQL Query in the HOME Controller which doesn't need title queries
+		//http://hijiriworld.com/web/cakephp-bindmodel/
+		//$this->Topic->UnbindModel(array('hasMany' => array('Title','Content','Comment')));
 		//Use Containable to reduce the SQL Query
 		//http://book.cakephp.org/2.0/en/core-libraries/behaviors/containable.html
 		$topic_array = $this->Topic->find('all', array(

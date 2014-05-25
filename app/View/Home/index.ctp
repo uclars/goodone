@@ -1,9 +1,16 @@
 <?php foreach($topics as $topic){ ?>
 <div class="row"> 
 	<div class="col-md-2 col-sm-3 text-center">
-		<?php echo "<a class='story-img' href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'>";?>
-			<?php echo $this->Html->image($topic['Mastercategory']['url'], array('width'=>'48px')); ?>
-		</a>
+<?php
+		echo "<a class='story-img' href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'>";
+		if(!empty($topic['Topic']['topic_image'])){ //If there is a image for the topic, show it, otherwise show the category image 
+			//echo $this->Html->image($topic['Topic']['topic_image'], array('width'=>'48px'));
+			echo $this->Html->image($topic['Topic']['topic_image'], array('width'=>'96px'));
+		}else{
+			echo $this->Html->image($topic['Mastercategory']['url'], array('width'=>'48px'));
+		}
+		echo "</a>";
+?>
 	</div>
 	<div class="col-md-10 col-sm-9">
 		<?php echo "<a href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'><h3>".h($topic['Topic']['name'])."</h3></a>"; ?>

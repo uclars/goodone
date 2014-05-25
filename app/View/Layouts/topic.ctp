@@ -24,7 +24,7 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 		<![endif]-->
 		
-		<title><?php echo $title_for_layout; ?></title>
+		<title><?php echo $title_for_layout; ?> | Good One</title>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -121,6 +121,7 @@
 		(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 	}());
 </script>    
+<?php //echo $this->element('sql_dump'); ?>
 <?php echo $this->Facebook->init(); ?>
 </body>
 </html>

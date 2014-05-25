@@ -33,6 +33,7 @@ class Topic extends AppModel {
 				'with'			=> 'TagsTopic'
 		)
 	);
+
 	
 //var $useTable = false; 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
