@@ -214,22 +214,30 @@ foreach($show_contents as $contents_array){
 						<div class="row">
 <?php
 foreach($ranking as $ranking_array){
+	//foreach($ranking_array as $key=>$rankingimage){
+	foreach($ranking_array as $rankings){
+		$rankingid = $rankings['Topic']['id'];
+		$rankingtitle = $rankings['Topic']['name'];
+		$rankingimage = $rankings['Topic']['topic_image'];
+		$rankingcategory = $rankings['Mastercategory']['url'];
+
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
 								echo "<div class='row'>";
 									echo "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center hidden-sm'>";
-/*
 										echo "<div class='thumbnail' style=''>";
-											echo "<img src='".$ranking."' class='img-responsive' alt=''>";
+										if(empty($rankingimage)){
+											echo "<img src='".$rankingcategory."' class='img-responsive' alt=''>";
+										}else{
+											echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
+										}
 										echo "</div>";
-*/
 									echo "</div>";
 									echo "<div class='col-xs-6 col-sm-12 col-md-6 col-lg-6'>";
-	foreach($ranking_array as $key=>$rankingtitle){
-										echo "<a class='' href='/Topics/show_topic/topicid:$key'><h5>$rankingtitle</h5></a>";
-	}
+										echo "<a class='' href='/Topics/show_topic/topicid:$rankingid'><h5>$rankingtitle</h5></a>";
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";
+	}
 }
 ?>
 						</div>

@@ -202,18 +202,20 @@ echo "</PRE>";
 		}else{
 			///no update. return current list///
 		}
-
 			//get title and id number
 		$ranking_array=$item_pair=array();
 		foreach($related_topic_array[0]['Relatedtopic'] as  $key => $rtopic_item){
 			//get title only from ranking item of array
 			if($key === "first" || $key === "second" ||$key === "third" ||$key === "forth" ||$key === "fifth" ||$key === "sixth" ||$key === "seventh" ||$key === "eighth" ||$key === "ninth" ||$key === "tenth"){
 				//get title from item number
-				$topic_find_query = "select name from topics where id=".$rtopic_item." AND hide=0 AND deleted=0;";
+				//$topic_find_query = "select name from topics where id=".$rtopic_item." AND hide=0 AND deleted=0;";
+				//$topic_find_query = "select id,name,topic_image,category from topics where id=".$rtopic_item." AND hide=0 AND deleted=0;";
+				$topic_find_query = "SELECT Topic.id, Topic.name, Topic.category, Topic.topic_image, Mastercategory.url FROM goodone.topics AS Topic INNER JOIN goodone.mastercategories AS Mastercategory ON (Topic.category = Mastercategory.id) where Topic.id =".$rtopic_item." AND Topic.hide=0 AND Topic.deleted=0;";
 				$topictitle = $this->Topic->query($topic_find_query);
 
 				if(!empty($topictitle)){
-					$ranking_array[]=array($rtopic_item=>$topictitle[0]['topics']['name']);
+					//$ranking_array[]=array($rtopic_item=>$topictitle[0]['topics']['name']);
+					$ranking_array[]=array($rtopic_item=>$topictitle[0]);
 				}
 
 			}
