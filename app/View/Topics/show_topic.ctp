@@ -226,7 +226,7 @@ foreach($ranking as $ranking_array){
 									echo "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center hidden-sm'>";
 										echo "<div class='thumbnail' style=''>";
 										if(empty($rankingimage)){
-											echo "<img src='".$rankingcategory."' class='img-responsive' alt=''>";
+											echo "<img src='".$rankingcategory."' width='90px' class='img-responsive' alt=''>";
 										}else{
 											echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
 										}

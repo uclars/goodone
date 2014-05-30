@@ -14,6 +14,7 @@ echo "<div class='row'>";
 				echo "<div class='row' id='topic_box' style='margin-bottom:10px;'>";
 					echo "<div class='span2'>";
 						echo $this->Html->image($tlists['Mastercategory']['url']);
+						echo "<p id='show_topic' class='topic_delete'>[show topic]</p>";
 						echo "<p id='topic_delete' class='topic_delete'>[delete topic]</p>";
 					echo "</div>";
 					echo "<div class='span6'>";
