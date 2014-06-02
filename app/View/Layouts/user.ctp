@@ -55,7 +55,7 @@
 			.topic_delete{
 				cursor: pointer;
 				color: #3cf;
-				margin-top:10px;
+				margin-top:5px;
 				margin-left:5px;
 				text-align:left;
 			}
@@ -79,6 +79,15 @@
 				margin-left:10px;
 				text-align:center;
 				display:inline;
+			}
+			.show_topic{
+				margin-top:10px;
+			}
+			.show_topic a{
+				cursor: pointer;
+				color: #3cf;
+				margin-left:5px;
+				text-align:left;
 			}
 		</style>
 	</head>

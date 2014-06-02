@@ -13,8 +13,8 @@ echo "<div class='row'>";
 			foreach($topic_list as $tlists){
 				echo "<div class='row' id='topic_box' style='margin-bottom:10px;'>";
 					echo "<div class='span2'>";
-						echo $this->Html->image($tlists['Mastercategory']['url']);
-						echo "<p id='show_topic' class='topic_delete'>[show topic]</p>";
+						echo $this->Html->image($tlists['Mastercategory']['url'],array('width'=>'60'));
+						echo "<p id='show_topic' class='show_topic'>".$this->Html->link('[show topic]', array('controller'=>'Topics', 'action'=>'show_topic', 'topicid'=>$tlists['Topic']['id']),array('target'=>'_blank'))."</p>";
 						echo "<p id='topic_delete' class='topic_delete'>[delete topic]</p>";
 					echo "</div>";
 					echo "<div class='span6'>";
