@@ -55,7 +55,8 @@
                         <ul class="nav navbar-right navbar-nav">
 <?php
         if(empty($auth)){
-                                echo "<span class='fb-connect'>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</span>";
+				echo "<li><a href='/Users/login'>Login / Register</a></li>";
+                                //echo "<span class='fb-connect'>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</span>";
         }else{
                 //mypage url
                 $mypage_url = "/Users/show_users/id:".$auth['id'];

@@ -35,13 +35,14 @@
 <header class="navbar navbar-default navbar-fixed-top" role="banner">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a>
+			<a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a><span class='navbar-brand' style='font-size: small'> Search less, Find Better</span>
 		</div>
 		<nav class="collapse navbar-collapse" role="navigation">
 			<ul class="nav navbar-right navbar-nav">
 <?php
         if(empty($auth)){
-				echo "<span class='fb-like'>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</span>";
+				 echo "<li><a href='/Users/login'>Login / Register</a></li>";
+				//echo "<span class='fb-like'>".$this->Facebook->login(array('scope'=>'email, user_birthday','show-faces'=>'false'))."</span>";
 	}else{
 		//mypage url
 		$mypage_url = "/Users/show_users/id:".$auth['id'];
@@ -52,7 +53,7 @@
 		}else{
 			$myname = $auth['username'];
 		}
-				echo "<li><a href='/topics/create'>Create Web Clipping</a></li>";
+				echo "<li><a href='/Topics/create'>Create Web Clipping</a></li>";
 				echo "<li class='dropdown'>";
 					echo "<a href='#' class='dropdown-toggle' data-toggle='dropdown'><i class='fa fa-male fa-lg'></i> ".$myname."<b class='caret'></b></a>";
 						echo "<ul class='dropdown-menu' style='padding:12px;'>";

@@ -136,6 +136,7 @@ class ConnectComponent extends Component {
 
 /* debug
 echo "<PRE>";
+var_dump($a);
 var_dump($this->FB->api('/me'));
 echo "</PRE>";
 exit;
@@ -172,35 +173,47 @@ exit;
 			elseif(empty($this->authUser) && $this->createUser) {
 				/* add by suzuki at 2013/03/21*/
 				$user_array = $this->user(); //facebook user array
-/* debug
-echo "<PRE>";
-var_dump($user_array);
-echo "</PRE>";
-exit;
-*/
-				$this->Controller->Session->write('registration',TRUE);
-				$avatornum=$this->_getAvoter();
-				/* */
-		
-				$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
-				//$this->authUser[$this->User->alias]['username'] = $user_array['username'];
-				$this->authUser[$this->User->alias]['username'] = $user_array['name'];
-				$this->authUser[$this->User->alias]['email'] = $user_array['email'];
-				$this->authUser[$this->User->alias]['gender'] = $user_array['gender'];
-				$this->authUser[$this->User->alias]['birthday'] = date('Y-m-d',strtotime($user_array['birthday']));
-				$this->authUser[$this->User->alias][$Auth->fields['password']] = $Auth->password(FacebookInfo::randPass());
-				$this->authUser[$this->User->alias]['avatornum'] = $avatornum;
+				$original_url = Router::url($this->here, false); //URL the user come from
 
-				//$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
-				//$this->authUser[$this->User->alias][$this->modelFields['password']] = $Auth->password(FacebookInfo::randPass());
-				/* */
+				if($original_url === "/Users/login"){
+					//if source url is /Users/login, countinue to register
+					$is_registration = $this->Controller->Session->read('registration');
 
-				if($this->__runCallback('beforeFacebookSave')){
-					$this->hasAccount = ($this->User->save($this->authUser, array('validate' => false)));
+					if(empty($is_registration)){
+						$this->Controller->Session->write('registration',TRUE);
+						return 0;
+					}else{
+						//when come from facebook login button(users have not logged in facebook)
+						$this->Controller->redirect('/Users/register/');
+					}
 				}
-				else {
-					$this->authUser = null;
+
+				if($original_url === "/Users/register/"){
+					$avatornum=$this->_getAvoter();
+					/* */
+					$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
+					//$this->authUser[$this->User->alias]['username'] = $user_array['username'];
+					$this->authUser[$this->User->alias]['username'] = $user_array['name'];
+					$this->authUser[$this->User->alias]['email'] = $user_array['email'];
+					$this->authUser[$this->User->alias]['gender'] = $user_array['gender'];
+					$this->authUser[$this->User->alias]['birthday'] = date('Y-m-d',strtotime($user_array['birthday']));
+					$this->authUser[$this->User->alias][$Auth->fields['password']] = $Auth->password(FacebookInfo::randPass());
+					$this->authUser[$this->User->alias]['avatornum'] = $avatornum;
+					//$this->authUser[$this->User->alias]['facebook_id'] = $this->uid;
+					//$this->authUser[$this->User->alias][$this->modelFields['password']] = $Auth->password(FacebookInfo::randPass());
+					/* */
+
+					if($this->__runCallback('beforeFacebookSave')){
+						$this->hasAccount = ($this->User->save($this->authUser, array('validate' => false)));
+					}
+					else {
+						$this->authUser = null;
+					}
+
+					$this->Controller->Session->delete('registration');
 				}
+			}
+			else{
 			}
 			//Login user if we have one
 			if($this->authUser){

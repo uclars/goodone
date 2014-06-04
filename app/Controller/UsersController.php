@@ -1,12 +1,21 @@
 <?php
 class UsersController extends AppController
 {
-	var $components = array('Auth', 'Facebook.Connect', 'Session');
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'authenticate' => array(
+				'Form' => array(
+					'fields' => array('username' => 'email')
+				)
+			),
+			'authorize' => 'Controller'),
+			'Facebook.Connect' => array('model' => 'User')
+	);
 	var $name = 'Users';
 	//var $helpers = array('Html', 'Form', 'NiceNumber', 'Session');
 	var $helpers = array('Html', 'Form', 'Session','Facebook.Facebook');
 	var $layout = "user";
-	//var $uses = array('User', 'Topic', 'Comment');
 	var $uses = array('User', 'Topic', 'Comment');
 
 
@@ -15,15 +24,67 @@ class UsersController extends AppController
 		/*$this->Auth->allow('add', 'login');*/
 		$this->Auth->allow('*');
 
-		$this->Auth->autoRedirect = false; //自動リダイレクトを無効
+		$this->Auth->autoRedirect = false;
 	}
 
 	function login() {
+		$auth = $this->Session->read('Auth.User');
+		$referer = $this->Session->read('referer_session');
+
+		if(!empty($auth)){
+			if(!empty($referer)){
+				$this->Session->delete('referer_session');
+				$this->redirect($referer);
+			}else{
+				$this->redirect('/'); //If users are already logged in, redirect to the top page.
+			}
+		}
+		else{
+			$registration_session =  $this->Session->read('registration');
+//			$registration_page_session =  $this->Session->read('registration_page');
+			//set layout to the login layout
+			$this->layout = 'userlogin';
+
+
+/*
+echo "<PRE>";
+var_dump($registration_session);
+echo "</PRE>";
+exit;
+*/
+
+
+
+
+			$this->set('registration',$registration_session);
+
+if(empty($registration_session)){
+			//get 'from' url
+//			$referer_url = $this->referer();
+//			$this->Session->write('referer_session', $referer_url);
+//			$this->Session->write('registration', TRUE);
+}else{
+			//For new registered User, get id(facebook info in DB, but no id in DB)
+//			if(empty($isAuthenticated['id']) AND !empty($isAuthenticated)){
+				//new user redirect to the welcome page
+//				return $this->redirect(array("controller" => "Users", "action" => "register"));
+				//new user don't have id in the first view, so refresh the page to get id.
+				//return $this->redirect($this->request->here);
+//			}
+}
+		}
+
+
+
+		
+
+/*
 		/// get topic title for facebook like display on facebook wall
 		$topic_title = $this->Session->read('title');
 		$this->set('title',$topic_title);
 
 		$this->set('error', false);
+*/
 	}
 
 	function facebooklogin() {
@@ -34,7 +95,6 @@ class UsersController extends AppController
 
 
 	function logout() {
-
 		$this->Auth->logout();
 
 		$_SESSION = array();
@@ -47,10 +107,12 @@ class UsersController extends AppController
 	}
 
 	function register() {
+		$this->layout = 'userlogin';
 		$myarray = $this->Session->read('Auth.User');
 		$this->set('me_array',$myarray);
 
 		$fid = $myarray['facebook_id'];
+		$this->User->recursive = 0;
 		$avatorimg_array = $this->User->find('first',array('conditions'=>array('facebook_id'=>$fid)));
 		$avatorimg = $avatorimg_array['Masteravators'];
 		if(!empty($avatorimg)){
@@ -58,8 +120,6 @@ class UsersController extends AppController
 		}else{
 			$this->set('me_image',"/img/avator/dogs/dingo/dingo_192.png");
 		}
-
-
 
 /*
 		/// haven't input a nickname
@@ -147,8 +207,6 @@ class UsersController extends AppController
 		$this->set('follower_list', $follower_list);
 		$this->set('my_follower_list', $my_follower_list);
 		///                   ////
-*/
-
 
 		//$topic_array = $this->requestAction("topics/getFollowingTopicList/$id"); //get following topics
 
@@ -159,17 +217,6 @@ class UsersController extends AppController
 //		$topic_array = $this->_getFollowingTopics($id);
 //		$this->set('following_topics', $topic_array);
 
-
-/*
-echo("<PRE>");
-var_dump($topic_array);
-echo("</PRE>");
-exit;
-*/
-
-
-
-/*
 		/// get target user topics   ///
 		$target_topics = array();
 		if(!empty($id)){
@@ -188,7 +235,6 @@ exit;
 	}
 
 	function _getCreateTopics($id){
-//$id = 100000000000000;
 		$topic_array = array();
 		App::import('Model', 'Topic');
 		$this->Topic = new Topic();
@@ -201,14 +247,6 @@ exit;
 	}
 
 
-
-
-
-
-
-
-
-
 	function _getFollowingTopics($id){
 		$topic_array = array(); 
 		App::import('Model', 'Followingtopics');
@@ -219,16 +257,7 @@ exit;
 		$order = array('Followingtopics.id DESC');
 		$following_topic = $this->Followingtopics->find('all', array('conditions' => $conditions, 'fields'=>$fields, 'order' => $order));
 		
-
 		return $following_topic;
-
-/*
-echo "<PRE>";
-var_dump($following_topic);
-echo "</PRE>";
-exit;
-*/
-
 	}
 
 	function _getFollowerList($id){
@@ -239,16 +268,6 @@ exit;
 				'action' => 'following_user'
 			), array('userid' => $id));
 	        $i=0;
-
-
-
-/*
-echo("<PRE>");
-var_dump($follower_data);
-echo("</PRE>");
-exit;
-*/
-
 
 		if(!empty($follower_data)){
 			foreach($follower_data as $fdata){

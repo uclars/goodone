@@ -70,6 +70,7 @@ class HomeController extends AppController {
 
                 if(!empty($isAuthenticated) || !empty($isInvited)){
 
+/*
 			//For new registered User, get id(facebook info in DB, but no id in DB)
 			if(empty($isAuthenticated['id']) AND !empty($isAuthenticated)){
 				//new user redirect to the welcome page
@@ -77,6 +78,7 @@ class HomeController extends AppController {
 				//new user don't have id in the first view, so refresh the page to get id.
 				//return $this->redirect($this->request->here);
 			}
+*/
 
 			//set user info to the view
 			$this->set('auth', $isAuthenticated);
