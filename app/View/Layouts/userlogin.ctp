@@ -8,7 +8,8 @@
 			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
 			echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
 			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-			echo $this->Html->css('homelayout');
+			//echo $this->Html->css('homelayout');
+			echo $this->Html->css('registration');
 
 			echo $this->fetch('meta');
 			echo $this->fetch('css');
@@ -25,6 +26,7 @@
 
 </script>
 <style>
+/* login page */
 	.form-signin
 	{
 /*		max-width: 330px;*/
@@ -110,6 +112,7 @@
 		position: relative;
 		top: 15px;
 	}
+/* End of login page */
  </style>
 	</head>
 <body>
