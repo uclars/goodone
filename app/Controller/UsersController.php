@@ -308,6 +308,7 @@ if(empty($registration_session)){
 			$newname = $this->data['newname'];
                 }
 
+		$this->Session->write('Auth.User.username',$newname); //set new name in the Session
 		$myarray = $this->Session->read('Auth.User');
 		$fid = $myarray['facebook_id'];
 		//update the DB
