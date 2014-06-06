@@ -34,39 +34,39 @@ else{
 			<div id="cat-navi">
 			<?php
 			if($topics[0]['Mastercategory']['name'] === "life"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Life</a>";
+				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs active'>Life</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Life</a>";
+				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs'>Life</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "business"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Business</a>";
+				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs active'>Business</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Business</a>";
+				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs'>Business</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "politics"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Politics</a>";
+				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs active'>Politics</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Politics</a>";
+				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs'>Politics</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "IT"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>IT</a>";
+				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs active'>IT</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>IT</a>";
+				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs'>IT</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "trivia"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Trivia</a>";
+				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs active'>Trivia</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Trivia</a>";
+				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs'>Trivia</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "entertainment"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Entertainment</a>";
+				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs active'>Entertainment</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Entertainment</a>";
+				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs'>Entertainment</a>";
 			}
 			if($topics[0]['Mastercategory']['name'] === "sports"){
-				echo "<a href='#' class='list-group-item hidden-xs active'>Sports</a>";
+				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs active'>Sports</a>";
 			}else{
-				echo "<a href='#' class='list-group-item hidden-xs'>Sports</a>";
+				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs'>Sports</a>";
 			}
 			?>
 			</div>
@@ -226,7 +226,7 @@ foreach($ranking as $ranking_array){
 									echo "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center hidden-sm'>";
 										echo "<div class='thumbnail' style=''>";
 										if(empty($rankingimage)){
-											echo "<img src='".$rankingcategory."' width='90px' class='img-responsive' alt=''>";
+											echo "<img src='".$rankingcategory."' width='50px' class='img-responsive' alt=''>";
 										}else{
 											echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
 										}

@@ -223,6 +223,45 @@ echo "</PRE>";
 		return $ranking_array;
 	}
 
+
+/////////////////////////////////////////////////////////////
+/////////    Show Categories ////////////////////////////////
+////////////////////////////////////////////////////////////
+	function show_category(){
+		$isAuthenticated = $this->Session->read('Auth.User');
+		if(!empty($isAuthenticated)){
+			if(empty($isAuthenticated['id'])){
+				//if $auth[id] doesn't have id value, redirect to get id
+				//this happens just after the creation of a user
+				$this->Redirect(Router::url());
+			}
+		}
+		$isInvited = TRUE;
+		//set user info to the view
+		$this->set('auth', $isAuthenticated);
+
+		$category_id = $this->params['named']['categoryid'];
+
+		//get category name
+		App::import('Model','Mastercategory');
+		$this->Mastercategory = new Mastercategory;
+		$category_name = $this->Mastercategory->find('first', array('conditions' => array('Mastercategory.id' => $category_id),'recursive' => -1));
+		$this->set('categoryname', $category_name);
+
+		//get Topoic list
+		//Use dynamic unbind in controller to redule SQL Query in the Topic Controller which doesn't need title,content,comment,tag queries
+		//http://hijiriworld.com/web/cakephp-bindmodel/
+		$this->Topic->UnbindModel(array('hasMany' => array('Title','Content','Comment')));
+		$this->Topic->UnbindModel(array('hasAndBelongsToMany' => array('Tag')));
+		$topic_array = $this->Topic->find('all', array(
+			'conditions' => array('Topic.category' => $category_id, 'Topic.hide'=>0, 'Topic.deleted' => 0),
+			'order' => array('Topic.modified DESC')
+		));
+
+		$this->set('topics', $topic_array);
+	}
+
+
 /////////////////////////////////////////////////////////////
 /////////  Create Topics ////////////////////////////////////
 ////////////////////////////////////////////////////////////
