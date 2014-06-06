@@ -129,7 +129,7 @@ foreach($show_contents as $contents_array){
 			echo "<div style='font-size:x-small;'>".$this->Html->link("photo: $pic_title by $pic_user",$pic_address,array('target' => '_blank', 'escape' => false))."</div>";
 		}
 		else{
-			echo "<div>".$this->Html->image($simg_url)."</div>";
+			echo "<div>".$this->Html->image($simg_url,array('style'=>'width:100%;height:auto;'))."</div>";
 			echo "<div> </div>";
 		}
 		echo "</div>";
