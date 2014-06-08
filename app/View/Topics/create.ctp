@@ -271,7 +271,8 @@ if(!empty($editing_contents)){
 					echo "<p><a target='_blank' href='".h($im_url[0])."'>Photo \"".h($im_url[1])."\" by ".h($im_url[2])."</a></p>";
 				}
 				else{
-					echo "<img src='".h($econtents[2])."' />";
+					$image_url = IMAGE_URL.h($econtents[2]);
+					echo "<img src='".$image_url."' style='width:100%;height:auto;' />";
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){

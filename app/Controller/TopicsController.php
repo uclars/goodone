@@ -295,12 +295,12 @@ echo "</PRE>";
 
 			$newtopicid=$this->Session->read('new_topicid');
 
-
 /*
 debug($this->params);
 debug($this->data);
 exit;
 */
+
 			//if edit page, get the contents
 			if(!empty($this->params['named']['topicid'])){
 				$topicid = $this->params['named']['topicid'];
@@ -483,7 +483,6 @@ exit;
 
 			//$topicid = $orgdata['id'];
 
-
 /*
 echo "<PRE>";
 var_dump($orgtitlearray);
@@ -547,7 +546,6 @@ echo "</PRE>";
 
 exit;
 */
-
 
 		}
 		else{

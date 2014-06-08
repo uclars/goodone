@@ -132,6 +132,8 @@ $('#get_textcomment').live('click',function(e)
 
 $('#get_image').live('click',function(e)
 {
+	var image_server = "http://solidpower.qee.jp/img/";//image server url//
+
 	var titlenum=0;
 	//var titlenum=($("input.contentstitle").length) + 1;
 	var titlenum=($("input.item_title").length) + 1;
@@ -139,8 +141,8 @@ $('#get_image').live('click',function(e)
 	var title_id = "#contentsSet_"+titlenum;
 	//IMAGE info from Topic_Controller
 	var imageurl_content = $(this).attr("src");
-	//imageurl_content = imageurl_content.replace("_s",""); //remove "_s" in order to show a big picture
 	imageurl_content = imageurl_content.replace("_s","_m"); //replace image size S to M
+	imageurl_content = imageurl_content.replace(image_server,""); //replace image server url to null
 	var imageinfo_org = $(this).attr("alt");
 	var imageinfo = imageinfo_org.split("(__)");
 
@@ -166,7 +168,7 @@ $('#get_image').live('click',function(e)
 			'<input class="item_title" name="data[Content][title]" type="hidden" id="title_'+titlenum+'" value="__imageurl__">'
 			+ '<input class="item_content" type="hidden" name="data[Content][content]" id="content_'+titlenum+'" value="__imageurl__">'
 			+ '<input class="item_comment" type="hidden" name="data[Content][comment]" id="comment_'+titlenum+'" value="__imageurl__">'
-			+ '<img src='+imageurl_content+' />'
+			+ '<img src='+image_server+imageurl_content+' />'
 			+ '<p class="delete">[remove]</p>'
 		).prependTo($(title_id));
 
@@ -292,6 +294,9 @@ $('#moreButton').live('click',function(e){
 /// File Upload /////
 //image upload
 function image_upload(){
+	//image server url//
+	var image_server = "http://solidpower.qee.jp/img/";
+
 	$("#display_img").html("");
 	$('#loadingimage').show();
 	$('#file_id').upload('/Topics/uploadImage', function(res) {
@@ -305,7 +310,7 @@ function image_upload(){
 		}else if(url_num == "2"){
 			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
 		}else{
-			url_image = url_rest.substring(0, url_num);
+			url_image = image_server+url_rest.substring(0, url_num);
 			image_url_tag = "<img id='get_image' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
 		}
 
@@ -316,6 +321,9 @@ function image_upload(){
 
 //topic image upload
 function topicimage_upload(){
+	//image server url//
+	var image_server = "http://solidpower.qee.jp/img/";
+
 	$("#topic_display_img").html("");
 	$('#topicloadingimage').show();
 
@@ -330,7 +338,7 @@ function topicimage_upload(){
 		}else if(url_num == "2"){
 			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
 		}else{
-			url_image = url_rest.substring(0, url_num);
+			url_image = image_server + url_rest.substring(0, url_num);
 			image_url_tag = "<img id='topicimage' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
 			var apptag ="<input type='hidden' name='hiddentopicimage' value='"+url_image+"' id ='hiddentopicimage'>";
 			$("#topic_display_img").after(apptag);
