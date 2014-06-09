@@ -130,7 +130,7 @@ foreach($show_contents as $contents_array){
 		}
 		else{
 			$image_url = IMAGE_URL.$simg_url;
-			echo "<div>".$this->Html->image($image_url,array('style'=>'width:100%;height:auto;'))."</div>";
+			echo "<div>".$this->Html->image($image_url,array('style'=>'max-width:100%;height:auto;'))."</div>";
 			echo "<div> </div>";
 		}
 		echo "</div>";
