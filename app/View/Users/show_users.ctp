@@ -4,7 +4,7 @@ $me = $me_array['id'];
 
 /// topics user created ///
 echo "<div class='row'>";
-	echo "<div class='span8'>";
+	echo "<div class='col-sm-8 col-lg-8'>";
 		echo "<div style='font-weight:bold; font-size:150%; margin-bottom:20px;'>Topics you created:</div>";
 		if(empty($topic_list)){
 			echo "<span style='margin-left:10px;'>No Topics Yet</span>";
@@ -33,8 +33,11 @@ echo "<div class='row'>";
 	echo "</div>";
 
 /// profile ///
-	echo "<div class='span4'>";
-		echo "<div style='font-weight:bold; font-size:150%; margin-bottom:20px;'>Profile:</div>";
+	echo "<div class='col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right'>";
+		echo "<div class='panel panel-default'>";
+			echo "<div class='panel-body'>";
+				echo "<div style='text-align:center;'>";
+		echo "<div style='font-weight:bold; font-size:150%;'>Profile:</div>";
 		echo "<div class='row'>";
 			echo "<div class='span1'>";
 				echo $this->HTML->image($target_user['Masteravators']['url48']);
@@ -42,6 +45,9 @@ echo "<div class='row'>";
 			echo "<div class='span3'>";
 				echo "<div>".$target_user['User']['username']."</div>";
 				echo "<div id='profileedit'>["."edit"."]</div>";
+			echo "</div>";
+		echo "</div>";
+				echo "</div>";
 			echo "</div>";
 		echo "</div>";
 	echo "</div>";
