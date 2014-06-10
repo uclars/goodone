@@ -11,18 +11,14 @@ echo "<div class='row'>";
 		}
 		else{
 			foreach($topic_list as $tlists){
-				echo "<div class='row'>";
-					echo "<div class='col-md-2 col-sm-3 text-center'>";
-						if(!empty($topic['Topic']['topic_image'])){ //If there is a image for the topic, show it, otherwise show the category image
-							echo $this->Html->image($topic['Topic']['topic_image'], array('width'=>'96px'));
-						}else{
-							echo $this->Html->image($tlists['Mastercategory']['url'],array('width'=>'60'));
-						}
+				echo "<div class='row' id='topic_box' style='margin-bottom:10px;'>";
+					echo "<div class='span2'>";
+						echo $this->Html->image($tlists['Mastercategory']['url'],array('width'=>'60'));
 						echo "<p id='show_topic' class='show_topic'>".$this->Html->link('[show topic]', array('controller'=>'Topics', 'action'=>'show_topic', 'topicid'=>$tlists['Topic']['id']),array('target'=>'_blank'))."</p>";
 						echo "<p id='topic_delete' class='topic_delete'>[delete topic]</p>";
 					echo "</div>";
-					echo "<div class='col-md-10 col-sm-9'>";
-						echo "<div style='font-weight:bold; font-size:125%; margin-top:10px; margin-bottom:5px;' >".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']),array('style'=>'color:#f7376b;'))."</div>";
+					echo "<div class='span6'>";
+						echo "<div style='font-weight:bold; font-size:125%;'>".$this->Html->link($tlists['Topic']['name'], array('controller'=>'Topics', 'action'=>'create', 'topicid'=>$tlists['Topic']['id']))."</div>";
 						echo $tlists['Topic']['description'];
 					echo "</div>";
 					echo "<div class='span8' style='border-bottom: 2px solid #ddd;'></div>";

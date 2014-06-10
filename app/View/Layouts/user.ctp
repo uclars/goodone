@@ -56,7 +56,7 @@
 				color: #3cf;
 				margin-top:5px;
 				margin-left:5px;
-				text-align:left;
+				text-align:center:
 			}
 
 			.delete_confirm{
