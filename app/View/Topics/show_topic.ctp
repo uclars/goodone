@@ -17,61 +17,6 @@ else{
 
 <div class="row">
 <br />
-	<div style="z-index:1020" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right"><!-- z-index:1020; - fix for .pull-right on xs widths-->
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div style='text-align:center;'>
-					<a href="http://www.jdoqocy.com/click-6439315-11648852" target="_blank">
-					<img src="http://www.awltovhc.com/image-6439315-11648852" width="250" height="250" alt="" border="0"/></a>
-				</div>
-			</div>
-		</div>
-
-		<div  class="list-group panel panel-primary">
-			<div class="panel-heading list-group-item text-center hidden-xs">
-				<h4>CATEGORIES</h4>
-			</div>
-			<div id="cat-navi">
-			<?php
-			if($topics[0]['Mastercategory']['name'] === "life"){
-				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs active'>Life</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs'>Life</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "business"){
-				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs active'>Business</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs'>Business</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "politics"){
-				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs active'>Politics</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs'>Politics</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "IT"){
-				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs active'>IT</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs'>IT</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "trivia"){
-				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs active'>Trivia</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs'>Trivia</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "entertainment"){
-				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs active'>Entertainment</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs'>Entertainment</a>";
-			}
-			if($topics[0]['Mastercategory']['name'] === "sports"){
-				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs active'>Sports</a>";
-			}else{
-				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs'>Sports</a>";
-			}
-			?>
-			</div>
-		</div>
-	</div>
 	  
 <!-- CONTENT SIDE-->
 	<div class="col-sm-8 col-lg-8">
@@ -200,6 +145,61 @@ foreach($show_contents as $contents_array){
 <!-- /CONTENT SIDE-->
    
 <!-- RIGHT SIDE-->   
+	<div style="z-index:1020" class="col-xs-12 col-sm-4 col-md-4 col-lg-4 pull-right"><!-- z-index:1020; - fix for .pull-right on xs widths-->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div style='text-align:center;'>
+					<a href="http://www.jdoqocy.com/click-6439315-11648852" target="_blank">
+					<img src="http://www.awltovhc.com/image-6439315-11648852" width="250" height="250" alt="" border="0"/></a>
+				</div>
+			</div>
+		</div>
+
+		<div  class="list-group panel panel-primary">
+			<div class="panel-heading list-group-item text-center hidden-xs">
+				<h4>CATEGORIES</h4>
+			</div>
+			<div id="cat-navi">
+			<?php
+			if($topics[0]['Mastercategory']['name'] === "life"){
+				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs active'>Life</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:1' class='list-group-item hidden-xs'>Life</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "business"){
+				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs active'>Business</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:2' class='list-group-item hidden-xs'>Business</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "politics"){
+				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs active'>Politics</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:3' class='list-group-item hidden-xs'>Politics</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "IT"){
+				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs active'>IT</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:4' class='list-group-item hidden-xs'>IT</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "trivia"){
+				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs active'>Trivia</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:5' class='list-group-item hidden-xs'>Trivia</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "entertainment"){
+				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs active'>Entertainment</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:6' class='list-group-item hidden-xs'>Entertainment</a>";
+			}
+			if($topics[0]['Mastercategory']['name'] === "sports"){
+				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs active'>Sports</a>";
+			}else{
+				echo "<a href='/Topics/show_category/categoryid:7' class='list-group-item hidden-xs'>Sports</a>";
+			}
+			?>
+			</div>
+		</div>
+	</div>
 	<div class="col-sm-4 col-lg-4">
 		<div class="panel panel-default">
 			<div class="panel-body">
