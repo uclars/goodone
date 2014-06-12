@@ -272,7 +272,7 @@ if(!empty($editing_contents)){
 				}
 				else{
 					$image_url = IMAGE_URL.h($econtents[2]);
-					echo "<img src='".$image_url."' style='width:100%;height:auto;' />";
+					echo "<img src='".$image_url."' style='max-width:100%;height:auto;' />";
 				}
 			}
 			elseif($econtents[0] == "__youtubeurl__"){
