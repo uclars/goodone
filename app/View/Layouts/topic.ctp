@@ -49,7 +49,7 @@
 <header class="navbar navbar-default navbar-fixed-top" role="banner">
         <div class="container">
                 <div class="navbar-header">
-                        <a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a>
+                        <a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a><span class='navbar-brand' style='font-size: small'> New Content Clipping Service</span>
                 </div>
                 <nav class="collapse navbar-collapse" role="navigation">
                         <ul class="nav navbar-right navbar-nav">

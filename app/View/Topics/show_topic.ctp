@@ -251,7 +251,7 @@ foreach($ranking as $ranking_array){
 						<a href="#"><span class="label label-warning">warning</span></a>
 						<a href="#"><span class="label label-danger">danger</span></a> 
 					</div>
-				</div><!-- /.row-->
+				</div><!-- /.myTabContent-->
 			</div>
 		</div>
 	</div>
