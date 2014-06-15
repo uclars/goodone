@@ -131,7 +131,7 @@ foreach($ranking as $ranking_array){
 	foreach($ranking_array as $rankings){
 			if($i<4){
 				echo "<div class='col-lg-3'>";
-					echo "<h4>".$rankings['Topic']['name']."</h4>";
+					echo "<h4><a href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' target= '_blank'>".$rankings['Topic']['name']."</a></h4>";
 					echo "<p>".$rankings['Topic']['description']."</p>";
 					echo "<p><a class='btn btn-primary' href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' role='button' target= '_blank'>View details &raquo;</a></p>";
 				echo "</div>";
