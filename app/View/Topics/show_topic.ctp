@@ -119,10 +119,33 @@ foreach($show_contents as $contents_array){
 		echo "<a class='btn btn-facebook btn-lg' href='https://www.facebook.com/sharer/sharer.php?u=".urlencode(Router::url($this->here, true))."'><i class='icon-facebook icon-large'></i> Facebook Share</a>";
 	echo "</div>";
 ?>
+	<!-- Related Articles -->
+	<div class="row">
+		<div class="panel panel-default" style="margin-top:30px;">
+			<div class="panel-heading">
+				<h3><i class="icon-comments-alt"></i> Related Clipps </h3>
+			</div>
+<?php
+$i=0;
+foreach($ranking as $ranking_array){
+	foreach($ranking_array as $rankings){
+			if($i<4){
+				echo "<div class='col-lg-3'>";
+					echo "<h4>".$rankings['Topic']['name']."</h4>";
+					echo "<p>".$rankings['Topic']['description']."</p>";
+					echo "<p><a class='btn btn-primary' href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' role='button' target= '_blank'>View details &raquo;</a></p>";
+				echo "</div>";
 
-	 <div class="panel panel-default" style="margin-top:30px;">
+				$i++;
+			}
+	}
+}
+?>
+		</div>
+	</div><!-- end of row -->
+	<div class="panel panel-default" style="margin-top:30px;">
 		<div class="panel-heading">
-			<h3><i class="icon-comments-alt"></i>  USERS COMMENTS </h4>
+			<h3><i class="icon-comments-alt"></i>  USERS COMMENTS </h3>
 		 </div>
 	<!-- For DISQUS -->
 	<div id='disqus_thread'></div>
@@ -205,7 +228,7 @@ foreach($show_contents as $contents_array){
 			<div class="panel-body">
 				<!-- TABS CONTROLS -->
 				<ul id="myTab" class="nav nav-tabs nav-justified">
-					<li class="active"><a href="#home" data-toggle="tab">POPULAR</a></li>
+					<li class="active"><a href="#home" data-toggle="tab">Related</a></li>
 					<li ><a href="#profile" data-toggle="tab">TAGS</a></li>
 				</ul>
 				<!-- /TABS CONTROLS -->
@@ -246,17 +269,16 @@ foreach($ranking as $ranking_array){
 					</div>
 					<div class="tab-pane fade widget-tags " id="profile">
 						<style>.widget-tags a {display:inline-block; margin-bottom:3px;}</style>
-						<a href="#"><span class="label label-info">info</span></a>
-						<a href="#"><span class="label label-success">success</span></a>
-						<a href="#"><span class="label label-warning">warning</span></a>
-						<a href="#"><span class="label label-danger">danger</span></a> 
+						<!--<a href="#"><span class="label label-info">info</span></a>-->
+						<!--<a href="#"><span class="label label-success">success</span></a>-->
+						<!--<a href="#"><span class="label label-warning">warning</span></a>-->
+						<!--<a href="#"><span class="label label-danger">danger</span></a> -->
 					</div>
 				</div><!-- /.myTabContent-->
 			</div>
 		</div>
 	</div>
 <!-- /RIGHT SIDE--> 
-
 <?php
 echo "</div>";
 ?>
