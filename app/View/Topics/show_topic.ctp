@@ -130,7 +130,7 @@ $i=0;
 foreach($ranking as $ranking_array){
 	foreach($ranking_array as $rankings){
 			if($i<4){
-				echo "<div class='col-lg-3'>";
+				echo "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>";
 					echo "<h4><a href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' target= '_blank'>".$rankings['Topic']['name']."</a></h4>";
 					echo "<p>".$rankings['Topic']['description']."</p>";
 					echo "<p><a class='btn btn-primary' href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' role='button' target= '_blank'>View details &raquo;</a></p>";
@@ -143,6 +143,7 @@ foreach($ranking as $ranking_array){
 ?>
 		</div>
 	</div><!-- end of row -->
+	<!-- End of Related Articles -->
 	<div class="panel panel-default" style="margin-top:30px;">
 		<div class="panel-heading">
 			<h3><i class="icon-comments-alt"></i>  USERS COMMENTS </h3>
