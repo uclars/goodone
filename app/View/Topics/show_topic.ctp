@@ -105,7 +105,7 @@ foreach($show_contents as $contents_array){
 	}
 	else{
 		echo "<blockquote style='margin-top:20px; margin-bottom:0px'>";
-		echo "<p>".h($contents_array[1])."</p>";
+		echo "<p>".nl2br(h($contents_array[1]))."</p>"; //put <BR />
 		echo "<small><cite title='".h($contents_array[0])."'><a href='".h($contents_array[0])."' target='_'>".h($contents_array[0])."</a></cite></small>";
 		echo "</blockquote>";
 		echo "<div style='padding-left:10px; margin-bottom:10px'>".h($contents_array[2])."</div>";

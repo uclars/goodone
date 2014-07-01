@@ -294,7 +294,7 @@ if(!empty($editing_contents)){
 			else{
 				/// Web Cliping ///
 				echo "<blockquote>";
-				echo "<p>".h($econtents[1])."</p>";
+				echo "<p>".nl2br(h($econtents[1]))."</p>";
 				echo "<small><cite title='".h($econtents[0])."'><a href='".h($econtents[0])."' target='_'>".h($econtents[0])."</a></cite></small>";
 				echo "</blockquote>";
 				echo "<p>".h($econtents[2])."</p>";
