@@ -103,7 +103,7 @@
 // Warning: SplFileInfo::openFile(/goodone/app/tmp/cache/persistent/myapp_cake_core_cake_console_) [splfileinfo.openfile]: failed to open stream: Permission denied in /goodone/lib/Cake/Cache/Engine/FileEngine.php
 Cache::config('default', array(
     'engine' => 'File',
-    'mask' => 0666
+    'mask' => 0666,
 ));
 ///////////////////////
 
