@@ -35,7 +35,7 @@
 <header class="navbar navbar-default navbar-fixed-top" role="banner">
 	<div class="container">
 		<div class="navbar-header">
-			<a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a><span class='navbar-brand' style='font-size: small'> New Content Clipping Service</span>
+			<a href="/" class="navbar-brand">Good One <i class="fa fa-thumbs-o-up"></i></a><span class='navbar-brand' style='font-size: small'> Curation and Editing Service</span>
 		</div>
 		<nav class="collapse navbar-collapse" role="navigation">
 			<ul class="nav navbar-right navbar-nav">
@@ -73,8 +73,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8">
-				<h1>Revolutionise Your Tedious Trawling. <br />Find Crucially Relevant, Tailored Results
-					<p class="lead">Eliminate trawling through useless links to find key information<br />Here I cherry pick the best and host it all in one place. </p>
+				<h1>Curation + Editing = BEST Contents 
+					<p class="lead">Curate good contents and Organize them</p>
 				</h1>
 			</div>
 			<div class="col-md-4">
