@@ -246,7 +246,7 @@ foreach($ranking as $ranking_array){
 
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
 								echo "<div class='row'>";
-									echo "<div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center hidden-sm'>";
+									echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
 										echo "<div class='thumbnail' style=''>";
 										if(empty($rankingimage)){
 											echo "<img src='".$rankingcategory."' width='50px' class='img-responsive' alt=''>";
@@ -255,8 +255,8 @@ foreach($ranking as $ranking_array){
 										}
 										echo "</div>";
 									echo "</div>";
-									echo "<div class='col-xs-6 col-sm-12 col-md-6 col-lg-6'>";
-										echo "<a class='' href='/Topics/show_topic/topicid:$rankingid'><h5>$rankingtitle</h5></a>";
+									echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
+										echo "<a class=''href='/Topics/show_topic/topicid:$rankingid'><h5>$rankingtitle</h5></a>";
 									echo "</div>";
 								echo "</div>";
 							echo "</div>";
