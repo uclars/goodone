@@ -227,7 +227,7 @@ foreach($ranking as $ranking_array){
 			<div class="panel-body">
 				<!-- TABS CONTROLS -->
 				<ul id="myTab" class="nav nav-tabs nav-justified">
-					<li class="active"><a href="#home" data-toggle="tab">Related</a></li>
+					<li class="active"><a href="#home" data-toggle="tab">MOST POPULAR</a></li>
 					<li ><a href="#profile" data-toggle="tab">TAGS</a></li>
 				</ul>
 				<!-- /TABS CONTROLS -->
@@ -236,6 +236,7 @@ foreach($ranking as $ranking_array){
 					<div class="tab-pane fade in active" id="home">
 						<div class="row">
 <?php
+/*
 foreach($ranking as $ranking_array){
 	//foreach($ranking_array as $key=>$rankingimage){
 	foreach($ranking_array as $rankings){
@@ -262,6 +263,33 @@ foreach($ranking as $ranking_array){
 							echo "</div>";
 	}
 }
+*/
+foreach($popular as $popular_array){
+	foreach($popular_array as $populars){
+		$popularid = $populars['Topic']['id'];
+		$populartitle = $populars['Topic']['name'];
+		$popularimage = $populars['Topic']['topic_image'];
+		$popularcategory = $populars['Mastercategory']['url'];
+
+							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
+								echo "<div class='row'>";
+									echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
+										echo "<div class='thumbnail' style=''>";
+										if(empty($popularimage)){
+											echo "<img src='".$popularcategory."' width='50px' class='img-responsive' alt=''>";
+										}else{
+											echo "<img src='".$popularimage."' class='img-responsive' alt=''>";
+										}
+										echo "</div>";
+									echo "</div>";
+									echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
+										echo "<a class=''href='/Topics/show_topic/topicid:$popularid'><h5>$populartitle</h5></a>";
+									echo "</div>";
+								echo "</div>";
+							echo "</div>";
+	}
+}
+
 ?>
 						</div>
 						<!-- /.row-->

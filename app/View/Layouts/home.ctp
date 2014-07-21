@@ -74,7 +74,7 @@
 		<div class="row">
 			<div class="col-md-8">
 				<h1>Curation + Editing = BEST Contents 
-					<p class="lead">Curate good contents and Organize them</p>
+					<p class="lead"><br />Curate good contents and Organize them</p>
 				</h1>
 			</div>
 			<div class="col-md-4">
