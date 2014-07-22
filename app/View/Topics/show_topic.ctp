@@ -228,7 +228,7 @@ foreach($ranking as $ranking_array){
 				<!-- TABS CONTROLS -->
 				<ul id="myTab" class="nav nav-tabs nav-justified">
 					<li class="active"><a href="#home" data-toggle="tab">MOST POPULAR</a></li>
-					<li ><a href="#profile" data-toggle="tab">TAGS</a></li>
+					<li ><a href="#related" data-toggle="tab">RELATED</a></li>
 				</ul>
 				<!-- /TABS CONTROLS -->
 				<!-- PANES -->
@@ -236,34 +236,6 @@ foreach($ranking as $ranking_array){
 					<div class="tab-pane fade in active" id="home">
 						<div class="row">
 <?php
-/*
-foreach($ranking as $ranking_array){
-	//foreach($ranking_array as $key=>$rankingimage){
-	foreach($ranking_array as $rankings){
-		$rankingid = $rankings['Topic']['id'];
-		$rankingtitle = $rankings['Topic']['name'];
-		$rankingimage = $rankings['Topic']['topic_image'];
-		$rankingcategory = $rankings['Mastercategory']['url'];
-
-							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
-								echo "<div class='row'>";
-									echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
-										echo "<div class='thumbnail' style=''>";
-										if(empty($rankingimage)){
-											echo "<img src='".$rankingcategory."' width='50px' class='img-responsive' alt=''>";
-										}else{
-											echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
-										}
-										echo "</div>";
-									echo "</div>";
-									echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
-										echo "<a class=''href='/Topics/show_topic/topicid:$rankingid'><h5>$rankingtitle</h5></a>";
-									echo "</div>";
-								echo "</div>";
-							echo "</div>";
-	}
-}
-*/
 foreach($popular as $popular_array){
 	foreach($popular_array as $populars){
 		$popularid = $populars['Topic']['id'];
@@ -294,8 +266,37 @@ foreach($popular as $popular_array){
 						</div>
 						<!-- /.row-->
 					</div>
-					<div class="tab-pane fade widget-tags " id="profile">
-						<style>.widget-tags a {display:inline-block; margin-bottom:3px;}</style>
+					<div class="tab-pane fade widget-tags " id="related">
+						<div class="row">
+<?php
+foreach($ranking as $ranking_array){
+        foreach($ranking_array as $rankings){
+                $rankingid = $rankings['Topic']['id'];
+                $rankingtitle = $rankings['Topic']['name'];
+                $rankingimage = $rankings['Topic']['topic_image'];
+                $rankingcategory = $rankings['Mastercategory']['url'];
+
+                                                        echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
+                                                                echo "<div class='row'>";
+                                                                        echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
+                                                                                echo "<div class='thumbnail' style=''>";
+                                                                                if(empty($rankingimage)){
+                                                                                        echo "<img src='".$rankingcategory."' width='50px' class='img-responsive' alt=''>";
+                                                                                }else{
+                                                                                        echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
+                                                                                }
+                                                                                echo "</div>";
+                                                                        echo "</div>";
+                                                                        echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
+                                                                                echo "<a class=''href='/Topics/show_topic/topicid:$rankingid'><h5>$rankingtitle</h5></a>";
+                                                                        echo "</div>";
+                                                                echo "</div>";
+                                                        echo "</div>";
+        }
+}
+?>
+						</div>
+						<!--<style>.widget-tags a {display:inline-block; margin-bottom:3px;}</style>-->
 						<!--<a href="#"><span class="label label-info">info</span></a>-->
 						<!--<a href="#"><span class="label label-success">success</span></a>-->
 						<!--<a href="#"><span class="label label-warning">warning</span></a>-->
