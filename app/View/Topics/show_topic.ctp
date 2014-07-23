@@ -129,7 +129,7 @@ foreach($show_contents as $contents_array){
 $i=0;
 foreach($ranking as $ranking_array){
 	foreach($ranking_array as $rankings){
-			if($i<4){
+			if($i<5){
 				echo "<div class='row'>";
 				echo "<div class='heightalign col-xs-1 col-sm-1 col-md-1 col-lg-1' style='vertical-align:middle;'>";
 					if(!empty($rankings['Topic']['topic_image'])){
@@ -234,7 +234,7 @@ foreach($ranking as $ranking_array){
 				<!-- TABS CONTROLS -->
 				<ul id="myTab" class="nav nav-tabs nav-justified">
 					<li class="active"><a href="#home" data-toggle="tab">POPULAR</a></li>
-					<li ><a href="#related" data-toggle="tab">RELATED</a></li>
+					<li ><a href="#related" data-toggle="tab">NEW</a></li>
 				</ul>
 				<!-- /TABS CONTROLS -->
 				<!-- PANES -->
@@ -252,7 +252,7 @@ foreach($popular as $popular_array){
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
 								echo "<div class='row'>";
 									echo "<div class='heightalign col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
-										echo "<div class='thumbnail' style=''>";
+										echo "<div class='thumbnail'>";
 										if(empty($popularimage)){
 											echo "<img src='".$popularcategory."' width='50px' class='img-responsive' alt=''>";
 										}else{
