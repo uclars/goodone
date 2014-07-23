@@ -9,6 +9,7 @@
 			echo $this->Html->script('//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('http:////cdnjs.cloudflare.com/ajax/libs/Cookies.js/0.3.1/cookies.min.js', array( 'inline' => false ) );
 			echo $this->Html->script('jquery.youtubin.js', array( 'inline' => false ) );
+			echo $this->Html->script('jquery.tile.min.js', array( 'inline' => false ) );
 			echo $this->Html->css('//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css');
 			echo $this->Html->css('http://fonts.googleapis.com/css?family=Roboto:400,300,700italic,700,500&amp;subset=latin,latin-ext');
 			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
@@ -36,6 +37,9 @@
 
 </script>
 <script type='text/javascript'>
+	$(function() {
+		$(".heightalign").tile(2);
+	});
 /*
 	$('#youtube').youtubin({
 		swfWidth:320,

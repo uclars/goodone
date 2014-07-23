@@ -123,19 +123,25 @@ foreach($show_contents as $contents_array){
 	<div class="row">
 		<div class="panel panel-default" style="margin-top:30px;">
 			<div class="panel-heading">
-				<h3><i class="icon-comments-alt"></i> Related Clipps </h3>
+				<h3><i class="icon-comments-alt"></i> Related Articles </h3>
 			</div>
 <?php
 $i=0;
 foreach($ranking as $ranking_array){
 	foreach($ranking_array as $rankings){
 			if($i<4){
-				echo "<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>";
-					echo "<h4><a href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' target= '_blank'>".$rankings['Topic']['name']."</a></h4>";
-					echo "<p>".$rankings['Topic']['description']."</p>";
-					echo "<p><a class='btn btn-primary' href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' role='button' target= '_blank'>View details &raquo;</a></p>";
+				echo "<div class='row'>";
+				echo "<div class='heightalign col-xs-1 col-sm-1 col-md-1 col-lg-1' style='vertical-align:middle;'>";
+					if(!empty($rankings['Topic']['topic_image'])){
+						echo "&nbsp;<img src='".$rankings['Topic']['topic_image']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
+					}else{
+						echo "&nbsp;<img src='".$rankings['Mastercategory']['url']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
+					}
 				echo "</div>";
-
+				echo "<div class='heightalign col-xs-11 col-sm-11 col-md-11 col-lg-11'>";
+					echo "<h4><a href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' target= '_blank'>".$rankings['Topic']['name']."</a></h4>";
+				echo "</div>";
+				echo "</div>";
 				$i++;
 			}
 	}
@@ -227,7 +233,7 @@ foreach($ranking as $ranking_array){
 			<div class="panel-body">
 				<!-- TABS CONTROLS -->
 				<ul id="myTab" class="nav nav-tabs nav-justified">
-					<li class="active"><a href="#home" data-toggle="tab">MOST POPULAR</a></li>
+					<li class="active"><a href="#home" data-toggle="tab">POPULAR</a></li>
 					<li ><a href="#related" data-toggle="tab">RELATED</a></li>
 				</ul>
 				<!-- /TABS CONTROLS -->
@@ -245,7 +251,7 @@ foreach($popular as $popular_array){
 
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
 								echo "<div class='row'>";
-									echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
+									echo "<div class='heightalign col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
 										echo "<div class='thumbnail' style=''>";
 										if(empty($popularimage)){
 											echo "<img src='".$popularcategory."' width='50px' class='img-responsive' alt=''>";
@@ -254,7 +260,7 @@ foreach($popular as $popular_array){
 										}
 										echo "</div>";
 									echo "</div>";
-									echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
+									echo "<div class='heightalign col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
 										echo "<a class=''href='/Topics/show_topic/topicid:$popularid'><h5>$populartitle</h5></a>";
 									echo "</div>";
 								echo "</div>";
