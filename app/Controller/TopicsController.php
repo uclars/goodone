@@ -240,7 +240,9 @@ echo "</PRE>";
 				$topic_find_query = "SELECT Topic.id, Topic.name, Topic.description, Topic.category, Topic.topic_image, Mastercategory.url FROM goodone.topics AS Topic INNER JOIN goodone.mastercategories AS Mastercategory ON (Topic.category = Mastercategory.id) where Topic.id =".$topicid." AND Topic.hide=0 AND Topic.deleted=0;";
 				$popular_topic_array = $this->Topic->query($topic_find_query);
 
-				$popular_topics[]=array($topicid=>$popular_topic_array[0]);
+				if(!empty($popular_topic_array)){
+					$popular_topics[]=array($topicid=>$popular_topic_array[0]);
+				}
 			}
 		}
 

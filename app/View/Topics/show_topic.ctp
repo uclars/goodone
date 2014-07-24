@@ -34,6 +34,7 @@ else{
 			<?php echo "<h2 class=''>".h($topics[0]['Topic']['name'])."</h2>"; ?>
 			<p class=" clearfix">
 				<?php echo "<span class='fb-like'>".$this->Facebook->like(array('layout'=>'button_count'))."</span>"; ?>
+				<?php echo "<span class='fb-like'><su:badge layout=\"1\"></su:badge></span>"; ?>
 				<?php echo " | ".$topics[0]['Mastercategory']['name']; ?>
 				<?php echo " | ".$this->html->image($owner_avator)." ".$owner_name; ?>
 			</p>
