@@ -5,7 +5,7 @@
 		echo "<a class='story-img' href='/Topics/show_topic/topicid:".h($topic['Topic']['id'])."'>";
 		if(!empty($topic['Topic']['topic_image'])){ //If there is a image for the topic, show it, otherwise show the category image 
 			//echo $this->Html->image($topic['Topic']['topic_image'], array('width'=>'48px'));
-			echo $this->Html->image($topic['Topic']['topic_image'], array('width'=>'96px'));
+			echo $this->Html->image(IMAGE_URL.$topic['Topic']['topic_image'], array('width'=>'96px'));
 		}else{
 			echo $this->Html->image($topic['Mastercategory']['url'], array('width'=>'48px'));
 		}

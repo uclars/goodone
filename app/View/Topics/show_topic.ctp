@@ -24,7 +24,7 @@ else{
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left">
 		<?php
 		if(!empty($topics[0]['Topic']['topic_image'])){
-			echo "<img class='img-responsive' src='".$topics[0]['Topic']['topic_image']."' alt='post image'>";
+			echo "<img class='img-responsive' src='".IMAGE_URL.$topics[0]['Topic']['topic_image']."' alt='post image'>";
 		}else{
 			echo "<img class='img-responsive' src='".$topics[0]['Mastercategory']['url']."' alt='post image'>";
 		}
