@@ -13,6 +13,15 @@ else{
 	$owner_id =  0;
 	$owner_name = "unknown";
 }
+
+///topic image
+if(!empty($topics[0]['Topic']['topic_image'])){
+	$timage = IMAGE_URL.$topics[0]['Topic']['topic_image'];
+}else{
+	$timage = $topics[0]['Mastercategory']['url'];
+}
+
+
 ?>
 
 <div class="row">
@@ -23,11 +32,7 @@ else{
 	<!-- article-->
 		<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left">
 		<?php
-		if(!empty($topics[0]['Topic']['topic_image'])){
-			echo "<img class='img-responsive' src='".IMAGE_URL.$topics[0]['Topic']['topic_image']."' alt='post image'>";
-		}else{
-			echo "<img class='img-responsive' src='".$topics[0]['Mastercategory']['url']."' alt='post image'>";
-		}
+			echo "<img class='img-responsive' src='".$timage."' alt='post image'>";
 		?>
 		</div>
 		<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
@@ -130,14 +135,16 @@ foreach($show_contents as $contents_array){
 $i=0;
 foreach($ranking as $ranking_array){
 	foreach($ranking_array as $rankings){
+///Ranking Image
+if(!empty($rankings['Topic']['topic_image'])){
+        $rtimage = IMAGE_URL.$rankings['Topic']['topic_image'];
+}else{
+        $rtimage = $rankings['Mastercategory']['url'];
+}
 			if($i<5){
 				echo "<div class='row'>";
 				echo "<div class='heightalign col-xs-1 col-sm-1 col-md-1 col-lg-1' style='vertical-align:middle;'>";
-					if(!empty($rankings['Topic']['topic_image'])){
-						echo "&nbsp;<img src='".IMAGE_URL.$rankings['Topic']['topic_image']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
-					}else{
-						echo "&nbsp;<img src='".$rankings['Mastercategory']['url']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
-					}
+				echo "&nbsp;<img src='".$rtimage."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
 				echo "</div>";
 				echo "<div class='heightalign col-xs-11 col-sm-11 col-md-11 col-lg-11'>";
 					echo "<h4><a href='/Topics/show_topic/topicid:".$rankings['Topic']['id']."' target= '_blank'>".$rankings['Topic']['name']."</a></h4>";
@@ -247,18 +254,16 @@ foreach($popular as $popular_array){
 	foreach($popular_array as $populars){
 		$popularid = $populars['Topic']['id'];
 		$populartitle = $populars['Topic']['name'];
-		$popularimage = IMAGE_URL.$populars['Topic']['topic_image'];
-		$popularcategory = $populars['Mastercategory']['url'];
-
+		if(!empty($populars['Topic']['topic_image'])){
+			$popularimage = IMAGE_URL.$populars['Topic']['topic_image'];
+		}else{
+			$popularimage = $populars['Mastercategory']['url'];
+		}
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
 								echo "<div class='row'>";
 									echo "<div class='heightalign col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
 										echo "<div class='thumbnail'>";
-										if(empty($popularimage)){
-											echo "<img src='".$popularcategory."' width='50px' class='img-responsive' alt=''>";
-										}else{
-											echo "<img src='".$popularimage."' class='img-responsive' alt=''>";
-										}
+										echo "<img src='".$popularimage."' class='img-responsive' alt=''>";
 										echo "</div>";
 									echo "</div>";
 									echo "<div class='heightalign col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
@@ -280,18 +285,16 @@ foreach($ranking as $ranking_array){
         foreach($ranking_array as $rankings){
                 $rankingid = $rankings['Topic']['id'];
                 $rankingtitle = $rankings['Topic']['name'];
-                $rankingimage = $rankings['Topic']['topic_image'];
-                $rankingcategory = $rankings['Mastercategory']['url'];
-
+		if(!empty($rankings['Topic']['topic_image'])){
+	                $rankingimage = IMAGE_URL.$rankings['Topic']['topic_image'];
+		}else{
+			$rankingimage = $rankings['Mastercategory']['url'];
+		}
                                                         echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
                                                                 echo "<div class='row'>";
                                                                         echo "<div class='col-xs-4 col-sm-6 col-md-4 col-lg-4 text-center hidden-sm'>";
                                                                                 echo "<div class='thumbnail' style=''>";
-                                                                                if(empty($rankingimage)){
-                                                                                        echo "<img src='".$rankingcategory."' width='50px' class='img-responsive' alt=''>";
-                                                                                }else{
-                                                                                        echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
-                                                                                }
+										echo "<img src='".$rankingimage."' class='img-responsive' alt=''>";
                                                                                 echo "</div>";
                                                                         echo "</div>";
                                                                         echo "<div class='col-xs-8 col-sm-12 col-md-8 col-lg-8'>";
