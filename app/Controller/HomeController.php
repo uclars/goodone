@@ -98,10 +98,11 @@ class HomeController extends AppController {
 			$this->set('topics', $topics);
 
 
-
+/*
 echo "<PRE>";
 var_dump($topics);
 echo "</PRE>";
+*/
 
 /*
                         //set user info to the view
