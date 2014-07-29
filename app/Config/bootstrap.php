@@ -204,4 +204,5 @@ Cache::config('default', array(
 
 
 define("SHOW_INVITE", FALSE); //if invite function is on=>true
-define("IMAGE_URL", "http://solidpower.qee.jp/img/"); //url in which images are stored
+//define("IMAGE_URL", "http://solidpower.qee.jp/img/"); //url in which images are stored
+define("IMAGE_URL", "/img/tmp/img/"); //url in which images are stored

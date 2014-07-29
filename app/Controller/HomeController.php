@@ -99,11 +99,9 @@ class HomeController extends AppController {
 
 
 
-/*
 echo "<PRE>";
 var_dump($topics);
 echo "</PRE>";
-*/
 
 /*
                         //set user info to the view
