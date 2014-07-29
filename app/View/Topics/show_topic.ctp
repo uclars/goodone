@@ -254,6 +254,7 @@ foreach($popular as $popular_array){
 	foreach($popular_array as $populars){
 		$popularid = $populars['Topic']['id'];
 		$populartitle = $populars['Topic']['name'];
+///Popular image
 		if(!empty($populars['Topic']['topic_image'])){
 			$popularimage = IMAGE_URL.$populars['Topic']['topic_image'];
 		}else{
@@ -285,6 +286,7 @@ foreach($ranking as $ranking_array){
         foreach($ranking_array as $rankings){
                 $rankingid = $rankings['Topic']['id'];
                 $rankingtitle = $rankings['Topic']['name'];
+///New image
 		if(!empty($rankings['Topic']['topic_image'])){
 	                $rankingimage = IMAGE_URL.$rankings['Topic']['topic_image'];
 		}else{
