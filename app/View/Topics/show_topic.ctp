@@ -134,7 +134,7 @@ foreach($ranking as $ranking_array){
 				echo "<div class='row'>";
 				echo "<div class='heightalign col-xs-1 col-sm-1 col-md-1 col-lg-1' style='vertical-align:middle;'>";
 					if(!empty($rankings['Topic']['topic_image'])){
-						echo "&nbsp;<img src='".$rankings['Topic']['topic_image']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
+						echo "&nbsp;<img src='".IMAGE_URL.$rankings['Topic']['topic_image']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
 					}else{
 						echo "&nbsp;<img src='".$rankings['Mastercategory']['url']."' class='img-responsive' style='vertical-align:middle;' alt=''>&nbsp;";
 					}
@@ -247,7 +247,7 @@ foreach($popular as $popular_array){
 	foreach($popular_array as $populars){
 		$popularid = $populars['Topic']['id'];
 		$populartitle = $populars['Topic']['name'];
-		$popularimage = $populars['Topic']['topic_image'];
+		$popularimage = IMAGE_URL.$populars['Topic']['topic_image'];
 		$popularcategory = $populars['Mastercategory']['url'];
 
 							echo "<div class='col-xs-6 col-sm-12 col-lg-12'>";
