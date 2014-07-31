@@ -7,7 +7,11 @@ if(!empty($editing_contents)){
 	$ttitle = $topicitems[1];
 	$tcategory = $topicitems[2];
 	$tdescription = $topicitems[3];
-	$timage = $topicitems[4];
+	if(empty($topicitems[4])){
+		$timage = $topicitems[4];
+	}else{
+		$timage = IMAGE_URL.$topicitems[4];
+	}
 	$tuserid = $topicitems[5];
 	$tcheck = $topicitems[6];
 	$ttag_array = array();

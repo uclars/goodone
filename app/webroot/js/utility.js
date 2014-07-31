@@ -338,9 +338,12 @@ function topicimage_upload(){
 		}else if(url_num == "2"){
 			image_url_tag = "<p style='color:red;'>"+url_rest+"</p>";
 		}else{
-			url_image = image_server + url_rest.substring(0, url_num);
+			url_image = image_server + url_rest.substring(0, url_num); //With image server to show the pic on the HTML
+			url_hidden_image = url_rest.substring(0, url_num); //Without image server to save the path to Database
+
 			image_url_tag = "<img id='topicimage' src='"+url_image+"' alt='imageupload(__)imageupload(__)imageupload' />";
-			var apptag ="<input type='hidden' name='hiddentopicimage' value='"+url_image+"' id ='hiddentopicimage'>";
+			//var apptag ="<input type='hidden' name='hiddentopicimage' value='"+url_image+"' id ='hiddentopicimage'>";
+			var apptag ="<input type='hidden' name='hiddentopicimage' value='"+url_hidden_image+"' id ='hiddentopicimage'>";
 			$("#topic_display_img").after(apptag);
 		}
 		$('#topicloadingimage').hide();
