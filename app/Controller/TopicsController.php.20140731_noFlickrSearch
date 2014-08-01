@@ -1179,7 +1179,6 @@ exit;
 			$uses = array();
 			$api_key = 'f76419f89a15fe062743699e01aa217b';
 			$secret = '0beda1df1625f560';
-
 			$flickr = new phpFlickr($api_key, $secret);
 			$result = $flickr->photos_search(array(
 				"text" => $targettext,
@@ -1192,8 +1191,19 @@ exit;
 				"sort" => 'interestingness-asc'
 			));
 
+
+
+
+
+var_dump($flickr);
+
+
+
+
+
+
 			$target_url = null;
-			foreach ($result['photos']['photo'] as $photo) {
+			foreach ($result['photo'] as $photo) {
 				$target_url = "http://farm".$photo['farm'].".static.flickr.com/".$photo['server']."/".$photo['id']."_".$photo['secret'];
 				$owner_url = "http://www.flickr.com/photos/".$photo['owner']."/".$photo['id'];
 
